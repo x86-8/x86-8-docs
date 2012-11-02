@@ -2,7 +2,7 @@ x86-8-docs
 ==========
 
 [linux-kernel-x86-64 8차 스터디 그룹](http://www.iamroot.org/xe/Kernel_8_x86_L), 문서보관소
-:documents of linux kernel x86-64 study group (iamroot-8th)
+- documents of linux kernel x86-64 study group (iamroot-8th)
 
 보관 규칙
 ---------
