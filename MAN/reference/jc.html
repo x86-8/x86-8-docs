@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>jc</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>JC - Jump on Carry</H2>
+
+<PRE>
+
+
+	Usage:	JC	label
+	Modifies flags: None
+
+
+	Causes execution to branch to "label" if the Carry Flag is set.
+	Functionally similar to <A HREF="jb.html">JB</A> and <A HREF="jb.html">JNAE</A>.  Unsigned comparision.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	label:	jump	  16   7+m   7+m    3		 2-4
+		no jump	  4	3     3	    1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 27</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 27 - Terminate and Stay Resident</H2>
+
+<PRE>
+
+
+	DX = offset of last byte in program to remain resident plus 1
+	CS = segment of <A HREF="program_segment_prefix.html">PSP</A>
+
+
+	returns nothing
+
+
+	- terminates process without closing open files
+	- memory beyond the offset in DX is freed
+
+
+	- see	<A HREF="int_21-31.html">INT 21,31</A>
+
+</PRE>
+
+</BODY>
+</HTML>

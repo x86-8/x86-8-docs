@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>_getvideoconfig</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	    MSC: struct videoconfig far *_getvideoconfig(</B>
+<B>				    struct videoconfig far *config )</B>
+
+	- prototype in graph.h
+
+	- returns video configuration information via struct videoconfig:
+
+	struct videoconfig
+	    {
+	    short numxpixels;	  	- pixels on X axis
+	    short numypixels;	  	- pixels on Y axis
+	    short numtextcols;   	- text columns available
+	    short numtextrows;   	- text rows available
+	    short numcolors;	  	- actual colors available
+	    short bitsperpixel;  	- bits per pixel
+	    short numvideopages; 	- available video page count
+	    short mode;		  	- current video mode
+	    short adapter;	  	- active display adapter
+	    short monitor;	  	- active display monitor
+	    short memory;	  	- adapter video memory in K
+	    };
+
+</PRE>
+
+</BODY>
+</HTML>

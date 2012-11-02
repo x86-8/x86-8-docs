@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>DBT</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DBT - Disk Base Table	(BIOS INT 13)</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   byte  specify byte 1; step-rate time, head unload time
+	01   byte  specify byte 2; head load time, DMA mode
+	02   byte  timer ticks to wait before disk motor shutoff
+	03   byte  bytes per sector code:
+
+			0 - 128 bytes	2 - 512 bytes
+			1 - 256 bytes	3 - 1024 bytes
+
+	04   byte  sectors per track (last sector number)
+	05   byte  inter-block gap length/gap between sectors
+	06   byte  data length, if sector length not specified
+	07   byte  gap length between sectors for format
+	08   byte  fill byte for formatted sectors
+	09   byte  head settle time in milliseconds
+	0A   byte  motor startup time in eighths of a second
+
+</PRE>
+
+</BODY>
+</HTML>

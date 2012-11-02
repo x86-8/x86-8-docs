@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,54</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,54 - Get Verify Setting</H2>
+
+<PRE>
+
+
+	AH = 54h
+
+
+	on return:
+	AL = 00  verify off
+	   = 01  verify on
+
+
+	- returns value of disk read after write verification flag
+
+	- see	<A HREF="int_21-2e.html">INT 21,2E</A>
+
+</PRE>
+
+</BODY>
+</HTML>

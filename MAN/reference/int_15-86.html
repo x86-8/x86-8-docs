@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,86</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,86 - Elapsed Time Wait (AT and PS/2)</H2>
+
+<PRE>
+
+
+	AH = 86h
+	CX,DX = number of microseconds to wait (976 æs resolution)
+
+
+	on return:
+	CF = set if error (PC,PCjr,XT)
+	   = set if wait in progress
+	   = clear if successful wait
+	AH = 80h for PC and PCjr
+	   = 86h for XT
+
+
+	- AT and PS/2 only for system timing
+	- not designed for user application usage
+
+</PRE>
+
+</BODY>
+</HTML>

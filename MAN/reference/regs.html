@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>regs</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Register Structures for Turbo C and MS C</H2>
+
+<PRE>
+
+<B>		Turbo C 			MS C</B>
+
+<B>	struct WORDREGS 		struct WORDREGS</B>
+	   {				    {
+	   unsigned int ax;		    unsigned int ax;
+	   unsigned int bx;		    unsigned int bx;
+	   unsigned int cx;		    unsigned int cx;
+	   unsigned int dx;		    unsigned int dx;
+	   unsigned int si;		    unsigned int si;
+	   unsigned int di;		    unsigned int di;
+	   unsigned int cflag;		    unsigned int cflag;
+	   unsigned int flags;		    };
+	   };
+
+<B>	struct BYTEREGS</B>
+	   {
+	   unsigned char al;
+	   unsigned char ah;
+	   unsigned char bl;
+	   unsigned char bh;		-  same as Turbo C
+	   unsigned char cl;
+	   unsigned char ch;
+	   unsigned char dl;
+	   unsigned char dh;
+	   };
+
+<B>	union REGS</B>
+	   {
+	   struct   WORDREGS x;		-  same as Turbo C
+	   struct   BYTEREGS h;
+	   };
+
+<B>	struct SREGS</B>
+	   {
+	   unsigned int es;
+	   unsigned int cs;		-  same as Turbo C
+	   unsigned int ss;
+	   unsigned int ds;
+	   };
+
+<B>	struct REGPACK</B>
+	   {
+	   unsigned r_ax;
+	   unsigned r_bx;
+	   unsigned r_cx;
+	   unsigned r_dx;
+	   unsigned r_bp;		Turbo C only
+	   unsigned r_si;
+	   unsigned r_di;
+	   unsigned r_ds;
+	   unsigned r_es;
+	   unsigned r_flags;
+	   };
+
+</PRE>
+
+</BODY>
+</HTML>

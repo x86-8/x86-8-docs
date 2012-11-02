@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,F - Get Video State</H2>
+
+<PRE>
+
+
+	AH = 0F
+
+
+	on return:
+	AH = number of screen columns
+	AL = mode currently set (see <A HREF="int_10-0.html">VIDEO MODES</A>)
+	BH = current display page
+
+
+	- video modes greater than 13h on EGA, MCGA and VGA indicate
+	  <A HREF="int_10-0.html">INT 10,0</A> was called with the high bit of the mode (AL) set
+	  to 1, meaning the display does not need cleared
+	- function returns byte value at 40:49;  On EGA, MCGA and
+	  VGA bit 7 of register AL is determined by bit 7 of BIOS Data
+	  Area byte 40:87.   This bit is usually set by INT 10,0
+	  with bit 7 of the requested mode (in AL) set to 1
+
+</PRE>
+
+</BODY>
+</HTML>

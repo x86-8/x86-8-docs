@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 2a,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2A,3 - Check if Direct I/O Allowed</H2>
+
+<PRE>
+
+
+	AH = 03
+	DS:SI = pointer to ASCIIZ disk device name or pathname (including ":")
+	
+	
+	on return:
+	CF = set if disk access is NOT allowed
+	   = clear if disk access is allowed
+
+
+	- do not use <A HREF="int_13.html">INT 13</A>, <A HREF="int_25.html">INT 25</A> or <A HREF="int_26.html">INT 26</A> if this function returns
+	  with the CF set
+	- see  INT 5F,2
+</PRE>
+
+</BODY>
+</HTML>

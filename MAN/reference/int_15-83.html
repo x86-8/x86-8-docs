@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,83</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,83 - Event Wait</H2>
+
+<PRE>
+
+
+	AH = 83h
+	AL = 0	set interval
+	   = 1	cancel interval (PS/2)
+	CX,DX = number of microseconds to wait (976 æs resolution)
+	ES:BX = pointer to memory flag (bit 7 is set
+		when interval expires)
+	        (granularity is 976 microseconds)
+
+
+	on return:
+	CF = 1 if function already busy
+	AH = 80h for PC
+	   = 86h for XT & AT
+
+
+	- available on the AT (BIOS after 1/10/84) and PS/2's except 30
+	- designed for use in simple multitasking
+
+</PRE>
+
+</BODY>
+</HTML>

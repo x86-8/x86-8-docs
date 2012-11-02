@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 2f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2F - DOS Multiplex Interrupt</H2>
+
+<PRE>
+
+<B>	For more information see the following topics:</B>
+
+					     |------ ERROR CODES ----
+	<A HREF="int_2f-0.html">INT 2F,0</A>  Get installed state	     | 01    Invalid function
+	<A HREF="int_2f-1.html">INT 2F,1</A>  Submit file		     | 02    File not found
+	<A HREF="int_2f-2.html">INT 2F,2</A>  Cancel file		     | 03    Path not found
+	<A HREF="int_2f-3.html">INT 2F,3</A>  Cancel all files	     | 04    Too many files
+	<A HREF="int_2f-4.html">INT 2F,4</A>  Pause / return status      | 05    Access denied
+	<A HREF="int_2f-5.html">INT 2F,5</A>  End of status  	     | 08    Queue full
+	<A HREF="int_2f-8.html">INT 2F,8</A>  DRIVER.SYS support	     | 09    Busy
+	<A HREF="int_2f-2e.html">INT 2F,2E</A> Error Translation Tables   | 0C    Name too long
+					     | 0F    Invalid drive
+
+ 	- function request is specified in AL or AH
+	- see  <A HREF="int_2f-0.html">INT 2F,0</A>  for installation checks
+	- INT 2F uses AL to specify most documented functions but occasionally
+	  uses AH also.  This can be quite confusing so INT 2F functions using
+	  AH are not currently listed if the conflict but will be added at a
+	  later time.
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>raise</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: int raise( int sig )</H2>
+
+<PRE>
+
+
+	- prototype in signal.h
+
+	- raises signal to program where 'sig' is:
+
+		SIGABRT	signal abnormal termination
+		SIGILL	signal illegal instruction
+		SIGSEGV	signal illegal storage access
+		SIGFPE	signal floating point error
+		SIGINT	signal Ctrl-Break interrupt
+		SIGTERM	signal program termination (ignored in MS DOS)
+		SIGUSR1	user signal
+		SIGUSR2	user signal
+		SIGUSR3	user signal
+
+	- returns 0 on success; nonzero otherwise
+
+	- see	<A HREF="ssignal.html">signal</A>()
+</PRE>
+
+</BODY>
+</HTML>

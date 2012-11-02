@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>_ellipse</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: short _ellipse(short ctl,short x1,short y1,short x2,short y2)</B>
+
+<B>	MSC: short _ellipse_w( short ctl, double wx1, double wy1,</B>
+<B>				double wx2, double wy2 )</B>
+
+<B>	MSC: short far _ellipse_wxy(short ctl,struct _wxycoord far *pwxy1,</B>
+<B>				struct _wxycoord far *pwxy2 )</B>
+
+	- prototype in graph.h
+
+	- ctl	= _GFILLINTERIOR	fill ellipse with current fill mask
+		= _GBORDER		don't fill ellipse
+	- returns nonzero value if ellipse is drawn ok, zero otherwise
+	- center of ellipse is center of bounding rectangle specified by
+	  supplied coordinates
+
+	- see	<A HREF="_setfillmask.html">_setfillmask</A>()
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,57</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,57 - Move/Exchange Memory Region  (LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 57h
+	AL = 00  move memory region
+	     01  exchange memory region
+	DS:SI = pointer to structure describing source and destination
+
+
+	on return:
+	AH = status  (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+</PRE>
+
+</BODY>
+</HTML>

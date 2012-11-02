@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>jcxz</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>JCXZ/JECXZ - Jump if Register (E)CX is Zero</H2>
+
+<PRE>
+
+
+	Usage:	JCXZ	label
+		JECXZ	label  (386+ only)
+	Modifies flags: None
+
+
+	Causes execution to branch to "label" if register CX is zero.  Uses
+	unsigned comparision.
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	label:	jump	  18   8+m   9+m    8		  2
+		no jump	   6	4     5	    5
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

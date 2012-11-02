@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<TITLE>Batch Control Block</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>BCB - Batch Control Block (undocumented)</H2>
+
+<PRE>
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 2.x thru DOS 3.2  BCB Format</H2>
+
+<PRE>
+
+<B>     Offset Size		   Description</B>
+
+	00   byte	unknown
+	01   word	if non-zero; segment of control block for active FOR
+	03   byte	type of batch command
+			    0 - normal batch command
+			    1 - FOR-loop active
+	04   dword	offset of next command to execute in batch file
+	07   word	offset of variable %0 (batch file name)
+	09  9 words	offset of %N batch file parameters, 0FFFFh indicates
+			parameter is null
+	1C   nbytes	null terminated path and filename of the current
+			batch file immediately followed by command line
+			parameters.  Each parameter %0-%9 plus a CR is
+			appended and resulting string is null terminated.
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 3.3  BCB Format</H2>
+
+<PRE>
+
+<B>     Offset Size		   Description</B>
+
+	00   byte	unknown
+	01   byte	global echo switch, if exec'd by batch CALL-command
+			    1 - turn ECHO ON on return to calling batch file
+			    0 - turn ECHO OFF on return to calling batch file
+	02   word	batch file BCD segment if executed via CALL
+			    if zero; batch file was called from command line
+			    if non-zero; batch file executed via CALL-command
+	04   word	if non-zero; segment of control block for active FOR
+	06   byte	type of batch command
+			    0 - normal batch command
+			    1 - FOR-loop active
+	07   dword	offset of next command to execute in batch file
+	0B   word	offset of variable %0 (batch file name)
+	0D  9words	offset of %N batch file parameters, 0FFFFh indicates
+			parameter is null
+	1F  nbytes	null terminated path and filename of the current
+			batch file immediately followed by command line
+			parameters.  Each parameter %0-%9 plus a CR is
+			appended and resulting string is null terminated.
+
+
+	- BCB length is variable and depends on the size and count of the
+	  parameters and fully qualified batch file name
+	- the MCB for a BCB has a process Id of the transient portion of
+	  the latest COMMAND.COM
+	- offsets displayed are relative to the BCB segment
+	- SHIFT command changes the offsets of the parameters in the table
+	  at the offsets 0B0h thru 1Ch
+	- BCB  of DOS 3.3 is the  same as earlier versions except 3 bytes
+	  were added after offset 0
+	- to find a BCB, locate the first block in the MCB chain belonging
+	  to COMMAND.COM (the second allocated block always belongs to
+	  COMMAND.COM).  Then scan the <A HREF="memory_control_block.html">MCB</A> chain for a 64 byte block with
+	  the same owner ID as COMMAND.COM).  This will be the BCB.
+</PRE>
+
+</BODY>
+</HTML>

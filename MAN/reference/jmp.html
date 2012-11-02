@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>jmp</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>JMP - Unconditional Jump</H2>
+
+<PRE>
+
+	Usage:	JMP	target
+	Modifies flags: None
+
+	Unconditionally transfers control to "label".  Jumps by default
+	are within -32768 to 32767 bytes from the instruction following
+	the jump.  NEAR and SHORT jumps cause the IP to be updated while FAR
+	jumps cause CS and IP to be updated.
+
+<B>							Clocks</B>
+<B>		   Operands			808x  286    386   486</B>
+
+	rel8  (relative)		 	15    7+m    7+m    3
+	rel16 (relative)		 	15    7+m    7+m    3
+	rel32 (relative)		 	 -     -     7+m    3
+	reg16 (near, register indirect)		11    7+m    7+m    5
+	reg32 (near, register indirect)		 -     -     7+m    5
+	mem16 (near, mem indirect)	       18+EA  11+m  10+m    5
+	mem32 (near, mem indirect)	       24+EA  15+m  10+m    5
+	ptr16:16 (far, dword immed)		 -     -    12+m    17
+	ptr16:16 (far, PM dword immed)		 -     -    27+m    19
+	ptr16:16 (call gate, same priv.)	 -    38+m  45+m    32
+	ptr16:16 (via TSS)		       	 -   175+m   TS	  42+TS
+	ptr16:16 (via task gate)		 -   180+m   TS	  43+TS
+	mem16:16 (far, indirect)		 -     -    43+m    13
+	mem16:16 (far, PM indirect)		 -     -    31+m    18
+	mem16:16 (call gate, same priv.)	 -    41+m  49+m    31
+	mem16:16 (via TSS)		   	 -   178+m  5+TS  41+TS
+	mem16:16 (via task gate)	   	 -   183+m  5+TS  42+TS
+	ptr16:32 (far, 6 byte immed)		 -     -    12+m    13
+	ptr16:32 (far, PM 6 byte immed)		 -     -    27+m    18
+	ptr16:32 (call gate, same priv.)	 -     -    45+m    31
+	ptr16:32 (via TSS)			 -     -     TS	  42+TS
+	ptr16:32 (via task state) 		 -     -     TS	  43+TS
+	m16:32 (far, address at dword)		 -     -    43+m    13
+	m16:32 (far, address at dword)		 -     -    31+m    18
+	m16:32 (call gate, same priv.)		 -     -    49+m    31
+	m16:32 (via TSS)			 -     -    5+TS  41+TS
+	m16:32 (via task state)			 -     -    5+TS  42+TS
+
+ - see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

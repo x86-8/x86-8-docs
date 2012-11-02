@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,53</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,53 Get/Set Handle Name	(LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 53h
+	AL = 00 get handle name
+		ES:DI = pointer to 8byte handle name array
+
+	     01 set handle name
+		DS:SI = pointer to 8byte handle name
+		DX = EMM handle
+
+
+	on return:
+	AH = status  (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>_creat</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int _creat( const char *fname, int attr )</H2>
+
+<PRE>
+
+
+	- prototype in io.h, also include dos.h
+
+	- creates new file (overwrites existing file) of filename with file
+	  attribute attr, for both read/write
+	- attr can be a combination of the following
+
+	  FA_RDONLY   set read only attribute
+	  FA_HIDDEN   set hidden attribute
+	  FA_SYSTEM   set system attribute
+
+	- file is created in O_BINARY mode
+	- returns nonnegative integer if OK, else -1
+	- uses DOS function <A HREF="int_21-3c.html">INT 21,3C</A>
+	- MSC uses <A HREF="_dos_creat.html">_dos_creat</A>()
+
+</PRE>
+
+</BODY>
+</HTML>

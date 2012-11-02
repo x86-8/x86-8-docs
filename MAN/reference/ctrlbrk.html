@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<TITLE>ctrlbrk</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void ctrlbrk( int (*fptr )(void) )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- sets a new control-break handler function pointed to by fptr
+	- if Ctrl-C hit, then function pointed to by fptr is called
+	- use <A HREF="longjmp.html">longjmp</A>() to return to a given point in the program
+
+</PRE>
+
+</BODY>
+</HTML>

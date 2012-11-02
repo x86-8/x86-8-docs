@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,d</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,D / IOCTL,D - Generic I/O for Block Devices</H2>
+
+<PRE>
+
+	AH = 44h
+	AL = 0D
+	BL = drive number (0=default, 1=A:, 2=B:, 3=C:, ...)
+	CH = device type
+	   = 08 for disk drive	(block device)
+	CL = minor function code
+	   = 40  set device parameters
+	   = 41  write track on logical device
+	   = 42  format/verify track on logical drive
+	   = 47  set access flag  (DOS 4.x)
+	   = 60  get device parameters
+	   = 61  read track on logical device
+	   = 62  verify track on logical drive
+	   = 67  get access flag  (DOS 4.x)
+	DS:DX = pointer to parameter block
+
+
+	on return
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- provides device independent primitive control operations
+	- implemented from DOS 3.2
+	- see IBM DOS Technical Reference Manual for more details
+
+</PRE>
+
+</BODY>
+</HTML>

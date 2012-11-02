@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>_bios_timeofday</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _bios_timeofday( unsigned cmd, long *timeval )</H2>
+
+<PRE>
+
+
+	- prototype in bios.h
+
+	- cmd	= _TIME_GETCLOCK	get real time clock  (INT 1A,0)
+		= _TIME_SETCLOCK	set real time clock  (INT 1A,1)
+
+	- returns current BIOS clock count
+	- Turbo C uses <A HREF="biostime.html">biostime</A>()
+	- see  <A HREF="int_1a.html">INT 1A</A>
+</PRE>
+
+</BODY>
+</HTML>

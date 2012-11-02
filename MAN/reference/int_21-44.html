@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44 - I/O Control for Devices  (IOCTL)</H2>
+
+<PRE>
+
+<B>	Standard Call Format</B>
+
+	AH = 44h
+	AL = function value
+	BX = file handle
+	BL = logical device number (0=default, 1=A:, 2=B:, 3=C:, ...)
+	CX = number of bytes to read or write
+	DS:DX = data or buffer
+
+
+	on return:
+	AX = error code if CF set
+	AX = # of bytes transferred if CF not set
+
+
+<B>	For more information, see the following topics:</B>
+
+	<A HREF="int_21-44-0.html">IOCTL,0</A>   Get Device Information
+	<A HREF="int_21-44-1.html">IOCTL,1</A>   Set Device Information
+	<A HREF="int_21-44-2.html">IOCTL,2</A>   Read From Character Device
+	<A HREF="int_21-44-3.html">IOCTL,3</A>   Write to Character Device
+	<A HREF="int_21-44-4.html">IOCTL,4</A>   Read From Block Device
+	<A HREF="int_21-44-5.html">IOCTL,5</A>   Write to Block Device
+	<A HREF="int_21-44-6.html">IOCTL,6</A>   Get Input Status
+	<A HREF="int_21-44-7.html">IOCTL,7</A>   Get Output Status
+	<A HREF="int_21-44-8.html">IOCTL,8</A>   Device Removable Query
+	<A HREF="int_21-44-9.html">IOCTL,9</A>   Device Local or Remote Query
+	<A HREF="int_21-44-a.html">IOCTL,A</A>   Handle Local or Remote Query
+	<A HREF="int_21-44-b.html">IOCTL,B</A>   Set Sharing Retry Count
+	<A HREF="int_21-44-c.html">IOCTL,C</A>   Generic I/O for Handles
+	<A HREF="int_21-44-d.html">IOCTL,D</A>   Generic I/O for Block Devices (3.2+)
+	<A HREF="int_21-44-e.html">IOCTL,E</A>   Get Logical Drive (3.2+)
+	<A HREF="int_21-44-f.html">IOCTL,F</A>   Set Logical Drive (3.2+)
+
+
+	- see:	<A HREF="device_command_codes.html">DEVICE COMMAND CODES</A>
+		<A HREF="device_request_header.html">DEVICE REQUEST HEADER</A>
+		<A HREF="device_status.html">DEVICE STATUS</A>
+		<A HREF="device_header.html">DEVICE HEADER</A>
+		<A HREF="device_attributes.html">DEVICE ATTRIBUTES</A>
+
+</PRE>
+
+</BODY>
+</HTML>

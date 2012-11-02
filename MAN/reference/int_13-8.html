@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,8</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,8 - Get Current Drive Parameters (XT & newer)</H2>
+
+<PRE>
+
+	AH = 08
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+
+
+	on return:
+	AH = status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	BL = CMOS drive type
+	     01 - 5¬  360K	     03 - 3«  720K
+	     02 - 5¬  1.2Mb	     04 - 3« 1.44Mb
+	CH = cylinders (0-1023 dec. see below)
+	CL = sectors per track	(see below)
+	DH = number of sides (0 based)
+	DL = number of drives attached
+	ES:DI = pointer to 11 byte <A HREF="dbt.html">Disk Base Table</A> (DBT)
+	CF = 0 if successful
+	   = 1 if error
+
+
+<B>	Cylinder and Sectors Per Track Format</B>
+
+	|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|  CX
+	 | | | | | | | | | | `------------  sectors per track
+	 | | | | | | | | `------------	high order 2 bits of cylinder count
+	 `------------------------  low order 8 bits of cylinder count
+
+	- the track/cylinder number is a 10 bit value taken from the 2 high
+	  order bits of CL and the 8 bits in CH (low order 8 bits of track)
+	- many good programming references indicate this function is only
+	  available on the AT, PS/2 and later systems, but all hard disk
+	  systems since the XT have this function available
+	- only the disk number is checked for validity
+</PRE>
+
+</BODY>
+</HTML>

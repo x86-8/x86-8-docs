@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>_heapwalk</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: int _heapwalk( struct _heapinfo *entry )</B>
+<B>	MSC: int _bheapwalk( _segment seg, struct _heapinfo *entry )</B>
+<B>	MSC: int _fheapwalk( struct _heapinfo *entry )</B>
+<B>	MSC: int _nheapwalk( struct _heapinfo *entry )</B>
+
+	- prototype in malloc.h
+
+	- walks the heap for each entry specified and returns information
+	  about the entry via the other fields of the _heapinfo structure
+	- heapwalk maps to the other functions depending on memory model
+	- returns one of the following:
+
+	  _HEAPOK	heap is ok
+	  _HEAPBADBEGIN initials allocation header couldn't be found
+	  _HEAPBADNODE	heap/node has been damaged
+	  _HEAPEMPTY	heap has not been initialized
+	  _HEAPBADPTR	parameter does not contain valid pointer to heap
+	  _HEAPEND	end of help found w/o problem
+
+	struct _heapinfo
+	   {
+	   int	  _far *_pentry;   	- heap entry pointer
+	   size_t _size;	   	- size of heap entry
+	   int	  _useflag;	   	- entry in use return value
+	   };
+
+	- see	<A HREF="_heapchk.html">heapchk</A>()   <A HREF="_heapset.html">heapset</A>()
+</PRE>
+
+</BODY>
+</HTML>

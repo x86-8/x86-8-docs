@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>masm options</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Microsoft Assembler Command Line Options</H2>
+
+<PRE>
+
+</PRE>
+
+<H2 ALIGN=Center>MASM [options] srcfile[,[objfile][,[lstfile][,[xreffile]]]][;]</H2>
+
+<PRE>
+
+<B>	Options 		Definition</B>
+	/A		generate segments in alphabetical order
+	/B[size]    	sets I/O buffer size in K bytes (1..63, default 32)
+	/C		generate cross reference file with .CRF extension
+	/D		generate PASS 1 listing
+	/Dsym[=val]	define symbol for use during assembly
+	/E		emulate floating point instructions (for use with HLL)
+	/H		list options and command syntax
+	/Ipath		include-file search path
+	/L		generate listing file with .LST extension
+	/ML		case sensitive for all symbols
+	/MU		upper case all symbols (default)
+	/MX		case sensitive in external and public symbols
+	/N		suppress symbol tables in listings
+	/P		check for impure code in 286 and 386 protected
+			mode (invalid CS overrides)
+	/S		generate segments in the order they are found (default)
+	/T		terse message display; display errors only
+	/V		verbose message display; includes # lines and symbols
+	/W{0|1|2}	assembly warning level
+			    0 = no warnings
+			    1 = severe warnings only
+			    2 = all warnings enabled
+	/X		display complete conditional assembly blocks in
+			listing including false conditionals
+	/Z		display errors including line numbers to screen
+	/ZD		generate line numbers in .OBJ files
+	/ZI		generate both symbolic and line number information in
+			.OBJ files
+
+<B>	Environment Variables</B>
+
+	INCLUDE		search path for include files
+	MASM		default command line options
+</PRE>
+
+</BODY>
+</HTML>

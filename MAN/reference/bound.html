@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>bound</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>BOUND - Array Index Bound Check (80188+)</H2>
+
+<PRE>
+
+
+	Usage:	BOUND	src,limit
+	Modifies flags: None
+
+
+	Array index in source register is checked against upper and lower
+	bounds in memory source.  The first word located at "limit" is
+	the lower boundary and the word at "limit+2" is the upper array bound.
+	Interrupt 5 occurs if the source value is less than or higher than
+	the source.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16,mem32	  -   nj=13 nj=10   7		  2
+	reg32,mem64	  -   nj=13 nj=10   7		  2
+
+	- nj = no jump taken
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

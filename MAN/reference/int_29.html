@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 29</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 29 - DOS Fast Character I/O  (Undocumented 2.x+)</H2>
+
+<PRE>
+
+
+	AL = character to write
+
+
+	returns nothing ???
+
+
+	- used by DOS device drivers to output data to the screen if
+	  bit 4 of the device attribute word is set
+	- similar to <A HREF="int_21-2.html">INT 21,2</A> and <A HREF="int_21-9.html">INT 21,9</A> but much faster
+	- simply calls the BIOS <A HREF="int_10-e.html">INT 10,E</A> in DOS versions 2.x and 3.x
+	- advances the cursor after character output
+</PRE>
+
+</BODY>
+</HTML>

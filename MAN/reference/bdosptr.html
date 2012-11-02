@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>bdosptr</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int bdosptr( int dosfun, void *argument, unsigned dosal )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- make DOS system call for function dosfun, passing POINTER
+	  to values via argument and passing AL via dosal
+	- use for small or large memory models
+	- returns value of AX set by system call, else -1 on failure
+	  (where errno & _doserrno are then set)
+
+</PRE>
+
+</BODY>
+</HTML>

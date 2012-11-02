@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>KB flags</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Keyboard Flags Bytes 0 and 1</H2>
+
+<PRE>
+
+		|7|6|5|4|3|2|1|0|  40:17  Keyboard Flags Byte 0
+		 | | | | | | | `---- right shift key depressed
+		 | | | | | | `----- left shift key depressed
+		 | | | | | `------ CTRL key depressed
+		 | | | | `------- ALT key depressed
+		 | | | `-------- scroll-lock is active
+		 | | `--------- num-lock is active
+		 | `---------- caps-lock is active
+		 `----------- insert is active
+
+		|7|6|5|4|3|2|1|0|  40:18  Keyboard Flags Byte 1
+		 | | | | | | | `---- left CTRL key depressed
+		 | | | | | | `----- left ALT key depressed
+		 | | | | | `------ system key depressed and held
+		 | | | | `------- suspend key has been toggled
+		 | | | `-------- scroll lock key is depressed
+		 | | `--------- num-lock key is depressed
+		 | `---------- caps-lock key is depressed
+		 `----------- insert key is depressed
+
+</PRE>
+
+<H2 ALIGN=Center>Keyboard Flags Bytes 2 and 3</H2>
+
+<PRE>
+
+		|7|6|5|4|3|2|1|0|  40:97  LED Indicator Flags
+		 | | | | | | | `---- scroll lock indicator
+		 | | | | | | `----- num-lock indicator
+		 | | | | | `------ caps-lock indicator
+		 | | | | `------- circus system indicator
+		 | | | `-------- ACK received
+		 | | `--------- re-send received flag
+		 | `---------- mode indicator update
+		 `----------- keyboard transmit error flag
+
+		|7|6|5|4|3|2|1|0|  40:96  Keyboard Mode/Type
+		 | | | | | | | `---- last code was the E1 hidden code
+		 | | | | | | `----- last code was the E0 hidden code
+		 | | | | | `------ right CTRL key depressed
+		 | | | | `------- right ALT key depressed
+		 | | | `-------- 101/102 enhanced keyboard installed
+		 | | `--------- force num-lock if Rd ID & KBX
+		 | `---------- last char was first ID char
+		 `----------- read ID in process
+
+	- see	<A HREF="int_9.html">INT 9</A>  <A HREF="bios_data_area.html">BDA</A>
+</PRE>
+
+</BODY>
+</HTML>

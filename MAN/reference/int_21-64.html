@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,64</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,64 - Set Device Driver Look Ahead  (Undocumented)</H2>
+
+<PRE>
+
+
+	AH = 64h
+	AL = value for switch
+	     00   causes DOS to perform look ahead to the device driver
+		  before execution of <A HREF="int_21-1.html">INT 21,1</A>, <A HREF="int_21-8.html">INT 21,8</A> and <A HREF="int_21-a.html">INT 21,A</A>
+	     other - no look ahead is performed
+
+
+	returns ???
+
+
+	- DOS internal; should not be called by user program
+	- switch defaults to zero
+	- undocumented; since DOS 3.3
+	- some other subfunctions are know to have existed since DOS 3.2 but
+	  details on their functionality are incomplete
+</PRE>
+
+</BODY>
+</HTML>

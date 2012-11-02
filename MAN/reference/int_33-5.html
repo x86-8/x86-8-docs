@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,5</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,5 - Get Mouse Button Press Information</H2>
+
+<PRE>
+
+
+	AX = 5
+	BX = 0	left button
+	     1	right button
+
+
+	on return:
+	BX = count of button presses (0-32767), set to zero after call
+	CX = horizontal position at last press
+	DX = vertical position at last press
+	AX = status:
+
+		|F-8|7|6|5|4|3|2|1|0|  Button Status
+		  |  | | | | | | | `---- left button (1 = pressed)
+		  |  | | | | | | `----- right button (1 = pressed)
+		  `------------------- unused
+
+</PRE>
+
+</BODY>
+</HTML>

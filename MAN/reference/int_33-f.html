@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,F - Set Mouse Mickey Pixel Ratio</H2>
+
+<PRE>
+
+
+	AX = 0F
+	CX = horizontal ratio (1..32767, default 8)
+	DX = vertical ratio (1..32767, default 16)
+
+
+	returns nothing
+
+
+	- sets the ratio between physical cursor movement (mickeys) and
+	  screen coordinate changes
+	- CX and DX must be unsigned (high bit must be 0)
+
+</PRE>
+
+</BODY>
+</HTML>

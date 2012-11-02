@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>int 17,0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 17,0 - Print Character</H2>
+
+<PRE>
+
+
+	AH = 00
+	AL = character to print
+	DX = printer to be used (0-2)
+
+
+	on return:
+	AH = printer status, see <A HREF="int_17.html">INT 17,STATUS</A>
+
+
+	- writes character and returns status
+</PRE>
+
+</BODY>
+</HTML>

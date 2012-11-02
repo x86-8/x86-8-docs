@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,1c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,1C - Set Mouse Interrupt Rate  (InPort only)</H2>
+
+<PRE>
+
+
+	AX = 1C
+	BX = rate code
+	   = 0	no interrupts
+	   = 1	30 interrupts per second
+	   = 2	50 interrupts per second
+	   = 3	100 interrupts per second
+	   = 4	200 interrupts per second
+
+
+
+	- work with the InPort mouse only
+	- sets the rate the mouse status is polled by the mouse driver
+	- faster rates provide better resolution but take away CPU time
+	- values in BX > 4 can cause unpredicatable results
+
+</PRE>
+
+</BODY>
+</HTML>

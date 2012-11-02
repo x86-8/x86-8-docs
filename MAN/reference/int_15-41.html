@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,41</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,41 - Wait on External Event (convertible only)</H2>
+
+<PRE>
+
+	AH = 41h
+	AL = condition type:
+
+		|7|6|5|4|3|2|1|0|  AL
+		 | | | | | `-------- conditions (codes) to wait for
+		 | | | | `--------- reserved
+		 | | | `---------- 1=port address/0=user byte
+		 `--------------- reserved
+
+<B>	Condition codes:</B>
+
+	     0 = any external event
+	     1 = compare and return if equal
+	     2 = compare and return if not equal
+	     3 = test and return if not zero
+	     4 = test and return if zero
+
+	BH = condition compare or mask value
+	BL = time-out value times 55 ms, 0 if no time limit
+	DX = I/O port address (if AL bit 4 = 1)
+	ES:DI = pointer to user byte (if AL bit 4 = 0)
+
+</PRE>
+
+</BODY>
+</HTML>

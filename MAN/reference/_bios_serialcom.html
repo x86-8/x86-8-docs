@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>_bios_serialcom</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _bios_serialcom(unsigned cmd,unsigned port,unsigned fmt)</H2>
+
+<PRE>
+
+	- prototype in bios.h
+
+	- cmd	= _COM_INIT	initialize port  (INT 14,0)
+		= _COM_SEND	send character  (INT 14,1)
+		= _COM_RECEIVE	read character from port  (INT 14,2)
+		= _COM_STATUS	get serial port status  (INT 14,3)
+
+	- fmt = combination of the following:
+		_COM_CHR7	_COM_CHR8
+		_COM_STOP1	_COM_STOP2
+
+		_COM_NOPARITY	_COM_EVENPARITY	   _COM_ODDPARITY
+
+		_COM_110	_COM_150	   _COM_300
+		_COM_600	_COM_1200	   _COM_2400
+		_COM_4800	_COM_9600
+
+	- returns status word (INT 14, AX reg, modem status in AL,
+	  port status in AH)
+	- Turbo C uses <A HREF="bioscom.html">bioscom</A>()
+	- see  <A HREF="int_14.html">INT 14</A>
+</PRE>
+
+</BODY>
+</HTML>

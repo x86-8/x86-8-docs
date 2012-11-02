@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,5</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,5 - Select Active Display Page</H2>
+
+<PRE>
+
+	AH = 05
+	AL = new page number, see <A HREF="video_pages.html">VIDEO PAGES</A>
+
+	for PCjr only:
+	AL = 80h to read CRT/CPU page registers
+	     81h to set CPU page register
+		 BL = CPU page register
+	     82h to set CRT page register
+		 BH = CRT page register
+	     83h to set CPU and page registers
+		 BH = CRT page register
+		 BL = CPU page register
+
+
+	on return: (PCjr only)
+	BH = CRT page register
+	BL = CPU page register
+
+</PRE>
+
+</BODY>
+</HTML>

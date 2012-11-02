@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>enter</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>ENTER - Make Stack Frame  (80188+)</H2>
+
+<PRE>
+
+
+	Usage:	ENTER	locals,level
+	Modifies flags: None
+
+
+	Modifies stack for entry to procedure for high level language.
+	Operand "locals" specifies the amount of storage to be allocated
+	on the stack.	"Level" specifies the nesting level of the routine.
+	Paired with the <A HREF="leave.html">LEAVE</A> instruction, this is an efficient method of
+	entry and exit to procedures.
+
+
+<B>				     Clocks			Size</B>
+<B>	Operands	 808x	 286	   386	     486	Bytes</B>
+
+	immed16,0	  -	  11	   10	      14  	  4
+	immed16,1	  -	  15	   12	      17  	  4
+	immed16,immed8	  -   12+4(n-1) 15+4(n-1)    17+3n	  4
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

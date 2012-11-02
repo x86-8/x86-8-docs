@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 28</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 28 - DOS Idle Loop / Scheduler  (Undocumented)</H2>
+
+<PRE>
+
+
+
+
+	- issued by DOS during keyboard poll loop
+	- indicates DOS may be carefully re-entered by TSR
+	- used by TSR programs to popup and make DOS disk I/O calls
+	- supported by OS/2 compatibility box
+	- default behavior is to simply perform an <A HREF="iret.html">IRET</A>
+	- any DOS functions above 0Ch may be called while in this handler
+	- <A HREF="int_21-3f.html">INT 21,3F</A> and <A HREF="int_21-40.html">INT 21,40</A> may not use a handle that refers to
+	  CON while in this handler
+	- see also  <A HREF="int_21-34.html">INDOS</A>
+</PRE>
+
+</BODY>
+</HTML>

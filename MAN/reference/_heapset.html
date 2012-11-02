@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>_heapset</TITLE>
+</HEAD>
+
+<BODY><PRE><B>		MSC: int _heapset( unsigned fill )</B>
+<B>		MSC: int _bheapset( _segment seg, unsigned fill )</B>
+<B>		MSC: int _fheapset( unsigned fill )</B>
+<B>		MSC: int _nheapset( unsigned fill )</B>
+
+
+	- prototype in malloc.h
+
+	- heapset maps to the other functions depending on memory model
+	- first check heap consistency via <A HREF="_heapchk.html">heapchk</A>() then fills memory
+	  with value specified in "fill"
+
+	- returns one of the following:
+
+	  _HEAPOK	heap is ok
+	  _HEAPBADBEGIN initials allocation header couldn't be found
+	  _HEAPBADNODE	heap/node has been damaged
+	  _HEAPEMPTY	heap has not been initialized
+
+	- see	<A HREF="_heapchk.html">heapchk</A>()   <A HREF="_heapwalk.html">heapwalk</A>()
+</PRE>
+
+</BODY>
+</HTML>

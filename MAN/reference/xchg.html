@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>xchg</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>XCHG - Exchange</H2>
+
+<PRE>
+
+
+	Usage:	XCHG	dest,src
+	Modifies flags: None
+
+
+	Exchanges contents of source and destination.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg,reg		  4	3     3	    3		  2
+	mem,reg 	17+EA	5     5	    5		 2-4  (W88=25+EA)
+	reg,mem 	17+EA	5     5	    3		 2-4  (W88=25+EA)
+	accum,reg	  3	3     3	    3		  1
+	reg,accum	  3	3     3	    3		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>add</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>ADD - Arithmetic Addition</H2>
+
+<PRE>
+
+	Usage:	ADD	dest,src
+	Modifies flags: AF CF OF PF SF ZF
+
+
+	Adds "src" to "dest" and replacing the original contents of "dest".
+	Both operands are binary.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg,reg 	  3	2     2	    1		  2
+	mem,reg 	16+EA	7     7	    3		 2-4  (W88=24+EA)
+	reg,mem 	 9+EA	7     6	    2		 2-4  (W88=13+EA)
+	reg,immed	  4	3     2	    1		 3-4
+	mem,immed	17+EA	7     7	    3		 3-6  (W88=23+EA)
+	accum,immed	  4	3     2	    1		 2-3
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

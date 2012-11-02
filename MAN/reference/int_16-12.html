@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>int 16,12</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 16,12 - Extended Get Keyboard Status  (AT+)</H2>
+
+<PRE>
+
+	AH = 12h
+
+	on return:
+	AH = BIOS keyboard flags (<A HREF="bios_data_area.html">BIOS Data Area</A> location 40:18)
+
+		|7|6|5|4|3|2|1|0|  AH
+		 | | | | | | | `---- left CTRL key depressed
+		 | | | | | | `----- left ALT key depressed
+		 | | | | | `------ right CTRL key pressed
+		 | | | | `------- right ALT key depressed
+		 | | | `-------- scroll-lock depressed
+		 | | `--------- num-lock key depressed
+		 | `---------- caps-lock key depressed
+		 `----------- system request key depressed
+
+	AL = BIOS keyboard flags (BIOS Data Area location 40:17)
+
+		|7|6|5|4|3|2|1|0|  AL
+		 | | | | | | | `---- right shift key depressed
+		 | | | | | | `----- left shift key depressed
+		 | | | | | `------ CTRL key depressed
+		 | | | | `------- ALT key depressed
+		 | | | `-------- scroll-lock is active
+		 | | `--------- num-lock is active
+		 | `---------- caps-lock is active
+		 `----------- insert is active
+
+
+	- available on AT and PS/2 machines with extended keyboard support
+	- similar to <A HREF="int_16-2.html">INT 16,2</A>
+
+	- see	<A HREF="kb_flags.html">KB FLAGS</A>
+
+</PRE>
+
+</BODY>
+</HTML>

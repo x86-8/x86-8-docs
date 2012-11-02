@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,7</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,7 / IOCTL,7 - Get Output Status</H2>
+
+<PRE>
+
+
+	AH = 44h
+	AL = 07
+	BX = handle
+
+
+	on return
+	CF = 0 if successful
+	   = 1 if error
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	AL = 00  if ready (files), or not ready (char devices)
+	   = FF  ready (files or char device)
+
+
+	- indicates if a device or file is ready for output
+	- files always return ready, character devices don't
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,1b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,1B - Get Allocation Table Information</H2>
+
+<PRE>
+
+
+	AH = 1B
+
+
+	on return:
+	AL = sectors per cluster
+	CX = bytes per sector
+	DX = clusters on disk
+	DS:BX = pointer to <A HREF="media_descriptor_byte.html">Media Descriptor Byte</A> found in <A HREF="fat.html">FAT</A>
+
+
+	- retrieves information on capacity and format of default drive
+	- DS:BX can be used to determine if drive is RAMDISK or removable
+	- see  <A HREF="int_21-1c.html">INT 21,1C</A>
+
+</PRE>
+
+</BODY>
+</HTML>

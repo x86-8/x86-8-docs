@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>bts</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>BTS - Bit Test and Set  (386+ only)</H2>
+
+<PRE>
+
+
+	Usage:	BTS	dest,src
+	Modifies flags: CF
+
+
+	The destination bit indexed by the source value is copied into the
+	Carry Flag and then set in the destination.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16,immed8	  -	-     6	    6		 4-8
+	mem16,immed8	  -	-     8	    8		 4-8
+	reg16,reg16	  -	-     6	    6		 3-7
+	mem16,reg16	  -	-     13    13		 3-7
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

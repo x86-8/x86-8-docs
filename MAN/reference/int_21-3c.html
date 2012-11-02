@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,3c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,3C - Create File Using Handle</H2>
+
+<PRE>
+
+
+	AH = 3C
+	CX = file attribute  (see <A HREF="file_attributes.html">FILE ATTRIBUTES</A>)
+	DS:DX = pointer to ASCIIZ path name
+
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AX = files handle if successful
+	   = error code if failure  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- if file already exists, it is truncated to zero bytes on opening
+
+</PRE>
+
+</BODY>
+</HTML>

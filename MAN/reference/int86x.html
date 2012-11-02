@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>int86x</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	 int int86x( int intr_num, union REGS *inregs,</B>
+<B>			 union REGS *outregs, struct SREGS *segregs )</B>
+
+
+	- prototype in dos.h
+
+	- Executes 8086 software interrupt specified by intr_num
+	- Copies register values from inregs into the registers
+	- also copies segregs->x.ds and segregs->y.es into DS/ES
+	- if CF is set, an error has occurred
+	- preserves SP register so calls to <A HREF="int_25.html">INT 25</A> and <A HREF="int_26.html">INT 26</A> via this
+	  function don't require a stack adjustment
+	- unique to DOS
+	- see	<A HREF="int86.html">int86</A>()  <A HREF="intdos.html">intdos</A>()	 <A HREF="intdosx.html">intdosx</A>()   <A HREF="intr.html">intr</A>()  <A HREF="regs.html">REGS</A>
+</PRE>
+
+</BODY>
+</HTML>

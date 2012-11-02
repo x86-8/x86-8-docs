@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>intr</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void intr( int intr_num, struct REGPACK *preg )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- same as <A HREF="int86.html">int86</A>() except that preg contains registers values
+	  both before & after executing interrupt
+	- preserves SP register so calls to <A HREF="int_25.html">INT 25</A> and <A HREF="int_26.html">INT 26</A> via this
+	  function don't require a stack adjustment
+	- see  <A HREF="int86x.html">int86x</A>()  <A HREF="intdos.html">intdos</A>()  <A HREF="intdosx.html">intdosx</A>()   <A HREF="regs.html">REGS</A>
+</PRE>
+
+</BODY>
+</HTML>

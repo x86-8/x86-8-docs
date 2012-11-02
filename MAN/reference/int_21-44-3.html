@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,3 / IOCTL,3 - Write to Character Device</H2>
+
+<PRE>
+
+
+	AH = 44h
+	AL = 03
+	BX = handle
+	CX = number of bytes to send
+	DS:DX = pointer to data buffer
+
+
+	on return
+	AX = number of bytes written if CF clear
+	   = error code if CF set   (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- see bit 14 if IOCTL function 00h to determine if
+	  driver can support IOCTL control strings
+
+</PRE>
+
+</BODY>
+</HTML>

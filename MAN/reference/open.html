@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>open</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int open( const char *path, int access [, unsigned permis] )</H2>
+
+<PRE>
+
+	- prototype in io.h, also include stat.h & fcntl.h
+
+	- open attribute flags are defined in fcntl.h
+	- opens file "path" with access and optionally permis
+	- access is a combination of the following ("permis" follows):
+
+<B>	  Read/Write Access Flags (mutually exclusive):</B>
+	   O_RDONLY	open read only
+	   O_WRONLY	open write only
+	   O_RDWR	open read/write
+
+<B>	  Other Access Mode Flags:</B>
+	   O_APPEND	file pointer is placed at EOF before each write
+	   O_CREAT	if file doesn't exist, create with "permis" attributes
+	   O_TRUNC	if exists, truncate length to zero, but leave file
+			attributes unchanged
+	   O_BINARY	binary mode
+	   O_TEXT	text mode
+	   O_EXCL	used with O_CREAT, error occurs if file already exists
+	   O_NDELAY	UNIX only
+
+<B>	  Permission Attributes (if creating):</B>
+	   S_IWRITE	write permission
+	   S_IREAD	read permission
+	   S_IREAD | S_IWRITE read/write permission
+	 
+	- if O_BINARY nor O_TEXT is given, file is opened in translation
+	  mode (O_TEXT) given by global variable _fmode
+	- returns nonnegative number as file HANDLE, or -1 on error
+	- see	<A HREF="sopen.html">sopen</A>()
+</PRE>
+
+</BODY>
+</HTML>

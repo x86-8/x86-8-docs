@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>leave</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LEAVE - Restore Stack for Procedure Exit (80188+)</H2>
+
+<PRE>
+
+
+	Usage:	LEAVE
+	Modifies flags: None
+
+
+	Releases the local variables created by the previous <A HREF="enter.html">ENTER</A>
+	instruction by restoring SP and BP to their condition before
+	the procedure stack frame was initialized.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  -	5     4	    5		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

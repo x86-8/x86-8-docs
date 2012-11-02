@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,10</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,10 - Test for Drive Ready (XT  & newer)</H2>
+
+<PRE>
+
+
+	AH = 10h
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+
+
+	on return:
+	AH = status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- many good programming references indicate this function is only
+	  available on the AT, PS/2 and later systems, but all hard disk
+	  systems since the XT have this function available
+</PRE>
+
+</BODY>
+</HTML>

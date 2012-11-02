@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>neg</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>NEG - Two's Complement Negation</H2>
+
+<PRE>
+
+
+	Usage:	NEG	dest
+	Modifies flags: AF CF OF PF SF ZF
+
+
+	Subtracts the destination from 0 and saves the 2s complement of
+	"dest" back into "dest".
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg		  3	2     2	    1		  2
+	mem		16+EA	7     6	    3		 2-4  (W88=24+EA)
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

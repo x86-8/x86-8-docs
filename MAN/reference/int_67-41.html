@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,41</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,41 - Get Page Frame Base Address  (LIM EMS 3.0+)</H2>
+
+<PRE>
+
+
+	AH = 41h
+
+
+	on return:
+	AH = 00 success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	BX = segment of page frame (PFBA)
+
+
+	- use this to determine where in the 1Mb memory address the page
+	  frame will be mapped
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

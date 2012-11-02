@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,2b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,2B - Set Date</H2>
+
+<PRE>
+
+
+	AH = 2B
+	CX = year (1980-2099)
+	DH = month (1-12)
+	DL = day (1-31)
+
+
+	on return:
+	AL = 00 if date change successful
+	   = FF if invalid date
+
+
+	- sets DOS maintained clock
+	- DOS versions 3.3+ also update the <A HREF="cmos_ram.html">CMOS</A> date where applicable
+
+</PRE>
+
+</BODY>
+</HTML>

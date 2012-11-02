@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,15</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,15 - Get Mouse Driver State and Memory Requirements</H2>
+
+<PRE>
+
+
+	AX = 15h
+
+
+	on return
+	BX = buffer size need to hold current mouse state
+
+
+	- used before mouse functions 16h and 17h to determine memory
+	  needed to save mouse state before giving up control of mouse
+	  to another program
+
+</PRE>
+
+</BODY>
+</HTML>

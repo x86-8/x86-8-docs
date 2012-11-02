@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,4</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,4 - Set Mouse Cursor Position</H2>
+
+<PRE>
+
+
+	AX = 4
+	CX = horizontal position
+	DX = vertical position
+
+
+	returns nothing
+
+
+	- default cursor position is at the screen center
+	- the position must be within the range of the current video mode
+	- the position may be rounded to fit screen mode resolution
+
+</PRE>
+
+</BODY>
+</HTML>

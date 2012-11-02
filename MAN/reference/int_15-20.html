@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,20</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,20 - PRINT.COM Critical Region Flag (undocumented DOS 3.x+)</H2>
+
+<PRE>
+
+	AH = 20h
+	AL = 00  disable user critical region flag
+	   = 01  enable user critical region flag
+	ES:BX = pointer to user critical region flag byte (AH = 1)
+
+
+	returns nothing
+
+
+	- provides PRINT.COM with the address of a byte to increment on
+	  entry to DOS functions
+	- see <A HREF="bibliography.html">bibliography</A> reference for "Undocumented DOS"
+</PRE>
+
+</BODY>
+</HTML>

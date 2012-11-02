@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>stos</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>STOS - Store String  (Byte, Word or Doubleword)</H2>
+
+<PRE>
+
+
+	Usage:	STOS	dest
+		STOSB
+		STOSW
+		STOSD
+	Modifies flags: None
+
+
+	Stores value in accumulator to location at ES:(E)DI (even if operand
+	is given).  (E)DI is incremented/decremented based on the size of
+	the operand (or instruction format) and the state of the Direction
+	Flag.	Use with <A HREF="rep.html">REP</A> prefixes.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	dest		  11	3     4	    5		  1  (W88=15)
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

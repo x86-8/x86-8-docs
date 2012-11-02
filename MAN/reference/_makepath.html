@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>_makepath</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	   MSC: void _makepath( char *path, char *drive, char *dir,</B>
+<B>				char *fname, char *ext )</B>
+
+
+	- prototype in stdlib.h
+
+	- creates fully qualified filename from parts
+	- path = receives fully qualified filename created from the parts
+	- drive = drive letter string, with or without the colon
+	- dir = directory name;  both slashes '/' or '\' are allowed;
+	  trailing slash is optional
+	- fname = base file name w/o extension (max 8 bytes)
+	- ext = file extension (max 3 bytes)
+
+	- see	<A HREF="_splitpath.html">_splitpath</A>()
+</PRE>
+
+</BODY>
+</HTML>

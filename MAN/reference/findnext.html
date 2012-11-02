@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>findnext</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  TC:  int findnext( struct ffblk *ffblk )</B>
+<B>	  MSC: unsigned _dos_findnext( struct find_t *fileinfo )</B>
+
+	- prototype in dir.h, also include  (MSC: dos.h only)
+
+	- findnext updates <A HREF="dta.html">DTA</A>
+	- returns 0 if OK, -1 if no matching files found or on error
+	- gets next disk directory via DOS 0x4F, after calling <A HREF="findfirst.html">findfirst</A>()
+	- struct ffblk is defined in dir.h for Turbo C and dos.h for MSC
+
+<B>	struct ffblk	(Turbo C)	struct find_t	(MSC)</B>
+	    {				    {
+	    char     ff_reserved[21];	    char     reserved[21];
+	    char     ff_attrib; 	    char     attrib;
+	    unsigned ff_ftime;		    unsigned wr_time;
+	    unsigned ff_fdate;		    unsigned wr_date;
+	    long     ff_fsize;		    long     size;
+	    char     ff_name[13];	    char     name[13];
+	    };				    };
+
+	- normal files are always included along with files that match
+	  the requested attributes except when the LABEL attribute is
+	  requested.  It's up to the programmer to determine which
+	  actually match the requested attributes.
+	- see	<A HREF="file_attributes.html">FILE ATTRIBUTES</A>,  <A HREF="findfirst.html">findfirst</A>(), <A HREF="getdta.html">getdta</A>(), <A HREF="setdta.html">setdta</A>()
+</PRE>
+
+</BODY>
+</HTML>

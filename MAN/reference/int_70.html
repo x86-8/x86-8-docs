@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>int 70</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 70 - Real Time Clock Interrupt  (XT 286,AT,PS/2)</H2>
+
+<PRE>
+
+
+	- called 1024 times per second for periodic and alarm functions
+	- decrements a DWORD counter by 976æ sec (1/1024)
+	- when DWORD reaches zero, bit 7 of designated wait flag is set
+	- if alarm was enabled by  <A HREF="int_1a-6.html">INT 1A,6</A>,  <A HREF="int_4a.html">INT 4A</A> is called when
+	  counter reaches zero to activate alarm handler
+	- not available in model 30 PS/2
+
+
+	- see	<A HREF="int_15-83.html">INT 15,83</A>   <A HREF="int_15-86.html">INT 15,86</A>
+</PRE>
+
+</BODY>
+</HTML>

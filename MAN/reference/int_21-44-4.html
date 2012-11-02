@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,4</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,4 / IOCTL,4 - Read from Block Device</H2>
+
+<PRE>
+
+
+	AH = 44h
+	AL = 04
+	BL = drive number (0=default, 1=A:, 2=B:, 3=C:, ...)
+	CX = number of bytes to read
+	DS:DX = pointer to data buffer
+
+
+	on return
+	AX = number of bytes read if CF clear
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- block drivers are not required to support this function
+	- returns AX = 01 (invalid function code) if not supported
+
+</PRE>
+
+</BODY>
+</HTML>

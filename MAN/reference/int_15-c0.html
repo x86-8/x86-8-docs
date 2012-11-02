@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,c0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,C0 - Return System Configuration Parameters (PS/2 only)</H2>
+
+<PRE>
+
+	AH = C0
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AH = when CF set, 80h for PC & PCjr, 86h for XT
+	     (BIOS after 11/8/82) and AT (BIOS after 1/10/84)
+
+	ES:BX = pointer to system descriptor table in ROM of the format:
+
+<B>	Offset Size	     Description</B>
+
+	  00   word   length of descriptor (8 minimum)
+	  02   byte   model byte (same as F000:FFFE, not reliable)
+	  03   byte   secondary model byte
+	  04   byte   BIOS revision level (zero based)
+	  05   byte   feature information, see below
+	  06   dword  reserved
+
+
+<B>	Feature Information</B>
+
+	|7|6|5|4|3|2|1|0|  Feature Byte
+	 | | | | | | | `---- reserved
+	 | | | | | | `----- 0=PC bus, 1=Micro Channel
+	 | | | | | `------ Extended BIOS Data Area (<A HREF="ebda.html">EBDA</A>)allocated
+	 | | | | `------- wait for external event supported
+	 | | | `-------- <A HREF="int_15-4f.html">INT 15,4F</A> used (kbd intercept)
+	 | | `--------- <A HREF="cmos_ram.html">RTC</A> present
+	 | `---------- 2nd <A HREF="8259.html">8259</A> present
+	 `----------- DMA channel 3 used by fixed disk BIOS
+
+	- see	<A HREF="id_bytes.html">MACHINE ID</A>
+
+</PRE>
+
+</BODY>
+</HTML>

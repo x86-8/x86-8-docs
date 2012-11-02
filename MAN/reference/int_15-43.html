@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,43</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,43 - Read System Status (convertible only)</H2>
+
+<PRE>
+
+
+	AH = 43h
+
+
+	on return
+	AL = STATUS:
+
+		|7|6|5|4|3|2|1|0|  AL
+		 | | | | | | | `---- LCD detached
+		 | | | | | | `----- reserved
+		 | | | | | `------ RS232/parallel powered on
+		 | | | | `------- internal modem powered on
+		 | | | `-------- power activated by alarm
+		 | | `--------- standby power lost
+		 | `---------- external power in use
+		 `----------- battery low
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,18</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,18 - Set Media Type for Format (BIOS date specific)</H2>
+
+<PRE>
+
+
+	AH = 18h
+	CH = lower 8 bits of number of tracks  (0-1023 dec., see below)
+	CL = sectors per track (1-17 dec., see below)
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+
+
+	on return:
+	ES:DI = pointer to 11-byte <A HREF="dbt.html">Disk Base Table</A> (DBT)
+	AH = 00h if requested combination supported
+	   = 01h if function not available
+	   = 0Ch if not supported or drive type unknown
+	   = 80h if there is no media in the drive
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- valid only for XT BIOS dated after 1/10/86, AT after 11/15/86,
+	  XT 286 and the PS/2 line
+	- only disk number is checked for validity
+	- track number is a 10 bit value taken from the 2 high order
+	  bits of CL and the 8 bits in CH (low order 8 bits of track):
+
+	  |F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|  CX
+	   | | | | | | | | | | `--------------	sectors per track count
+	   | | | | | | | | `--------------  high order 2 bits track/cyl count
+	   `--------------------------	low order 8 bits of track/cyl count
+
+	- see	<A HREF="int_13-1.html">INT 13,STATUS</A>
+
+</PRE>
+
+</BODY>
+</HTML>

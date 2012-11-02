@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 1a,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1A,3 - Set Time on Real Time Clock  (XT 286,AT,PS/2)</H2>
+
+<PRE>
+
+
+	AH = 03
+	CH = hours in BCD
+	CL = minutes in BCD
+	DH = seconds in BCD
+	DL = 1 if daylight savings time option
+	   = 0 if standard time
+
+
+	returns nothing
+
+
+	- clock values must be in BCD
+	- see	<A HREF="cmos_ram.html">RTC</A>
+</PRE>
+
+</BODY>
+</HTML>

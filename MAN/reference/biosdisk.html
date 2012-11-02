@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>biosdisk</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  TC: int biosdisk( int cmd, int drive, int head, int track,</B>
+<B>			    int sector, int nsects, void *buffer )</B>
+
+	- prototype in bios.h
+
+	- issues interrupt 0x13 for BIOS disk operations
+	- drive = (0=A:, 1=2nd floppy, 0x80=drive 0, 0x81=drive 1
+	- cmd = 0  reset diskette system (hard disk drive reset)
+		1  return status of last disk operation, ignore parms
+		2  read nsects disk sectors, with starting sector
+		   defined by head, track, & sector, reading 512 bytes
+		   per sector into buffer
+		3  write nsects disk sectors, with starting sector
+		   defined by head, track, & sector, writing 512 bytes
+		   per sector from buffer
+		4  verify nsects disk sectors, with starting sector
+		   defined by head, track, & sector
+		5  format a track defined by head & track, where buffer
+		   points to a table of sector headers to be written
+
+	 For XT or AT only:
+
+	    6 - formats a track & sets bad sector flags
+	    7 - formats drive beginning at specific track
+	    8 - returns current drive parms in 1rst 4 bytes of buffer
+	    9 - initializes drive-pair characteristics
+	   10 - long read (4 extra bytes per sector for ECC)
+	   11 - long write (4 extra bytes per sector for ECC)
+	   12 - disk seek
+	   13 - alternate disk reset
+	   14 - reads sector buffer
+	   15 - writes sector buffer
+	   16 - tests if named drive is ready
+	   17 - recalibrates drive
+	   18 - controller ram diagnostic
+	   19 - drive diagnostic
+	   20 - controller internal diagnostic
+
+	- drive numbers represent physical drives (0 = A:, 1 = B:,
+	  80h = drive 0, 81h = drive 1
+	- disk reads should be retried at least 3 times
+	- MS C uses <A HREF="_bios_disk.html">_bios_disk</A>()
+	- see  <A HREF="int_13.html">INT 13</A>  for more return codes and more information
+</PRE>
+
+</BODY>
+</HTML>

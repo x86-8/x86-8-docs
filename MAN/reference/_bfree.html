@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<TITLE>_bfree</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  MSC: void _bfree( _segment seg, void _based(void) *block )</B>
+<B>	  MSC: void _ffree( void far *block )</B>
+<B>	  MSC: void _nfree( void near *block )</B>
+
+
+	- prototype in malloc.h
+
+	- block = previously allocated buffer
+	- in large data memory models free() maps to _ffree()
+	- in small data memory models free() maps to _nfree()
+	- NULL pointer parameter is ignored
+
+</PRE>
+
+</BODY>
+</HTML>

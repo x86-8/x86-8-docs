@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,9</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,9 - Initialize Fixed Disk Table (XT & newer)</H2>
+
+<PRE>
+
+	AH = 09
+	DL = fixed disk number	(80h=drive 0, 81h=drive 1)
+
+
+	on return:
+	AH = status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- sets specified fixed disk table to the default values from ROM
+	- many good programming references indicate this function is only
+	  available on the AT, PS/2 and later systems, but all hard disk
+	  systems since the XT have this function available
+	- INT 41h vector is pointer to table for drive 0
+	- INT 46h vector is pointer to table for drive 1
+
+
+</PRE>
+
+<H2 ALIGN=Center>Table	definitions located by interrupt vectors  41H & 46H</H2>
+
+<PRE>
+
+<B>	Offset Size	    Description</B>
+
+	  00   word  maximum number of cylinders
+	  02   byte  maximum number of heads
+	  03   word  starting reduced write current cylinder
+	  05   word  starting write pre-comp cylinder
+	  07   byte  maximum ECC data burst length
+	  08   byte  control byte:
+
+
+		|7|6|5|4|3|2|1|0|  Control byte
+		 | | | | | `-------- drive option
+		 | | `------------- always zero
+		 | `-------------- disable ECC retries
+		 `--------------- disable access retires
+</PRE>
+
+</BODY>
+</HTML>

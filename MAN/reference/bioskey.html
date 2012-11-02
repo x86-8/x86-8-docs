@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>bioskey</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int bioskey( int cmd )</H2>
+
+<PRE>
+
+
+	- prototype in bios.h
+
+	- keyboard operations
+	- cmd	= 0  return next keystroke w/o echo  (INT 16,0)
+		= 1  test if key waiting;  0=none  (INT 16,1)
+		= 2  return shift key status  (see INT 16,2)
+
+
+	- AND returned value with 0x00FF to get ASCII value
+	- Ctrl-Break causes "while (!bioskey(1))" to loop infinitely in
+	  Turbo C 2.0 and earlier since it places a zero in the keyboard queue
+	- MS C uses <A HREF="_bios_keybrd.html">_bios_keybrd</A>()
+	- see	<A HREF="int_16.html">INT 16</A>
+</PRE>
+
+</BODY>
+</HTML>

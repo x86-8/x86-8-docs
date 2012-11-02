@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>imul</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>IMUL - Signed Multiply</H2>
+
+<PRE>
+
+	Usage:	IMUL	src
+		IMUL	src,immed  (286+ only)
+		IMUL	dest,src,immed8  (286+ only)
+		IMUL	dest,src  (386+ only)
+	Modifies flags: CF OF (AF,PF,SF,ZF undefined)
+
+
+	Signed multiplication of accumulator by "src" with result placed
+	in the accumulator.  If the source operand is a byte value, it
+	is multiplied by AL and the result stored in AX.  If the source
+	operand is a word value it is multiplied by AX and the result is
+	stored in DX:AX.  Other variations of this instruction allow
+	specification of source and destination registers as well as a
+	third immediate factor.
+
+<B>				  Clocks		Size</B>
+<B>	Operands	 808x	286   386   486		Bytes</B>
+
+	reg8		 80-98	 13   9-14  13-18	  2
+	reg16		128-154	 21   9-22  13-26	  2
+	reg32		   -	 -    9-38  12-42	  2
+	mem8		 86-104	 16  12-17  13-18	 2-4
+	mem16		134-160	 24  12-25  13-26	 2-4
+	mem32		   -	 -   12-41  13-42	 2-4
+	reg16,reg16	   -	 -    9-22  13-26	 3-5
+	reg32,reg32	   -	 -    9-38  13-42	 3-5
+	reg16,mem16	   -	 -   12-25  13-26	 3-5
+	reg32,mem32	   -	 -   12-41  13-42	 3-5
+	reg16,immed	   -	 21   9-22  13-26	  3
+	reg32,immed	   -	 21   9-38  13-42	 3-6
+	reg16,reg16,immed  -	 2    9-22  13-26 	 3-6
+	reg32,reg32,immed  -	 21   9-38  13-42	 3-6
+	reg16,mem16,immed  -	 24  12-25  13-26	 3-6
+	reg32,mem32,immed  -	 24  12-41  13-42	 3-6
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

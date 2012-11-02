@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>media descriptor byte</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Media Descriptor Byte</H2>
+
+<PRE>
+
+<B>	Media Descriptor Byte Layout:</B>
+
+	|7|6|5|4|3|2|1|0| IBM Media Descriptor Byte
+	 | | | | | | | `--- 1 = 2 sided, 0 = not 2 sided
+	 | | | | | | `---- 1 = 8 sector, 0 = not 8 sector
+	 | | | | | `----- 1 = removable, 0 = not removable
+	 `-------------- must be set to 1
+
+	F8	Hard disk
+		Double sided  18 sector diskette  PS/2 1.44 Mb. DSQD
+
+	F9	5¬  Double sided, High Density diskette (15 sector)
+		3«  Double Sided, Double High Density diskette (9 sector)
+
+	FA	Ram disk (not all Ramdisks use this)
+
+	FC	5¬ Single Sided, Double Density diskette (9 sector)
+		8  inch Double Sided, Single Density diskette
+
+	FD	5¬ Double Sided, Double Density (9 sector)
+		8  inch Double Sided Single Density (26 sector) (IBM 3740
+		   format) 128 bytes per sector, soft sector, 4 sectors
+		   cluster, 4 reserved sectors, 2 FATs, 68 directory entries,
+		   77*26*2 sectors.
+
+	FE	5¬ Single Sided, Double Density diskette (8 sector)
+		8  inch Single Sided, Single Density diskette (26 sector)
+		   (IBM 3740 format) 128 bytes per sector, soft sector,
+		   4 sectors per cluster, 1 reserved sector, 2 FATs. 68
+		   directory entries, 77*26 sectors.
+		8  inch Double Sided, Double Density (8 sector), 1024 bytes
+		   per sector, soft sector, 1 sector per cluster, 1 reserved
+		   sector, 2 FATs, 192 directory entries, 77*8*2 sectors. To
+		   distinguish from 8 inch SS/SD attempt read of side 2.
+
+	FF	5¬ Double Sided, Double Density diskette (8 sector)
+
+	- see also   <A HREF="int_21-1b.html">INT 21,1B</A>  <A HREF="int_21-1c.html">INT 21,1C</A>  <A HREF="fat.html">FAT</A>
+</PRE>
+
+</BODY>
+</HTML>

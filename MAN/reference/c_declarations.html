@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>C declarations</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Complex C Declarations</H2>
+
+<PRE>
+
+
+	int i;			i as an int
+	int *i; 		i as a pointer to an int
+	int **i;		i is a pointer to a pointer to an int
+	int *(*i)();		i is a pointer to a function returning a
+				  pointer to int
+	int *(*i[])();		i is an array of pointers to functions
+				  returning pointers to an int
+	int *i[5];		i is an array of 5 pointers to int
+	int (*i)[5];		i is a pointer to an array of 5 ints
+	int *i();		i is a function returning a pointer to an int
+	int (*i)();		i is a pointer to a function returning int
+	int *(*(*i)())[5]	i is a pointer to a function returning a
+				  pointer to an array of 5 pointers to an int
+
+
+</PRE>
+
+</BODY>
+</HTML>

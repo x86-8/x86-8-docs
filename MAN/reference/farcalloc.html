@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>farcalloc</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void far *farcalloc( unsigned long nunits, unsigned long units )</H2>
+
+<PRE>
+
+
+	- prototype in alloc.h
+
+	- allocates memory from the far heap for an array of nunits
+	  elements, each units bytes long
+	- returns pointer to allocated block or NULL if not enough memory
+	- can allocate all of memory & chunks bigger than 64K
+	- must use far pointers
+
+</PRE>
+
+</BODY>
+</HTML>

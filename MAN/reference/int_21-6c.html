@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,6c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,6C - Extended Open/Create  (DOS 4.x+)</H2>
+
+<PRE>
+
+	AH = 6C
+	AL = 00
+	BX = open mode (see below)
+	CX = file attribute (see <A HREF="file_attributes.html">FILE ATTRIBUTES</A>, bits 15-8 are zero)
+	DX = function control indicator (see below)
+	DS:SI = ASCIIZ filespec
+
+
+	returns:
+	AX = handle if CF clear
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	CX = 01  file opened
+	   = 02  file created and opened
+	   = 03  file truncated and opened (replaced)
+	CF = 0 if successful
+	   = 1 if error
+
+
+<B>	Open Mode in BX:</B>
+
+	|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|  BX  (Open Mode)
+	 | | | | | | | | | | | | | `-------- read/write access mode
+	 | | | | | | | | | | | | `-------- reserve (must be 0)
+	 | | | | | | | | | `------------ sharing mode
+	 | | | | | | | | `------------ 1 = private, 0 = inheritable
+	 | | | `-------------------- reserved
+	 | | `-------------------- 0 = call INT 24, 1 = ignore INT 24
+	 | `-------------------- 0 = normal write, 1 = flush each write
+	 `-------------------- reserved
+
+<B>	Read/Write Access bits:     Sharing Mode bits:</B>
+<B>	210			      654</B>
+	000  read access	      000  compatibility mode
+	001  write access	      001  read/write access
+	010  read/write access	      010  write access denied
+				      011  read access denied
+				      100  full access
+
+<B>	Function Control Indicator in DX:</B>
+
+	|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|  DX  (Function Control)
+	 | | | | | | | | | | | | `---------- file existence behavior
+	 | | | | | | | | `----------------- creation behavior
+	 `-------------------------------- reserved
+
+<B>	File Existence Behavior bits:</B>
+<B>	3210</B>
+	0000  if file exist, generate error, take no action
+	0001  if file exists, open file
+	0010  if file exists, truncate and open
+
+
+<B>	Creation Behavior bits:</B>
+<B>	7654</B>
+	0000  if file does not exist, generate error, take no action
+	0001  if file does not exist, create
+
+
+</PRE>
+
+</BODY>
+</HTML>

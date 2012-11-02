@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,4d</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,4D - Get Page Count for All Handles  (LIM EMS)</H2>
+
+<PRE>
+
+	AH = 4Dh
+	ES:DI = pointer to handle array
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	BX = number of active EMM handles (0..255)
+	ES:DI = pointer to an array of entries of the format:
+
+	   Offset  Size     Description
+	     00    word   EMS handle number
+	     02    word   number of pages
+
+	- buffer at ES:DI should be able to hold an array of at least 4*BX
+	- an error will occur if ES:DI points to a buffer that will
+	  cause a segment swap
+	- registers not listed are preserved
+</PRE>
+
+</BODY>
+</HTML>

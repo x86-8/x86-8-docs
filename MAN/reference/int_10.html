@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>int 10</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10 - Video BIOS Services</H2>
+
+<PRE>
+
+<B>	For more information, see the following topics:</B>
+
+	 <A HREF="int_10-0.html">INT 10,0</A> - Set video mode
+	 <A HREF="int_10-1.html">INT 10,1</A> - Set cursor type
+	 <A HREF="int_10-2.html">INT 10,2</A> - Set cursor position
+	 <A HREF="int_10-3.html">INT 10,3</A> - Read cursor position
+	 <A HREF="int_10-4.html">INT 10,4</A> - Read light pen
+	 <A HREF="int_10-5.html">INT 10,5</A> - Select active display page
+	 <A HREF="int_10-6.html">INT 10,6</A> - Scroll active page up
+	 <A HREF="int_10-7.html">INT 10,7</A> - Scroll active page down
+	 <A HREF="int_10-8.html">INT 10,8</A> - Read character and attribute at cursor
+	 <A HREF="int_10-9.html">INT 10,9</A> - Write character and attribute at cursor
+	 <A HREF="int_10-a.html">INT 10,A</A> - Write character at current cursor
+	 <A HREF="int_10-b.html">INT 10,B</A> - Set color palette
+	 <A HREF="int_10-c.html">INT 10,C</A> - Write graphics pixel at coordinate
+	 <A HREF="int_10-d.html">INT 10,D</A> - Read graphics pixel at coordinate
+	 <A HREF="int_10-e.html">INT 10,E</A> - Write text in teletype mode
+	 <A HREF="int_10-f.html">INT 10,F</A> - Get current video state
+	<A HREF="int_10-10.html">INT 10,10</A> - Set/get palette registers (EGA/VGA)
+	<A HREF="int_10-11.html">INT 10,11</A> - Character generator routine (EGA/VGA)
+	<A HREF="int_10-12.html">INT 10,12</A> - Video subsystem configuration (EGA/VGA)
+	<A HREF="int_10-13.html">INT 10,13</A> - Write string (BIOS after 1/10/86)
+	<A HREF="int_10-14.html">INT 10,14</A> - Load LCD char font (convertible)
+	<A HREF="int_10-15.html">INT 10,15</A> - Return physical display parms (convertible)
+	<A HREF="int_10-1a.html">INT 10,1A</A> - Video Display Combination (VGA)
+	<A HREF="int_10-1b.html">INT 10,1B</A> - Video BIOS Functionality/State Information (MCGA/VGA)
+	<A HREF="int_10-1c.html">INT 10,1C</A> - Save/Restore Video State  (VGA only)
+	<A HREF="int_10-fe.html">INT 10,FE</A> - Get DESQView/TopView Virtual Screen Regen Buffer
+	<A HREF="int_10-ff.html">INT 10,FF</A> - Update DESQView/TopView Virtual Screen Regen Buffer
+
+
+	Warning: Some BIOS implementations have a bug that causes register
+	BP to be destroyed.   It is advisable to save BP before a call to
+	Video BIOS routines on these systems.
+
+	- registers CS, DS, ES, SS, BX, CX, DX are preserved unless
+	  explicitly changed
+	- see  <A HREF="int_1f.html">INT 1F</A>  <A HREF="int_1d.html">INT 1D</A>  <A HREF="int_29.html">INT 29</A>  <A HREF="int_21-2.html">INT 21,2</A>  <A HREF="int_21-6.html">INT 21,6</A>  <A HREF="int_21-9.html">INT 21,9</A>
+
+</PRE>
+
+</BODY>
+</HTML>

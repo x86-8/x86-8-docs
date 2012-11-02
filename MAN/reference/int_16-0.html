@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 16,0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 16,0 - Wait for Keypress and Read Character</H2>
+
+<PRE>
+
+
+	AH = 00
+
+
+	on return:
+	AH = keyboard scan code
+	AL = ASCII character or zero if special function key
+
+
+	- halts program until key with a scancode is pressed
+	- see  <A HREF="scan_codes.html">SCAN CODES</A>
+
+</PRE>
+
+</BODY>
+</HTML>

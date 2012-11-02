@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,21</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,21 - Power On Self Test (POST) Error Log  (PS/2 except 30)</H2>
+
+<PRE>
+
+	AH = 21h
+	AL = 00 read POST error log
+	   = 01 write error code to POST error log
+	BH = Device code  (if write)
+	BL = Device error  (if write)
+
+	on return
+	CF = 0 if successful
+	   = 1 if in error (AH contains code)
+
+<B>	if reading POST error log:</B>
+	   AH = 00h if successful
+	      = 80h (PCjr and PC)	 = 86h for all other machines
+	   BX = number of POST error codes stored
+	   ES:DI pointer to POST error log
+
+<B>	if writing POST error log:</B>
+	   AH = 00h if successful	 = 01 POST error log full
+	      = 80h (PCjr and PC)	 = 86h for all other machines
+</PRE>
+
+</BODY>
+</HTML>

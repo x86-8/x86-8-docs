@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>pop</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>POP - Pop Word off Stack</H2>
+
+<PRE>
+
+
+	Usage:	POP	dest
+	Modifies flags: None
+
+
+	Transfers word at the current stack top (SS:SP) to the destination
+	then increments SP by two to point to the new stack top.  CS is not
+	a valid destination.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16		  8	5     4     4		  1
+	reg32		  4	-     -	    4		  1
+	segreg		  8	5     7	    3		  1
+	mem16		17+EA	5     5     6		 2-4
+	mem32		  5	-     -	    6		 2-4
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

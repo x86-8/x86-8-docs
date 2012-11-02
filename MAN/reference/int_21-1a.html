@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,1a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,1A - Set Disk Transfer Address (DTA)</H2>
+
+<PRE>
+
+
+	AH = 1A
+	DS:DX = pointer to disk transfer address (<A HREF="dta.html">DTA</A>)
+
+
+	returns nothing
+
+
+	- specifies the disk transfer address to DOS
+	- DTA cannot overlap 64K segment boundary
+	- offset 80h in the <A HREF="program_segment_prefix.html">PSP</A> is a 128 byte default DTA supplied
+	  by DOS upon program load
+	- use of the DTA provided by DOS will result in the loss
+	  of the program command tail which also occupies the 128
+	  bytes starting at offset 80h of the PSP
+	- see	<A HREF="int_21-2f.html">INT 21,2F</A>
+</PRE>
+
+</BODY>
+</HTML>

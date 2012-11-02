@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,B - Read Mouse Motion Counters</H2>
+
+<PRE>
+
+
+	AX = 0B
+
+
+	on return:
+	CX = horizontal mickey count (-32768 to 32767)
+	DX = vertical mickey count (-32768 to 32767)
+
+
+	- count values are 1/200 inch intervals (1/200 in. = 1 mickey)
+
+</PRE>
+
+</BODY>
+</HTML>

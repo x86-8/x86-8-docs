@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<TITLE>swab</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>void swab( char *src, char *dest, int nbytes )</H2>
+
+<PRE>
+
+
+	- prototype in stdlib.h
+
+	- copies nbytes bytes from src into dest, with adjacent even and
+	  odd-byte positions being swapped
+	- nbytes should therefore be an even number
+	- a standard way of performing this is to use the <A HREF="xchg.html">XCHG</A> instruction
+</PRE>
+
+</BODY>
+</HTML>

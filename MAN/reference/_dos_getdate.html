@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_getdate</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: void _dos_getdate( struct dosdate_t *date )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- date = pointer to structure to contain returned data of format:
+
+	struct dosdate_t
+	  {
+	  unsigned char day;		- [1-31]
+	  unsigned char month;		- [1-12]
+	  unsigned int	year;		- [1980-2099]
+	  unsigned char dayofweek;	- [0-6] = Sun..Sat
+	  };
+
+	- Turbo C uses <A HREF="getdate.html">getdate</A>()
+	- see	<A HREF="int_21-2a.html">INT 21,2A</A>
+</PRE>
+
+</BODY>
+</HTML>

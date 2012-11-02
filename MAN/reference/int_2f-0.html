@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>int 2f,0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2F,0 - DOS Multiplex Interrupt - Get Installed State</H2>
+
+<PRE>
+
+	AL = 00
+	AH = 00  DOS 2.x PRINT.COM (undocumented, see note below)
+	     01  PRINT	(undocumented behavior also, see note below)
+	     05  Critical error handler (undocumented DOS 3.0+)
+	     06  ASSIGN  (see note)
+	     08  DRIVER.SYS (undocumented DOS 3.2+)
+	     10  SHARE
+	     11  Redirector/IFS is resident
+	     12  MultiDOS is resident
+	     13  Swap 13h and 19h
+	     14  NLSFUNC
+	     15  GRAPHICS.COM (see note below)
+		 MS CD-ROM extension (MSCDEX) (see note below)
+	     16  Windows 386
+	     17  DOS shell
+	     19  SHELLB.COM (DOS 4.0 only)
+	     1A  ANSI.SYS (DOS 4.0+)
+	     1B  XMA2EMS.SYS
+	     40  OS/2 compatibility box
+	     43  Himem XMS driver
+	     7A  Novell Netware IPX
+	     AD  DISPLAY.SYS internal (DOS 3.3+)
+	     AE  DOS installable command extension (DOS 3.3+)
+	     B0  GRAFTABL.COM (DOS 3.3+)
+	     B4  IBM 3270 emulation
+	     B7  APPEND  (DOS 3.3+)
+	     B8  LAN existence
+	     B9  LAN RECEIVER.COM
+	     BF  LAN REDIRIFS.EXE
+	     C0-FF reserved for user applications
+
+
+	on return:
+	AL = 00  not installed, ok to install
+	   = 01  not installed, do NOT install
+	   = FF  installed
+
+
+	- the installed test for append returns non-zero if installed;
+	  zero if not installed
+	- AH = 00 and 01 are used by DOS 2.x PRINT.COM and is not a check
+	  for installed state, see BIBLIO reference to "Undocumented DOS"
+	- ASSIGN returns non-zero if installed
+	- installation checks with AH=15 do not follow the standard format;
+	- see  <A HREF="bibliography.html">Bibliography</A> reference to "Undocumented DOS"
+</PRE>
+
+</BODY>
+</HTML>

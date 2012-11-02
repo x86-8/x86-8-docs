@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>spawn</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Function spawn(), etc...</H2>
+
+<PRE>
+
+	int spawnl( int mode, char *path, char *arg0,
+			char *arg1, ..., NULL )
+	int spawnle( int mode, char *path, char *arg0,
+			char *arg1, ..., NULL, char *envp[] )
+	int spawnlp( int mode, char *path, char *arg0,
+			char *arg1, ..., NULL )
+	int spawnlpe( int mode, char *path, char *arg0,
+			char *arg1, ..., NULL, char *envp[] )
+	int spawnv( int mode, char *path, char *argv )
+	int spawnve( int mode, char *path, char *argv, char *envp[] )
+	int spawnvp( int mode, char *path, char *argv )
+	int spawnvpe( int mode, char *path, char *argv, char *envp[] )
+
+	- prototype in process.h
+
+	- creates & runs child processes
+	- mode is P_WAIT which puts parent process "on hold" until child
+	  completes execution; P_NOWAIT which continues to run parent
+	  while child runs (not supported yet); or P_OVERLAY which overlays
+	  child in memory location formerly occupied by parent (same as
+	  exec... call)
+	- use P_WAIT to perform a DOS shell
+	- returns 0 for SUCCESS and non-zero for failure based on the
+	  errorlevel set by the application
+
+	- see	<A HREF="exec___.html">exec...</A>
+</PRE>
+
+</BODY>
+</HTML>

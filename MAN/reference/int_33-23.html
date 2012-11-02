@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,23</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,23 - Get Language Number</H2>
+
+<PRE>
+
+	AX = 23h
+
+
+	on return:
+	BX = language number (with /L switch value):
+	   = 0	English     n/a
+	   = 1	French	    F
+	   = 2	Dutch	    NL
+	   = 3	German	    D
+	   = 4	Swedish     S
+	   = 5	Finnish     SF
+	   = 6	Spanish     E
+	   = 7	Portuguese  P
+	   = 8	Italian     I
+
+	- only works with international version of the mouse driver
+	- returns English (0) if not international version
+
+	- see	<A HREF="int_33-22.html">INT 33,22</A>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,B - Write Long Sectors (XT & newer)</H2>
+
+<PRE>
+
+	AH = 0B
+	AL = number of sectors	(1-121 dec.)
+	CH = track number  (0-1023 dec., see below)
+	CL = sector number  (1-17 dec., see below)
+	DH = head number  (0-15 dec.)
+	DL = fixed drive number  (80h=drive 0, 81h=drive 1)
+	ES:BX = address of buffer
+
+
+	on return:
+	AL = number of sectors actually transferred
+	AH = status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- BIOS disk write attempts should reset the controller on error
+	- many good programming references indicate this function is only
+	  available on the AT, PS/2 and later systems, but all hard disk
+	  systems since the XT have this function available
+	- writes regular sectors (128-1024 bytes) with additional 4 byte
+	  ECC code included in data
+	- a DMA boundary error will occur if the buffer at ES:BX crosses
+	  a 64K segment boundary
+	- only the disk number is checked for validity
+	- the parameters in CX change depending on the number of cylinders;
+	  the track/cylinder number is a 10 bit value taken from the 2 high
+	  order bits of CL and the 8 bits in CH (low order 8 bits of track):
+
+	  |F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|  CX
+	   | | | | | | | | | | `--------------	sector number
+	   | | | | | | | | `--------------  high order 2 bits of track number
+	   `--------------------------	low order 8 bits of track number
+
+	- see	<A HREF="int_13-3.html">INT 13,3</A>
+
+</PRE>
+
+</BODY>
+</HTML>

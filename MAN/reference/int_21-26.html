@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,26</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,26 - Create New Program Segment Prefix</H2>
+
+<PRE>
+
+
+	AH = 26h
+	DX = segment address of new <A HREF="program_segment_prefix.html">PSP</A>
+
+
+	returns nothing
+
+
+	- allocates memory for a PSP and copies current PSP there
+	- used before DOS 2.x to spawn a child process
+	- the application is responsible for allocating any memory
+	  necessary for the child process
+	- <A HREF="int_21-4b.html">INT 21,4B</A> (EXEC) is now the recommended method for starting
+	  a child process, so this function should be avoided
+
+
+	- see also <A HREF="int_21-55.html">INT 21,55</A>
+
+</PRE>
+
+</BODY>
+</HTML>

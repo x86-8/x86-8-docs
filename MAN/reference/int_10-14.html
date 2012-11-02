@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,14</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,14 - Load LCD Character Font (convertible only)</H2>
+
+<PRE>
+
+	AH = 14h
+
+<B>	AL = 0 - load user specified font</B>
+	   ES:DI = pointer to character font
+	   CX = number of characters to store
+	   DX = char offset into ram font area
+	   BH = number of bytes per character
+	   BL = 0  load main font (block 0)
+	      = 1  load alternate font (block 1)
+
+<B>	AL = 1 - load system ROM default font</B>
+	   BL = 0  load main font (block 0)
+	      = 1  load alternate font (block 1)
+
+<B>	AL = 2 - set mapping of LCD high intensity attribute</B>
+	   BL = 0  ignore high intensity attribute
+	      = 1  map high intensity to underscore
+	      = 2  map high intensity to reverse video
+	      = 3  map high intensity to select alternate font
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>int 17</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 17 - Printer BIOS Services</H2>
+
+<PRE>
+
+<B>	For more information, see the following topics:</B>
+
+	<A HREF="int_17-0.html">INT 17,0</A>   Print character
+	<A HREF="int_17-1.html">INT 17,1</A>   Initialize printer port
+	<A HREF="int_17-2.html">INT 17,2</A>   Read printer port status
+
+	Status flags returned in register AH
+
+	|7|6|5|4|3|2|1|0|  AH (status)
+	 | | | | | | | `----  time-out
+	 | | | | | `-------  unused
+	 | | | | `--------  1 = I/O error  (<A HREF="parallel_port.html">parallel</A> pin 15)
+	 | | | `---------  1 = printer selected/on-line  (parallel pin 13)
+	 | | `----------  1 = out of paper  (parallel pin 12)
+	 | `-----------  1 = printer acknowledgment  (parallel pin 10)
+	 `------------	1 = printer not busy  (parallel pin 11)
+
+	- on the AT, XT 286, and PS/2 when the BIOS determines the printer
+	  is busy,  <A HREF="int_15-90.html">INT 15,90</A>  is executed
+	- all printers do not return reliable status information;  bit 3 and
+	  bit 7 are usually reliable.
+	- all registers are preserved except AH
+</PRE>
+
+</BODY>
+</HTML>

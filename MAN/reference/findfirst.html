@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>findfirst</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	TC: int findfirst( const char *path, struct ffblk *ffblk, int attr)</B>
+
+<B>	MSC unsigned _dos_findfirst( char *path, unsigned attr,</B>
+<B>					struct find_t *fileinfo )</B>
+
+	- prototype in dir.h, also include dos.h (MS C: dos.h only)
+
+	- gets disk directory via DOS 0x4E, where attr is:
+
+<B>			Turbo C		Microsoft C</B>
+
+			FA_RDONLY	_A_RDONLY
+			FA_HIDDEN	_A_HIDDEN
+			FA_SYSTEM	_A_SYSTEM
+			FA_LABEL	_A_VOLID
+			FA_DIREC	_A_SUBDIR
+			FA_ARCH		_A_ARCH
+
+<B>	struct ffblk	(Turbo C)	struct find_t	(MSC)</B>
+	    {				    {
+	    char     ff_reserved[21];	    char     reserved[21];
+	    char     ff_attrib; 	    char     attrib;
+	    unsigned ff_ftime;		    unsigned wr_time;
+	    unsigned ff_fdate;		    unsigned wr_date;
+	    long     ff_fsize;		    long     size;
+	    char     ff_name[13];	    char     name[13];
+	    };				    };
+
+	- attributes can be logically OR'ed
+	- struct ffblk is defined in Turbo C's dir.h
+	- struct find_t is defined in MS C's dos.h
+	- updates <A HREF="dta.html">DTA</A>, provisions for saving/setting DTA should be made
+	- normal files are always included along with files that match
+	  the requested attributes except when the LABEL attribute is
+	  requested.  It's up to the programmer to determine which
+	  actually match the requested attributes.
+	- returns 0 if OK, -1 if no matching files found or on error
+
+	- see	<A HREF="file_attributes.html">FILE ATTRIBUTES</A>,  <A HREF="findnext.html">FINDNEXT</A>,  <A HREF="getdta.html">GETDTA</A>  and  <A HREF="setdta.html">SETDTA</A>
+</PRE>
+
+</BODY>
+</HTML>

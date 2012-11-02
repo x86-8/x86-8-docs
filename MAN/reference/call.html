@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>call</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>CALL - Procedure Call</H2>
+
+<PRE>
+
+	Usage:	CALL	destination
+	Modifies flags: None
+
+	Pushes Instruction Pointer (and Code Segment for far calls) onto
+	stack and loads Instruction Pointer with the address of proc-name.
+	Code continues with execution at CS:IP.
+
+<B>						         Clocks</B>
+<B>		   Operands			808x   286     386     486</B>
+
+	rel16 (near, IP relative)		 19     7      7+m      3
+	rel32 (near, IP relative)		 -	-      7+m      3
+
+	reg16 (near, register indirect)		 16     7      7+m      5
+	reg32 (near, register indirect)		 -	-      7+m      5
+
+	mem16 (near, memory indirect)		 -     21+EA    11    10+m      5
+	mem32 (near, memory indirect)		 -   	-     10+m      5
+
+	ptr16:16 (far, full ptr supplied)	 28     13    17+m      18
+	ptr16:32 (far, full ptr supplied)	 -	-     17+m      18
+	ptr16:16 (far, ptr supplied, prot. mode) -	26    34+m      20
+	ptr16:32 (far, ptr supplied, prot. mode) -	-     34+m      20
+	m16:16 (far, indirect)		       37+EA    16    22+m      17
+	m16:32 (far, indirect)			 -	-     22+m      17
+	m16:16 (far, indirect, prot. mode)	 -      29    38+m      20
+	m16:32 (far, indirect, prot. mode)	 -	-     38+m      20
+
+	ptr16:16 (task, via TSS or task gate)	 -     177     TS     37+TS
+	m16:16 (task, via TSS or task gate)	 -   180/185  5+TS    37+TS
+	m16:32 (task)				 -	-      TS     37+TS
+	m16:32 (task)				 -	-     5+TS    37+TS
+
+	ptr16:16 (gate, same privilege)		 -      41    52+m      35
+	ptr16:32 (gate, same privilege)		 -	-     52+m      35
+	m16:16 (gate, same privilege)	       	 -	44    56+m      35
+	m16:32 (gate, same privilege)		 -	-     56+m      35
+
+	ptr16:16 (gate, more priv, no parm)	 -   	82    86+m      69
+	ptr16:32 (gate, more priv, no parm)	 -	-     86+m      69
+	m16:16 (gate, more priv, no parm)	 -   	83    90+m      69
+	m16:32 (gate, more priv, no parm)	 -	-     90+m      69
+
+	ptr16:16 (gate, more priv, x parms)	 -    86+4x  94+4x+m  77+4x
+	ptr16:32 (gate, more priv, x parms)	 -	-    94+4x+m  77+4x
+	m16:16 (gate, more priv, x parms)	 -    90+4x  98+4x+m  77+4x
+	m16:32 (gate, more priv, x parms)	 -	-    98+4x+m  77+4x
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

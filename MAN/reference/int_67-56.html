@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,56</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,56 - Alter Page Map and Call  (LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 56h
+	AL = 00  physical page numbers provided by caller
+		 DX = EMM handle
+		 DS:SI = pointer to structure with page map and call address
+	     01  segment addresses provided by caller
+		 DX = EMM handle
+		 DS:SI = pointer to structure with page map and call address
+	     02  get page map stack space required
+
+
+	on return:
+	BX = stack space required (AL = 02)
+	AH = status  (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+
+	- if successful, the target address is called
+	- use a RETF to return and restore mapping context
+
+</PRE>
+
+</BODY>
+</HTML>

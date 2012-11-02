@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>int 33</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33 - Mouse Function Calls</H2>
+
+<PRE>
+
+<B>	For more information see the following topics:</B>
+
+	<A HREF="int_33-0.html">INT 33,0</A>   Mouse Reset/Get Mouse Installed Flag
+	<A HREF="int_33-1.html">INT 33,1</A>   Show Mouse Cursor
+	<A HREF="int_33-2.html">INT 33,2</A>   Hide Mouse Cursor
+	<A HREF="int_33-3.html">INT 33,3</A>   Get Mouse Position and Button Status
+	<A HREF="int_33-4.html">INT 33,4</A>   Set Mouse Cursor Position
+	<A HREF="int_33-5.html">INT 33,5</A>   Get Mouse Button Press Information
+	<A HREF="int_33-6.html">INT 33,6</A>   Get Mouse Button Release Information
+	<A HREF="int_33-7.html">INT 33,7</A>   Set Mouse Horizontal Min/Max Position
+	<A HREF="int_33-8.html">INT 33,8</A>   Set Mouse Vertical Min/Max Position
+	<A HREF="int_33-9.html">INT 33,9</A>   Set Mouse Graphics Cursor
+	<A HREF="int_33-a.html">INT 33,A</A>   Set Mouse Text Cursor
+	<A HREF="int_33-b.html">INT 33,B</A>   Read Mouse Motion Counters
+	<A HREF="int_33-c.html">INT 33,C</A>   Set Mouse User Defined Subroutine and Input Mask
+	<A HREF="int_33-d.html">INT 33,D</A>   Mouse Light Pen Emulation On
+	<A HREF="int_33-e.html">INT 33,E</A>   Mouse Light Pen Emulation Off
+	<A HREF="int_33-f.html">INT 33,F</A>   Set Mouse Mickey Pixel Ratio
+	<A HREF="int_33-10.html">INT 33,10</A>  Mouse Conditional OFF
+	<A HREF="int_33-13.html">INT 33,13</A>  Set Mouse Double Speed Threshold
+	<A HREF="int_33-14.html">INT 33,14</A>  Swap interrupt subroutines
+	<A HREF="int_33-15.html">INT 33,15</A>  Get mouse driver state and memory requirements
+	<A HREF="int_33-16.html">INT 33,16</A>  Save mouse driver state
+	<A HREF="int_33-17.html">INT 33,17</A>  Restore mouse driver state
+	<A HREF="int_33-18.html">INT 33,18</A>  Set alternate subroutine call mask and address
+	<A HREF="int_33-19.html">INT 33,19</A>  Get user alternate interrupt address
+	<A HREF="int_33-1a.html">INT 33,1A</A>  Set mouse sensitivity
+	<A HREF="int_33-1b.html">INT 33,1B</A>  Get mouse sensitivity
+	<A HREF="int_33-1c.html">INT 33,1C</A>  Set mouse interrupt rate (InPort only)
+	<A HREF="int_33-1d.html">INT 33,1D</A>  Set mouse CRT page
+	<A HREF="int_33-1e.html">INT 33,1E</A>  Get mouse CRT page
+	<A HREF="int_33-1f.html">INT 33,1F</A>  Disable mouse driver
+	<A HREF="int_33-20.html">INT 33,20</A>  Enable mouse driver
+	<A HREF="int_33-21.html">INT 33,21</A>  Reset mouse software
+	<A HREF="int_33-22.html">INT 33,22</A>  Set language for messages
+	<A HREF="int_33-23.html">INT 33,23</A>  Get language number
+	<A HREF="int_33-24.html">INT 33,24</A>  Get driver version, mouse type & <A HREF="int_table.html">IRQ</A> number
+
+	- function is specified in AX
+	- a mickey is 1/200 inches
+	- for additional information see your vendor documentation
+	- function number occupies all of AX rather than AH
+
+
+</PRE>
+
+<H2 ALIGN=Center>Mouse functions can be broken down into the following classes:</H2>
+
+<PRE>
+
+<B>	Mouse Driver Control / Feedback Functions</B>
+	<A HREF="int_33-0.html">INT 33,0</A>   Mouse Reset/Get Mouse Installed Flag
+	<A HREF="int_33-15.html">INT 33,15</A>  Get Mouse Driver State and Memory Requirements
+	<A HREF="int_33-16.html">INT 33,16</A>  Save Mouse Driver State
+	<A HREF="int_33-17.html">INT 33,17</A>  Restore Mouse Driver State
+	<A HREF="int_33-1c.html">INT 33,1C</A>  Set Mouse Interrupt Rate (InPort only)
+	<A HREF="int_33-1f.html">INT 33,1F</A>  Disable Mouse Driver
+	<A HREF="int_33-20.html">INT 33,20</A>  Enable Mouse Driver
+	<A HREF="int_33-21.html">INT 33,21</A>  Reset Mouse Software
+	<A HREF="int_33-24.html">INT 33,24</A>  Get Driver Version, Mouse Type & IRQ Number
+
+<B>	Mouse Cursor Control Functions</B>
+	<A HREF="int_33-1.html">INT 33,1</A>   Show Mouse Cursor
+	<A HREF="int_33-2.html">INT 33,2</A>   Hide Mouse Cursor
+	<A HREF="int_33-4.html">INT 33,4</A>   Set Mouse Cursor Position
+	<A HREF="int_33-7.html">INT 33,7</A>   Set Mouse Horizontal Min/Max Position
+	<A HREF="int_33-8.html">INT 33,8</A>   Set Mouse Vertical Min/Max Position
+	<A HREF="int_33-9.html">INT 33,9</A>   Set Mouse Graphics Cursor
+	<A HREF="int_33-a.html">INT 33,A</A>   Set Mouse Text Cursor
+	<A HREF="int_33-f.html">INT 33,F</A>   Set Mouse Mickey Pixel Ratio
+	<A HREF="int_33-10.html">INT 33,10</A>  Mouse Conditional OFF
+	<A HREF="int_33-13.html">INT 33,13</A>  Set Mouse Double Speed Threshold
+	<A HREF="int_33-1a.html">INT 33,1A</A>  Set Mouse Sensitivity
+	<A HREF="int_33-1b.html">INT 33,1B</A>  Get Mouse Sensitivity
+
+<B>	Mouse Button and Position Feedback Functions</B>
+	<A HREF="int_33-3.html">INT 33,3</A>   Get Mouse Position and Button Status
+	<A HREF="int_33-5.html">INT 33,5</A>   Get Mouse Button Press Information
+	<A HREF="int_33-6.html">INT 33,6</A>   Get Mouse Button Release Information
+	<A HREF="int_33-b.html">INT 33,B</A>   Read Mouse Motion Counters
+
+<B>	Video Control and Feedback Functions</B>
+	<A HREF="int_33-1d.html">INT 33,1D</A>  Set Mouse CRT Page
+	<A HREF="int_33-1e.html">INT 33,1E</A>  Get Mouse CRT Page
+
+<B>	Mouse Interrupt Setup Functions</B>
+	<A HREF="int_33-c.html">INT 33,C</A>   Set Mouse User Defined Subroutine and Input Mask
+	<A HREF="int_33-14.html">INT 33,14</A>  Swap Interrupt Subroutines
+
+<B>	Alternate Mouse Interrupt Setup Functions</B>
+	<A HREF="int_33-18.html">INT 33,18</A>  Set Alternate Subroutine Call Mask and Address
+	<A HREF="int_33-19.html">INT 33,19</A>  Get User Alternate Interrupt Address
+
+<B>	Light Pen Emulation Functions</B>
+	<A HREF="int_33-d.html">INT 33,D</A>   Mouse Light Pen Emulation On
+	<A HREF="int_33-e.html">INT 33,E</A>   Mouse Light Pen Emulation Off
+
+<B>	International Language Support Functions</B>
+	<A HREF="int_33-22.html">INT 33,22</A>  Set Language for Messages
+	<A HREF="int_33-23.html">INT 33,23</A>  Get Language Number
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>device request header</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Device Request Header Format</H2>
+
+<PRE>
+
+
+<B>     Offset Size		Description</B>
+
+	00   byte	length in bytes of the request header
+	01   byte	unit code;  the sub-unit the operation is for (block
+			devices);  meaningless for character devices
+	02   word	command code, (see <A HREF="device_command_codes.html">DEVICE COMMANDS</A>)
+	04  8bytes	reserved for DOS
+	0C  nbytes	request data  (variable length)
+
+
+	- see  <A HREF="int_21-44.html">INT 21,44</A>  or	<A HREF="device_attributes.html">DEVICE ATTRIBUTES</A>  or  <A HREF="device_command_codes.html">DEVICE CODES</A>
+	- see also  IOCTL,n where "n" is an IOCTL function
+
+</PRE>
+
+</BODY>
+</HTML>

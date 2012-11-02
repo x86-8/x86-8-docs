@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,51</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,51 - Reallocate Pages  (LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 51h
+	DX = EMM handle
+	BX = number of pages to be allocated to handle
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	BX = actual number of pages allocated to handle
+
+</PRE>
+
+</BODY>
+</HTML>

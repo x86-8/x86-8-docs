@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>_read</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int _read( int handle, void *buf, int size )</H2>
+
+<PRE>
+
+
+	- prototype in io.h
+
+	- reads "size" bytes from file "handle" into "buf"
+	- size must be less than 65534 bytes
+	- is a direct call to MS-DOS read function <A HREF="int_21-3f.html">INT 21,3F</A>
+	- does not translate CR/LF;  all input in binary
+	- returns number of bytes successfully transferred or -1
+	- MS C uses <A HREF="_dos_read.html">_dos_read</A>()
+
+	- see   <A HREF="read.html">read</A>()  <A HREF="_open.html">_open</A>()  <A HREF="_creat.html">_creat</A>()  <A HREF="_write.html">_write</A>()   <A HREF="_close.html">_close</A>()
+</PRE>
+
+</BODY>
+</HTML>

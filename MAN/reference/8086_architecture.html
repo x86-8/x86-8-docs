@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>8086 architecture</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Intel 8086 Family Architecture</H2>
+
+<PRE>
+
+<B>	General Purpose Registers		Segment Registers</B>
+
+	AH/AL  AX  (EAX)  Accumulator		 CS	Code Segment
+	BH/BL  BX  (EBX)  Base			 DS	Data Segment
+	CH/CL  CX  (ECX)  Counter		 SS	Stack Segment
+	DH/DL  DX  (EDX)  Data			 ES	Extra Segment
+						(FS)	386 and newer
+	(Exx) indicates 386+ 32 bit register 	(GS)	386 and newer
+
+
+<B>	Pointer Registers			Stack Registers</B>
+
+	SI (ESI)  Source Index			SP (ESP)  Stack Pointer
+	DI (EDI)  Destination Index		BP (EBP)  Base Pointer
+	IP	  Instruction Pointer
+
+<B>	Status Registers</B>
+
+	FLAGS Status Flags   (see <A HREF="flags_register.html">FLAGS</A>)
+
+<B>	Special Registers (386+ only)</B>
+
+	CR0	Control Register 0	  DR0	 Debug Register 0
+	CR2	Control Register 2	  DR1	 Debug Register 1
+	CR3	Control Register 3	  DR2	 Debug Register 2
+					  DR3	 Debug Register 3
+	TR4	Test Register 4		  DR6	 Debug Register 6
+	TR5	Test Register 5		  DR7	 Debug Register 7
+	TR6	Test Register 6
+	TR7	Test Register 7
+	
+<B>	Register	  Default Segment    Valid Overrides</B>
+
+	BP			SS		DS, ES, CS
+	SI or DI		DS		ES, SS, CS
+	DI strings		ES		None
+	SI strings		DS		ES, SS, CS
+
+
+	- see  <A HREF="cpu.html">CPU</A>   <A HREF="detecting.html">DETECTING</A>  <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

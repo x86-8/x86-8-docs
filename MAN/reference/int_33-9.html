@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,9</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,9 - Set Mouse Graphics Cursor</H2>
+
+<PRE>
+
+
+	AX = 9
+	BX = horizontal hot spot (-16 to 16)
+	CX = vertical hot spot (-16 to 16)
+	ES:DX = pointer to screen and cursor masks (16 byte bitmap)
+
+
+	returns nothing
+
+
+	- screen mask is AND'ed to screen Cursor Mask is XOR'ed
+	- bytes 0-7 form the screen mask bitmap
+	- bytes 8-F form the cursor mask bitmap
+
+</PRE>
+
+</BODY>
+</HTML>

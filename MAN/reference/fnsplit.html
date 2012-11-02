@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>fnsplit</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  TC: void fnsplit( const char *path, char *drive, char *dir,</B>
+<B>			    char *name, char *ext)</B>
+
+
+	- prototype in dir.h
+
+	- splits a file name from path into drive, dir, name, and ext
+	- dir can include subdirectories
+	- maximum sizes for these strings are:
+
+	  MAXPATH  80	path
+	  MAXDRIVE  3	drive - includes colon (:)
+	  MAXDIR   66	dir - includes leading/traing backslashes
+	  MAXFILE   9	name
+	  MAXEXT    5	ext, including leading dot (.)
+
+	- invertible with <A HREF="fnmerge.html">fnmerge</A>()
+
+</PRE>
+
+</BODY>
+</HTML>

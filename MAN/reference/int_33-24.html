@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,24</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,24 - Get Driver Version, Mouse Type & IRQ Number</H2>
+
+<PRE>
+
+	AX = 24h
+
+
+	on return:
+	BH = major version (see below)
+	BL = minor version (see below)
+	CH = mouse type:
+	   = 1	bus mouse
+	   = 2	serial mouse
+	   = 3	InPort mouse
+	   = 4	PS/2  mouse
+	   = 5	Hewlett Packard mouse
+	CL = IRQ number:
+	   = 0	PS/2
+	   = 2	<A HREF="int_table.html">IRQ</A> 2
+	   = 5	IRQ 5
+	   = 7	IRQ 7
+
+	- version 6.1 would be represented as BH = 06h, BL = 10h
+</PRE>
+
+</BODY>
+</HTML>

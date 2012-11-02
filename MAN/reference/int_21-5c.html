@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,5c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,5C - Lock/Unlock File Access  (DOS 3.0+)</H2>
+
+<PRE>
+
+	AH = 5C
+	AL = 00  lock file
+	   = 01  unlock file
+	BX = file handle
+	CX = most significant word of region offset
+	DX = least significant word of region offset
+	SI = most significant word of region length
+	DI = least significant word of region length
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- used for networking and multi-tasking system to preserve
+	  data integrity
+	- duplicated handles inherit access to locked regions
+	- EXEC'd programs do not inherit access to locked regions
+</PRE>
+
+</BODY>
+</HTML>

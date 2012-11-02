@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>lock (C)</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int lock( int handle, long offset, long length )</H2>
+
+<PRE>
+
+
+	- prototype in io.h
+
+	- locks arbitrary, non-overlapping regions of any file (DOS 3.X),
+	  preventing reads/writes to those regions
+	- returns 0 on success, else -1 on error
+	- all locks must be released before program termination
+	- MS C uses <A HREF="locking.html">locking</A>()
+	- see	<A HREF="unlock.html">unlock</A>()
+</PRE>
+
+</BODY>
+</HTML>

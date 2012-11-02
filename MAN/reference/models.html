@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<TITLE>models</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Memory Model Programming & Segment Information</H2>
+
+<PRE>
+
+<B>	Model</B>
+	TINY	Data and code fit in one 64K segment.  All code and
+		data are accessed via near pointers.
+	SMALL	64k data segment max and 64k code segment max.	All
+		code and data are accessed via near pointers.
+	COMPACT	1Mb data segment max and 64K code segment max.	Code
+		is accessed via near pointers, data is accessed via
+		far pointers.  No array can be greater than 64K
+	MEDIUM	64K data segment max and 1Mb code segment max.	Code is
+		accessed via far pointers, data is accessed via	near pointers.
+	LARGE	1Mb data segment max and 1Mb code segment max.	All
+		code and data are accessed via far pointers.  No
+		single element can be greater than 64K.
+	HUGE	1Mb data segment max and 1Mb code segment max.	All
+		code and data are accessed via far pointers.  This is
+		the only model where arrays can be larger than 64K.
+		In this mode is C will normalize all data pointers
+		to avoid segment wrapping.
+
+</PRE>
+
+<H2 ALIGN=Center>Small Memory Model</H2>
+
+<PRE>
+
+<B>	Directive  Segment    Alignment    Combine	Class</B>
+	.CODE	    _TEXT	WORD	    PUBLIC	'CODE'
+	.DATA	    _DATA	WORD	    PUBLIC	'DATA'
+	.CONST	    CONST	WORD	    PUBLIC	'CONST'
+	.DATA?	    _BSS	WORD	    PUBLIC	'BSS'
+	.STACK	    STACK	PARA	    STACK	'STACK'
+
+
+</PRE>
+
+<H2 ALIGN=Center>Compact Memory Model</H2>
+
+<PRE>
+
+<B>	Directive   Segment    Alignment    Combine	Class</B>
+	.CODE	    _TEXT	WORD	    PUBLIC	'CODE'
+	.FARDATA    FAR_DATA	PARA	    private	'FAR_DATA'
+	.FARDATA?   FAR_BSS	PARA	    private	'FAR_BSS'
+	.DATA	    _DATA	WORD	    PUBLIC	'DATA'
+	.CONST	    CONST	WORD	    PUBLIC	'CONST'
+	.DATA?	    _BSS	WORD	    PUBLIC	'BSS'
+	.STACK	    STACK	PARA	    STACK	'STACK'
+
+
+</PRE>
+
+<H2 ALIGN=Center>Medium Memory Model</H2>
+
+<PRE>
+
+<B>	Directive  Segment    Alignment	    Combine	Class</B>
+	.CODE	  name_TEXT	WORD	    PUBLIC	'CODE'
+	.DATA	    _DATA	WORD	    PUBLIC	'DATA'
+	.CONST	    CONST	WORD	    PUBLIC	'CONST'
+	.DATA?	    _BSS	WORD	    PUBLIC	'BSS'
+	.STACK	    STACK	PARA	    STACK	'STACK'
+
+
+</PRE>
+
+<H2 ALIGN=Center>Large or Huge Memory Models</H2>
+
+<PRE>
+
+<B>	Directive    Segment  Alignment	    Combine	Class</B>
+	.CODE	    name_TEXT	WORD	    PUBLIC	'CODE'
+	.FARDATA    FAR_DATA	PARA	    private	'FAR_DATA'
+	.FARDATA?   FAR_BSS	PARA	    private	'FAR_BSS'
+	.DATA	     _DATA	WORD	    PUBLIC	'DATA'
+	.CONST	     CONST	WORD	    PUBLIC	'CONST'
+	.DATA?	     _BSS	WORD	    PUBLIC	'BSS'
+	.STACK	     STACK	PARA	    STACK	'STACK'
+
+
+	- all segments fall into DGROUP except for ???_TEXT, FAR_DATA
+	  and FAR_BSS
+	- see <A HREF="directives.html">ASM DIRECTIVES</A>
+</PRE>
+
+</BODY>
+</HTML>

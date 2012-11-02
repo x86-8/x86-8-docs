@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>access</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int access( const char *filename, int amode )</H2>
+
+<PRE>
+
+
+	- prototype in io.h
+
+	- checks filename for existence & R/W access
+
+	- amode = 06 -- check for R/W permission
+		  04 -- check for R
+		  02 -- check for W
+		  01 -- execute (ignored)
+		  00 -- check if filename exists
+
+	- filename can be directory
+	- returns 0 if OK
+		 -1 on error
+		    errno = ENOENT if path or filename not found
+		    errno = EACCES if permission denied
+
+</PRE>
+
+</BODY>
+</HTML>

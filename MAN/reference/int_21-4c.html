@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,4c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,4C - Terminate Process With Return Code</H2>
+
+<PRE>
+
+
+	AH = 4C
+	AL = return code (for batch files)
+
+
+	returns nothing
+
+
+	- approved method of program termination
+	- restores the terminate, <A HREF="int_1b.html">Ctrl-Break</A>, and critical error exit
+	  addresses, flushes all buffers, frees memory and returns to
+	  DOS via the termination handler address
+	- does not close FCBs
+	- this function is not supported in versions of DOS before 2.x,
+	  so use <A HREF="int_21-0.html">INT 21,0</A>  or	 <A HREF="int_20.html">INT 20</A>  to exit.
+
+
+	- see also  <A HREF="int_27.html">INT 27</A>   <A HREF="int_21-31.html">INT 21,31</A>
+
+</PRE>
+
+</BODY>
+</HTML>

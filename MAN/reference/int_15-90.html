@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,90</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,90 - Device Busy</H2>
+
+<PRE>
+
+	AH = 90h
+	AL = type code:
+	   = 00  disk
+	   = 01  diskette
+	   = 02  keyboard
+	   = 03  pointing device
+	   = 80  network (ES:BX = NCB)
+	   = FC  fixed disk reset (PS/2)
+	   = FD  diskette motor start
+	   = FE  printer
+	ES:BX = pointer to network control block if waiting for network
+
+	on return:
+	CF = 0 if wait not satisfied
+	   = 1 if wait time satisfied
+	AH = when CF set, 80h for PC & PCjr, 86h for XT (BIOS 11/8/82)
+
+	- tells the OS a a program is about to wait for a device
+	- used for multitasking OS development
+</PRE>
+
+</BODY>
+</HTML>

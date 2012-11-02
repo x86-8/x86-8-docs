@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<TITLE>stat</TITLE>
+</HEAD>
+
+<BODY><PRE><B>		int stat( char *pathname, struct stat *buff )</B>
+<B>		int fstat( char *handle, struct stat *buff )</B>
+
+
+	- prototype in stat.h
+
+	- stat() and <A HREF="fstat.html">fstat</A>() store information about a given open file
+	  (or directory) in the stat structure (in stat.h)
+	- stat() gets information about the open file or directory, while
+	  fstat() gets info about the open file associated with handle
+	- returns 0 if successful, else -1 on error
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,12</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,12 - Video Subsystem Configuration (EGA/VGA)</H2>
+
+<PRE>
+
+	AH = 12h
+
+
+<B>	BL = 10  return video configuration information</B>
+
+	on return:
+	BH = 0 if color mode in effect
+	   = 1 if mono mode in effect
+	BL = 0 if 64k EGA memory
+	   = 1 if 128k EGA memory
+	   = 2 if 192k EGA memory
+	   = 3 if 256k EGA memory
+	CH = feature bits
+	CL = switch settings
+
+
+<B>	BL = 20  select alternate print screen routine</B>
+
+<B>	BL = 30  select scan lines for alphanumeric modes</B>
+	   AL = 0  200 scan lines
+	      = 1  350 scan lines
+	      = 2  400 scan lines
+
+	on return:
+	AL = 12
+
+
+<B>	BL = 31  select default palette loading</B>
+	   AL = 0 enable default palette loading
+	      = 1 disable default palette loading
+
+	on return:
+	AL = 12
+
+
+<B>	BL = 32  CPU access to video RAM</B>
+	   AL = 0  enable CPU access to video RAM and I/O ports
+	      = 1  disable CPU access to video RAM and I/O ports
+
+	on return:
+	AL = 12
+
+
+<B>	BL = 33  Gray scale summing</B>
+	   AL = 0  enable gray scale summing
+	      = 2  disable gray scale summing
+
+	on return:
+	AL = 12
+
+
+<B>	BL = 34  cursor emulation</B>
+	   AL = 0  enable cursor emulation
+	      = 1  disable cursor emulation
+
+	on return:
+	AL = 12
+
+
+<B>	BL = 35  PS/2 video display switching</B>
+	   AL = 0 initial adapter video off
+	      = 1 initial planar video on
+	      = 2 switch active video off
+	      = 3 switch inactive video on
+	   ES:DX pointer to 128 byte save area (when AL = 0, 2 or 3)
+
+	on return:
+	AL = 12
+
+
+<B>	BL = 36  video refresh control</B>
+	   AL = 0 enable refresh
+	      = 1 disable refresh
+
+	on return:
+	AL = 12
+
+</PRE>
+
+</BODY>
+</HTML>

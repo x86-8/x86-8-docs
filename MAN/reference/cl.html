@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>cl</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Microsoft C Options (v6.0)</H2>
+
+<PRE>
+
+<B>	CL [options] [filenames] [libraries link-options]</B>
+
+	/AT	  Tiny Memory Model; combined code and data limited to 64K
+	/AS	  Small Memory Model; code and data limited to 64K each
+	/AM	  Medium Memory Model; data is limited to 64K
+	/AC	  Compact Memory Model; code is limited to 64K
+	/AL	  Large Memory Model; unlimited code and data but arrays
+		  are limited to 64K
+	/AH	  Huge Memory Model; unlimited code, data and array size
+	/Astring  where string is compose of the following:
+
+<B>		  Code Pointer Control</B>
+		  s	all code pointers are near
+		  l	all code pointers are far
+
+<B>		  Data Pointer Control</B>
+		  n	all data pointers are near
+		  f	all data pointer are far
+		  h	all data pointers are huge
+
+<B>		  Segment Setup Control</B>
+		  d	stack segment (SS) defaults to data segment (DS)
+		  u	stack segment (SS) is not equal to data segment (DS);
+			DS is loaded on function entry
+		  w	stack segment (SS) is not equal to data segment (DS);
+			DS is NOT loaded on function entry
+
+	/B1[path] used to invoke the large version of the compiler C1L.EXE;
+		  normally used when the compiler runs out of heap space
+	/B2	  invokes large compiler version pass 2
+	/B3	  invokes large compiler version pass 3
+	/C	  preserves file comments when preprocessing a file
+	/c	  do not link, create .OBJ file only
+	/D<string> defines string as a preprocessor constant.  If string is
+		  of the form "ID=xxx" then "ID" represents the value "xxx"
+		  If no equals sign is present, "ID" has the value 0.	If
+		  an equals sign is present without a value, ID has the
+		  value 1.
+	/E	  output from preprocessor is written to stdout with
+		  interspersed #line directives.
+	/EP	  output from preprocessor is written to stdout without,
+		  adding #line directives.
+	/F<size>  sets stack to <size> bytes.  Size must be hexadecimal.
+	/Fa[file] generate assembly listing.  Filename defaults to source
+		  file with .ASM extension.
+	/Fb<file> creates bound executable.  Should be used only with /Lp.
+	/Fc[file] generates combined assembly/source listing.	The filename
+		  defaults to the source file name with the .COD extension.
+	/Fe<file> creates the executable with specified name
+	/Fl[file] generates object code listing.   Default file name is the
+		  source file name with a .COD extension.
+	/Fm[file] generate a link MAP file.  Default file name is the source
+		  file name with the extension .MAP.
+	/Fo<file> generate and object file using the name <file>.
+	/FPa	  generates floating point calls and selects the alternate
+		  math library.
+	/FPc	  generates floating point calls and selects the emulation
+		  library.
+	/FPc87	  generates floating point calls and selects the 80x87
+		  library.
+	/FPi	  generates inline 80x87 instructions and selects the 80x87
+		  library.  Default floating point option.
+	/FPi87	  generates floating point calls and selects the 80x87
+		  library.
+	/Fr[file] generates a standard PWB Source Browser Database.  The
+		  default name is the source file with the .SBR extension.
+	/FR[file] generates a standard PWB Source Browser Database.  The
+		  default name is the source file with the .SBR extension.
+	/Fs	  generate a source file listing with .LST extension.
+	/Fx	  generate a cross reference listing with .CRF extension.
+	/G0	  generate code using 8088/8086 instruction set
+	/G1	  generate code using 80188/80186 instruction set
+	/G2	  generate code using 80286 instruction set
+	/Gc	  generate code using FORTRAN/PASCAL calling and naming
+		  conventions
+	/Gd	  generate code using standard C calling and naming
+		  conventions (default)
+	/Ge	  generate code using stack checking routines (default)
+	/Gi	  incremental compile if used with /qc; only functions that
+		  have changed are compiled;  implies /Li option
+	/Gm	  strings are generated in the CONST segment
+	/Gr	  _fastcall functions are enabled.   Parameters can be
+		  passed via registers instead of on the stack
+	/Gs	  suppress generation of stack checking code
+	/Gt[num]  places data items larger than "num" bytes into different
+		  segments. The default value for "num is 256 bytes.
+	/Gw	  generate Windows functions entry/exit code
+	/GW	  generates more efficient Windows functions entry/exit
+		  code.  Use /Gw for callback routines.
+	/H<num>   external name length restriction (default 31)
+	/HELP	  calls QuickHelp utility.  /help is also valid.
+	/I<path>  inserts <path> in front of current include search path
+	/J	  all chars should be unsigned (default is signed)
+	/Lc	  linker is to generate compatibility mode programs.
+	/Li[num]  incremental link using ILINK instead of LINK.  Results
+		  in larger EXE size.
+	/Lp	  linker is to generate protected mode executable.
+	/Lr	  linker is to create real mode executable.
+	/link <info> passes library names in <info> to LINK
+	/MA<opt>  passes <opt> to MASM if .ASM files found on command line
+	/MD	  creates Dynamic Link Library for OS/2;  The same as:
+		  /ALw /FPi /G2 /DDLL /DMT.   No library search record is defined
+	/ML	  links the C run-time library as part of the Dynamic Link
+		  Library.  The library search record is set to LLIBCDLL.LIB.
+		   
+	/MT	  enable multithread program support in OS/2
+	/ND<dseg> set data segment name to <dseg>
+	/NM<name> set module name to <name>
+	/nologo   suppress sign-on banner display
+	/NT<name> set code segment name to <name>
+	/O[opts]  where "opts" is a string containing the following:
+
+		a   relax alias checking
+		c   enable block level local common expressions
+		d   disable all optimizations
+		e   enable global register optimization
+		g   enable global optimizations and global common
+		    expressions
+		i   enable generation of intrinsic functions
+		l   enable loop optimization
+		n   disable unsafe loop optimization (default)
+		p   improve consistency in floating-point calculations
+		r   disable inline returns from functions
+		s   optimize for size
+		t   optimize for speed (default)
+		w   assume no aliasing except across function calls
+		x   maximize optimization (/Ocegilt/Gs)
+		z   enable maximum loop and global-register allocation
+		    optimization
+
+	/P	   preprocess source generating .I intermediate file
+	/qc	   quick compile option.  Incompatible with the following
+		   options: /Fa /Fc /Fl /FPa /FPc /FPc87 /Fs /Gm /H /Ow /Zc
+	/Sl<wid>   set listing file line width to <wid> (79-132, default 79)
+	/Sp<len>   set page length  (15-255, default 63)
+	/Ss<stitle> set source listing subtitle
+	/St<title> set source listing title
+	/Ta<file>  <file> is to be treated as an assembler source file
+		   regardless of the file extension
+	/Tc<file>  <file> is to be treated as an C source file regardless
+		   of the file extension
+	/u	   undefines all predefined indentifiers
+	/U<id>	   undefines <id> predefined indentifier
+	/V<ver>    version string <ver> is copied to the .OBJ file
+	/w	   suppress compiler warnings (same as /W0)
+	/W0	   suppress compiler warnings
+	/W<n>	   warning level (1..4) 1=fewer, 4=more warnings (default 1)
+	/WX	   all warnings should be treated as fatal
+	/X	   ignore standard places in include path search
+	/Za	   disables Microsoft language extensions insuring ANSI
+		   code compatibility
+	/Zc	   pascal functions are to be case insensitive
+	/Zd	   generate line number information for debuggers
+	/Ze	   enable Microsoft C language extensions
+	/Zg	   generate function prototypes and display via stdout
+		   without compiling.
+	/Zi	   generate symbolic debugging information
+	/Zl	   suppress library search record generation
+	/Zp1	   structures are not to be packed (Turbo C default)
+	/Zp2	   pack structure on word boundaries
+	/Zp4	   pack structure on dword boundary
+	/Zr	   generate code to check null pointers and out of range
+		   far pointers
+	/Zs<file>  perform syntax check only
+
+<B>	Environment Variables</B>
+
+	CL	   default input files and command line options
+	INCLUDE    paths to search for include files (separated by ";")
+	LIB	   paths to search for library files (separated by ";")
+	LINK	   command line options for link
+	TMP	   path where temporary files are created
+</PRE>
+
+</BODY>
+</HTML>

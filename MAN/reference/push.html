@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>push</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>PUSH - Push Word onto Stack</H2>
+
+<PRE>
+
+	Usage:	PUSH	src
+		PUSH	immed	(80188+ only)
+	Modifies flags: None
+
+
+	Decrements SP by the size of the operand (two or four, byte values
+	are sign extended) and transfers one word from source to the stack
+	top (SS:SP).
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16	 	11/15	3     2     1		  1
+	reg32	 	  -	-     2     1		  1
+	mem16		16+EA	5     5     4	 	 2-4  (W88=24+EA)
+	mem32	   	  -	-     5     4		 2-4
+	segreg		10/14	3     2     3		  1
+	immed		  -	3     2     1		 2-3
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

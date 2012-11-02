@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,37</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,37 - Get/Set Switch Character (Undocumented, DOS 2.0+)</H2>
+
+<PRE>
+
+
+	AH = 37h
+	AL = 0	get switch character into DL;  some systems return "-"
+	   = 1	set switch character to value in DL
+	   = 2	read device prefix flag into DL;  returns DL = 0 indicating
+		devices must be accessed using /DEV/device. A non-zero value
+		indicates devices may be accessed without prefix
+	   = 3	set device prefix flag, device names must begin with \DEV\.
+	DL = new switch character (AL=1)
+	   = 00  \DEV\ must preceed device names (AL=3)
+	   = 01  \DEV\ is not neccesary in device names (AL=3)
+
+	on return:
+	AL = FF  illegal subfunction code specified
+	DL = current switch character (AL=0)
+	   = device availability (AL=2, always FF with DOS 4.x+)
+
+
+	- subfunctions 0 and 1 were formerly available as a CONFIG.SYS
+	  command in DOS versions before 3.x;	also supportedin the OS/2
+	  compatibility box
+	- subfunctions 2 and 3 were available in DOS 2.x only;	they have
+	  no effect in DOS 4.x+
+	- /DEV/ prefix is valid in DOS 2.x by default, setting the flag makes
+	  it mandatory.  DOS internal commands like DIR, TYPE and DEL do not
+	  recognize filenames the are identical to device names regardless of
+	  the setting of the AVAILDEV flag.
+</PRE>
+
+</BODY>
+</HTML>

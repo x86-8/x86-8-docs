@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,40</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,40 - Get EMM Status  (LIM EMS 3.0+)</H2>
+
+<PRE>
+
+	AH = 40h
+
+	on return:
+	AH = status
+
+	     00  success
+	     80  internal software error
+	     81  hardware malfunction
+	     83  unallocated or invalid handle
+	     84  undefined function requested
+	     85  no handles available
+	     86  error in save or restore of mapping context
+	     87  more pages requested than physically exist
+	     88  more pages requested than currently available
+	     89  zero pages requested
+	     8A  invalid logical page number
+	     8B  illegal physical page number
+	     8C  context stack out of memory
+	     8D  context save failed, handle already has context stack
+	     8E  context restore failed, no context stack for handle
+	     8F  invalid subfunction
+	     90  undefined attribute type
+	     91  feature not supported
+	     92  success, portion of the source region was overwritten
+	     93  length of source or destination region exceeds length of
+		 region allocated to either source or destination handle
+	     94  conventional and expanded memory regions overlap
+	     95  offset within logical page exceeds size of logical page
+	     96  region length exceeds 1M
+	     97  source and destination regions have same handle and overlap
+	     98  memory source or destination type undefined
+	     9A  specified DMA register set not supported ???
+		 specified alternate map register set not supported
+	     9B  all DMA register sets currently allocated ???
+		 all alternate map register sets currently allocated
+	     9C  alternate DMA sets not supported ???
+		 alternate map register sets not supported
+	     9D  undefined or unallocated DMA register set ???
+		 undefined or unallocated alternate map register set
+	     9E  dedicated DMA channels not supported
+	     9F  specified dedicated DMA channel not supported
+	     A1  duplicate handle name
+	     A2  attempted to wrap around 1Mb conventional address space
+	     A3  contents of partial page map corrupted or count of
+		 mappable segments exceeds total mappable segments
+	     A4  operating system denied access
+
+
+	- registers not listed are preserved
+	- should only be used after establishing that the EMS driver
+	  is present
+</PRE>
+
+</BODY>
+</HTML>

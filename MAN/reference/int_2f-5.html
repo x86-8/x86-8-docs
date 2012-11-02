@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 2f,5</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2F,5 - Multiplex Interrupt - End of Status</H2>
+
+<PRE>
+
+
+	AL = 05
+	AH = 01  resident portion of PRINT
+	     02  resident portion of ASSIGN
+	     10  resident portion of SHARE
+	     B7  resident portion of APPEND
+	     C0-FF reserved for user applications
+
+
+	on return:
+	AH = error code  (see <A HREF="int_2f.html">INT 2F</A>)
+
+</PRE>
+
+</BODY>
+</HTML>

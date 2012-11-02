@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>_remapallpalette</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: short far _remapallpalette( long far *colors )</B>
+<B>	MSC: long far _remappalette( short pixnum, long color )</B>
+
+	- prototype in graph.h
+
+	- colors = color number array containing one color per video
+		   mode color
+	- pixnum = pixel to change
+	- color = new color number
+
+<B>	Valid colors are:</B>
+
+	_BLACK		_BLUE		_BRIGHTWHITE	_BROWN
+	_CYAN		_GRAY		_GREEN		_LIGHTBLUE
+	_LIGHTCYAN	_LIGHTGREEN	_LIGHTMAGENTA	_LIGHTRED
+	_YELLOW		_MAGENTA	_RED		_WHITE
+
+	- _remapallpalette() remaps all pixel values; _remappalette()
+	  affects on the pixel specified by pixnum
+	- _remapallpalette() returns -1 on success; zero otherwise
+	- _remappalette() previous color value of "pixnum" on success; -1
+	  otherwise
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,3b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,3B - Change Current Directory (chdir)</H2>
+
+<PRE>
+
+
+	AH = 3B
+	DS:DX = pointer to ASCIIZ path name
+
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- changes the current directory to the directory specified
+	  by pointer DS:DX
+
+</PRE>
+
+</BODY>
+</HTML>

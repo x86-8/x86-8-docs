@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>out</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>OUT - Output Data to Port</H2>
+
+<PRE>
+
+
+	Usage:	OUT	port,accum
+	Modifies flags: None
+
+	Transfers byte in AL,word in AX or dword in EAX to the specified
+	hardware port address.  If the port number is in the range of 0-255
+	it can be specified as an immediate.  If greater than 255 then the
+	port number must be specified in DX.  Since the PC only decodes 10
+	bits of the port address, values over 1023 can only be decoded by
+	third party vendor equipment and also map to the port range 0-1023.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386    486		Bytes</B>
+
+	immed8,accum	10/14	3     10     16		  2
+	immed8,accum (PM) -    	-    4/24 11/31/29	  2
+	DX,accum	 8/12	3     11     16		  1
+	DX,accum (PM)	  -    	-    5/25 10/30/29	  1
+
+
+	- 386+ protected mode timings depend on privilege levels.
+
+	  first number is the timing when:    CPL ó IOPL
+	  second number is the timing when:   CPL > IOPL
+	  third number is the timing when:    virtual mode on 486 processor
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

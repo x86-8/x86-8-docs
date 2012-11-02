@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<TITLE>_msize</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: size_t _msize( void *block )</B>
+<B>	MSC: size_t _bmsize( _segment seg, void _based( void ) *block )</B>
+<B>	MSC: size_t _fmsize( void far *block )</B>
+<B>	MSC: size_t _nmsize( void near *block )</B>
+
+
+	- prototype in malloc.h
+
+	- returns size of memory block in bytes
+	- _msize() maps to other function depending on memory model
+
+</PRE>
+
+</BODY>
+</HTML>

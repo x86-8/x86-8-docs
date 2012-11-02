@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>warm boot</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Warm Boot / System Bootstrap</H2>
+
+<PRE>
+
+	- Ctrl-Alt-Delete results in a warm boot but only after part of the
+	  <A HREF="cold_boot.html">POST</A> sequence has executed.  See  <A HREF="cold_boot.html">COLD BOOT</A>  for more information.
+	- ROM BIOS bootstrap loader (<A HREF="int_19.html">INT 19</A>) attempts Boot Record load
+	- Drive A: is searched for a Boot Record, if no Boot Record is found
+	  the active partition of the first drive is searched.	If found, it
+	  is loaded into memory at 7C00:0 and given control.  If still not
+	  found Cassette BASIC is loaded (IBM only) or a prompt for a system
+	  diskette is displayed.
+	- the boot record code checks that IBMBIO.COM and IBMDOS.COM (IO.SYS
+	  and DOS.SYS for MSDOS) exist and are the first two files.  These
+	  files must be contiguous and the first two directory entries.
+	- boot record loads IBMBIO.COM
+	- IBMBIO.COM initialization code loads IBMDOS.COM
+	  / determines equipment status
+	  / resets disk system
+	  / initializes attached devices
+	  / loads installable device drivers
+	  / sets DOS relative interrupt vectors
+	  / relocates IBMDOS.COM downward and begins its execution
+	- IBMDOS.COM initializes its working tables
+	  / initializes DOS interrupt vectors for interrupts 20h through 27h
+	  / builds <A HREF="program_segment_prefix.html">PSP</A> for COMMAND.COM at lowest possible segment
+	  / interrupt vectors for INTs 0Fh through 3Fh are initialized
+	    (for DOS 3.1+)
+	  / loads COMMAND.COM (or specified command interpreter) using the
+	    <A HREF="exec___.html">EXEC</A> call.
+	- AUTOEXEC.BAT is then loaded and executed
+
+	- see	<A HREF="boot_sector.html">BOOT RECORD</A>   <A HREF="cold_boot.html">COLD BOOT</A>
+
+</PRE>
+
+</BODY>
+</HTML>

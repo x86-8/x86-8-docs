@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,38</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,38 - Get/Set Country Dependent Information</H2>
+
+<PRE>
+
+	AH = 38h
+	AL = 00 to get current country information
+	   = 00-FE country codes  (DOS 3.x+)
+	   = FF for country codes >= FF, country codes are in BX
+	BX = country code if AL = FF (country code > 255)
+	DX = FFFF to set country information
+	DS:DX = pointer to buffer to contain country data (if get data)
+
+	on return:
+	AX = error code if CF set
+	   = 02 invalid country
+	BX = country code (DOS 3.x+)
+	DS:DX = pointer to returned country data (see <A HREF="country_codes.html">COUNTRY CODES</A>)
+
+
+	- returns a pointer to country specific data, for DOS 3.x+ this
+	  function can be used to also set this information
+</PRE>
+
+</BODY>
+</HTML>

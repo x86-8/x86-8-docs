@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,14</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,14 - Sequential Read Using FCB</H2>
+
+<PRE>
+
+	AH = 14h
+	DS:DX = pointer to an opened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if successful read
+	   = 01 if end of file (no data read)
+	   = 02 if <A HREF="dta.html">DTA</A> is too small
+	   = 03 if end of file or partial record read
+
+
+	- reads a record from file pointed to by FCB at the location
+	  specified in current block and current record number
+	- data record is read into the DTA
+	- FCB record number is updated
+</PRE>
+
+</BODY>
+</HTML>

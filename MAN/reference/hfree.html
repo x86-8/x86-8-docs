@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>hfree</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: void hfree( void huge *block )</H2>
+
+<PRE>
+
+
+	- prototype in malloc.h
+
+	- block = pointer to block of allocated memory
+	- memory is returned to DOS
+	- freeing an unallocated block will corrupt the DOS's <A HREF="memory_control_block.html">MCB</A> chain
+
+	- see	<A HREF="halloc.html">halloc</A>()
+</PRE>
+
+</BODY>
+</HTML>

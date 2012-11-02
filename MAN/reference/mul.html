@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>mul</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MUL - Unsigned Multiply</H2>
+
+<PRE>
+
+	Usage:	MUL	src
+	Modifies flags: CF OF (AF,PF,SF,ZF undefined)
+
+	Unsigned multiply of the accumulator by the source.  If "src" is
+	a byte value, then AL is used as the other multiplicand and the
+	result is placed in AX.  If "src" is a word value, then AX is
+	multiplied by "src" and DX:AX receives the result.  If "src" is
+	a double word value, then EAX is multiplied by "src" and EDX:EAX
+	receives the result.  The 386+ uses an early out algorithm which
+	makes multiplying any size value in EAX as fast as in the 8 or 16
+	bit registers.
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg8		70-77	13   9-14  13-18	  2
+	reg16	       118-113	21   9-22  13-26	  2
+	reg32		  -	-    9-38  13-42	 2-4
+	mem8	    (76-83)+EA	16  12-17  13-18	 2-4
+	mem16	  (124-139)+EA	24  12-25  13-26	 2-4
+	mem32		  -	-   12-21  13-42	 2-4
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>   <A HREF="imul.html">IMUL</A>
+
+</PRE>
+
+</BODY>
+</HTML>

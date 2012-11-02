@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>printf specifiers</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Specifications for printf()</H2>
+
+<PRE>
+
+<B>	%[-][+][space][#][width][.prec][size]type</B>
+
+<B>	Field			Description</B>
+
+	-	left justify
+	+	prefix positive numbers with '+', overrides blank
+	space   prefix positive numbers with space
+	#	prefix octal or hex with 0, (see manual for Turbo C)
+	width	width of output string in total characters, a 0 before
+		width causes padding with zeros on left.
+	.prec   decimal precision in characters
+	size	F	far pointer
+		N	near pointer
+		h	specifies short
+		l	specifies long
+		L	long double
+	type	c	single character
+		d	signed decimal integer
+		e	signed exponential, 'e' is output in string
+		E	signed exponential, 'E' is output in string
+		f	signed floating point in form of sddd.ddd
+		g	formats e or f (depends on size), e is output
+		G	formats e or f (depends on size), E is output
+		i	signed decimal integer
+		n	integer pointer
+		o	unsigned octal integer
+		p	void pointer;  MS C always uses far pointers, in
+			Turbo C, size is dependent on memory model
+		s	string pointer
+		u	unsigned decimal integer
+		x	unsigned integer in lower case hex format
+		X	unsigned integer in upper case hex format
+
+	- if width or precision are specified as an asterisk '*', an int
+	  from the argument list is used as the width or precision. If the
+	  width is too small the field is expanded.  Example:
+
+		int len = 5;
+		char *string = "This is a string"
+
+		printf("%*.*s", len, len, "string");
+
+	  is functionally similar to a specification string of "%5.5s"
+	  which prints a max of 5 characters of the string.
+</PRE>
+
+</BODY>
+</HTML>

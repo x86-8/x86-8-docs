@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>lods</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LODS - Load String (Byte, Word or Double)</H2>
+
+<PRE>
+
+
+	Usage:	LODS	src
+		LODSB
+		LODSW
+		LODSD  (386+ only)
+	Modifies flags: None
+
+	Transfers string element addressed by DS:SI (even if an operand is
+	supplied) to the accumulator.	SI is incremented based on the size
+	of the operand or based on the instruction used.  If the Direction
+	Flag is set SI is decremented, if the Direction Flag is clear SI
+	is incremented.  Use with REP prefixes.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	src		12/16	5     5	    5		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

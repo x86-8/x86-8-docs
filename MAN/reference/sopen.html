@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>sopen</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int sopen( const char *path, int access, int shflag, int mode )</H2>
+
+<PRE>
+
+	- prototype in io.h, also include share.h, stat.h & fcntl.h
+
+	- actually a macro defined:  open( path, (access | shflag), mode )
+	- opens file "path" and prepares it for shared I/O
+	- sharing mode is determined using access, shflag and mode
+	- access is a combination of the following ("permis" follows):
+
+<B>	Read/Write Access Flags (mutually exclusive):</B>
+	O_RDONLY	open read only
+	O_WRONLY	open write only
+	O_RDWR		open read/write
+
+<B>	Other Access Mode Flags:</B>
+	O_APPEND	file pointer is placed at EOF before each write
+	O_CREAT		if file doesn't exist, create with "permis" attributes
+	O_TRUNC		if exists, truncate length to zero, but leave file
+			attributes unchanged
+	O_BINARY	binary mode
+	O_TEXT		text mode
+	O_EXCL		used with O_CREAT, error occurs if file already exists
+	O_NDELAY	UNIX only
+
+<B>	Permission Attributes (if creating):</B>
+	S_IWRITE	write permission
+	S_IREAD		read permission
+	S_IREAD | S_IWRITE read/write permission
+	 
+	- if O_BINARY nor O_TEXT is given, file is opened in translation
+	  mode (O_TEXT) given by global variable _fmode
+	- returns non-negative number as file handle, or -1 on error
+</PRE>
+
+</BODY>
+</HTML>

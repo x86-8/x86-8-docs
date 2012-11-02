@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>arpl</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>ARPL - Adjusted Requested Privilege Level of Selector</H2>
+
+<PRE>
+</PRE>
+
+<H2 ALIGN=Center>(286+ protected mode)</H2>
+
+<PRE>
+
+
+	Usage:	ARPL	dest,src
+	Modifies flags: ZF
+
+
+	Compares the RPL bits of "dest" against "src".	If the RPL bits
+	of "dest" are less than "src", the destination RPL bits are set
+	equal to the source RPL bits and the Zero Flag is set.	Otherwise
+	the Zero Flag is cleared.
+
+
+<B>				Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg,reg 	  -	10    20    9		  2
+	mem,reg 	  -	11    21    9		  4
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

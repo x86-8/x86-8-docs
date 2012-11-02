@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,58</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,58 - Get/Set Memory Allocation Strategy</H2>
+
+<PRE>
+</PRE>
+
+<H2 ALIGN=Center>(Undocumented, DOS 3.x)</H2>
+
+<PRE>
+
+	AH = 58h
+	AL = 00  get strategy code
+	   = 01  set strategy code
+	BX = strategy code (when AL = 01)
+	   = 00  first fit  (default)
+	   = 01  best fit
+	   = 02  last fit
+
+	on return:
+	AX = strategy code if CF clear
+	   = error if CF set, see  <A HREF="dos_error_codes.html">DOS ERROR CODES</A>
+
+
+	- defaults to first fit, first block large enough is chosen
+	- in first fit, DOS searches the <A HREF="memory_control_block.html">MCB</A> chain from low addresses to
+	  high for the first block large enough to fill the request.  For
+	  best fit, DOS searches all memory blocks for the closest fit.
+	  In last fit, DOS starts at high addresses and works downward
+	  and uses the high part of the chosen block
+	- any strategy value greater than 2 defaults to 2, but the last value
+	  set, even if incorrect, is the value returned by the get strategy
+</PRE>
+
+</BODY>
+</HTML>

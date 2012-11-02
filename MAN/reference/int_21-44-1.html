@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,1 / IOCTL,1 - Set Device Information</H2>
+
+<PRE>
+
+	AH = 44h
+	AL = 01
+	BX = handle
+	DH = must be zero
+	DL = device data low order byte  (see below)
+
+
+	on return
+	AX = error code if CF set
+	DX = device information  (see below)
+
+
+	- applicable to character devices only
+	- allows setting of device data word for character devices
+	- usually used to change from binary to translated I/O
+	- handle in BX must be an opened file or device
+
+
+</PRE>
+
+<H2 ALIGN=Center>Device Data Word</H2>
+
+<PRE>
+
+	|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|  Device Data Word
+	 | | | | | | | | | | | | | | | `---- 1 = standard input device
+	 | | | | | | | | | | | | | | `---- 1 = standard output device
+	 | | | | | | | | | | | | | `---- 1 = NUL device
+	 | | | | | | | | | | | | `---- 1 = clock device
+	 | | | | | | | | | | | `---- reserved
+	 | | | | | | | | | | `---- 1 = binary mode, 0 = translated
+	 | | | | | | | | | `---- 0 = end of file on input
+	 | | | | | | | | `---- 1 = character device
+	 `------------------ reserved, must be zero
+
+
+</PRE>
+
+</BODY>
+</HTML>

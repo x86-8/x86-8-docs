@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,24</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,24 - Set Relative Record Field in FCB</H2>
+
+<PRE>
+
+
+	AH = 24h
+	DS:DX = pointer to an opened <A HREF="fcb.html">FCB</A>
+
+
+	returns nothing
+
+
+	- modifies opened FCB for random operation
+	- sets FCB random record field to current sequential block
+	  and record fields
+
+</PRE>
+
+</BODY>
+</HTML>

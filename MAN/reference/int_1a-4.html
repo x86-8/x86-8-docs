@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 1a,4</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1A,4 - Read Real Time Clock Date  (XT 286,AT,PS/2)</H2>
+
+<PRE>
+
+
+	AH = 04
+
+
+	on return:
+	CH = century in BCD (decimal 19 or 20)
+	CL = year in BCD
+	DH = month in BCD
+	DL = day in BCD
+	CF = 0 if successful
+	   = 1 if error or clock not operating
+
+	- calling this interrupt will update the DOS maintained date and
+	  reset the <A HREF="bios_data_area.html">BIOS Data Area</A> date rollover flag at 40:70
+	- see	<A HREF="cmos_ram.html">RTC</A>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,4f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,4F - Find Next Matching File</H2>
+
+<PRE>
+
+
+	AH = 4F
+	DS:DX = unchanged from previous function 4E
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- <A HREF="int_21-4e.html">INT 21,4E</A> should be called to find the first file and this
+	  function should be called to find all other matching files
+	- normal files are always included along with files that match
+	  the requested attributes except when the LABEL attribute is
+	  requested.  It's up to the programmer to determine which
+	  actually match the requested attributes.
+	- see  <A HREF="int_21-1a.html">INT 21,1A</A>  <A HREF="dta.html">DTA</A>  <A HREF="file_attributes.html">FILE ATTRIBUTES</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>_bios_printer</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	unsigned _bios_printer(unsigned cmd,unsigned port,unsigned data)</B>
+
+
+	- prototype in bios.h
+
+	- cmd 	= _PRINTER_WRITE   print character  (INT 17,0)
+		= _PRINTER_INIT	   initialize printer port  (INT 17,1)
+		= _PRINTER_STATUS  read port status  (INT 17,2)
+	- port	= printer port;	0=LPT1, 1=LPT2
+	- data	= value to write
+
+	- returns status of printer (INT 17, AX reg, AH contains status)
+	- Turbo C uses <A HREF="biosprint.html">biosprint</A>()
+	- see  <A HREF="int_17.html">INT 17</A>
+</PRE>
+
+</BODY>
+</HTML>

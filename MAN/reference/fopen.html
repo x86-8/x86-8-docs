@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>fopen</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>FILE *fopen( const char *filename, const char *type )</H2>
+
+<PRE>
+
+	- prototype in stdio.h
+
+	- type is a combination of the following:
+	 
+<B>		Mode	   Description</B>
+		"r"	read text/binary
+		"w"	write text/binary
+		"a"	append text/binary
+		"+"	allow update access
+		"t"	text file
+		"b"	binary file
+
+<B>		Read	Write	Append</B>
+		"rt"	"wt"	"at"	(text)
+		"rb"	"wb"	"ab"	(binary)
+		"r+"	"w+"	"a+"	(update)
+		"r+t"	"w+t"	"a+t"	(update text)
+		"r+b"	"w+b"	"a+b"	(update binary)
+
+	read   - read only (unless "r+")
+	write  - create
+	append - seek to end of file or create file
+
+	- text mode input, will have CRs discarded
+	- using any of the stdio functions results in a default allocation
+	  of 512 bytes for the I/O buffer and the inclusion of the standard
+	  memory allocation functions
+	- returns stream or NULL on error
+
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,170 @@
+<HTML>
+<HEAD>
+<TITLE>Epson printer codes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Epson FX Printer Codes</H2>
+
+<PRE>
+
+<B>	Printer Operation:</B>
+<B>	Decimal      ASCII		    Description</B>
+	 7	     BEL	  Beeper
+	17	     DC1	  Select printer
+	19	     DC3	  Deselect printer
+	27 25 48     ESC EM 0	  Turn cut sheet feeder control off
+	27 25 52     ESC EM 4	  Turn cut sheet feeder control on
+	27 56	     ESC 8	  Disable paper out sensor
+	27 57	     ESC 9	  Enable paper out sensor
+	27 60	     ESC <	  Select unidirectional mode for one line
+	27 64	     ESC @	  Initialize printer
+	27 85 48     ESC U 0	  Cancel unidirectional mode
+	27 85 49     ESC U 1	  Select unidirectional mode
+	27 115 48    ESC s 0	  Turn half speed mode off
+	27 115 49    ESC s 1	  Turn half speed mode on
+
+<B>	Vertical/Horizontal Motion:</B>
+<B>	Decimal      ASCII		    Description</B>
+	 8	     BS 	  Backspace
+	 9	     HT 	  Horizontal tab
+	10	     LF 	  Line Feed
+	11	     VT 	  Vertical Tab
+	12	     FF 	  Form Feed
+	27 47 c      ESC / c	  Select vertical tab channel (c=0..7)
+	27 48	     ESC 0	  Select 8 lines per inch
+	27 49	     ESC 1	  Select 7/72 inch line spacing
+	27 50	     ESC 2	  Select 6 lines per inch
+	27 51 n      ESC 3 n	  Select n/216 inch line spacing (n=0..255)
+	27 65 n      ESC A n	  Select n/72 inch line spacing (n=0..85)
+	27 66 0      ESC B NUL	  Clear Vertical tabs
+	27 66 tabs   ESC B tabs   Select up to 16 vertical tabs where tabs are
+				  ascending values from 1..255 ending with NUL
+	27 67 n      ESC C n	  Select page length in lines (n=1..127)
+	27 67 48 n   ESC C 0 n	  Select page length in inches (n=1..22)
+	27 68 0      ESC D NUL	  Clears all horizontal tables
+	27 68 tabs 0 ESC D tabs NUL  Sets up to 32 horizontal tabs with
+				  ascending values 1-137.  NUL or a value
+				  less than previous tab ends command.
+	27 74 n      ESC J n	  Immediate n/216 inch line feed (n=0..255)
+	27 78 n      ESC N n	  Select skip over perforation (n=1..127)
+	27 79	     ESC O	  Cancel skip over perforation
+	27 81 n      ESC Q n	  Set right margin (n=column)
+	27 98 b c 0  ESC b c NUL  Clear vertical tabs in channel (c=0..7)
+	27 98 c tabs ESC b c tabs Select up to 16 vertical tabs in channels
+				  (c=0..7) where tabs are ascending values
+				  from 1..255 ending with NUL
+	27 101 48 s  ESC e 0 s	  Set horizontal tab to increments of 's'
+	27 101 49 s  ESC e 1 s	  Set vertical tab to increments of 's'
+	27 102 48 s  ESC f 0 s	  Set horizontal skip to increments of 's'
+	27 102 49 s  ESC f 1 s	  Set vertical skip to increments of 's'
+	27 106 n     ESC j n	  Reverse linefeed (n/216 inch after buffer)
+	27 108 n     ESC l n	  Set left margin (n=column)
+
+<B>	Printing Style:</B>
+<B>	Decimal      ASCII		    Description</B>
+	27 33 n      ESC ! n	  Master select where n is a combination of:
+				    0  Pica		 16  Double Strike
+				    1  Elite		 32  Double Wide
+				    4  Condensed	 64  Italic
+				    8  Emphasized	128  Underline
+				  Pica & Elite and Condensed/Emphasized are
+				  mutually exclusive
+	27 107 48    ESC k 0	  Select NLQ Roman font
+	27 107 49    ESC k 1	  Select NLQ Sans Serif font
+	27 120 48    ESC x 0	  Select draft mode
+	27 120 49    ESC x 1	  Select NLQ mode
+
+<B>	Print Size and Character Width:</B>
+<B>	Decimal     ASCII		   Description</B>
+	14	    SO		  Select double width for one line
+	15	    SI		  Select condensed mode
+	18	    DC2 	  Cancel condensed mode
+	20	    DC4 	  Cancel one line double width mode
+	27 14	    ESC SO	  Double width for one line (duplicate)
+	27 15	    ESC SI	  Select condensed mode (duplicate)
+	27 77	    ESC M	  Select elite width (12 cpi)
+	27 80	    ESC P	  Select pica width (10 cpi)
+	27 87 48    ESC W 0	  Cancel double width mode
+	27 87 49    ESC W 1	  Select double width mode
+
+<B>	Print Enhancement:</B>
+<B>	Decimal     ASCII		   Description</B>
+	27 45 48    ESC - 0	  Cancel underlining
+	27 45 49    ESC - 1	  Select underlining
+	27 69	    ESC E	  Select emphasized mode
+	27 70	    ESC F	  Cancel emphasized mode
+	27 71	    ESC G	  Select double strike mode
+	27 72	    ESC H	  Cancel double strike mode
+	27 83 48    ESC S 0	  Select superscript
+	27 83 49    ESC S 1	  Select subscript
+	27 84	    ESC T	  Cancel superscript/subscript
+
+<B>	Character Sets:</B>
+<B>	Decimal     ASCII		   Description</B>
+	27 52	    ESC 4	  Select italic mode
+	27 53	    ESC 5	  Cancel italic mode
+	27 54	    ESC 6	  Enable printing of characters (128-159,255)
+	27 55	    ESC 7	  Cancel [ESC 6] command
+	27 82 n     ESC R n	  Select International character set where
+				  numeric 'n' is:
+				    0  USA		  7  Spain I
+				    1  France		  8  Japan
+				    2  Germany		  9  Norway
+				    3  United Kingdom	 10  Denmark II
+				    4  Denmark I	 11  Spain II
+				    5  Sweden		 12  Latin America
+				    6  Italy
+	27 116 0    ESC t NUL	 Select italic character set
+	27 116 1    ESC t SOH	 Select Epson character set
+	
+<B>	User Defined Characters:</B>
+<B>	Decimal		ASCII			Description</B>
+	27 37 0      ESC % NUL		Selects normal character set
+	27 37 1      ESC % SOH		Selects user defined set
+	27 38 0      ESC & NUL ?	Select user defined chars (see manual)
+	27 58 0 0 0  ESC : NUL NUL NUL	Copy ROM into RAM
+
+<B>	Graphics Character Sets:</B>
+<B>	Decimal		ASCII			Description</B>
+	27 42 0 n1 n2  ESC * NUL n1 n2	Select single density graphics
+	27 42 1 n1 n2  ESC * SOH n1 n2	Select double density graphics
+	27 63 s n      ESC ? s n	Reassign graphics mode
+					's'=(K,L,Y or Z) to mode 'n'=(0..6)
+	27 75 n1 n2    ESC K n1 n2	Single density graphics (60 dpi)
+	27 76 n1 n2    ESC L n1 n2	Double density graphics (120 dpi)
+	27 89 n1 n2    ESC Y n1 n2	Hi-speed double den graphics (120 dpi)
+	27 90 n1 n2    ESC Z n1 n2	Quad density graphics (240 dpi)
+	27 94 m n1 n2  ESC ^ m n1 n2	Select 9 pin graphics mode
+
+	number of columns = n1 + (n2 * 256)
+
+<B>	Other:</B>
+<B>	Decimal      ASCII		    Description</B>
+	 13	     CR 	  Carriage Return
+	 24	     CAN	  Cancel text in line (but not control codes)
+	127	     DEL	  Delete character (but not control codes)
+	 27 32 n     ESC SP n	  Space in n/72 inch following each NLQ char
+	 27 35	     ESC #	  MSB control sequence cancel
+	 27 36	     ESC $	  Select absolute dot position
+	 27 61	     ESC =	  MSB = 0
+	 27 62	     ESC >	  MSB = 1
+	 27 73 48    ESC I 0	  Cancel above [ESC I 1]
+	 27 73 49    ESC I 1	  Printable codes expansion (0-31,128-159)
+	 27 92	     ESC \	  Select relative dot position
+	 27 97	n    ESC a n	  NLQ justification where numeric 'n' is:
+				    0  left justification  (default)
+				    1  center
+				    2  right justification
+				    3  full justification
+	 27 112      ESC p	  Select/cancel proportional mode
+
+
+	- the codes listed are relative to the Epson LX 800
+	- in several situations where a numeric value of zero or one is
+	  required, the ASCII value of the number can be substituted
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>parsfnm</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: char *parsfnm( const char *cmdline, struct fcb *fcbptr, int option)</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- parses command line cmdline for a file name, placing it into a
+	  FCB as drive/filename/file ext, pointed to by fcbptr
+	- option is same as AL in MS-DOS function call <A HREF="int_21-29.html">INT 21,29</A>
+	- returns pointer to byte beyond end of filename, 0=error
+
+</PRE>
+
+</BODY>
+</HTML>

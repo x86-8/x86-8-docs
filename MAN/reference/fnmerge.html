@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>fnmerge</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  TC: void fnmerge( char *path, const char *drive,</B>
+<B>		   const char *dir, const char *name, const char *ext)</B>
+
+
+	- prototype in dir.h
+
+	- makes a file name (path) from drive, dir, name, and ext
+	- dir can include subdirectories
+	- maximum sizes for these strings are:
+
+	  MAXPATH  80	path
+	  MAXDRIVE  3	drive - includes colon (:)
+	  MAXDIR   66	dir - includes leading/trailing backslashes
+	  MAXFILE   9	name
+	  MAXEXT    5	ext, including leading dot (.)
+
+	- invertible with <A HREF="fnsplit.html">fnsplit</A>()
+
+</PRE>
+
+</BODY>
+</HTML>

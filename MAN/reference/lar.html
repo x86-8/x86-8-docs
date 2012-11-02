@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>lar</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LAR - Load Access Rights  (286+ protected)</H2>
+
+<PRE>
+
+
+	Usage:	LAR	dest,src
+	Modifies flags: ZF
+
+
+	The high byte of the of the destination register is overwritten by
+	the value of the access rights byte and the low order byte is zeroed
+	depending on the selection in the source operand.  The Zero Flag is
+	set if the load operation is successful.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16,reg16	  -	14    15    11		  3
+	reg32,reg32	  -	-     15    11		  3
+	reg16,mem16	  -	16    16    11		 3-7
+	reg32,mem32	  -	-     16    11		 3-7
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

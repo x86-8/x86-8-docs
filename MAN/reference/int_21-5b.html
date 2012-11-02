@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,5b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,5B - Create File  (DOS 3.0+)</H2>
+
+<PRE>
+
+
+	AH = 5B
+	CX = attribute
+	DS:DX = pointer to ASCIIZ path/filename
+
+
+	on return:
+	AX = handle if CF not set
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- standard method of opening files
+	- returns a file handle of a file opened with specified
+	  attributes (combinations of normal, system and hidden)
+
+</PRE>
+
+</BODY>
+</HTML>

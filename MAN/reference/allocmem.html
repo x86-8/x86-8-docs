@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>allocmem</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int allocmem( unsigned size, unsigned *seg )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- allocates memory in size paragraphs, where seg is pointer to
+	  a word containing segment address
+	- returns -1 if ok, else largest available memory in paragraphs
+	- MS C uses _dos_allocmem
+	- see  <A HREF="int_21-48.html">INT 21,48</A>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>getdate</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void getdate( struct date *dateblk )</H2>
+
+<PRE>
+
+	- prototype in dos.h
+
+	- gets DOS date, filling it into the following structures:
+
+	struct date
+	    {
+	    int	 da_year;		- Year including century
+	    char da_day;		- Day of the month
+	    char da_mon;		- Month (1 = Jan)
+	    };
+
+	- MS C uses <A HREF="_dos_getdate.html">_dos_getdate</A>()
+	- see  <A HREF="int_21-2a.html">INT 21,2A</A>
+</PRE>
+
+</BODY>
+</HTML>

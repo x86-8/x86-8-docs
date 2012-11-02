@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>parallel port</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Parallel Printer Port</H2>
+
+<PRE>
+
+<B>	Port 3BC printer data output  (readable)</B>
+
+	 |7|6|5|4|3|2|1|0|  ports 278, 378, 3BC
+	  | | | | | | | `---- data bit 0, hardware pin 2
+	  | | | | | | `----- data bit 1, hardware pin 3
+	  | | | | | `------ data bit 2, hardware pin 4
+	  | | | | `------- data bit 3, hardware pin 5
+	  | | | `-------- data bit 4, hardware pin 6
+	  | | `--------- data bit 5, hardware pin 7
+	  | `---------- data bit 6, hardware pin 8
+	  `----------- data bit 7, hardware pin 9
+
+<B>	Port 3BD printer status register   (Parallel Printer Port)</B>
+
+	 |7|6|5|4|3|2|1|0|  ports 279, 379, 3BD
+	  | | | | | | | `---- 1 = time-out
+	  | | | | | `------- unused
+	  | | | | `-------- 1 = error,	pin 15
+	  | | | `--------- 1 = on-line,  pin 13
+	  | | `---------- 1 = out of paper,  pin 12
+	  | `----------- 0 = Acknowledge,  pin 10
+	  `------------ 0 = busy,  pin 11
+
+<B>	Port 3BE printer control register   (Parallel Printer Port)</B>
+
+	 |7|6|5|4|3|2|1|0|  ports 27A, 37A, 3BE
+	  | | | | | | | `---- 1 = output data to printer,  (pin 1)
+	  | | | | | | `----- 1 = auto line feed,  (pin 14)
+	  | | | | | `------ 0 = initialize printer,  (pin 16)
+	  | | | | `------- 1 = printer reads output,  (pin 17)
+	  | | | `-------- 0 = IRQ disable,1=IRQ enable for ACK
+	  `------------- unused
+
+</PRE>
+
+</BODY>
+</HTML>

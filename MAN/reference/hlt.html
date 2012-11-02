@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>hlt</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>HLT - Halt CPU</H2>
+
+<PRE>
+
+
+	Usage:	 HLT
+	Modifies flags: None
+
+
+	Halts CPU until RESET line is activated, NMI or maskable interrupt
+	received.  The CPU becomes dormant but retains the current CS:IP
+	for later restart.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  2	2     5	    4		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

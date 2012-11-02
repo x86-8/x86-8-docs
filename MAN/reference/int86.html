@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>int86</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int int86( int intr_num, union REGS *inregs, union REGS *outregs )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- executes 8086 software interrupt specified by intr_num
+	- copies register values from inregs into the registers
+	- if CF is set, an error has occurred
+	- preserves SP register so calls to <A HREF="int_25.html">INT 25</A> and <A HREF="int_26.html">INT 26</A> via this
+	  function don't require a stack adjustment
+	- unique to DOS
+	- see	<A HREF="int86x.html">int86x</A>()  <A HREF="intdos.html">intdos</A>()   <A HREF="intdosx.html">intdosx</A>()   <A HREF="intr.html">intr</A>()   <A HREF="regs.html">REGS</A>
+</PRE>
+
+</BODY>
+</HTML>

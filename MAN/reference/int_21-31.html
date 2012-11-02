@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,31</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,31 - Terminate Process and Remain Resident</H2>
+
+<PRE>
+
+
+	AH = 31h
+	AL = exit code (returned to batch files)
+	DX = memory size in paragraphs to reserve
+
+
+	returns nothing
+
+
+	- preferred method for Terminate and Stay Resident programs
+	- terminates process without releasing allocated memory and
+	  without closing open files
+	- attempts allocation of memory specified in DX from memory
+	  allocated by DOS at startup.	 <A HREF="int_21-48.html">INT 21,48</A> memory allocation
+	  is not affected
+
+	- see	<A HREF="int_27.html">INT 27</A>
+
+</PRE>
+
+</BODY>
+</HTML>

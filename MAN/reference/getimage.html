@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>getimage</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  TC: void far getimage( int left, int top, int right,</B>
+<B>				 int bottom, void far *bitmap )</B>
+
+
+	- prototype in graphics.h
+
+	- copies video data from the screen rectange to buffer "bitmap"
+	- bitmap must be large enough to hold entire buffer plus 4 bytes
+	  (2 words) for height and width information.  Function imagesize()
+	  should be used to determine the size of the buffer to avoid
+	  overwriting adjacent memory.
+
+	- MS C uses <A HREF="_getimage.html">_getimage</A>()
+	- see	<A HREF="putimage.html">putimage</A>()   <A HREF="imagesize.html">imagesize</A>()
+</PRE>
+
+</BODY>
+</HTML>

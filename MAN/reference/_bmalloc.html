@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_bmalloc</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: void _based(void) *_bmalloc( _segment seg, size_t size )</B>
+<B>	MSC: void far *_fmalloc( size_t size )</B>
+<B>	MSC: void near *_nmalloc( size_t size )</B>
+
+
+	- prototype in malloc.h
+
+	- size = number of bytes to allocate
+	- seg = base segment value
+	- malloc() maps to _fmalloc or _nmalloc based on memory model
+	- _fmalloc allocates memory outside the default data segment if
+	  possible
+	- returns pointer to allocated block or NULL on error;	_bmalloc()
+	  function returns _NULLOFF on error
+	- these functions will allocate a zero length block
+
+</PRE>
+
+</BODY>
+</HTML>

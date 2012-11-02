@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,4b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,4B - Get Handle Count  (LIM EMS)</H2>
+
+<PRE>
+
+
+	AH = 4Bh
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	BX = number of currently active EMM handles (0-256)
+	     zero indicates EMS not in use
+
+
+	- to determine the number of handles available subtract BX from 255
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

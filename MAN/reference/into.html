@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>into</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INTO - Interrupt on Overflow</H2>
+
+<PRE>
+
+
+	Usage:	INTO
+	Modifies flags: IF TF
+
+
+	If the Overflow Flag is set this instruction generates an INT 4
+	which causes the code addressed by 0000:0010 to be executed.
+
+
+<B>					  Clocks	   Size</B>
+<B>	Operands		808x	286   386   486	   Bytes</B>
+
+	none: jump	       53/73   24+m    35    28	     1
+	      no jump		 4	 3     3     3
+	(prot. mode, same priv.) -	 -     59    46	     1
+	(prot. mode, more priv.) -	 -     99    73	     1
+	(from VM86 to PL 0)	 -	 -    119    84	     1
+	(prot. mode, via task gate)	 -     TS  39+TS     1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

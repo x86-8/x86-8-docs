@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,42</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,42 - Move File Pointer Using Handle</H2>
+
+<PRE>
+
+
+	AH = 42h
+	AL = origin of move:
+	     00 = beginning of file plus offset  (SEEK_SET)
+	     01 = current location plus offset	(SEEK_CUR)
+	     02 = end of file plus offset  (SEEK_END)
+	BX = file handle
+	CX = high order word of number of bytes to move
+	DX = low order word of number of bytes to move
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	DX:AX = new pointer location if CF not set
+
+
+	- seeks to specified location in file
+</PRE>
+
+</BODY>
+</HTML>

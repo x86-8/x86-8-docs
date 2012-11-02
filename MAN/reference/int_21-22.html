@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,22</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,22 - Random Write Using FCB</H2>
+
+<PRE>
+
+
+	AH = 22h
+	DS:DX = far pointer to an opened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if write successful
+	   = 01 if diskette full or read only
+	   = 02 if <A HREF="dta.html">DTA</A> is too small
+
+
+	- write records to random location in file opened with FCB
+	- FCB must be setup with drive id, filename, extension,
+	  record position and record length before call
+	- current record position field in FCB is not updated
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<TITLE>rewind</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>void rewind( FILE *fp )</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- equivalent to <A HREF="fseek.html">fseek</A>(fp,0L,SEEK_SET), except EOF and
+	  error indicators are cleared
+	- returns 0 if pointer moved OK, else nonzero
+
+</PRE>
+
+</BODY>
+</HTML>

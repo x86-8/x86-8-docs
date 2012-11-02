@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>int 1c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1C - System Timer Tick (User Routine)</H2>
+
+<PRE>
+
+
+	- called by <A HREF="int_8.html">INT 8</A>, approximately 18.206 times per second
+	  (unless the program modifies the <A HREF="8253.html">8253</A> PIT
+	- this is a user routine which the BIOS defaults to a simple <A HREF="iret.html">IRET</A>
+	- this interrupt vector can be used for TSR popup utilities,
+	  animated graphics updates and event polling
+	- since many TSR's don't maintain the integrity of the interrupt
+	  call chain, relying on this for TSR popup isn't recommended
+</PRE>
+
+</BODY>
+</HTML>

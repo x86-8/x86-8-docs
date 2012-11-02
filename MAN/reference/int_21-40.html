@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,40</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,40 - Write To File or Device Using Handle</H2>
+
+<PRE>
+
+
+	AH = 40h
+	BX = file handle
+	CX = number of bytes to write, a zero value truncates/extends
+	     the file to the current file position
+	DS:DX = pointer to write buffer
+
+
+	on return:
+	AX = number of bytes written if CF not set
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- if AX is not equal to CX on return, a partial write occurred
+	- this function can be used to truncate a file to the current
+	  file position by writing zero bytes
+</PRE>
+
+</BODY>
+</HTML>

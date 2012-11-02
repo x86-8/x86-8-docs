@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_open</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _dos_open( char *fname, unsigned mode, int *handle )</H2>
+
+<PRE>
+
+	- prototype in dos.h, fcntl.h (also include share.h)
+
+	- fname = valid DOS file name
+	- mode	= file access permission (a logical or of the following)
+		= O_NOINHERIT	file can't be inherited by child process
+		= O_RDONLY	file is read only
+		= O_RDWR	file is read/write
+		= O_WRONLY	file is write only
+		= SH_COMPAT	file sharing compatibility mode
+		= SH_DENYNONE	file sharing deny neither read nor write
+		= SH_DENYRD	file sharing deny read
+		= SH_DENYRW	file sharing deny read/write
+		= SH_DENYWR	file sharing deny write
+
+	- handle = pointer to memory to contain handle
+	- does not creat files, they must currently exist (see <A HREF="_dos_creat.html">_dos_creat</A>())
+	- returns 0 on success or DOS error code
+
+	- Turbo C uses <A HREF="_open.html">_open</A>()
+	- see	<A HREF="int_21-3d.html">INT 21,3D</A>  <A HREF="_dos_close.html">_dos_close</A>()  <A HREF="_dos_read.html">_dos_read</A>()
+		<A HREF="_dos_write.html">_dos_write</A>()	<A HREF="_dos_creat.html">_dos_creat</A>()
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,49</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,49 - Get I/O Port Addresses  (LIM EMS ó 3.0)</H2>
+
+<PRE>
+
+
+	AH = 49h
+	ES:DI = far pointer to storage array
+
+
+	on return:
+	AL = board count  (0 < AL <= 4)
+	AH = 00 success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+
+	- defined in EMS 3.0, but undocumented in EMS 3.2;  new software
+	  should not use this function, but old software still works
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

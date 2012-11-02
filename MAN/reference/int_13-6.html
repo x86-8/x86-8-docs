@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,6</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,6 - Format Track and Set Bad Sector Flags (XT & portable)</H2>
+
+<PRE>
+
+	AH = 06
+	AL = Interleave value (XT only)
+	BX = format buffer, size = 512 bytes;  the first
+	     2*(sectors/track) bytes contain F,N for each sector
+	     F = 00h for good sector,
+	     F = 80h for bad sector
+	     N = sector number
+
+
+	on return:
+	AH = status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- BIOS disk write attempts should reset the controller on error
+	- only the disk number is checked for validity
+</PRE>
+
+</BODY>
+</HTML>

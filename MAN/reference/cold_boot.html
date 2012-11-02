@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>cold boot</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>POST - Cold Boot / Power On Self Test Activities</H2>
+
+<PRE>
+
+	- power supply starts Clock Generator (8284) with Power
+	  Good signal on BUS
+	- CPU reset line is pulsed resetting CPU
+	- DS, ES, and SS are cleared to zero
+
+<B>	Cold and Warm Boot both execute the following sequence</B>
+	- CS:IP are set to FFFF:0000 (address of ROM POST code)
+	- jump to CS:IP  (execute POST, Power On Self test)
+	- interrupts are disabled
+	- CPU flags are set, read/write/read test of CPU registers
+	- checksum test of ROM BIOS
+	- Initialize DMA (verify/init 8237 timer, begin DMA RAM refresh)
+	- save reset flag then read/write test the first 32K of memory
+	- Initialize the Programmable Interrupt Controller (8259)
+	  and set 8 major BIOS <A HREF="int_table.html">interrupt</A> vectors (interrupts 10h-17h)
+	- determine and set configuration information
+	- initialize/test CRT controller & test video memory (unless 1234h
+	  found in reset word)
+	- test <A HREF="8259.html">8259</A> Programmable Interrupt Controller
+	- test Programmable Interrupt Timer (<A HREF="8253.html">8253</A>)
+	- reset/enable keyboard, verify scan code (AAh), clear keyboard,
+	  check for stuck keys, setup interrupt vector lookup table
+	- hardware interrupt vectors are set
+	- test for expansion box, test additional RAM
+	- read/write memory above 32K (unless 1234h found in reset word)
+	- addresses C800:0 through F400:0 are scanned in 2Kb blocks in
+	  search of valid ROM.	If found, a far call to byte 3 of the ROM
+	  is executed.
+	- test ROM cassette BASIC (checksum test)
+	- test for installed diskette drives & <A HREF="765.html">FDC</A> recalibration & seek
+	- test printer and RS-232 ports.  store printer port addresses
+	  at 400h and RS-232 port addresses at 408h.  store printer
+	  time-out values at 478h and Serial time-out values at 47Ch.
+	- NMI interrupts are enabled
+	- perform <A HREF="int_19.html">INT 19</A> (bootstrap loader), pass control to boot record
+	  or cassette BASIC if no bootable disk found
+	- <A HREF="warm_boot.html">WARM BOOT</A> procedure is now executed
+
+	- see   <A HREF="diagnostic_codes.html">DIAGNOSTIC CODES</A>
+
+</PRE>
+
+</BODY>
+</HTML>

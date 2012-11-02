@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>fread</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>size_t fread( void *buf, size_t size, size_t count, FILE *fp )</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- reads  (count * size)  bytes from file stream "fp"
+	- returns the number of blocks actually read
+	- to get better feedback from this function, the parameters "size"
+	  and "count" may be swapped.  If count is 1, this method allows
+	  fread() to return the actual number of bytes read
+	- using fread or any of the stdio functions results in a default
+	  allocation of 512 bytes for the I/O buffer and the inclusion of
+	  the standard memory allocation functions
+	- returns 0 (or short count) on eof or error
+
+	- see  <A HREF="fopen.html">fopen</A>()   <A HREF="fread.html">fread</A>()   <A HREF="setvbuf.html">setvbuf</A>()
+
+</PRE>
+
+</BODY>
+</HTML>

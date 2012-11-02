@@ -1,0 +1,369 @@
+<HTML>
+<HEAD>
+<TITLE>diagnostic codes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DIAGS	IBM PC Diagnostic Error Codes</H2>
+
+<PRE>
+
+<B>	Code	   Description	  (Diagnostic Error Codes)</B>
+
+	 1x   undetermined problem errors
+	 2x   power supply errors
+	 61   battery error (PS/2)
+	 62   configuration changed but no adaptors changed or CRC error
+	 63   memory size during POST does not match <A HREF="cmos_ram.html">CMOS</A> RAM
+	 65   card Id's in CMOS do not match system
+
+<B>	1xx   System Board Errors</B>
+	101   system board failed
+	102   BIOS ROM checksum error (PC, XT), Timer (AT)
+	103   BASIC ROM checksum error (PC, XT), Timer interrupt (AT)
+	104   interrupt controller (PC, XT), Protected mode (AT)
+	105   timer (PC,XT), Last <A HREF="8042.html">8042</A> command not accepted (AT)
+	106   converting logic test failure
+	107   adapter card or math coprocessor (NMI)
+	108   timer bus test
+	109   DMA test error
+	110   system board memory error (PS/2)
+	111   adapter memory
+	112   system unit adapter failure
+	114   system unit and adapter card unit failure (PS/1)
+	121   unexpected hardware interrupt
+	131   cassette wrap test failed
+	151   real-time clock, CMOS RAM or battery
+	152   real-time clock
+	161   system options error, battery failure
+	162   CMOS RAM configuration error
+	163   CMOS time and date not set
+	164   system memory configuration is incorrect
+	165   adapter added/removed
+	199   user indicated configuration not correct
+
+<B>	2xx   RAM Errors</B>
+	201   memory test error
+	202   memory address error (Line error	0 - 15)
+	203   memory address error (Line error 16 - 23)
+	216   motherboard memory
+
+<B>	3xx   Keyboard Errors</B>
+	301   keyboard did not respond to software reset or a stuck
+	      (number preceding 301 is scan code for stuck key)
+	302   user indicated keyboard error or AT system unit is locked
+	303   keyboard or system board error
+	304   keyboard or system board error; CMOS does not match system
+	341   replace keyboard
+	342   replace keyboard interface cable
+	343   replace enhancement card or cable
+	365   keyboard (replace keyboard)
+	366   interface cable (replace cable)
+	367   enhancement card or cable (replace)
+
+<B>	4xx   Monochrome Monitor Errors</B>
+	401   monochrome memory test, horizontal sync frequency
+	      test, or video test failed
+	408   user indicated display attributes failure
+	416   user indicated character set failure
+	424   user indicated 80x25 mode failure
+	432   parallel port test failed (monochrome adapter)
+
+<B>	5xx   Color Monitor Errors</B>
+	501   CGA memory test failed, horizontal sync frequency test, or
+	      video test failed
+	508   user indicated display attribute failure
+	516   user indicated character set failure
+	524   user indicated 80x25 mode failure
+	532   user indicated 40x25 mode failure
+	540   user indicated 320x200 graphics mode failure
+	548   user indicated 640x200 graphics mode failure
+	556   light pen test
+	564   user indicated screen paging test
+
+<B>	6xx   Diskette Drive/Adapter Errors</B>
+	601   diskette power on diagnostics test failed
+	602   diskette test failed (boot record not valid)
+	603   diskette size error
+	606   diskette verify function failed
+	607   write protected diskette
+	608   bad command diskette status returned
+	610   diskette initialization failed
+	611   time-out - diskette status returned
+	612   bad NEC <A HREF="765.html">FDC</A> - diskette status returned
+	613   bad DMA - diskette status returned
+	614   DMA boundary error
+	621   bad seek - diskette status returned
+	622   bad CRC - diskette status returned
+	623   record not found - diskette status returned
+	624   bad address mark - diskette status returned
+	625   bad NEC seek - diskette status returned
+	626   diskette data compare error
+	627   diskette change line error
+	628   diskette removed
+
+<B>	7xx   8087 Math Coprocessor</B>
+	701   coprocessor test failure
+
+<B>	9xx   Parallel Printer Adapter Errors</B>
+	901   parallel printer adapter test failed
+
+<B>	10xx  Alternate Parallel Printer Adapter</B>
+	1001  alternate printer adapter test failure
+
+<B>	11xx  Asynchronous Communications Adapter Errors</B>
+	1101  asynchronous communications adapter test failed
+	1110  modem status register not clear
+	1111  ring-indicate
+	1112  trailing edge ring-indicate
+	1113  receive and delta receive line signal detect
+	1114  receive line signal detect
+	1115  delta receive line signal detect
+	1116  line control register: all bits cannot be set
+	1117  line control register: all bits cannot be reset
+	1118  transmit holding and/or shift register stuck on
+	1119  data ready stuck on
+	1120  interrupt enable register: all bits cannot be set
+	1121  interrupt enable register: all bits cannot be reset
+	1122  interrupt pending stuck on
+	1123  interrupt ID register stuck on
+	1124  modem control register: all bits cannot be set
+	1125  modem control register: all bits cannot be reset
+	1126  modem status register: all bits cannot be set
+	1127  modem status register: all bits cannot be reset
+	1128  interrupt ID
+	1129  cannot force overrun error
+	1130  no modem status interrupt
+	1131  invalid interrupt pending
+	1132  no data ready
+	1133  no data available interrupt
+	1134  no transmit holding interrupt
+	1135  no interrupts
+	1136  no received line status interrupt
+	1137  no receive data available
+	1138  transmit holding register not empty
+	1139  no modem status interrupt
+	1140  transmit holding register not empty
+	1141  no interrupts
+	1142  no IRQ4 interrupt
+	1143  no IRQ3 interrupt
+	1144  no data transferred
+	1145  maximum baud rate
+	1146  minimum baud rate
+	1148  time-out error
+	1149  invalid data returned
+	1150  modem status register error
+	1151  no DSR and delta DSR
+	1152  no DSR
+	1153  no delta DSR
+	1154  modem status register not clear
+	1155  no CTS and delta CTS
+	1156  no CTS
+	1157  no delta CTS
+
+<B>	12xx  Alternate Asynchronous Communications Adapter</B>
+	1200-1257 same as 1100-1157
+
+<B>	13xx  Game Control Adapter Errors</B>
+	1301  game control adapter test failed
+	1302  joystick test failed
+	1380  audio card and joystick (PS/1)
+
+<B>	14xx  Printer Errors</B>
+	1401  printer test failed
+	1404  matrix printer failed
+
+<B>	15xx  SDLC Communications Adapter Errors</B>
+	1501  adapter test failure
+	1510  8255 port b failure
+	1511  8255 port a failure
+	1512  8255 port c failure
+	1513  8253 timer 1 did not reach terminal count
+	1514  8253 timer 1 stuck on
+	1515  8253 timer 0 did not reach terminal count
+	1516  8253 timer 0 stuck on
+	1517  8253 timer 2 did not reach terminal count
+	1518  8253 timer 2 stuck on
+	1519  8273 port b error
+	1520  8273 port a error
+	1521  8273 command/read time-out
+	1522  interrupt level 4 failure
+	1523  ring Indicate stuck on
+	1524  receive clock stuck on
+	1525  transmit clock stuck on
+	1526  test indicate stuck on
+	1527  ring indicate not on
+	1528  receive clock not on
+	1529  transmit clock not on
+	1530  test indicate not on
+	1531  DSR not on
+	1532  CD not on
+	1533  CTS not on
+	1534  DSR stuck on
+	1535  CD stuck on
+	1536  CTS stuck on
+	1537  level 3 interrupt failure
+	1538  receive interrupt results error
+	1539  wrap data compare error
+	1540  DMA channel 1 error
+	1541  DMA channel 1 error
+	1542  error in 8273 error checking or status reporting
+	1547  stray interrupt level 4
+	1548  stray interrupt level 3
+	1549  interrupt presentation sequence time-out
+
+<B>	16xx  Display Emulation Errors (327x, 5520, 525x)</B>
+
+<B>	17xx  Fixed Disk Errors</B>
+	1701  post error
+	1702  adapter error
+	1703  drive error (seek)
+	1704  adapter or drive error
+	1705  no record found
+	1706  write fault error
+	1707  track 0 error
+	1708  head select error
+	1709  defective error check
+	1710  read buffer overrun
+	1711  bad address mark
+	1712  undetermined error
+	1713  data compare error
+	1714  drive not ready
+	1780  disk 0 failure
+	1781  disk 1 failure
+	1782  disk controller failure
+	1790  fixed disk 0 error
+	1791  fixed disk 1 error
+
+<B>	18xx  I/O Expansion Unit Errors</B>
+	1801  I/O expansion unit POST error
+	1810  enable/disable failure
+	1811  extender card wrap test failed (disabled)
+	1812  high order address lines failure (disabled)
+	1813  wait state failure (disabled)
+	1814  enable/disable could not be set on
+	1815  wait state failure (enabled)
+	1816  extender card wrap test failed (enabled)
+	1817  high order address lines failure (enabled)
+	1818  disable not functioning
+	1819  wait request switch not set correctly
+	1820  receiver card wrap test failure
+	1821  receiver high order address lines failure
+
+<B>	19xx  3270 PC Attachment Card Errors</B>
+
+<B>	20xx  Bisync Communications Adapter Errors</B>
+	2010  8255 port a failure
+	2011  8255 port b failure
+	2012  8255 port c failure
+	2013  8253 timer 1 did not reach terminal count
+	2014  8253 timer 1 stuck on
+	2016  8253 timer 2 didn't reach terminal count or timer 2 stuck on
+	2017  8251 DSR failed to come on
+	2018  8251 CTS not sensed
+	2019  8251 DSR stuck on
+	2020  8251 CTS stuck on
+	2021  8251 hardware reset failed
+	2022  8251 software reset failed
+	2023  8251 software error reset failed
+	2024  8251 transmit ready did not come on
+	2025  8251 receive ready did not come on
+	2026  8251 could not force "overrun" error status
+	2027  interrupt failure, no timer interrupt
+	2028  transmit interrupt, card or planar failure
+	2029  transmit interrupt, card failure
+	2030  receive interrupt, card or planar failure
+	2031  receive interrupt, card failure
+	2033  ring indicate stuck on
+	2034  receive clock stuck on
+	2035  transmit clock stuck on
+	2036  test indicate stuck on
+	2037  ring indicate stuck on
+	2038  receive clock not on
+	2039  transmit clock not on
+	2040  test indicate not on
+	2041  DSR not on
+	2042  CD not on
+	2043  CTS not on
+	2044  DSR stuck on
+	2045  CD stuck on
+	2046  CTS stuck on
+	2047  unexpected transmit interrupt
+	2048  unexpected receive interrupt
+	2049  transmit data did not equal receive data
+	2050  8251 detected overrun error
+	2051  lost DSR during data wrap
+	2052  receive time-out during data wrap
+
+<B>	21xx  Alternate Bisync Communications Adapter Errors</B>
+	2100-2152 same as 2000-2052
+
+<B>	22xx  Cluster Adapter Errors</B>
+
+<B>	24xx  EGA Errors</B>
+	2401  adapter test failure
+	2408  user-indicated display attributes
+	2416  user-indicated character set
+	2424  user-indicated 80x25 mode
+	2432  user-indicated 40x25 mode
+	2440  user-indicated 320x200 graphics mode
+	2448  user-indicated 640x200 graphics mode
+	2456  light pen test
+	2464  user-indicated screen paging test
+
+<B>	2501  EGA Display Error</B>
+
+<B>	28xx  3278/79 Emulator Adapter (PC, XT)</B>
+
+<B>	29xx  Color Matrix Printer Errors</B>
+
+<B>	30xx  Local Area Network Adapter</B>
+
+<B>	31xx  Alternate Local Area Network Adapter</B>
+
+<B>	33xx  Compact Printer Errors</B>
+
+<B>	36xx  IEEE 488 Adapter</B>
+
+<B>	37xx  Reserved for Future Use</B>
+
+<B>	38xx  Data Acquisition Adapter</B>
+
+<B>	39xx  PGA Display and/or Adapter</B>
+
+<B>	48xx  Internal Modem</B>
+
+<B>	49xx  Alternate Internal Modem</B>
+
+<B>	71xx  Voice Communications Adapter</B>
+
+<B>	73xx  3.5 Inch Diskette Drive</B>
+	7301  diskette drive/adapter test failure
+	7306  diskette change line error
+	7307  write-protected diskette
+	7308  bad command
+	7310  track zero error
+	7311  timeout
+	7312  bad NEC7313 bad DMA
+	7314  DMA boundary error
+	7315  bad index
+	7316  speed error
+	7321  bad seek
+	7322  bad CRC
+	7323  record not found
+	7324  bad address mark
+	7325  bad NEC seek
+
+<B>	86xx  PS/1 Mouse Error</B>
+
+
+	- all error codes for the diagnostic and advanced diagnostic
+	  packages for the PC, XT and AT are represented with the device
+	  number followed by two digits other than 00.	The device number
+	  plus 00 represents successful completion of the test.
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>_rectangle</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: short _rectangle( short ctl, short x1, short y1,</B>
+<B>				short x2, short y2 )</B>
+
+<B>	MSC: short far _rectangle_w( short control, double wx1,</B>
+<B>					double wy1, double wx2, double wy2 )</B>
+
+<B>	MSC: short far _rectangle_wxy( short control,</B>
+<B>		struct _wxycoord far *pwxy1, struct _wxycoord far *pwxy2 )</B>
+
+
+	- prototype in graph.h
+
+	- (x1,y1) upper left corner of rectangle
+	- (x2,y2) lower right corner of rectangle
+	- ctl	= _GFILLINTERIOR	fill rect. with current color and mask
+		= _GBORDER		don't fill rectangle
+
+	- returns nonzero on success; zero otherwise
+
+</PRE>
+
+</BODY>
+</HTML>

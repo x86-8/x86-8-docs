@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>strtod</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>double strtod( const char *str, char **endptr )</H2>
+
+<PRE>
+
+
+	- prototype in string.h
+
+	- converts string str to a double value
+	- stops reading at tfirst character that cannot be interpreted
+	  as part of a double value, returning in *endptr
+	- str must have format:
+
+	  [ws][sn][ddd][.][ddd][fmt[sn]ddd]
+
+	  where [ws]  = optional whitespace
+		[sn]  = optional sign (+-)
+		[ddd] = optional digits
+		[fmt] = option e or E
+		[.]   = optional decimal point
+
+</PRE>
+
+</BODY>
+</HTML>

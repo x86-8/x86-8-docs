@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>xlat</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>XLAT/XLATB - Translate</H2>
+
+<PRE>
+
+
+	Usage:	XLAT	translation-table
+		XLATB	(masm 5.x)
+	Modifies flags: None
+
+
+	Replaces the byte in AL with byte from a user table addressed by
+	BX.  The original value of AL is the index into the translate table.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	table		  11	5     5	    4		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

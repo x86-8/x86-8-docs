@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,52</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,52 - Get/Set Handle Attributes	(LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 52h
+	AL = 00  get handle attributes
+	     01  set handle attributes
+	     02  get attribute capability
+	BL = new attribute (if AL=1)
+	DX = EMM handle
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	AL = attribute (input AL=0)
+	     00  handle is volatile
+	     01  handle is nonvolatile
+	AL = attribute capability (input AL=2)
+	     00  only volatile handles supported
+	     01  both volatile and nonvolatile supported
+
+</PRE>
+
+</BODY>
+</HTML>

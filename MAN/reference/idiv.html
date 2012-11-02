@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>idiv</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>IDIV - Signed Integer Division</H2>
+
+<PRE>
+
+	Usage:	 IDIV	src
+	Modifies flags: (AF,CF,OF,PF,SF,ZF undefined)
+
+	Signed binary division of accumulator by source.  If source is a
+	byte value, AX is divided by "src" and the quotient is stored in
+	AL and the remainder in AH.  If source is a word value, DX:AX is
+	divided by "src", and the quotient is stored in AL and the
+	remainder in DX.
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg8	      101-112	17    19    19		  2
+	reg16	      165-184	25    27    27		  2
+	reg32		 -	-     43    43		  2
+	mem8	 (107-118)+EA	20    22    20		 2-4
+	mem16	 (171-190)+EA	38    30    28		 2-4  (W88=175-194)
+	mem32		 -	-     46    44		 2-4
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

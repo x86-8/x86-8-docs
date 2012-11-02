@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,0 / IOCTL,0 - Get Device Information</H2>
+
+<PRE>
+
+	AH = 44h
+	AL = 00
+	BX = handle (must be an opened device)
+
+
+	on return
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	DX = device information  (see tables below)
+
+
+	|F|E|D|C|B|A-8|7|6|5-0|  DX  Block Device Information
+	 | | | | |  |  | |  `----- drive number (0=A:,1=B:)
+	 | | | | |  |  | `------- 0 = file has been written
+	 | | | | |  |  `-------- 0 = disk file; 1 = character device
+	 | | | | |  `---------- reserved, must be zero
+	 | | | | `------------ 1 = media not removable
+	 | | | `------------- 1 = network device (DOS 3.x+)
+	 | | `-------------- 1 = reserved
+	 | `--------------- 1 = don't update file time or date (DOS 4.x+)
+	 `---------------- 1 = file is remote (DOS 3.x+)
+
+	|F|E|D|C|B|A-8|7|6|5|4|3|2|1|0|  DX  Character Device Information
+	 | | | | |  |  | | | | | | | `---- 1 = standard input device
+	 | | | | |  |  | | | | | | `---- 1 = standard output device
+	 | | | | |  |  | | | | | `---- 1 = NUL device
+	 | | | | |  |  | | | | `---- 1 = clock device
+	 | | | | |  |  | | | `---- uses DOS <A HREF="int_29.html">INT 29</A> for fast character output
+	 | | | | |  |  | | `---- 1 = binary mode, 0 = translated
+	 | | | | |  |  | `---- 0 = end of file on input
+	 | | | | |  |  `---- 1 = character device, 0 if disk file
+	 | | | | |  `----- reserved
+	 | | | | `------ 1 = media not removable
+	 | | | `------ 1 = network device (DOS 3.x+)
+	 | | `------ reserved
+	 | `------ 1 = supports IOCTL, via functions 2 & 3
+	 `------ reserved
+
+
+	- BIT 7 of register DX can be used to detect if STDIN/STDOUT is
+	  redirected to/from disk; if a call to this function has DX BIT 7
+	  set it's not redirected from/to disk; if it's clear then it is
+	  redirected to/from disk
+	- BIT B of register DX can be used to determine if a drive is
+	  removable.
+
+</PRE>
+
+</BODY>
+</HTML>

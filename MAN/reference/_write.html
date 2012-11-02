@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>_write</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int _write( int handle, char *buf, int count )</H2>
+
+<PRE>
+
+
+	- prototype in io.h
+
+	- writes "count" bytes from "buf" to file or device at "handle"
+	- count cannot be greater that 65534
+	- is a direct call to MS-DOS write function <A HREF="int_21-40.html">INT 21,40</A>
+	- does NO conversion of CR/LFs; all output is binary
+	- returns a count of bytes written  or -1 on error
+	- MS C uses <A HREF="_dos_write.html">_dos_write</A>()
+
+	- see  <A HREF="write.html">write</A>()  <A HREF="_open.html">_open</A>()  <A HREF="_creat.html">_creat</A>()  <A HREF="_read.html">_read</A>()
+
+</PRE>
+
+</BODY>
+</HTML>

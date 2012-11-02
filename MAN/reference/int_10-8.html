@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,8</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,8 - Read Character and Attribute at Cursor Position</H2>
+
+<PRE>
+
+
+	AH = 08
+	BH = display page
+
+
+	on return:
+	AH = attribute of character (alpha modes only)
+	AL = character at cursor position
+
+
+	- in video mode 4 (300x200 4 color) on the EGA, MCGA and VGA
+	  this function works only on page zero
+
+</PRE>
+
+</BODY>
+</HTML>

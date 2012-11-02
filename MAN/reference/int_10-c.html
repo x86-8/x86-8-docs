@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,C - Write Graphics Pixel at Coordinate</H2>
+
+<PRE>
+
+
+	AH = 0C
+	AL = color value (XOR'ED with current pixel if bit 7=1)
+	BH = page number, see <A HREF="video_pages.html">VIDEO PAGES</A>
+	CX = column number (zero based)
+	DX = row number (zero based)
+
+
+	returns nothing
+
+
+	- if bit 7 is 1, color specified is XOR'ed with current pixel
+	- page number in BH ignored for 320x200 4 color graphics mode
+	- this function is known to destroy AX and possibly SI and DI on
+	  on some PS/2 VGA systems
+
+</PRE>
+
+</BODY>
+</HTML>

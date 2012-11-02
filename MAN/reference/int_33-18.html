@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,18</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,18 - Set alternate subroutine call mask and address</H2>
+
+<PRE>
+
+	AX = 18h
+	DX = offset to function
+	CX = user interrupt mask:
+
+		|F-8|7|6|5|4|3|2|1|0| user interrupt mask in CX
+		  |  | | | | | | | `--- alt key pressed during event
+		  |  | | | | | | `---- ctrl key pressed during event
+		  |  | | | | | `----- shift key pressed during event
+		  |  | | | | `------ right button up event
+		  |  | | | `------- right button down event
+		  |  | | `-------- left button up event
+		  |  | `--------- left button down event
+		  |  `---------- cursor moved
+		  `------------ unused
+
+	- entire mask is set to zero when <A HREF="int_33-0.html">INT 33,0</A> is called
+	- up to three handlers may be defined with this call
+	- mask should be cleared before program exit
+	- when handler is called it receives parameters in the following
+	  registers:
+
+	  AX = condition mask causing call
+	  CX = horizontal cursor position
+	  DX = vertical cursor position
+	  DI = horizontal counts
+	  SI = vertical counts
+	  DS = mouse driver data segment
+	  BX = button state:
+
+	     |F-2|1|0|
+	       |  | `--- left button (1 = pressed)
+	       |  `---- right button (1 = pressed)
+	       `------ unused
+
+</PRE>
+
+</BODY>
+</HTML>

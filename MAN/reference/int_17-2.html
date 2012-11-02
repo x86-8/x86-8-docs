@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 17,2</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 17,2 - Read Printer Port Status</H2>
+
+<PRE>
+
+	AH = 02
+	DX = printer port to be used (0-2)
+
+
+	on return:
+	AH = status:
+
+		|7|6|5|4|3|2|1|0|  Printer status bits
+		 | | | | | | | `---- time out
+		 | | | | | `------- unused
+		 | | | | `-------- I/O error
+		 | | | `--------- selected
+		 | | `---------- out of paper
+		 | `----------- acknowledge
+		 `------------ not busy
+
+
+	- returns status of specified printer port
+</PRE>
+
+</BODY>
+</HTML>

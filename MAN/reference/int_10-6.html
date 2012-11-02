@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,6</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,6 - Scroll Window Up</H2>
+
+<PRE>
+
+
+	AH = 06
+	AL = number of lines to scroll, previous lines are
+	     blanked, if 0 or AL > screen size, window is blanked
+	BH = attribute to be used on blank line
+	CH = row of upper left corner of scroll window
+	CL = column of upper left corner of scroll window
+	DH = row of lower right corner of scroll window
+	DL = column of lower right corner of scroll window
+
+
+	returns nothing
+
+
+	- in video mode 4 (300x200 4 color) on the EGA, MCGA and VGA
+	  this function scrolls page 0 regardless of the current page
+	- can be used to scroll graphics screens, using character coords
+	- on CGA's this function disables video adapter, causing flitter
+</PRE>
+
+</BODY>
+</HTML>

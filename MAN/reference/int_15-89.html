@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,89</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,89 - Switch Processor to Protected Mode</H2>
+
+<PRE>
+
+	AH = 89h
+	BH = IRQ8 interrupt vector offset
+	BL = IRQ0 interrupt vector offset
+	CX = offset into protected mode CS to jump
+	ES:SI = pointer to Global Descriptor Table (<A HREF="gdt.html">GDT</A>)
+
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+
+	- switches 286 and 386 machines into protected mode to take
+	  advantage of advanced feature and extended memory
+	- Global descriptor table must be setup before interrupt
+	- normal BIOS functions are not available after the switch
+</PRE>
+
+</BODY>
+</HTML>

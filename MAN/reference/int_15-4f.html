@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,4f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,4F - Keyboard Intercept  (BIOS date specific)</H2>
+
+<PRE>
+
+	AH = 4F
+	AL = scan code
+	CF = set to 1 (via STC instruction)
+
+	on return
+
+	AH = 80h, CF set  (PC, PCjr)
+	   = 86h, CF set  (XT BIOS 11/8/82, AT BIOS 1/10/84)
+	AL = CF set, new scan code
+	   = CF clear, original scancode
+
+
+	- available with XT BIOS after 11/8/82, AT BIOS after 1/10/84
+	- called by <A HREF="int_9.html">INT 9</A>, makes allowance for keyboard translation
+	- normally returns the scan code in AL, with CF set
+	- if function returns with CF clear, INT 9 ignores keystroke
+	- do not rely on this function being called for each INT 9 since
+	  any user INT 9 handler can exit prematurely and circumvent
+	  this function
+</PRE>
+
+</BODY>
+</HTML>

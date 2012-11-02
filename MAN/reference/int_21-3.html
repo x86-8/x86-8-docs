@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,3 - Wait for Auxiliary Device Input</H2>
+
+<PRE>
+
+
+	AH = 03
+
+
+	on return:
+	AL = character from the auxiliary device
+
+
+	- does not supply error returns
+	- waits for character and reads from STDAUX
+	- default DOS AUX parameters are 2400,N,8,1
+
+</PRE>
+
+</BODY>
+</HTML>

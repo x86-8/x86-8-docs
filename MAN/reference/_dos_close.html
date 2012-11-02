@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_close</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _dos_close( int handle )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- handle is standard DOS file handle attained through <A HREF="_dos_creat.html">_dos_creat</A>(),
+	  <A HREF="_dos_creat.html">_dos_creat</A>(), <A HREF="_dos_creat.html">_dos_creatnew</A>(), <A HREF="_dos_open.html">_dos_open</A>(), <A HREF="dup.html">dup</A>(), <A HREF="open.html">open</A>()
+	- returns 0 on success or DOS error code on failure
+	- does not write a Ctrl-Z to a text file on closing
+	- see	<A HREF="int_21-3e.html">INT 21,3E</A>
+</PRE>
+
+</BODY>
+</HTML>

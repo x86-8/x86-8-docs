@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>bt</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>BT - Bit Test	(386+ only)</H2>
+
+<PRE>
+
+
+	Usage:	BT	dest,src
+	Modifies flags: CF
+
+
+	The destination bit indexed by the source value is copied into the
+	Carry Flag.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16,immed8	  -	-     3	    3		 4-8
+	mem16,immed8	  -	-     6	    6		 4-8
+	reg16,reg16	  -	-     3	    3		 3-7
+	mem16,reg16	  -	-     12    12		 3-7
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

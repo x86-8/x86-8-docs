@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,fe</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,FE - Get DESQView/TopView Virtual Screen Regen Buffer</H2>
+
+<PRE>
+
+
+	AH = FE
+	ES:DI = set to sentinel value (test for INT 10,FE supported)
+
+
+	returns:
+	ES:DI = address of DESQView/TopView video buffer, DI will always
+		be zero
+
+
+	- on return ES:DI should be tested against the original value;
+	  the value will change if this function is supported (DESQView
+	  or TopView loaded), otherwise it will remain unchanged
+	- if ES:DI changes this address can be used as the video screen
+	  regen buffer
+
+</PRE>
+
+</BODY>
+</HTML>

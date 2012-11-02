@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,C - Seek to Cylinder (XT & newer)</H2>
+
+<PRE>
+
+	AH = 0C
+	CH = low order byte of cylinder number (see below)
+	CL = high order byte of cylinder number (see below)
+	DH = head number (0-15)
+	DL = fixed drive number (80h=drive 0, 81h=drive 1)
+
+
+	on return:
+	AH = status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- many good programming references indicate this function is only
+	  available on the AT, PS/2 and later systems, but all hard disk
+	  systems since the XT have this function available
+	- notice that CX is in reverse byte format similar to the way data
+	  is stored in memory and reverse of normal register storage
+	- only the disk number is checked for validity
+	- the parameters in CX change depending on the number of cylinders;
+	  the track/cylinder number is a 10 bit value taken from the 2 high
+	  order bits of CL and the 8 bits in CH (low order 8 bits of track):
+
+	  |F|E|D|C|B|A|9|8|7|6|5-0|  CX
+	   | | | | | | | | | |	`-----	unused
+	   | | | | | | | | `---------  high order 2 bits of track number
+	   `------------------------  low order 8 bits of track number
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,17</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,17 - Set DASD Type for Format (XT BIOS from 1/10/86 & newer)</H2>
+
+<PRE>
+
+
+	AH = 17h
+	AL = 00 no disk
+	   = 01  320k/360k diskette in 320k/360k drive
+	   = 02  320k/360k diskette in 1.2Mb drive
+	   = 03  1.2Mb diskette in 1.2Mb drive
+	   = 04  720k diskette in 720k drive  (BIOS 6/10/85 & newer)
+		 720K diskette in 1.44Mb drive (PS/2)
+		 1.44Mb diskette in 1.44Mb drive (PS/2)
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+
+
+	returns nothing
+
+
+	- only the disk number is checked for validity
+	- tells BIOS format routine about the disk type
+
+</PRE>
+
+</BODY>
+</HTML>

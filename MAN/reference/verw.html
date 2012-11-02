@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>verw</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>VERW - Verify Write (286+ protected)</H2>
+
+<PRE>
+
+
+	Usage:	VERW	src
+	Modifies flags: ZF
+
+
+	Verifies the specified segment selector is valid and is ratable
+	at the current privilege level.  If the segment is writable,
+	the Zero Flag is set, otherwise it is cleared.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16		  -	14    15    11		  3
+	mem16		  -	16    16    11		  5
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

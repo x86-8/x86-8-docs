@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>scanf specifiers</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Specifications for scanf()</H2>
+
+<PRE>
+
+<B>	%[*][width][size]type</B>
+
+<B>	Field			  Description</B>
+
+	*	read next field but suppress assignment
+	width 	maximum number of characters to read
+	size	F	far pointer
+		N	near pointer
+		h	specifies short
+		l	specifies long
+	type	%	prints % character
+		c	character data
+		d	signed decimal integer
+		D	signed long int
+		e,E	signed exponential
+		f	signed floating point in form of sddd.ddd
+		g,G	used for e and f formats
+		i	signed decimal, octal or hex integer
+		I	signed decimal, octal, or hex long integer
+		n	integer pointer
+		o	unsigned octal integer
+		O	unsigned octal long integer
+		p	void pointer;  MS C always uses far pointers, in
+			Turbo C, size is dependent on memory model
+		s	string pointer
+		u	unsigned decimal integer
+		U	unsigned decimal long integer
+		x	unsigned hexadecimal integer
+		X	unsigned hexadecimal long integer
+
+	- The unpredictability of <A HREF="scanf.html">scanf</A>() in the DOS environment precludes
+	  it's use in a user friendly user interface.
+
+</PRE>
+
+</BODY>
+</HTML>

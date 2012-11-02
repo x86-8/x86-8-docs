@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,11</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,11 - Search for First Entry Using FCB</H2>
+
+<PRE>
+
+	AH = 11h
+	DS:DX = pointer to unopened <A HREF="fcb.html">FCB</A>
+
+	on return:
+	AL = 00 if matching file found
+	   = FF if file not found
+
+	- searches for first occurrence of filename specified in FCB
+	- FCB must have drive id, filename, and extension before call
+	- extended FCB can be used to specify a search criteria based
+	  on attributes; hidden, system, label, and directory attributes
+	  can be used to narrow the search  (see <A HREF="file_attributes.html">FILE ATTRIBUTES</A>)
+	- after successful call DTA holds an unopened <A HREF="fcb.html">FCB</A>/<A HREF="xfcb.html">XFCB</A> for
+	  the requested file.	Using any of the other FCB functions
+	  destroys this <A HREF="dta.html">DTA</A> copy of the FCB/XFCB
+	- searching can be continued with the FCB find-next function
+	- "?" wildcard supported after DOS 2.1, "*" supported in DOS 3.x
+	- DOS 2.x can't find . and .. entries, DOS 3.x can (unless in root)
+	- see	<A HREF="int_21-12.html">INT 21,12</A>
+
+</PRE>
+
+</BODY>
+</HTML>

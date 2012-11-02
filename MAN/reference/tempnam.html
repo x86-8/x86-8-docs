@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>tempnam</TITLE>
+</HEAD>
+
+<BODY><PRE><B>		MSC: char *tempnam( char *dir, char *prefix )</B>
+<B>		MSC: char *tmpnam( char *string )</B>
+
+
+	- prototype in stdio.h
+
+	- string = buffer to receive temporary filename
+	- tempnam() creates a temporary file in the specified directory
+	  "dir" using the "prefix" as the beginning of the filename;
+	  memory for the resulting filename is allocate via <A HREF="malloc.html">malloc</A>() and
+	  must be freed with <A HREF="free.html">free</A>()
+	- tmpnam() creates the temporary file in the current directory
+	- return a pointer to the new name or NULL on error
+
+</PRE>
+
+</BODY>
+</HTML>

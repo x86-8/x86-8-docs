@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>GDT</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>GDT - Global Descriptor Table</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00  8bytes	dummy, set to 0
+	08  8bytes	<A HREF="gdt.html">GDT</A> data segment location, set to 0
+	10  8bytes	source GDT pointer
+	18  8bytes	target GDT pointer
+	20  8bytes	pointer to BIOS code segment, set to 0.	used by
+			the BIOS to create protected mode code segment
+	28  8bytes	pointer to BIOS stack segment, set to 0.  Used by
+			the BIOS to create protected mode stack segment
+	30  8bytes	user code segment
+	38  8bytes	temporary BIOS code segment
+
+
+<B>	Source/Target GDT use the following format (offsets 10h and 18h):</B>
+
+<B>     Offset Size		Description</B>
+
+	00   word	Segment limit
+	02  3bytes	24 bit segment physical address
+	05   byte	data access rights, set to 93h
+	06   word	reserved word, must be 0
+
+	- see	<A HREF="lgdt.html">LGDT</A>  <A HREF="sgdt.html">SGDT</A>
+
+</PRE>
+
+</BODY>
+</HTML>

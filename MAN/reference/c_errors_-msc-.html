@@ -1,0 +1,296 @@
+<HTML>
+<HEAD>
+<TITLE>C errors (MSC)</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Microsoft C Compiler Fatal Errors</H2>
+
+<PRE>
+
+	C1000	unknown fatal error; contact Microsoft
+	C1001	internal compiler error; contact Microsoft
+	C1002	compiler out of heap space in C2.EXE
+	C1003	error count exceeded; stopping compilation
+	C1004	unexpected end-of-file found; disk full or unmatched #if
+	C1005	string too big for buffer
+	C1006	compiler intermediate file create/write error
+	C1007	invalid option on compiler command line
+	C1008	no source file specified
+	C1009	macros nested too deeply
+	C1010	macro expansion exceeded available space
+	C1011	macro definition too large
+	C1012	unmatched parenthesis in preprocessor directive
+	C1014	nesting of #include's exceed 10-level nesting limit
+	C1016	#ifdef & #ifndef directives expect an identifier
+	C1018	unexpected #elif;  #elif without #if directive
+	C1019	unexpected #else;  #else without #if directive
+	C1020	unexpected #endif;  #endif without #if directive
+	C1021	invalid preprocessor command
+	C1022	expected #endif;  #if directive not terminated by #endif
+	C1023	can't open specified source file
+	C1024	can't open specified include file
+	C1026	parser stack overflow; module too complex
+	C1027	DGROUP default data allocation exceeds 64K
+	C1028	modules far data segment allocation exceeds 64K (QC)
+	C1031	function calls nested too deeply
+	C1032	can't open object listing file
+	C1033	can't open assembly language output file
+	C1035	expression too complex; must be simplified
+	C1036	can't open source listing file
+	C1037	can't open object file
+	C1039	unrecoverable heap overflow in Pass 3 (post-optimizer)
+	C1040	unexpected EOF in source file; file disappeared
+	C1041	can't open intermediate file; no free file handles
+	C1042	can't open intermediate file; invalid TMP environment var
+	C1043	can't open intermediate file; unknown error
+	C1044	no disk space available for intermediate file
+	C1047	compiler option was specified too many times
+	C1048	unknown option specified
+	C1049	invalid numerical argument
+	C1050	code segment too large; within 36 bytes of 64K
+	C1052	#if/#ifdef nested too deeply;  max of 32 levels
+	C1053	struct/union nested too deeply; max of 15
+	C1054	initializers nested too deeply; max from 10 to 15 levels
+	C1055	out of keys; file has too many symbols
+	C1056	out of macro expansion space; macro to large/complex
+	C1057	unexpected EOF in macro expansion or missing ')'
+	C1059	compiler has run out of near heap space
+	C1060	compiler has run out of far heap space
+	C1062	error writing preprocessor output file for /P option
+	C1063	compiler stack overflow; module too complex
+	C1064	identifier too long causing token to overflow internal buffer
+	C1068	can't open file specified file
+	C1069	file write error on specified file; disk space low
+	C1070	mismatched #if/#endif pair; missing #endif
+	C1071	unexpected EOF found in comment; missing end of comment
+	C1072	can't read indicated file
+	C1090	data allocation exceeds 64K on _based allocation
+	C1015	can't open include file (check name, searchpath and FILES=)
+	C1126	automatic allocation (local variable) exceeds size
+	C1127	segment redefinition; overwritten by specified segment
+
+</PRE>
+
+<H2 ALIGN=Center>Microsoft C Compiler Nonfatal Errors</H2>
+
+<PRE>
+
+	C2015	too many characters in constant; escape sequence too large
+	C2016	missing closing single quotation mark on code line
+	C2017	illegal escape sequence; occurred outside of string
+	C2018	unknown character found in source file
+	C2019	expected preprocessor directive; # followed by non-directive
+	C2021	expected exponent value but found non-numeric character
+	C2022	octal value following '\' is too large for a single character
+	C2025	given identifier redefines enum, struct or union tag
+	C2026	given identifier already used as enum constant
+	C2027	given identifier refers to undefined enum, struct or union
+	C2028	struct/union member needs to be inside a struct/union
+	C2030	identifier used more than once in struct or union tag
+	C2031	function can't be use as struct or union member
+	C2033	bit field can't be declared as a pointer or use indirection
+	C2034	type of host bit field is too small for number of bits
+	C2035	given structure or union has undefined size
+	C2037	undefined struct or union identifier on left of -> or .
+	C2038	identifier is not a struct or union member
+	C2055	expected formal-parameter list instead of argument-type list
+	C2056	illegal expression; possibly from previous unreported problem
+	C2057	expected constant expression
+	C2058	expected integral constant expression
+	C2059	invalid token caused a syntax error
+	C2060	syntax error; EOF found before expected token
+	C2061	identifier caused syntax error
+	C2062	unexpected type
+	C2063	identifier is not a function but used as such
+	C2064	term does not evaluate to a function pointer
+	C2065	identifier not defined
+	C2066	illegal cast to function type
+	C2067	illegal cast to array type
+	C2068	illegal cast type used in expression
+	C2069	cast of void term to non-void is invalid
+	C2070	illegal sizeof operand; must be expression or type name
+	C2071	illegal storage class for identifier
+	C2072	attempt to initialize a function identifier
+	C2092	arrays of functions illegal; use array of ptrs to function
+	C2093	can't use address of auto variable as static initializer
+	C2094	label was undefined in function
+	C2095	void argument cannot be passed to function; (void *) may
+	C2096	struct & union comparison is illegal; compare members
+	C2097	illegal initialization
+	C2098	expected address as initialization expression
+	C2099	non-constant initializer
+	C2100	illegal indirection; * applied to a non-pointer value
+	C2101	address of operator '&' used on constant; requires lvalue
+	C2102	address of operator '&' requires lvalue
+	C2103	address of operator '&' can't be used on a register variable
+	C2104	address of operator '&' used on bit field not allowed
+	C2105	operator needs lvalue
+	C2106	left side of an operation must be lvalue
+	C2107	subscript applied to expression didn't evaluate to pointer
+	C2108	non-integral expression used as array subscript
+	C2109	subscript used on non-array variable
+	C2127	allocation for function parameters exceeds 32K
+	C2128	array crosses 2 segments & element size not power of 2
+	C2129	static function referenced was never defined
+	C2130	#line expected string containing file name; found other
+	C2131	more than one memory attribute applied to and identifier
+	C2132	syntax error : unexpected identifier
+	C2133	attempt to declare an unsized array as a local variable
+	C2134	struct or union too large; exceeded 64k
+	C2136	prototype must have a valid type for each variable
+	C2137	use of empty character constant '' is illegal
+	C2139	more than one type used in a variable declaration
+	C2140	argument can't be a function
+	C2141	enum constant value out of int range
+	C2143	expected 'token1' before 'token2' or missing ')', '}' or ';'
+	C2144	expected 'token' before 'type' or missing ')', '}' or ';'
+	C2145	expected 'token' before identifier or declaration missing ';'
+	C2146	expected 'token' before identifier
+	C2147	increment of index or array pointer with unknown base type
+	C2162	token following stringizing operator # isn't formal parameter
+	C2163	function in pragma not available as intrinsic function
+	C2164	intrinsic function not declared before use wit /Oi option
+	C2165	_pascal, _cdecl, _???? keywords can't modify pointers to data
+	C2166	attempt to modify item declared as const; lvalue is constant
+	C2167	too many parameters in call to an intrinsic function
+	C2168	too few parameters in call to an intrinsic function
+	C2169	function definition for function already declared intrinsic
+	C2170	intrinsic pragma used for function without intrinsic form
+	C2171	unary operator used on illegal operand type
+	C2172	non-pointer argument passed to a function expecting pointer
+	C2173	non-pointer argument passed to a function expecting pointer
+	C2174	cant pass parameter with void type to function
+	C2176	static huge data not supported by /qc; use halloc()
+	C2177	constant too large for data type
+	C2178	storage class for same_seg pragma variables must be extern
+	C2179	same_seg pragma variable class has changed from extern
+	C2207	middle member of struct/union has zero-sized array
+	C2208	enum, struct or union defined w/o members using /Za option
+	C2209	type cast used in _based construct must be (_segment)
+	C2210	base in _based declarator must be near/far data pointer
+	C2211	item cast in _based declarator can't be a function
+	C2212	_based not available for functions or pointers to functions
+	C2213	symbol used as base must be type _segment, near far pointer
+	C2214	_based pointer based on void can't be de-referenced; use :>
+	C2215	:> operator only for objects based on void
+	C2216	given function attributes are incompatible
+	C2217	function attribute requires another attributes also
+	C2218	type in _based construct must be void
+	C2219	const/volatile appeared where type or qualifier not allowed
+	C2220	no object file generated; warning treated as error due to /WX
+	C2221	left operand of '.' is pointer to struct/union, must use '->'
+	C2222	left operand of '->' is struct or union, must use '.'
+	C2223	left operand of '->' must be pointer struct or union
+	C2411	identifier is not a member of the specified struct or union
+	C2412	identifier redefined within current function
+	C2413	alignment size used with ALIGN directive missing or invalid
+	C2414	illegal number of operands in assembly code; see /G1 & /G2
+	C2415	improper operand type
+	C2416	illegal opcode for processor in assembly code; see /G1 & /G2
+	C2417	divisor used within the given context is zero
+	C2418	in-line asm identifier referenced as register and isn't
+	C2419	divisor argument to mod is zero in given context
+	C2420	given identifier is illegal in this context
+	C2421	PTR must not be used with register operand in this context
+	C2422	illegal segment override used in given context
+	C2424	given token used to form improper expression in this context
+	C2425	token used fto form non-constant expression in this context
+	C2426	given token is illegal operator in this context
+	C2427	jump referencing label is out of range
+	C2429	FAR PTR can't be use on jmp or call to label
+
+</PRE>
+
+<H2 ALIGN=Center>Microsoft C Command-Line Errors</H2>
+
+<PRE>
+
+	D2000	unknown CL command line error; contact Microsoft
+	D2001	too many symbols predefined with /D; max is 30
+	D2002	memory-model specification conflict; only 1 allowed
+	D2003	missing source file name for CL command
+	D2008	option specified too many times
+	D2011	more than one /FP option specified; only 1 allowed
+	D2012	too many linker flags in command; max of 128 flags/files
+	D2013	incomplete model specification in /A:
+	D2018	can't open linker response file
+	D2019	can't overwrite source with object file; output = input
+	D2020	/Gc requires extended keywords be enabled via /Ze
+	D2021	invalid numerical argument; numeric args must be < 65534
+	D2022	can't open help file for /HELP
+	D2027	CL could not execute one of the compiler components
+	D2028	too many open files; can't dup/redirect specified stream
+	D2030	internal compiler component error; contact Microsoft
+	D2031	too many flags/files in command; max of 128 arguments to CL
+
+</PRE>
+
+<H2 ALIGN=Center>Microsoft C Command-Line Warning</H2>
+
+<PRE>
+
+	D4000	unknown command line warning in CL; contact Microsoft
+	D4001	listing overrides assembly output; /Fc and /Fa used together
+	D4002	unknown flag ignored by CL command
+	D4003	multiple processors selected for code generation
+	D4005	CL could not locate compiler component
+	D4007	/C must be used in conjunction with /P or /E or /EP
+	D4009	threshold valid for far/huge data models only; /Gt ignored
+	D4011	preprocessor listing specified; source listing not generated
+	D4012	function prototyping specified; source listing not generated
+	D4013	combined listing /Fc overrides object listing /Fl
+	D4014	invalid value for option; default value used
+	D4018	.DEF files supported in OS/2 only (/Lr /Lc)
+	D4019	string too long for /ND, /NT, /NM, /St, /Ss option of CL
+
+</PRE>
+
+<H2 ALIGN=Center>Microsoft Link Errors (incomplete list)</H2>
+
+<PRE>
+
+	L2002	fixup overflow (probably incompatible memory models .OBJs)
+
+</PRE>
+
+<H2 ALIGN=Center>Microsoft C Floating-Point Math Errors</H2>
+
+<PRE>
+
+	M6101	invalid operation occurred; usually NAN or infinity problem
+	M6102	denormal; significance loss with very small generated number
+	M6103	attempt to divide by zero in floating-point operation
+	M6104	overflow in floating-point operation
+	M6105	underflow occurred in floating-point operation
+	M6106	inexact; loss of precision occurred in FP operation
+	M6107	unemulated/unsupported 8087/287/387 instruction executed
+	M6108	square root operand somehow became negative; C won't allow
+	M6110	coprocessor or emulator stack overflow
+	M6111	stack underflow due to unretrieved double return values
+
+</PRE>
+
+<H2 ALIGN=Center>Microsoft C Run-Time Errors</H2>
+
+<PRE>
+
+	R6000	stack overflow; stack needs enlarged or problem program
+	R6001	null pointer assignment, NULL segment modified
+	R6002	floating-point support not linked into executable
+	R6005	not enough memory to load child process (EXEC)
+	R6006	target executable is not a valid executable (EXEC)
+	R6007	invalid environment on exec of child process (EXEC)
+	R6008	not enough space for argument vector after program loads
+	R6009	not enough space for environment after program loads
+	R6010	abnormal program termination
+	R6012	illegal null near-pointer use
+	R6013	illegal out of range far-pointer use
+	R6016	not enough space for thread data
+	R6017	unexpected multithread lock error
+
+</PRE>
+
+</BODY>
+</HTML>

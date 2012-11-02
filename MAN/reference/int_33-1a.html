@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,1a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,1A - Set Mouse Sensitivity</H2>
+
+<PRE>
+
+
+	AX = 1A
+	BX = horizontal coordinates per pixel  (ó 100)
+	CX = vertical coordinates per pixel  (ó 100)
+	DX = double speed threshold
+
+
+	returns nothing
+
+
+	- sets mouse sensitivity by setting the ratio of the mouse
+	  coordinates per screen pixel
+	- provides same results as calls to both <A HREF="int_33-f.html">INT 33,F</A> and <A HREF="int_33-13.html">INT 33,13</A>
+	- these values are not reset by <A HREF="int_33-0.html">INT 33,0</A>
+</PRE>
+
+</BODY>
+</HTML>

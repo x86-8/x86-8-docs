@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>_open</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int _open( const char *path, int access )</H2>
+
+<PRE>
+
+
+	- prototype in io.h, also include fcntl.h
+
+	- this function will not create a file, use _creat() if it doesn't
+	  currently exist
+	- access is a combination of the following:
+
+<B>		DOS 2.0+ Attributes</B>
+		O_RDONLY	open read only
+		O_WRONLY	open write only
+		O_RDWR	open read/write
+
+<B>		DOS 3.1+ Attributes</B>
+		O_NOINHERIT	file is not to be passed to child processes
+		O_DENYALL	file is not accessible to others (exclusive)
+		O_DENYWRITE	file is read only to all other opens
+		O_DENYREAD	file is write only to all other opens
+		O_DENYNONE	file is to be shared by all
+
+	- MS C uses <A HREF="_dos_open.html">_dos_open</A>()
+	- see	<A HREF="int_21-3d.html">INT 21,3D</A>   <A HREF="open.html">open</A>()   <A HREF="_creat.html">_creat</A>()
+</PRE>
+
+</BODY>
+</HTML>

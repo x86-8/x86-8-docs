@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 2f,2</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2F,2 - Multiplex Interrupt - Cancel file</H2>
+
+<PRE>
+
+
+	AL = 02
+	AH = 01  resident portion of PRINT
+	     02  resident portion of ASSIGN
+	     10  resident portion of SHARE
+	     B7  resident portion of APPEND
+	     C0-FF reserved for user applications
+	DS:DX = pointer to ASCIIZ filename to cancel
+
+
+	returns nothing
+
+
+	- accepts wildcards
+
+</PRE>
+
+</BODY>
+</HTML>

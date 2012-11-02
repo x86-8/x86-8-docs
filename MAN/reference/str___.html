@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>str...</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>String Manipulation Functions</H2>
+
+<PRE>
+
+	- prototype in string.h (a few also exist in stdlib.h)
+
+<B>	Conversion:</B>
+	char  *<A HREF="strlwr.html">strlwr</A>( char *s )
+	char  *<A HREF="strrev.html">strrev</A>( char *s )
+	double <A HREF="strtod.html">strtod</A>( const char *s, char **endptr )
+	long  <A HREF="strtol.html">strtol</A>( const char *s, char **endptr, int radix )
+	unsigned long <A HREF="strtol.html">strtoul</A>( const char *s, char **endptr, int radix )
+	char  *<A HREF="strupr.html">strupr</A>( char *s )
+	char  *<A HREF="strdup.html">strdup</A>( const char *s )
+
+
+<B>	Search:</B>
+	char  *<A HREF="strchr.html">strchr</A>( char *s, int c )
+	size_t <A HREF="strcspn.html">strcspn</A>( const char *s1, const char *s2 )
+	char  *<A HREF="strpbrk.html">strpbrk</A>( const char *s1, const char *s2 )
+	char  *<A HREF="strrchr.html">strrchr</A>( const char *s, int c )
+	size_t <A HREF="strspn.html">strspn</A>( const char *s1, const char *s2 )
+	char  *<A HREF="strstr.html">strstr</A>( const char *s1, const char *s2 )
+	char  *<A HREF="strtok.html">strtok</A>( char *s1, const char *s2 )
+
+
+<B>	Comparison:</B>
+	int <A HREF="strcmp.html">strcmp</A>( const char *s1, const char *s2 )
+	int strcmpi( const char *s1, const char *s2 )
+	int <A HREF="stricmp.html">stricmp</A>( const char *s1, const char *s2 )
+	int <A HREF="strncmp.html">strncmp</A>( const char *s1, const char *s2, size_t maxlen )
+	int strncmpi( const char *s1, const char *s2, size_t maxlen )
+	int <A HREF="strnicmp.html">strnicmp</A>( const char *s1, const char *s2, size_t maxlen )
+
+
+<B>	Copy:</B>
+	char *<A HREF="stpcpy.html">stpcpy</A>( char *dest, const char *src )
+	char *<A HREF="strcpy.html">strcpy</A>( char *dest, const char *src )
+	char *<A HREF="strcat.html">strcat</A>( char *dest, const char *src )
+	char *<A HREF="strncat.html">strncat</A>( char *dest, const char *src, size_t maxlen )
+	char *<A HREF="strncpy.html">strncpy</A>( char *dest, const char *src, size_t maxlen )
+
+
+<B>	Miscellaneous:</B>
+	size_t <A HREF="strlen.html">strlen</A>( const char *s )
+	char  *<A HREF="strnset.html">strnset</A>( char *s, int ch, size_t n )
+	char  *<A HREF="strset.html">strset</A>( char *s, int ch )
+	char  *<A HREF="strerror.html">strerror</A>( int errnum )
+	char  *<A HREF="_strerror.html">_strerror</A>( const char *s )
+
+</PRE>
+
+</BODY>
+</HTML>

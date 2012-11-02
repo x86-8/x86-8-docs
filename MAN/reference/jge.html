@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>jge</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>JGE/JNL - Jump Greater or Equal / Jump Not Less</H2>
+
+<PRE>
+
+
+	Usage:	JGE	label
+		JNL	label
+	Modifies flags: None
+
+
+	Causes execution to branch to "label" if the Sign Flag equals
+	the Overflow Flag.  Signed comparision.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	label:	jump	  16   7+m   7+m    3		 2-4
+		no jump	  4	3     3	    1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

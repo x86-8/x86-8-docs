@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>device command codes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Device Command Codes (Device Request Header)</H2>
+
+<PRE>
+
+<B>      Code		Function</B>
+
+	0    INIT
+	1    MEDIA CHECK	(block devices,character = NOP)
+	2    BUILD BPB		(block devices,character = NOP)
+	3    IOCTL
+	4    INPUT		(read)
+	5    NONDESTRUCTIVE INPUT NO WAIT (character devices)
+	6    INPUT STATUS	(character devices)
+	7    INPUT FLUSH	(character devices)
+	8    OUTPUT		(write)
+	9    OUTPUT		(write with verify)
+	10   OUTPUT STATUS	(character devices)
+	11   OUTPUT FLUSH	(character devices)
+	12   IOCTL OUTPUT
+	13   DEVICE OPEN	(DOS 3.x)
+	14   DEVICE CLOSE	(DOS 3.x)
+	15   REMOVABLE MEDIA	(DOS 3.x)
+
+</PRE>
+
+</BODY>
+</HTML>

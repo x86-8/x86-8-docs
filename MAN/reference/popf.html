@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>popf</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>POPF/POPFD - Pop Flags off Stack</H2>
+
+<PRE>
+
+
+	Usage:	POPF
+		POPFD  (386+ only)
+	Modifies flags: all flags
+
+
+	Pops word/doubleword from stack into the Flags Register and then
+	increments SP by 2 (for POPF) or 4 (for POPFD).
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		 8/12	5     5	    9		  1  (W88=12)
+	none  (PM)	  -	-     5     6		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

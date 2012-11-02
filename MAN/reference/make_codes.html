@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>make codes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 9 - Hardware Keyboard Make/Break Codes</H2>
+
+<PRE>
+
+<B>	Key	     Make  Break		Key    Make  Break</B>
+
+	Backspace     0E    8E			F1	3B    BB
+	Caps Lock     3A    BA			F2	3C    BC
+	Enter	      1C    9C			F3	3D    BD
+	Esc	      01    81			F4	3E    BE
+	Left Alt      38    B8			F7	41    C1
+	Left Ctrl     1D    9D			F5	3F    BF
+	Left Shift    2A    AA			F6	40    C0
+	Num Lock      45    C5			F8	42    C2
+	Right Shift   36    B6			F9	43    C3
+	Scroll Lock   46    C6			F10	44    C4
+	Space	      39    B9			F11	57    D7
+	Sys Req (AT)  54    D4			F12	58    D8
+	Tab	      0F    8F
+
+<B>		    Keypad Keys		       Make   Break</B>
+
+		    Keypad 0  (Ins)		52	D2
+		    Keypad 1  (End) 		4F	CF
+		    Keypad 2  (Down arrow)	50	D0
+		    Keypad 3  (PgDn)		51	D1
+		    Keypad 4  (Left arrow)	4B	CB
+		    Keypad 5			4C	CC
+		    Keypad 6  (Right arrow)	4D	CD
+		    Keypad 7  (Home)		47	C7
+		    Keypad 8  (Up arrow)	48	C8
+		    Keypad 9  (PgUp)		49	C9
+		    Keypad .  (Del) 		53	D3
+		    Keypad *  (PrtSc)		37	B7
+		    Keypad -			4A	CA
+		    Keypad +			4E	CE
+
+<B>	       Key    Make  Break	       Key    Make  Break</B>
+
+		A      1E    9E 		N      31    B1
+		B      30    B0 		O      18    98
+		C      2E    AE 		P      19    99
+		D      20    A0 		Q      10    90
+		E      12    92 		R      13    93
+		F      21    A1 		S      1F    9F
+		G      22    A2 		T      14    94
+		H      23    A3 		U      16    96
+		I      17    97 		V      2F    AF
+		J      24    A4 		W      11    91
+		K      25    A5 		X      2D    AD
+		L      26    A6 		Y      15    95
+		M      32    B2 		Z      2C    AC
+
+<B>	       Key    Make  Break	       Key    Make  Break</B>
+
+		1      02    82 		-      0C    8C
+		2      03    83 		=      0D    8D
+		3      04    84 		[      1A    9A
+		4      05    85 		]      1B    9B
+		5      06    86 		;      27    A7
+		6      07    87 		'      28    A8
+		7      08    88 		`      29    A9
+		8      09    89 		\      2B    AB
+		9      0A    8A 		,      33    B3
+		0      0B    8B 		.      34    B4
+						/      35    B5
+
+</PRE>
+
+<H2 ALIGN=Center>Enhanced Keyboard Keys (101/102 keys)</H2>
+
+<PRE>
+
+<B>	Control Keys		  Make		  Break</B>
+
+	Alt-PrtSc (SysReq)	  54		  D4
+	Ctrl-PrtSc		  E0 37 	  E0 B7
+	Enter			  E0 1C 	  E0 9C
+	PrtSc			  E0 2A E0 37	  E0 B7 E0 AA
+	Right Alt		  E0 38 	  E0 B8
+	Right Ctrl		  E0 1D 	  E0 9D
+	Shift-PrtSc		  E0 37 	  E0 B7
+	/			  E0 35 	  E0 B5
+	Pause			  E1 1D 45 E1 9D C5  (not typematic)
+	Ctrl-Pause (Ctrl-Break)   E0 46 E0 C6	     (not typematic)
+
+	- Keys marked as "not typematic" generate one stream of bytes
+	  without corresponding break scan code bytes (actually the
+	  break codes are part of the make code).
+
+
+<B>			Normal Mode or</B>
+<B>			Shift w/Numlock</B>
+<B>	Key		 Make	 Break	   |----- Numlock on ------.</B>
+<B>					      Make	    Break</B>
+	Del		 E0 53	 E0 D3	   E0 2A E0 53	 E0 D3 E0 AA
+	Down arrow	 E0 50	 E0 D0	   E0 2A E0 50	 E0 D0 E0 AA
+	End		 E0 4F	 E0 CF	   E0 2A E0 4F	 E0 CF E0 AA
+	Home		 E0 47	 E0 C7	   E0 2A E0 47	 E0 C7 E0 AA
+	Ins		 E0 52	 E0 D2	   E0 2A E0 52	 E0 D2 E0 AA
+	Left arrow	 E0 4B	 E0 CB	   E0 2A E0 4B	 E0 CB E0 AA
+	PgDn		 E0 51	 E0 D1	   E0 2A E0 51	 E0 D1 E0 AA
+	PgUp		 E0 49	 E0 C9	   E0 2A E0 49	 E0 C9 E0 AA
+	Right arrow	 E0 4D	 E0 CD	   E0 2A E0 4D	 E0 CD E0 AA
+	Up arrow	 E0 48	 E0 C8	   E0 2A E0 48	 E0 C8 E0 AA
+
+<B>	Key	      |--Left Shift Pressed--.	  |--Right Shift Pressed--.</B>
+<B>			 Make	       Break	      Make	    Break</B>
+	Del	      E0 AA E0 53   E0 D3 E0 2A    E0 B6 E0 53	 E0 D3 E0 36
+	Down arrow    E0 AA E0 50   E0 D0 E0 2A    E0 B6 E0 50	 E0 D0 E0 36
+	End	      E0 AA E0 4F   E0 CF E0 2A    E0 B6 E0 4F	 E0 CF E0 36
+	Home	      E0 AA E0 47   E0 C7 E0 2A    E0 B6 E0 47	 E0 C7 E0 36
+	Ins	      E0 AA E0 52   E0 D2 E0 2A    E0 B6 E0 52	 E0 D2 E0 36
+	Left arrow    E0 AA E0 4B   E0 CB E0 2A    E0 B6 E0 4B	 E0 CB E0 36
+	PgDn	      E0 AA E0 51   E0 D1 E0 2A    E0 B6 E0 51	 E0 D1 E0 36
+	PgUp	      E0 AA E0 49   E0 C9 E0 2A    E0 B6 E0 49	 E0 C9 E0 36
+	Right arrow   E0 AA E0 4D   E0 CD E0 2A    E0 B6 E0 4D	 E0 CD E0 36
+	Up arrow      E0 AA E0 48   E0 C8 E0 2A    E0 B6 E0 48	 E0 C8 E0 36
+	/	      E0 AA E0 35   E0 B5 E0 2A    E0 B6 E0 35	 E0 B5 E0 36
+
+
+	- The PS/2 models have three make/break scan code sets.  The first
+	  set matches the PC & XT make/break scan code set and is the one
+	  listed here.	Scan code sets are selected by writing the value F0
+	  to the keyboard via the <A HREF="8042.html">8042</A> (port 60h).  The following is a brief
+	  description of the scan code sets (see the PS/2 Technical Reference
+	  manuals for more information on scan code sets 2 and 3):
+
+	/  set 1, each key has a base scan code.  Some keys generate
+	   extra scan codes to generate artificial shift states.  This
+	   is similar to the standard scan code set used on the PC and XT.
+	/  set 2, each key sends one make scan code and two break scan
+	   codes bytes (F0 followed by the make code).	This scan code
+	   set is available on the IBM AT also.
+	/  set 3, each key sends one make scan code and two break scan
+	   codes bytes (F0 followed by the make code) and no keys are
+	   altered by Shift/Alt/Ctrl keys.
+	/  typematic scan codes are the same as the make scan code
+
+	- Some Tandy 1000's do not handle Alt key combinations when multiple
+	  shift keys are pressed.  The Alt-Shift-H combination loses the Alt.
+	- extended keys like (F11, F12) can only be read with systems that
+	  have extended keyboard BIOS support (or <A HREF="int_9.html">INT 9</A> extensions);  to
+	  read these special keys on these systems <A HREF="int_16-10.html">INT 16,10</A> must be used
+
+	  - see  <A HREF="scan_codes.html">SCAN CODES</A>   <A HREF="kb_flags.html">KB FLAGS</A>  <A HREF="keyboard_commands.html">KEYBOARD COMMANDS</A>
+</PRE>
+
+</BODY>
+</HTML>

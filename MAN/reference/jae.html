@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>jae</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>JAE/JNB - Jump Above or Equal / Jump on Not Below</H2>
+
+<PRE>
+
+
+	Usage:	JAE	label
+		JNB	label
+	Modifies flags: None
+
+
+	Causes execution to branch to "label" if the Carry Flag is clear.
+	Functionally similar to <A HREF="jnc.html">JNC</A>.  Unsigned comparision.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	label:	jump	  16   7+m   7+m    3		 2-4
+		no jump	  4	3     3	    1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

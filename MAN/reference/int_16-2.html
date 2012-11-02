@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 16,2</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 16,2 - Read Keyboard Flags</H2>
+
+<PRE>
+
+	AH = 02
+
+
+	on return:
+	AL = BIOS keyboard flags (located in <A HREF="bios_data_area.html">BIOS Data Area</A> 40:17)
+
+		|7|6|5|4|3|2|1|0|  AL or BIOS Data Area 40:17
+		 | | | | | | | `---- right shift key depressed
+		 | | | | | | `----- left shift key depressed
+		 | | | | | `------ CTRL key depressed
+		 | | | | `------- ALT key depressed
+		 | | | `-------- scroll-lock is active
+		 | | `--------- num-lock is active
+		 | `---------- caps-lock is active
+		 `----------- insert is active
+</PRE>
+
+</BODY>
+</HTML>

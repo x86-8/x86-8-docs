@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>iret</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>IRET/IRETD - Interrupt Return</H2>
+
+<PRE>
+
+	Usage:	IRET
+		IRETD  (386+ only)
+	Modifies flags: AF CF DF IF PF SF TF ZF
+
+	Returns control to point of interruption by popping IP, CS
+	and then the Flags from the stack and continues execution at
+	this location.	CPU exception interrupts will return to the
+	instruction that cause the exception because the CS:IP placed
+	on the stack during the interrupt is the address of the offending
+	instruction.
+
+<B>					 Clocks			Size</B>
+<B>	    Operands		808x   286   386   486		Bytes</B>
+
+    iret		       32/44  17+m    22    15		  1
+    iret  (prot. mode)	         -    31+m    38    15		  1
+    iret  (to less privilege)	 -    55+m    82    36		  1
+    iret  (different task, NT=1) -   169+m    TS  TS+32		  1
+    iretd			 -	-   22/38   15		  1
+    iretd (to less privilege)	 -	-     82    36		  1
+    iretd (to VM86 mode)	 -	-     60    15		  1
+    iretd (different task, NT=1) -	-     TS  TS+32		  1
+
+
+    - 386 timings are listed as real-mode/protected-mode
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

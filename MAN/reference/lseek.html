@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>lseek</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>long lseek( int handle, long offset, int mode )</H2>
+
+<PRE>
+
+
+	- prototype in io.h
+
+	- moves file position of "handle"  to  "offset"  relative to "mode"
+
+	   mode = 0 - SEEK_SET beginning of file
+	   mode = 1 - SEEK_CUR current position
+	   mode = 2 - SEEK_END or end of file
+
+	- returns -1L on error
+
+	- see	<A HREF="tell.html">tell</A>()
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<TITLE>ANSI codes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>ANSI.SYS and NANSI.SYS Functions  -  ANSI x3.64</H2>
+
+<PRE>
+
+	ESC[y,xH	Cursor position y,x
+	ESC[nA		Cursor Up n lines
+	ESC[nB		Cursor Down n lines
+	ESC[nC		Cursor Forward n characters
+	ESC[nD		Cursor Backward n characters
+	ESC[y;xf	Cursor position y,x (less frequently used)
+	ESC[y;xR	Cursor position report y,x
+	ESC[6n		Device status report (cursor pos)(n is constant 'n')
+	ESC[s		Save cursor position
+	ESC[u		Restore cursor position
+	ESC[2J		Erase display
+	ESC[K		Erase to end of line
+	ESC[nL		Inserts n blank lines at cursor line.	(NANSI)
+	ESC[nM		Deletes n lines including cursor line.	(NANSI)
+	ESC[n@		Inserts n blank chars at cursor.	(NANSI)
+	ESC[nP		Deletes n chars including cursor char.	(NANSI)
+	ESC[n;ny	Output char translate			(NANSI)
+		When first char is encountered in output request, it
+		is replaced with the second char.  When no parameters
+		are given, all chars are reset.
+	ESC["str"p	Keyboard Key Reassignment. The first char of str gives
+		the key to redefine; the rest of the string is the
+		key's new value.  To specify unprintable chars, give
+		the ASCII value of the char outside of quotes, as a
+		normal parm.  IBM function keys are two byte strings.
+
+		Ex:  ESC[0;";dir a:";13;p
+
+		redefines F1 to have the value "dir a:" followed by CR.
+		If no parameters given, all keys are reset to their
+		default values.  Single or double quotes are valid.
+
+	ESC[n;n;...nm	Set Graphics Rendition is used to set attributes as
+		well as foreground and background colors.  If multiple
+		parameters are used, they are executed in sequence, and
+		the effects are cumulative. 'n' is one of the following
+		attributes or colors:
+
+		0  All attributes off		5  Blink
+		1  Bold				7  Reverse Video
+		2  Dim				8  Invisible
+		4  Underline
+
+
+<B>		Foreground colors	Background colors</B>
+
+		    30	Black		    40	Black
+		    31	Red		    41	Red
+		    32	Green		    42	Green
+		    33	Yellow		    43	Yellow
+		    34	Blue		    44	Blue
+		    35	Magenta		    45	Magenta
+		    36	Cyan		    46	Cyan
+		    37	White		    47	White
+
+
+	ESC[=nh	Set mode (see screen modes for n)
+	ESC[=nl	Reset Mode (see screen modes for n)
+
+
+</PRE>
+
+<H2 ALIGN=Center>Screen modes are similar to those found in the IBM BIOS:</H2>
+
+<PRE>
+
+			 0   text 40x25 Black & White
+			 1   text 40x25 Color
+			 2   text 80x25 Black & White
+			 3   text 80x25 Color
+			 4   320x200 4 bits/pixel
+			 5   320x200 1 bit/pixel
+			 6   640x200 1 bit/pixel
+			 7   cursor wrap
+			13   320x200 4 bits/pixel (EGA)
+			14   640x200 4 bits/pixel (EGA)
+			16   640x350 4 bits/pixel (EGA)
+
+
+	- for more information see ANSI document x3.64 or your DOS manual
+
+</PRE>
+
+</BODY>
+</HTML>

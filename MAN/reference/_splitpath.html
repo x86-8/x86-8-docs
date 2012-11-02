@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>_splitpath</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: void _splitpath( char *path, char *drive, char *dir,</B>
+<B>				char *fname, char *ext )</B>
+
+	- prototype in stdlib.h
+
+	- dissects the path into components
+	- path = fully qualified file name to dissect
+	- drive = is the drive letter followed by a colon if drive was
+	  specified in string
+	- dir = any directories included in "path" plus '\'
+	- fname = base filename w/o extension
+	- ext = file extension
+	- the maximum size of each component is: _MAX_DRIVE, _MAX_DIR,
+	  _MAX_FNAME, _MAX_EXT (all include the NULL and are actually
+	  much larger than needed, except _MAX_DRIVE is exact fit)
+
+	- see	<A HREF="_makepath.html">_makepath</A>()
+</PRE>
+
+</BODY>
+</HTML>

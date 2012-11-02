@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,1b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,1B - Video BIOS Functionality and</H2>
+
+<PRE>
+</PRE>
+
+<H2 ALIGN=Center>State Information (MCGA/VGA)</H2>
+
+<PRE>
+
+	AH = 1B
+	BX = implementation type (must be zero)
+	ES:DI = pointer to 64 byte buffer
+
+
+	on return:
+	AL = 1B
+	ES:DI = pointer to updated buffer  (see below)
+
+
+	- returns static and dynamic information about the current
+	  state and capabilities of the current video system
+	- bytes 0-3 of the dynamic data table at ES:DI contain a far
+	  pointer to the video static information table
+
+
+</PRE>
+
+<H2 ALIGN=Center>Video BIOS Dynamic Functionality State Table (MCGA/VGA)</H2>
+
+<PRE>
+
+<B>	Dynamic Video State Table</B>
+
+	00  dword   address of static functionality table
+	04  byte    video mode
+	05  word    number of columns
+	07  word    length of displayed video buffer (# bytes)
+	09  word    start address of upper left corner of video buffer
+	0B  16bytes cursor position table for 8 pages (col,row)
+	1B  byte    cursor end line
+	1C  byte    cursor start line
+	1D  byte    active video page
+	1E  word    I/O port for CRTC address register
+	20  byte    current value of CRTC 3x8 register
+	21  byte    current value of CRTC 3x9 register
+	22  byte    number of displayed character rows
+	23  word    height of character matrix (points)
+	25  byte    active display combination code
+	26  byte    inactive display combination code
+	27  word    number of displayed colors (mono = 0)
+	29  byte    number of supported video pages
+	2A  byte    raster scan lines 0=200, 1=350, 2=400, 3=480
+	2B  byte    text character table used
+	2C  byte    text character table used
+	2D  byte    other state information:
+
+		|7|6|5|4|3|2|1|0| State Information byte at offset 2D
+		 | | | | | | | `--- 1 = all modes active (MCGA always 0)
+		 | | | | | | `---- 1 = gray scale summing enabled
+		 | | | | | `----- 1 = monochrome display attached
+		 | | | | `------ 1 = default palette loading disabled
+		 | | | `------- 1 = cursor emulation enabled
+		 | | `-------- 1 = blinking attribute enabled
+		 `----------- 1 = reserved
+
+	2E 3bytes   reserved
+	31  byte    video RAM available 0=64K, 1=128K, 2=192K, 3=256K
+	32  byte    save area status
+
+		|7|6|5|4|3|2|1|0| Save Area Status
+		 | | | | | | | `--- 1 = two text char sets are active
+		 | | | | | | `---- 1 = dynamic save area is active
+		 | | | | | `----- 1 = text char set override is active
+		 | | | | `------ 1 = graphics char set is override active
+		 | | | `------- 1 = palette override is active
+		 | | `-------- 1 = display combination code ext. active
+		 `----------- 1 = reserved
+
+	33  dword   reserved
+
+
+</PRE>
+
+<H2 ALIGN=Center>Video BIOS Static Functionality Table	(EGA/VGA)</H2>
+
+<PRE>
+
+		|7|6|5|4|3|2|1|0| Video modes supported, byte at offset 00
+		 | | | | | | | `--- 1 = mode 0
+		 | | | | | | `---- 1 = mode 1
+		 | | | | | `----- 1 = mode 2
+		 | | | | `------ 1 = mode 3
+		 | | | `------- 1 = mode 4
+		 | | `-------- 1 = mode 5
+		 | `--------- 1 = mode 6
+		 `---------- 1 = mode 7
+
+		|7|6|5|4|3|2|1|0| Video modes supported, byte at offset 01
+		 | | | | | | | `--- 1 = mode 8
+		 | | | | | | `---- 1 = mode 9
+		 | | | | | `----- 1 = mode A
+		 | | | | `------ 1 = mode B
+		 | | | `------- 1 = mode C
+		 | | `-------- 1 = mode D
+		 | `--------- 1 = mode E
+		 `---------- 1 = mode F
+
+		|7|6|5|4|3|2|1|0| Video modes supported, byte at offset 02
+		 | | | | | | | `--- 1 = mode 10
+		 | | | | | | `---- 1 = mode 11
+		 | | | | | `----- 1 = mode 12
+		 | | | | `------ 1 = mode 13
+		 `------------- reserved
+
+	03  dword  reserved
+	07  byte   scan lines supported in text modes
+
+		|7|6|5|4|3|2|1|0| Scan lines supported, byte at offset 07
+		 | | | | | | | `--- 1 = 200 lines
+		 | | | | | | `---- 1 = 350 lines
+		 `--------------- 1 = 400 lines
+
+	08  byte   max number of displayable text character sets
+	09  byte   # of text definition tables in char generator RAM
+	0A  byte   other capability flags
+
+		|7|6|5|4|3|2|1|0| Other flags, byte at offset 0A
+		 | | | | | | | `--- 1 = all modes (0 on MCGA)
+		 | | | | | | `---- 1 = gray scale summing
+		 | | | | | `----- 1 = character set loading
+		 | | | | `------ 1 = default palette loading
+		 | | | `------- 1 = cursor emulation
+		 | | `-------- 1 = 64 color palette
+		 | `--------- 1 = video DAC loading
+		 `---------- 1 = DAC controlled by ACCS
+
+	0B  byte   other capability flags
+
+		|7|6|5|4|3|2|1|0| Other flags, byte at offset 0B
+		 | | | | | | | `--- 1 = light pen support
+		 | | | | | | `---- 1 = save/restore video state
+		 | | | | | `----- 1 = blinking/background intensity
+		 | | | | `------ 1 = display combination code
+		 `------------- reserved
+
+	0C  word   reserved
+	0E  byte   save area capabilities
+
+		|7|6|5|4|3|2|1|0|  save area capabilities at offset 0E
+		 | | | | | | | `---- 1 = multiple text character sets
+		 | | | | | | `----- 1 = dynamic save area
+		 | | | | | `------ 1 = text character set override
+		 | | | | `------- 1 = graphics character set override
+		 | | | `-------- 1 = palette override
+		 | | `--------- 1 = display combination code extension
+		 `------------ reserved
+
+	0F  byte    reserved
+</PRE>
+
+</BODY>
+</HTML>

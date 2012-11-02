@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>gsignal</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int gsignal( int sig )</H2>
+
+<PRE>
+
+
+	- prototype in signal.h
+
+	- ssignal() and gsignal() implement a software-signaling facility
+	  where software signals are integers 1-15
+	- gsignal() raises the signal given by sig and executes the action
+	  routine
+	- gsignal() returns value by action or SIG_IGN or SIG_DFL
+	- UNIX based
+	- see	<A HREF="ssignal.html">ssignal</A>()
+</PRE>
+
+</BODY>
+</HTML>

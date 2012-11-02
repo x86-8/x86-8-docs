@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>setnp</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>SETNP/SETPO - Set if No Parity / Set if Parity Odd (386+ only)</H2>
+
+<PRE>
+
+
+	Usage:	SETNP	dest
+		SETPO	dest
+	Modifies flags: none
+
+
+	Sets the byte in the operand to 1 if the Parity Flag is clear,
+	otherwise sets the operand to 0.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg8		  -	-     4	    3		  3
+	mem8		  -	-     5	    4		  3
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

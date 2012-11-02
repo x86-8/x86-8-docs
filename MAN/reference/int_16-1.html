@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 16,1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 16,1 - Get Keyboard Status</H2>
+
+<PRE>
+
+
+	AH = 01
+
+
+	on return:
+	ZF = 0 if a key pressed (even Ctrl-Break)
+	AX = 0 if no scan code is available
+	AH = <A HREF="scan_codes.html">scan code</A>
+	AL = ASCII character or zero if special function key
+
+
+	- data code is not removed from buffer
+	- <A HREF="int_1b.html">Ctrl-Break</A> places a zero word in the keyboard buffer but does
+	  register a keypress.
+</PRE>
+
+</BODY>
+</HTML>

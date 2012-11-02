@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,4b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,4B - EXEC/Load and Execute Program</H2>
+
+<PRE>
+
+	AH = 4B
+	AL = 00  to load and execute program
+	   = 01  (Undocumented)  create program segment prefix and load
+		 program, but don't execute.  The CS:IP and SS:SP of the
+		 program is placed in parameter block.	Used by debuggers
+	   = 03  load program only
+	   = 04  called by MSC spawn() when P_NOWAIT is specified
+	DS:DX = pointer to an ASCIIZ filename
+	ES:BX = pointer to a parameter block
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	ES:BX = when AL=1, pointer to parameter block similar to:
+
+<B>	Offset Size	       Description</B>
+
+	  00   word   when AL=1, segment of env. or zero if using parents env.
+	       word   when AL=3, segment of load point for overlay
+	  02   dword  when AL=1, pointer to cmd line at PSP 80h
+	       word   when AL=3, relocation factor for EXE overlay
+	  06   dword  pointer to default <A HREF="fcb.html">FCB</A> passed at <A HREF="program_segment_prefix.html">PSP</A> 5Ch
+	  0A   dword  pointer to default FCB passes at PSP 6Ch
+	  0E   dword  value of program SS:SP
+	  12   dword  value of program CS:IP
+
+
+	- allows execution of an external program as well as overlay
+	  management from within an application
+	- all registers except CS and IP are destroyed
+	- SS and SP should be preserved in code segment before call
+	  since a bug in DOS version 2.x destroys these
+	- return code can be retrieved if child process exits via <A HREF="int_21-4c.html">INT 21,4C</A>
+	- calling process must assure presence of enough unallocated memory
+	- subfunction 4 returns with an error under DOS 4.x+
+	- calls <A HREF="int_21-55.html">INT 21,55</A>
+
+	- see also  <A HREF="int_21-26.html">INT 21,26</A>
+
+</PRE>
+
+</BODY>
+</HTML>

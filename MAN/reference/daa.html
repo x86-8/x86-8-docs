@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>daa</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DAA - Decimal Adjust for Addition</H2>
+
+<PRE>
+
+
+	Usage:	DAA
+	Modifies flags: AF CF PF SF ZF (OF undefined)
+
+
+	Corrects result (in AL) of a previous BCD addition operation.
+	Contents of AL are changed to a pair of packed decimal digits.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  4	3     4	    2		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

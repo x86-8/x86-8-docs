@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,2f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,2F - Get Disk Transfer Address (DTA)</H2>
+
+<PRE>
+
+
+	AH = 2F
+
+
+	on return:
+	ES:BX = pointer to current <A HREF="dta.html">DTA</A>
+
+
+	- returns the DTA address
+	- the default DTA is a 128 byte block at address 80h in the
+	  Program Segment Prefix (<A HREF="program_segment_prefix.html">PSP</A>).  This area also contains the
+	  command tail at program startup it must be saved or the DTA
+	  must be relocated before use to preserve the command tail
+
+	- see	<A HREF="int_21-1a.html">INT 21,1A</A>
+
+</PRE>
+
+</BODY>
+</HTML>

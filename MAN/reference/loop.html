@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>loop</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LOOP - Decrement CX and Loop if CX Not Zero</H2>
+
+<PRE>
+
+
+	Usage:	LOOP	label
+	Modifies flags: None
+
+
+	Decrements CX by 1 and transfers control to "label" if CX is not
+	Zero.  The "label" operand must be within -128 or 127 bytes of the
+	instruction following the loop instruction
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	label:	jump	  18   8+m  11+m    6		  2
+		no jump	   5	4     ?	    2
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

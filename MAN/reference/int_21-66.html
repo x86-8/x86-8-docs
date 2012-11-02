@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,66</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,66 - Get/Set Global Code Page  (DOS 3.3+)</H2>
+
+<PRE>
+
+
+	AH = 66h
+	AL = 01  get global code page
+	   = 02  set global code page
+	BX = active code page if setting
+	DX = system code page if setting
+
+
+	on return
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	BX = active code page  (for AL=1 only)
+	DX = system code page  (for AL=1 only)
+
+
+	- moves country data from COUNTRY.SYS to country memory table
+
+</PRE>
+
+</BODY>
+</HTML>

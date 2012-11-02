@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>esc</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>ESC - Escape</H2>
+
+<PRE>
+
+
+	Usage:	ESC	immed,src
+	Modifies flags: None
+
+
+	Provides access to the data bus for other resident processors.
+	The CPU treats it as a <A HREF="nop.html">NOP</A> but places memory operand on bus.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	immed,reg	  2   9-20    ?			  2
+	immed,mem	  2   9-20    ?			 2-4
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>exec...</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Exec Function Call</H2>
+
+<PRE>
+
+	int execl(pathname,arg0,arg1,arg2,...,argN,NULL )
+	int execle(pathname,arg0,arg1,arg2,...,argN,NULL,envp )
+	int execlp(pathname,arg0,arg1,arg2,...,argN,NULL )
+	int execlpe(pathname,arg0,arg1,arg2,....,argN,NULL,envp )
+	    char *pathname,*arg0,*arg1,*arg2,....,*argN,*envp[];
+
+	int execv(pathname,arg,NULL )
+	int execve(pathname,arg,NULL,envp )
+	int execvp(pathname,arg,NULL )
+	int execvpe(pathname,arg,NULL,envp )
+	    char *pathname,*arg[],*envp[];
+
+	- prototype in process.h
+
+	- loads and runs child processes
+	- pathname search based on MS-DOS search algorithm
+	  o if no extension or period - search for exact file name -
+	    if not found, add .exe and search again
+	  o if extension given, search only for exact file name
+	  o if period given, search for file name with no extension
+
+
+	- arg0 can be the same as the pathname
+	- at least one argument must be passed
+	- combined argument list cannot exceed 128 bytes
+	- execl..: arg0, arg1,...,argN passed as SEPARATE arguments
+	- execv..: arg[0], arg[1],...,arg[N] passed as argument ARRAY
+	- execlp, execlpe, execvp, execvpe: search for child in PATH
+	- returns no value if OK,
+	  returns -1, with  errno set to:
+
+		E2BIG  (too many args)
+		EACCES (permission denied)
+		EMFILE (too many open files)
+		ENOENT (path or file not found)
+		ENOEXEC (exec format error)
+		ENOMEM (not enough memory).
+
+	- if successful, there is no return to the caller; the
+	  caller is killed off
+
+</PRE>
+
+</BODY>
+</HTML>

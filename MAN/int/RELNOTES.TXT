@@ -1,0 +1,22 @@
+RBIL Viewer - version 2.1 - Release Notes
+=========================================
+
+Rather than adding loads of new features to this version, I decided to
+do some major internal optimizing. There were also still some nasty
+bugs in v2.0, and I found out that v2.0 had some problems with the
+toolbar if Internet Explorer 5 was installed. The two most important
+new features are the hot link cross referencing (which basicly means
+that you can directly click on an item on the SeeAlso line of a topic
+to go to that topic), and the tremendous speed increasement of list
+parsing, list loading and category switching. 
+
+(see RBIL Viewer Help for a complete list of all changes).
+
+
+Feedback:
+---------
+
+If you have found a bug in RBIL Viewer then please let me know....
+
+   mailto:  masterx@thepentagon.com
+

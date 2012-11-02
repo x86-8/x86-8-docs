@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 2a,1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2A,1 - Execute NETBIOS Request With No Error Retry</H2>
+
+<PRE>
+
+
+	AH = 01
+	ES:BX = pointer to Network Control Block
+	
+
+	on return:
+	AL = NETBIOS error code
+	AH = zero if success
+	   = nonzero if error
+
+
+	- similar to INT 5C
+</PRE>
+
+</BODY>
+</HTML>

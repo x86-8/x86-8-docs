@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>lock</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LOCK - Lock Bus</H2>
+
+<PRE>
+
+
+	Usage:	LOCK
+		LOCK: (386+ prefix)
+	Modifies flags: None
+
+
+	This instruction is a prefix that causes the CPU assert bus lock
+	signal during the execution of the next instruction.  Used to
+	avoid two processors from updating the same data location.  The
+	286 always asserts lock during an XCHG with memory operands.  This
+	should only be used to lock the bus prior to <A HREF="xchg.html">XCHG</A>, <A HREF="mov.html">MOV</A>, <A HREF="in.html">IN</A> and
+	<A HREF="out.html">OUT</A> instructions.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  2	0     0	    1		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

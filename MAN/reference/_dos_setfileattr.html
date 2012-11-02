@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_setfileattr</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _dos_setfileattr( char *path, unsigned attr )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- path = valid DOS file name
+	- attr	= file attribute (logical OR of the following):
+		= _A_ARCH
+		= _A_HIDDEN
+		= _A_NORMAL
+		= _A_RDONLY
+		= _A_SUBDIR
+		= _A_SYSTEM
+		= _A_VOLID
+
+	- returns 0 on success or DOS error code on failure
+
+	- see	<A HREF="int_21-43.html">INT 21,43</A>   <A HREF="_dos_getfileattr.html">_dos_getfileattr</A>()
+</PRE>
+
+</BODY>
+</HTML>

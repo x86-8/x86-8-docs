@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,6</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,6 - Direct Console I/O</H2>
+
+<PRE>
+
+	AH = 06
+	DL = (0-FE) character to output
+	   = FF if console input request
+
+	on return:
+	AL = input character if console input request (DL=FF)
+	ZF = 0	if console request character available (in AL)
+	   = 1	if no character is ready, and function request
+	     was console input
+
+
+	- reads from or writes to the console device depending on
+	  the value of DL
+	- cannot output character FF  (DL=FF indicates read function)
+	- for console read, no echo is produced
+	- returns 0 for extended keystroke, then function must be
+	  called again to return scan code
+	- ignores Ctrl-Break and Ctrl-PrtSc
+
+</PRE>
+
+</BODY>
+</HTML>

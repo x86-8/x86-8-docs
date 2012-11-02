@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,36</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,36 - Get Disk Free Space</H2>
+
+<PRE>
+
+
+	AH = 36h
+	DL = drive number (0=default, 1=A:)
+
+
+	on return:
+	AX = sectors per cluster
+	   = FFFF if drive is invalid
+	BX = number of available clusters
+	CX = number of bytes per sector
+	DX = number of clusters per drive
+
+
+	- used to determine available space on specified disk
+	- see	<A HREF="int_21-1b.html">INT 21,1B</A>   <A HREF="int_21-1c.html">INT 21,1C</A>
+
+</PRE>
+
+</BODY>
+</HTML>

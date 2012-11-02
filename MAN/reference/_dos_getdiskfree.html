@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_getdiskfree</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: unsigned _dos_getdiskfree(unsigned drv,struct diskfree_t *spc)</B>
+
+
+	- prototype in dos.h
+
+	- drive =  1 = A:, 2 = B:, 3 = C:, ...
+	- spc = structure to contains disk status information
+	- returns 0 on success or DOS error code on failure
+
+	struct diskfree_t
+	   {
+	   unsigned total_clusters;		- count of all disk clusters
+	   unsigned avail_clusters;		- free unallocated clusters
+	   unsigned sectors_per_cluster;
+	   unsigned bytes_per_sector;
+	   };
+
+	- Turbo C uses <A HREF="getdfree.html">getdfree</A>()
+	- see	<A HREF="int_21-36.html">INT 21,36</A>
+</PRE>
+
+</BODY>
+</HTML>

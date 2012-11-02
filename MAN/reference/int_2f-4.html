@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 2f,4</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2F,4 - Multiplex Interrupt - Pause / return status</H2>
+
+<PRE>
+
+
+	AL = 04
+	AH = 01  resident portion of PRINT
+	     02  resident portion of ASSIGN
+	     10  resident portion of SHARE
+	     B7  resident portion of APPEND
+	     C0-FF reserved for user applications
+
+
+	on return:
+	DX = error count
+	DS:SI = pointer to queue of files
+
+
+	- each file in the queue is represented by 64 byte filename
+	- the file currently being printed is the first entry in the queue
+	- the last entry in the queue is a null string
+
+</PRE>
+
+</BODY>
+</HTML>

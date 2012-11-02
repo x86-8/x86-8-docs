@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,3e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,3E - Close File Using Handle</H2>
+
+<PRE>
+
+
+	AH = 3E
+	BX = file handle to close
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- if file is opened for update, file time and date stamp
+	  as well as file size are updated in the directory
+	- handle is freed
+
+</PRE>
+
+</BODY>
+</HTML>

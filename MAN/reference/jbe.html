@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>jbe</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>JBE/JNA - Jump Below or Equal / Jump Not Above</H2>
+
+<PRE>
+
+
+	Usage:	JBE	label
+		JNA	label
+	Modifies flags: None
+
+
+	Causes execution to branch to "label" if the Carry Flag or
+	the Zero Flag is set.	Unsigned comparision.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	label:	jump	  16   7+m   7+m    3		 2-4
+		no jump	  4	3     3	    1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

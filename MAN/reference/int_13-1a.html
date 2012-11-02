@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,1a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,1A - Format Unit (PS/2 model 50+)</H2>
+
+<PRE>
+
+	AH = 1Ah
+	AL = defect table count
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+	ES:BX = far pointer to defect table
+	CL = modifier bits
+
+		|7|6|5|4|3|2|1|0|  Format Unit Modifier Bits
+		 | | | | | | | `---- 1=ignore primary defect map, 0=use map
+		 | | | | | | `----- 1=ignore secondary defect map, 0=use map
+		 | | | | | `------ 1=update secondary defect map, 0=don't
+		 | | | | `------- 1=do extended surface analysis, 0=don't
+		 | | | `-------- 1=periodic interrupt status on, 0=off
+		 `------------- reserved
+
+	returns nothing
+
+	- only the disk number is checked for validity
+	- see	<A HREF="int_13-1.html">INT 13,STATUS</A>
+</PRE>
+
+</BODY>
+</HTML>

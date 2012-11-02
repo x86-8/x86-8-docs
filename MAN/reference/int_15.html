@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>int 15</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15 - System BIOS Services</H2>
+
+<PRE>
+
+</PRE>
+
+<H2 ALIGN=Center>For more information see the following topics:</H2>
+
+<PRE>
+
+	 <A HREF="int_15-0.html">INT 15,0</A>  Turn cassette motor on (PC,PCjr only)
+	 <A HREF="int_15-1.html">INT 15,1</A>  Turn cassette motor off (PC,PCjr only)
+	 <A HREF="int_15-2.html">INT 15,2</A>  Read blocks from cassette (PC,PCjr only)
+	 <A HREF="int_15-3.html">INT 15,3</A>  Write blocks to cassette (PC,PCjr only)
+	 <A HREF="int_15-f.html">INT 15,F</A>  PS/2 format periodic interrupt (PS/2 only)
+	<A HREF="int_15-20.html">INT 15,20</A>  PRINT.COM Critical region flag (undocumented DOS 3.x+)
+	<A HREF="int_15-21.html">INT 15,21</A>  PS/2 power on self test (PS/2 except 30)
+	<A HREF="int_15-40.html">INT 15,40</A>  Read / modify profiles (convertible only)
+	<A HREF="int_15-41.html">INT 15,41</A>  Wait on external event (convertible only)
+	<A HREF="int_15-42.html">INT 15,42</A>  Request system power off (convertible only)
+	<A HREF="int_15-43.html">INT 15,43</A>  Read system status (convertible only)
+	<A HREF="int_15-44.html">INT 15,44</A>  (De)activate internal modem power (convertible)
+	<A HREF="int_15-4f.html">INT 15,4F</A>  Keyboard intercept  (BIOS date specific)
+	<A HREF="int_15-80.html">INT 15,80</A>  Device open
+	<A HREF="int_15-81.html">INT 15,81</A>  Device close
+	<A HREF="int_15-82.html">INT 15,82</A>  Program termination
+	<A HREF="int_15-83.html">INT 15,83</A>  Event wait
+	<A HREF="int_15-84.html">INT 15,84</A>  Joy-Stick support
+	<A HREF="int_15-85.html">INT 15,85</A>  System request key pressed
+	<A HREF="int_15-86.html">INT 15,86</A>  Elapsed time wait (AT and after)
+	<A HREF="int_15-87.html">INT 15,87</A>  Move block to/from extended memory
+	<A HREF="int_15-88.html">INT 15,88</A>  Extended memory size determination
+	<A HREF="int_15-89.html">INT 15,89</A>  Switch processor to protected mode
+	<A HREF="int_15-90.html">INT 15,90</A>  Device busy
+	<A HREF="int_15-91.html">INT 15,91</A>  Interrupt complete
+	<A HREF="int_15-c0.html">INT 15,C0</A>  Return system configuration parameters (PS/2 only)
+	<A HREF="int_15-c1.html">INT 15,C1</A>  Return extended BIOS data address (PS/2 only)
+	<A HREF="int_15-c2.html">INT 15,C2</A>  Pointing device BIOS interface (PS/2 only)
+	<A HREF="int_15-c3.html">INT 15,C3</A>  Enable/Disable watchdog timer
+	<A HREF="int_15-c4.html">INT 15,C4</A>  Programmable option select
+
+
+	- CF is set and AX is left unchanged if a function requested in AH
+	  isn't supported
+	- some Tandy BIOS's fail to restore interrupts on return from INT 15
+
+</PRE>
+
+</BODY>
+</HTML>

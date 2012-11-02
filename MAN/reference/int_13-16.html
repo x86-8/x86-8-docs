@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,16</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,16 - Change of Disk Status (XT BIOS from 1/10/86 & newer)</H2>
+
+<PRE>
+
+
+	AH = 16h
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+
+
+	on return:
+	AH = 00 no disk change
+	   = 01 disk changed
+	CF = set if disk has been removed or an error occurred
+
+
+	- used to detect if a disk change has occurred
+	- see	<A HREF="int_13-1.html">INT 13,STATUS</A>    <A HREF="int_13-15.html">INT 13,15</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,f8</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,F8 - Set OEM Int 21 Handler (functions F9-FF, Undocumented)</H2>
+
+<PRE>
+
+
+	AH = F8
+	DS:DX = pointer to OEM handler for INT 21H calls F9 through FF
+	      = FFFF:FFFF to reset to original handlers
+
+
+	- DOS is set up to allow ONE handler for all 7 function calls.
+	  Any call to these handlers will set the CF and AX
+	  will contain 1 if they are not initialized.	The handling
+	  routine is passed all registers just as the user set them.
+	  The handler should exit with an <A HREF="iret.html">IRET</A>.
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>inc</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INC - Increment</H2>
+
+<PRE>
+
+
+	Usage:	INC	dest
+	Modifies flags: AF OF PF SF ZF
+
+
+	Adds one to destination unsigned binary operand.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg8		  3	2     2	    1		  2
+	reg16		  3	2     2	    1		  1
+	reg32		  3	2     2	    1		  1
+	mem		15+EA	7     6	    3		 2-4  (W88=23+EA)
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

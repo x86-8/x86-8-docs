@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>lfind</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>void *lfind(void *key,void *base,int *nelem,int width,int (*fcmp)())</H2>
+
+<PRE>
+
+
+	- prototype in stdlib.h
+
+	- does linear search for items in an unsorted table;
+	- base points to 0th element of table
+	- nelem points to int containing number of entries in table
+	- width contains number of bytes in each entry
+	- key points to the search key
+	- fcmp points to user-written comparison routine, where key and
+	  elem are passed to it as pointers.  fcmp returns:
+
+	   integer < 0 if search key < elem
+	   integer = 0 if equal
+	   integer > 0 if search key > elem
+
+	- returns 0 if no match found, else address of first matching entry
+
+</PRE>
+
+</BODY>
+</HTML>

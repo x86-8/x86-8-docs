@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>popa</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>POPA/POPAD - Pop All Registers onto Stack  (80188+ only)</H2>
+
+<PRE>
+
+
+	Usage:	POPA
+		POPAD  (386+ only)
+	Modifies flags: None
+
+
+	Pops the top 8 words off the stack into the 8 general purpose 16/32
+	bit registers.	 Registers are popped in the following order: (E)DI,
+	(E)SI, (E)BP, (E)SP, (E)DX, (E)CX and (E)AX.  The (E)SP value popped
+	from the stack is actually discarded.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  -	19    24    9		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

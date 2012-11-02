@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_setdrive</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: void _dos_setdrive( unsigned drive, unsigned *count )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- drive = drive to set as default;  1 = A:, 2 = B:, ...
+	- count = receives simple count of total drives in system
+	- does not return error if invalid drive is requested, use
+	  _dos_getdrive() to see if requested drive was set
+
+	- Turbo C uses <A HREF="setdisk.html">setdisk</A>()
+	- see	<A HREF="int_21-e.html">INT 21,E</A>   <A HREF="_dos_getdrive.html">_dos_getdrive</A>()
+</PRE>
+
+</BODY>
+</HTML>

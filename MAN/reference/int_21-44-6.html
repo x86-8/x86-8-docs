@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,6</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,6 / IOCTL,6 - Get Input Status</H2>
+
+<PRE>
+
+
+	AH = 44h
+	AL = 06
+	BX = handle
+
+
+	on return
+	CF = 0 if successful
+	   = 1 if error
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	AL = 00  if EOF (files), or not ready (char devices)
+	   = FF  if not EOF (files), or ready (char devices)
+
+
+	- used to determine if a file or device is ready for input
+	- can be used to determine EOF unless EOF caused by <A HREF="int_21-42.html">INT 21,42</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>alloca</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: void *alloca( size_t size )</H2>
+
+<PRE>
+
+
+	- prototype in malloc.h
+
+	- allocates size bytes for the application stack
+	- memory is automatically freed upon exiting the calling function
+	- this function cannot be used as a parameter to another function
+	  or stack corruption will occur
+	- the pointer returned CANNOT be passed as an argument to free()
+	  since it isn't allocated from DOS
+	- see	<A HREF="stackavail.html">stackavail</A>
+</PRE>
+
+</BODY>
+</HTML>

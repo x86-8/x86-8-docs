@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>getdfree</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void getdfree( unsigned char drive, struct dfree *dfreep )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- fills in structure with disk status information.
+
+	struct dfree
+	    {
+	    unsigned df_avail;		- available clusters
+	    unsigned df_total;		- total clusters
+	    unsigned df_bsec;		- bytes per sector
+	    unsigned df_sclus;		- sectors per cluster
+	    };
+
+	- drive is specified as A = 1, B = 2, C = 3, etc...
+	- in event of error, df_sclus is set to -1.
+	- MS C uses <A HREF="_dos_getdiskfree.html">_dos_getdiskfree</A>()
+	- see	<A HREF="int_21-36.html">INT 21,36</A>
+</PRE>
+
+</BODY>
+</HTML>

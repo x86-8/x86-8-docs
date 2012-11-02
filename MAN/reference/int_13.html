@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+<TITLE>int 13</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13 - Diskette BIOS Services</H2>
+
+<PRE>
+
+</PRE>
+
+<H2 ALIGN=Center>For more information see the following topics:</H2>
+
+<PRE>
+
+     <A HREF="int_13-0.html">INT 13,0</A>  Reset disk system
+     <A HREF="int_13-1.html">INT 13,1</A>  Get disk status
+     <A HREF="int_13-2.html">INT 13,2</A>  Read disk sectors
+     <A HREF="int_13-3.html">INT 13,3</A>  Write disk sectors
+     <A HREF="int_13-4.html">INT 13,4</A>  Verify disk sectors
+     <A HREF="int_13-5.html">INT 13,5</A>  Format disk track
+     <A HREF="int_13-6.html">INT 13,6</A>  Format track and set bad sector flag (XT & portable)
+     <A HREF="int_13-7.html">INT 13,7</A>  Format the drive starting at track (XT & portable)
+     <A HREF="int_13-8.html">INT 13,8</A>  Get current drive parameters (XT & newer, see note Ø)
+     <A HREF="int_13-9.html">INT 13,9</A>  Initialize 2 fixed disk base tables (XT & newer, see note Ø)
+     <A HREF="int_13-a.html">INT 13,A</A>  Read long sector (XT & newer, see note Ø)
+     <A HREF="int_13-b.html">INT 13,B</A>  Write long sector (XT & newer, see note Ø)
+     <A HREF="int_13-c.html">INT 13,C</A>  Seek to cylinder (XT & newer, see note Ø)
+     <A HREF="int_13-d.html">INT 13,D</A>  Alternate disk reset (XT & newer, see note Ø)
+     <A HREF="int_13-e.html">INT 13,E</A>  Read sector buffer (XT & portable only)
+     <A HREF="int_13-f.html">INT 13,F</A>  Write sector buffer (XT & portable only)
+    <A HREF="int_13-10.html">INT 13,10</A>  Test for drive ready (XT & newer, see note Ø)
+    <A HREF="int_13-11.html">INT 13,11</A>  Recalibrate drive (XT & newer, see note Ø)
+    <A HREF="int_13-12.html">INT 13,12</A>  Controller ram diagnostic (XT & portable only)
+    <A HREF="int_13-13.html">INT 13,13</A>  Drive diagnostic (XT & portable only)
+    <A HREF="int_13-14.html">INT 13,14</A>  Controller internal diagnostic (XT & newer, see note Ø)
+    <A HREF="int_13-15.html">INT 13,15</A>  Read disk type/DASD type (XT BIOS from 1/10/86 & newer)
+    <A HREF="int_13-16.html">INT 13,16</A>  Disk change line status (XT BIOS from 1/10/86 & newer)
+    <A HREF="int_13-17.html">INT 13,17</A>  Set dasd type for format (XT BIOS from 1/10/86 & newer)
+    <A HREF="int_13-18.html">INT 13,18</A>  Set media type for format (BIOS date specific)
+    <A HREF="int_13-19.html">INT 13,19</A>  Park fixed disk heads (AT & newer)
+    <A HREF="int_13-1a.html">INT 13,1A</A>  Format ESDI drive unit (PS/2 50+)
+
+
+	Ø  The 1983 version of the "IBM XT BIOS Technical Reference"
+	   shows these functions are available for the XT but many other
+	   programming references say they aren't available until the AT.
+	   This is probably due to misunderstanding the design of the disk
+	   BIOS.   Upon bootup the hard disk BIOS replaces the default
+	   INT 13h diskette handler with the hard disk INT 13h handler.
+
+
+<B>	Most disk BIOS calls use the following parameter scheme:</B>
+
+	    AH = function request number
+	    AL = number of sectors  (1-128 dec.)
+	    CH = cylinder number  (0-1023 dec.)
+	    CL = sector number	(1-17 dec.)
+	    DH = head number  (0-15 dec.)
+	    DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+	    DL = drive number (0=A:, 1=2nd floppy, 80h=C:, 81h=D:)
+		 Note that some programming references use (0-3) as the
+		 drive number which represents diskettes only.
+	    ES:BX = address of user buffer
+
+
+<B>	and return with:</B>
+	CF = 0 if successful
+	   = 1 if error
+	AH = status of operation  (see INT 13,STATUS)
+
+
+	- INT 13 diskette read functions should be retried at least 3
+	  times to assure the disk motor has time to spin up to speed
+	- physical sector numbers can be converted to and from DOS sector
+	  numbers with the following formulas:
+
+	  dos_sector = (sector - 1) + (head * sectors_per_track) +
+		       (track * sectors_per_track * num_heads)
+
+	  physical_sector = 1 + (dos_sector  MOD  sectors_per_track)
+	  physical_head = (dos_sector / sectors_per_track)  MOD  num_heads
+	  physical_track = dos_sector / (sectors_per_track * num_heads)
+
+	- registers DS, BX, CX and DX are preserved
+	- see  <A HREF="int_13-1.html">INT 13,STATUS</A>
+
+</PRE>
+
+</BODY>
+</HTML>

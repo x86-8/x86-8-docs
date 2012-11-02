@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 16,5</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 16,5 - Keyboard Buffer Write  (AT+)</H2>
+
+<PRE>
+
+
+	AH = 05
+	CH = <A HREF="scan_codes.html">scan code</A>
+	CL = ASCII character
+
+
+	on return:
+	AL = 00 if success
+	     01 if buffer full
+
+
+	- available on AT and PS/2 machines with extended keyboard support
+	- stores normal keystroke into keyboard buffer
+	- will not store attribute keys like Shift, Alt, Ctrl, etc...
+
+</PRE>
+
+</BODY>
+</HTML>

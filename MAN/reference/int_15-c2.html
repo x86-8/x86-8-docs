@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,c2</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,C2 - Pointing Device BIOS Interface  (PS/2 only)</H2>
+
+<PRE>
+
+	AH = C2
+	AL = 0	enable/disable pointing device (BH contains flag)
+	   = 1	reset pointing device
+	   = 2	set sample rate
+	   = 3	set resolution
+	   = 4	read device type
+	   = 5	pointing device initialization
+	   = 6	extended commands
+	   = 7	pointing device far call initialization
+	BH = 0 indicates enable for AL = 0
+	   = 1 indicates disable for AL = 0
+
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AH = when CF set, 80h for PC & PCjr, 86h for XT, AT
+	   = 01  invalid function call
+	   = 02  invalid input
+	   = 03  interface error
+	   = 04  resend
+	   = 05  no far call installed
+
+</PRE>
+
+</BODY>
+</HTML>

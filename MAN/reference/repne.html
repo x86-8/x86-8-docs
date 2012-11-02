@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>repne</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>REPNE/REPNZ - Repeat Not Equal / Repeat Not Zero</H2>
+
+<PRE>
+
+
+	Usage:	REPNE
+		REPNZ
+	Modifies flags: None
+
+
+	Repeats execution of string instructions while CX != 0 and the Zero
+	Flag is clear.	 CX is decremented and the Zero Flag tested after
+	each string operation.	 The combination of a repeat prefix and a
+	segment override on processors other than the 386 may result in
+	errors if an interrupt occurs before CX=0.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  2	2     2			  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

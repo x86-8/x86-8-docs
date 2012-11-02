@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>getfatd</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void getfatd( struct fatinfo *fatblkp )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- returns information from the file allocation table for the
+	  DEFAULT drive into fatblk
+	- structure fatinfo is defined as:
+
+	struct fatinfo
+	    {
+	    char  fi_sclus;		- sectors per cluster
+	    char  fi_fatid;		- media descriptor byte  from FAT
+	    int   fi_nclus;		- cluster on disk
+	    int   fi_bysec;		- bytes per sector
+	    };
+
+	- closest MS C function is <A HREF="_dos_getdiskfree.html">_dos_getdiskfree</A>()
+	- see	<A HREF="int_21-1b.html">INT 21,1B</A>   <A HREF="getfat.html">getfat</A>()
+</PRE>
+
+</BODY>
+</HTML>

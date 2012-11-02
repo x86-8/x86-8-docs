@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 1a,1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1A,1 - Set System Clock Counter</H2>
+
+<PRE>
+
+
+	AH = 01
+	CX = high order word of tick count
+	DX = low order word of tick count
+
+
+	returns nothing
+
+
+	- CX:DX should be set to the number of seconds past
+	  midnight multiplied by approximately 18.206
+
+</PRE>
+
+</BODY>
+</HTML>

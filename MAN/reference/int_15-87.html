@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,87</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,87 - Move Block to/from Extended Memory</H2>
+
+<PRE>
+
+	AH = 87h
+	CX = word count of block to be moved
+	ES:SI = pointer to Global Descriptor Table (<A HREF="gdt.html">GDT</A>)
+
+
+	on return:
+	CF = 0	if successful (AH contains return code)
+	   = 1	if error detected
+	AH = 0	operation successful (ZF also set)
+	   = 1	RAM parity error  (if CF set)
+	   = 2	other exception (if CF set)
+	   = 3	gate address on line 20h failed (if CF set)
+	   = 80h on PC and PCjr (if CF set)
+	   = 86h on XT and newer 808x machines (if CF set)
+
+	- transfers data blocks to and from extended memory on 80286
+	  and 80386 machines by switching from real to protected mode
+	  for the duration of the transfer
+	- all real mode interrupts are disabled
+	- processor shuts down during the switch from protected mode
+	  to real mode on 286 processors
+</PRE>
+
+</BODY>
+</HTML>

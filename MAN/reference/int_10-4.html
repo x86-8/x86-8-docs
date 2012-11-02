@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,4</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,4 - Read Light Pen Position</H2>
+
+<PRE>
+
+
+	AH = 04
+
+
+	on return:
+	AH = 0	light pen switch not triggered
+	   = 1	light pen triggered
+	BX = pixel column (0-319 or 0-639, mode dependent)
+	CH = raster line (0-199) (CGA and EGA modes 4, 5 and 6)
+	CX = raster line (EGA modes except 4, 5 and 6)
+	DH = row (0-24)
+	DL = column (0-79 or 0-79 mode dependent)
+
+
+	- data returned as a byte coordinate, leaving horizontal
+	  accuracy to within 2 pixels (320) or 4 pixels (640)
+	- vertical accuracy within 2 lines
+	- PS/2's don't support the light pen interface
+
+</PRE>
+
+</BODY>
+</HTML>

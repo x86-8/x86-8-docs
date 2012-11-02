@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,4e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,4E - Get/Set Page Map Context  (LIM EMS 3.2+)</H2>
+
+<PRE>
+
+	AH = 4Eh
+	AL = 00  get page mapping context into array
+		 ES:DI = pointer to destination array
+	     01  set page mapping context from array
+		 DS:SI = pointer to context source array
+	     02  get and set page mapping registers at once
+		 ES:DI = pointer to destination array
+		 DS:SI = pointer to context source array
+	     03  get size of page mapping array
+	     04-31  reserved
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	AL = bytes in pagemapping array (when AL=3)
+	ES:DI = pointer to array with mapping info (AL=00/02)
+
+	- an error will occur if ES:DI points to a buffer that will
+	  cause a segment swap
+	- designed for use by multitasking operating systems only
+
+</PRE>
+
+</BODY>
+</HTML>

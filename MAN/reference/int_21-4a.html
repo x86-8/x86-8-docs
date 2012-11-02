@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,4a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,4A - Modify Allocated Memory Block  (SETBLOCK)</H2>
+
+<PRE>
+
+
+	AH = 4A
+	BX = new requested block size in paragraphs
+	ES = segment of the block (<A HREF="memory_control_block.html">MCB</A> + 1 para)
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	BX = maximum block size possible, if CF set and AX = 8
+
+
+	- modifies memory blocks allocated by  <A HREF="int_21-48.html">INT 21,48</A>
+	- can be used by programs to shrink or increase the size
+	  of allocated memory
+	- PC-DOS version 2.1 and DOS 3.x will actually allocate the largest
+	  available block if CF is set.  BX will equal the size allocated.
+	- see also  <A HREF="int_21-49.html">INT 21,49</A>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_creat</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: unsigned _dos_creatnew(char *fname,unsigned attr,int *handle)</B>
+<B>	MSC: unsigned _dos_creat(char *fname,unsigned attr,int *handle)</B>
+
+
+	- prototype in dos.h
+
+	- fname = a valid DOS file name
+	- attr	= DOS file attribute
+		= _A_RDONLY
+		= _A_HIDDEN
+		= _A_SYSTEM
+		= _A_ARCH
+	- handle = pointer to location to receive handle
+	- returns 0 on success or DOS error code on failure
+	- if file sharing is installed, file is opened in compatibility mode
+	- see	<A HREF="int_21-3c.html">INT 21,3C</A>   <A HREF="int_21-5b.html">INT 21,5B</A>
+</PRE>
+
+</BODY>
+</HTML>

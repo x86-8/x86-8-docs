@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>localtime</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>struct tm *localtime( const time_t *clock )</H2>
+
+<PRE>
+
+
+	- prototype in time.h
+
+
+	- clock is a long int (such as that returned by time())
+	- returns time in struct tm (see time.h) correcting for time zone
+	  and any daylight savings time
+	- global variable timezone is difference in seconds between GMT
+	  and local standard time
+
+</PRE>
+
+</BODY>
+</HTML>

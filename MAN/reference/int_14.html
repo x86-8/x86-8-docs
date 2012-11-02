@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>int 14</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 14 - BIOS Asynchronous Communications Services</H2>
+
+<PRE>
+
+<B>	For more information, see the following topics:</B>
+
+	<A HREF="int_14-0.html">INT 14,0</A>  Initialize serial port parameters
+	<A HREF="int_14-1.html">INT 14,1</A>  Send character in AL
+	<A HREF="int_14-2.html">INT 14,2</A>  Receive character in AL
+	<A HREF="int_14-3.html">INT 14,3</A>  Get Serial port status
+	<A HREF="int_14-4.html">INT 14,4</A>  Extended initialize  (PS/2)
+	<A HREF="int_14-5.html">INT 14,5</A>  Extended communication port control (PS/2)
+
+
+	- all functions have:
+	  AH = function number
+	  AL = character to send or receive
+	  DX = zero based RS232 card number
+	- all registers are preserved except AX
+	- these functions use hardware flow control
+	- used by DOS MODE to redirect LPTx output to a serial device
+	- see individual functions for more data
+
+
+</PRE>
+
+<H2 ALIGN=Center>BIOS Asynchronous Communications Services (Status)</H2>
+
+<PRE>
+
+		|7|6|5|4|3|2|1|0|  AL  modem status
+		 | | | | | | | `---- clear to send status changed
+		 | | | | | | `----- data set ready status changed
+		 | | | | | `------ trailing edge ring indicator
+		 | | | | `------- receive line signal changed
+		 | | | `-------- clear to send
+		 | | `--------- data set ready
+		 | `---------- ring indicator
+		 `----------- receive line signal detected
+
+		|7|6|5|4|3|2|1|0|  AH  port status
+		 | | | | | | | `---- data ready
+		 | | | | | | `----- overrun error
+		 | | | | | `------ parity error
+		 | | | | `------- framing error
+		 | | | `-------- break detect
+		 | | `--------- transmit holding register empty
+		 | `---------- transmit shift register empty
+		 `----------- time out (N/A for functions 1 and 2)
+
+</PRE>
+
+</BODY>
+</HTML>

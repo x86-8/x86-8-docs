@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,E - Select Disk</H2>
+
+<PRE>
+
+
+	AH = 0E
+	DL = zero based, drive number (0-25, A: - Z:)
+
+
+	on return:
+	AL = one based, total number of logical drives including
+	     hardfiles (1-26)
+
+
+	- for DOS 3.x+, this function returns the number of logical
+	  drives or the value of LASTDRIVE (default of 5) in the
+	  CONFIG.SYS file
+
+</PRE>
+
+</BODY>
+</HTML>

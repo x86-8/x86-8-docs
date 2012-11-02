@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>mk_fp</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>void far *MK_FP( unsigned segment, unsigned offset )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- returns a far pointer from offset and segment
+
+
+
+	- not available in some Microsoft C versions; use the following:
+
+
+	#define MK_FP(seg,off) \
+	 ((void far *) (((unsigned long)(seg) << 16) | (unsigned)(off))
+
+	- see <A HREF="fp_off.html">FP_OFF</A>() and <A HREF="fp_seg.html">FP_SEG</A>()
+</PRE>
+
+</BODY>
+</HTML>

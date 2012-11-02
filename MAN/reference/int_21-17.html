@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,17</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,17 - Rename a File Using FCB</H2>
+
+<PRE>
+
+	AH = 17h
+	DS:DX = pointer to a modified <A HREF="fcb.html">FCB</A> of the format:
+
+	  Offset     Description
+	    00	   drive designator
+	    01	   original file name
+	    09	   original file extension
+	    11	   new file name
+	    19	   new extension
+
+
+	on return:
+	AL = 00 if file renamed
+	   = FF if file not renamed
+
+
+	- allows renaming of files with normal attributes
+	- "?" wildcard supported after DOS 2.1, "*" supported by
+	  DOS 3.x+
+</PRE>
+
+</BODY>
+</HTML>

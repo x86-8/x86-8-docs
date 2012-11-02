@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>int 2e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2E - Execute Command Using Base Level Command Interpreter</H2>
+
+<PRE>
+</PRE>
+
+<H2 ALIGN=Center>(Undocumented DOS 2.0+)</H2>
+
+<PRE>
+
+	DS:SI = pointer to command string to be executed
+
+	returns nothing ???
+
+	- causes the base level COMMAND.COM to execute a command as if it
+	  were typed from the keyboard
+	- the transient portion of COMMAND.COM must be loaded if not resident
+	- first byte of the string contains the string length, inclusive
+	- command string must be terminated with a CR
+	- all registers including SS & SP are destroyed;  SS & SP should be
+	  preserved in your own code segment
+	- can be used to modify parents environment with SET command
+	- incompatible under some software multitasking systems
+	- before returning to the parent program this interrupt will
+	  attempt to execute the "current" batch file (if the parent or
+	  any ancestors were invoked from a batch file.   This can cause
+	  remaining lines in a batch file to execute before the parent
+	  program finishes and fragment memory
+</PRE>
+
+</BODY>
+</HTML>

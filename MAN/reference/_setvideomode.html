@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>_setvideomode</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: short far _setvideomode( short mode )</H2>
+
+<PRE>
+
+	- prototype in graph.h
+
+	- sets video mode specified
+	- mode=	_DEFAULTMODE	hardware default
+		_MAXCOLORMODE	graphics mode with most colors
+		_MAXRESMODE	graphics mode with highest resolution
+		_TEXTBW40	 40x25	  16 color  CGA/Text
+		_TEXTC40	 40x25	  16 color  CGA/Text
+		_TEXTBW80	 80x25	  16 shades CGA/Text
+		_TEXTC80	 80x25	  16 color  CGA/Text
+		_MRES4COLOR	320x200    4 color  CGA/Graphics
+		_MRESNOCOLOR	320x200    4 color  CGA/Graphics
+		_HRESBW		640x200    2 color  CGA/Graphics
+		_TEXTMONO	 80x25	      mono  MDA/Text
+		_MRES16COLOR	320x200   16 color  EGA/Graphics
+		_HRES16COLOR	640x200   16 color  EGA/Graphics
+		_ERESNOCOLOR	640x350    1 color  EGA/Text
+		_ERESCOLOR	640x350   64 color  EGA/Graphics
+		_VRES2COLOR	640x480    2 color  VGA/Graphics
+		_VRES16COLOR	640x480   16 color  VGA/Graphics
+		_MRES256COLOR	320x200  256 color  VGA/Graphics
+		_ORESCOLOR	640x400   16 color  CGA/Graphics/Olivetti
+		_HERCMONO	720x348    2 color  HGC/Graphics/Hercules
+
+	- returns non-zero on success; zero on error
+
+</PRE>
+
+</BODY>
+</HTML>

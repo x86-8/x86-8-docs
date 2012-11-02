@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>div (c)</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	    MSC: struct _div_t div( int numer, int denom )</B>
+<B>	    MSC: struct _ldiv_t ldiv( long int numer, long int denom )</B>
+
+
+	- prototype in stdlib.h
+
+	- divides numerator by denominator giving quotient and remainder
+	- returns div_t or ldiv_t structure of the form:
+
+	struct _div_t		struct _ldiv_t
+	    {			    {
+	    int quot;		    long quot;
+	    int rem;		    long rem;
+	    }; 			    };
+
+
+</PRE>
+
+</BODY>
+</HTML>

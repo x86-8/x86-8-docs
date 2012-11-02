@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_moveto</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	 MSC: struct xycoord far _moveto( short x, short y )</B>
+<B>	 MSC: struct _wxycoord far _moveto_w ( double wx, double wy )</B>
+
+
+	- prototype in graph.h
+
+	- moves current drawing position to specified coordinates
+	- returns previous coordinates in the following structures:
+
+	struct xycoord		struct _wxycoord
+	    {			    {
+	    short xcoord;	    double wx;   	- window x coord
+	    short ycoord;	    double wy;   	- window y coord
+	    };			    };
+
+	- see	<A HREF="_lineto.html">_lineto</A>()
+</PRE>
+
+</BODY>
+</HTML>

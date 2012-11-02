@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>creat</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int creat( const char *filename, int permis )</H2>
+
+<PRE>
+
+
+	- prototype in io.h, also include stat.h
+
+	- creates new file (overwrites existing file) of filename
+	  with access permission "permis" which is:
+
+		S_IWRITE
+		S_IREAD
+		S_IWRITE | S_IREAD
+
+	  for permission to write, read or read/write.
+
+	- file is created set to _fmode (O_TEXT or O_BINARY)
+
+</PRE>
+
+</BODY>
+</HTML>

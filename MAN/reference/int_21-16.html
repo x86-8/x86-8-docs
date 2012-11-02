@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,16</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,16 - Create a File Using FCB</H2>
+
+<PRE>
+
+
+	AH = 16h
+	DS:DX = pointer to an unopened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if file created
+	   = FF if file creation failed
+
+
+	- creates file using FCB and leaves open for later output
+	- FCB must be setup with drive id, filename, and extension
+	  before call
+	- an extended FCB can be used to also set <A HREF="file_attributes.html">file attributes</A>
+</PRE>
+
+</BODY>
+</HTML>

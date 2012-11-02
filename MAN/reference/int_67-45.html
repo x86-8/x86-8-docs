@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,45</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,45 - Release Handle and Memory Pages  (LIM EMS)</H2>
+
+<PRE>
+
+
+	AH = 45h
+	DX = EMM handle
+
+
+	on return:
+	AH = 00 success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+
+	- handles must be explicitly freed by an application or the memory
+	  will not be available to the following applications
+	- if unsuccessful, the operation should be retried
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

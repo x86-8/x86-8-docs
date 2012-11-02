@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>file attributes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DOS File Attributes</H2>
+
+<PRE>
+
+<B>	Directory Attribute Flags</B>
+
+	|7|6|5|4|3|2|1|0| Directory Attribute Flags
+	 | | | | | | | `--- 1 = read only
+	 | | | | | | `---- 1 = hidden
+	 | | | | | `----- 1 = system
+	 | | | | `------ 1 = volume label  (exclusive)
+	 | | | `------- 1 = subdirectory
+	 | | `-------- 1 = archive
+	 `----------- unused
+
+<B>	Directory Time Format</B>
+
+	|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0| Directory Time Format
+	 | | | | | | | | | | | `----------- seconds (2 second increments)
+	 | | | | | `---------------------- minutes (0-59)
+	 `------------------------------- hours (0-23)
+
+<B>	Directory Date Format</B>
+
+	|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0| Directory Date Format
+	 | | | | | | | | | | | `----------- Day (1-31)
+	 | | | | | | | `------------------ Month (1-12)
+	 `------------------------------- Year (less 1980)
+
+
+	- with respect to the <A HREF="findfirst.html">findfirst</A>() and <A HREF="findnext.html">findnext</A>() functions normal
+	  files are always included along with the requested attributes
+	  except when the LABEL attribute is requested.  It's up to the
+	  programmer to determine which files are match the requested
+	  attributes.
+</PRE>
+
+</BODY>
+</HTML>

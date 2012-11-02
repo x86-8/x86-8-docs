@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,C / IOCTL,C - Generic I/O for Handles</H2>
+
+<PRE>
+
+	AH = 44h
+	AL = 0C
+	BX = handle
+	CH = device type
+	   = 00  unknown device type  (DOS 3.3+)
+	   = 01  COMx  (DOS 3.3+)
+	   = 03  CON  (DOS 3.3+)
+	   = 05  LPTx  (DOS 3.3+),  printer  (DOS 3.2)
+	CL = minor function code (when CH = 3 or CH = 5)
+	   = 45  set iteration count  (DOS 3.2 only)
+
+	   = 4A  select code page (DOS 3.3+); parameter format:
+		   00  word  length of data
+		   02  word  code page ID
+		   04 nwords character set data array (see offset 00)
+
+	   = 4C  code page prepare start  (DOS 3.3+); parameter format:
+		   00  word  flags
+		   02  word  length of remainder of parameter block
+		   04  word  number of code pages following
+		   06 nwords code page 1,...,N
+
+	   = 4D  code page prepare end	(DOS 3.3+); parameter format:
+		   00  word  length of data
+		   02  word  code page ID
+
+	   = 5F  set display info  (DOS 4.x, when CH=3); parameter format:
+		   00  byte  level  (0 for DOS 4.0)
+		   01  byte  reserved
+		   02  word  length of following data
+		   04  word  control flags
+			     bit 0 set for blink, clear for intensity
+			     bits 1 to 15 reserved
+		   06  byte  mode type (1=text, 2=graphics)
+		   07  byte  reserved
+		   08  word  colors;  0=monochrome, n=bits per pixel
+		   0A  word  pixel columns
+		   0C  word  pixel rows
+		   0E  word  character columns
+		   10  word  character rows
+
+	   = 65  get iteration count  (DOS 3.2 only)
+
+	   = 6A  query selected code page  (DOS 3.3+); parameter format:
+		   00  word  length of data
+		   02  word  code page ID
+		   04 nwords character set data array  (see offset 00)
+
+	   = 6B  query prepare list  (DOS 3.3+); Parameter format:
+		   00  word  length of following data
+		   02  word  number of hardware code pages
+		   04 nwords hardware code page array
+		   xx  word  number of prepared code pages
+		   xx nwords prepared code page array
+
+	   = 7F  get display info  (DOS 4.x, CH = 3)
+		   00  byte  level  (0 for DOS 4.0)
+		   01  byte  reserved
+		   02  word  length of following data
+		   04  word  control flags
+			       bit 0 set for blink, clear for intensity
+			       bits 1 to 15 reserved
+		   06  byte  mode type (1=text, 2=graphics)
+		   07  byte  reserved
+		   08  word  colors;  0=monochrome, n=bits per pixel
+		   0A  word  pixel columns
+		   0C  word  pixel rows
+		   0E  word  character columns
+		   10  word  character rows
+
+	DS:DX = pointer to iteration count word  (DOS 3.2)
+	      = pointer to parameter block  (DOS 3.3)
+
+
+	on return
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- iteration count word specifies the number of times to retry
+	  an operation before aborting
+	- DOS 3.3 changed this function to handle code page switching
+	- implemented from DOS 3.2
+	- DOS 4.x adds support for double byte characters
+	- see IBM DOS Technical Reference Manual for more details
+
+</PRE>
+
+</BODY>
+</HTML>

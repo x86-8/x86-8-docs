@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>device status</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Device Status Word</H2>
+
+<PRE>
+
+	The device status word is set to zero on entry and is set by
+	the driver interrupt routine on return.
+
+	|15|14-10|9|8|7-0| STATUS word
+	 |    |   | |  `---- Error return code (if bit 15=1)
+	 |    |   | `------ Done bit, function completed
+	 |    |   `------- Busy bit
+	 |    `---------- Reserved
+	 `------------- Error flag bits 0-7 have error code
+
+<B>	Error return codes</B>
+
+	00  Write protect violation	01  Unknown unit
+	02  Device not ready		03  Unknown command
+	04  CRC error			05  Bad drive request structure length
+	06  Seek error			07  Unknown media
+	08  Sector not found		09  Printer out of paper
+	0A  Write fault 		0B  Read fault
+	0C  General failure		0D  Reserved
+	0E  Reserved			0F  Invalid disk change
+
+</PRE>
+
+</BODY>
+</HTML>

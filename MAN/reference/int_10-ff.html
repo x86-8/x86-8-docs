@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,ff</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,FF - Update DESQView/TopView Virtual Screen Regen Buffer</H2>
+
+<PRE>
+
+
+	AH = FF
+	CX = number of characters changed
+	ES:DI = pointer to first character in buffer to change,  ES is
+		set to segment returned by <A HREF="int_10-fe.html">INT 10,FE</A>
+
+
+	returns nothing
+
+
+	- the physical screen does not get updated until INT 10,FF is
+	  called in TopView
+	- it is not necessary to make this call under DESQView since it
+	  handles updates automatically
+	- calling this function under DESQView will cancel the automatic
+	  update mode
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,196 @@
+<HTML>
+<HEAD>
+<TITLE>Laserjet</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Hewlett Packard Laserjet Printer Control Codes</H2>
+
+<PRE>
+
+<B>	Printer Control and Orientation</B>
+	ESC E		Reset printer
+	ESC z		Self Test
+	ESC &l0O	Portrait orientation
+	ESC &l1O	Landscape orientation
+	ESC (s0P	Select fixed space font
+	ESC (s1P	Select proportional font
+	ESC (s0S	Set upright character orientation
+	ESC (s1S	Set Italic character orientation
+	ESC &l#X	Select '#' number of copies
+	ESC &l0H	Eject page
+	ESC &l1H	Feed paper from tray
+	ESC &l2H	Feed paper manually
+	ESC &l3H	Feed envelope
+	ESC &l0T	Default stacking position
+	ESC &l1T	Togglestacking position
+
+<B>	8 Bit Symbol Set Selection</B>
+	ESC (8U 	Select Roman 8 symbol set
+	ESC (8K 	Select Kana 8 symbol set
+	ESC (8M 	Select Math 8 symbol set
+
+<B>	7 Bit Symbol Set Selection</B>
+	ESC (0U 	Select USASCII symbol set
+	ESC (0B 	Select Line Draw symbol set
+	ESC (0A 	Select Math symbol set
+	ESC (0M 	Select Math 7 symbol set
+	ESC (0Q 	Select Math 8a symbol set
+	ESC (1Q 	Select Math 8b symbol set
+	ESC (1U 	Select US Legal symbol set
+	ESC (0E 	Select Roman Extension symbol set
+	ESC (0D 	Select ISO Denmark/Norway symbol set
+	ESC (1E 	Select ISO United Kingdom symbol set
+	ESC (0F 	Select ISO France symbol set
+	ESC (0G 	Select ISO German symbol set
+	ESC (0I 	Select ISO Italy symbol set
+	ESC (0S 	Select ISO Sweden/Finland symbol set
+	ESC (1S 	Select ISO Spain symbol set
+	ESC (15U	Select PiFont symbol set
+	ESC (2Q 	Select PiFonta symbol set
+
+<B>	Font Management</B>
+	ESC (s3T	 Select Courier font
+	ESC (s0T	 Select Line Printer font
+	ESC (s1T	 Select Pica font
+	ESC (s2T	 Select Elite font
+	ESC (s4T	 Select Helvetica font
+	ESC (s5T	 Select Times Roman (TMS RMN) font
+	ESC (s6T	 Select Gothic font
+	ESC (s7T	 Select Script font
+	ESC (s8T	 Select Prestige font
+	ESC *c#D	 Specify font ID '#'
+	ESC *c#E	 Specify character code '#'
+	ESC *c0F	 Delete all fonts, including permanent
+	ESC *c1F	 Delete all temporary fonts
+	ESC *c2F	 Delete last font ID specified
+	ESC *c3F	 Delete last character code and font ID specified
+	ESC *c4F	 Make last font ID temporary
+	ESC *c5F	 Make last font ID permanent
+	ESC *c6F	 Copy or assign last font ID specified
+	ESC *c7F	 Reestablish ROM
+	ESC *c8F	 Set primary font
+	ESC *c9F	 Set secondary font
+	ESC *c10F	 Set primary and secondary font default
+	ESC )s#W <data>  Create font header
+	ESC (s#W <data>  Download character
+	ESC (#X <data>	 Designate downloaded font as primary
+	ESC )#X <data>	 Designate downloaded font as secondary
+	ESC (#@ 	 Primary font default (see printer manual)
+	ESC )#@ 	 Secondary font default(see printer manual)
+
+<B>	Pitch and Point Selection</B>
+	ESC (s10H	Set 10 pitch
+	ESC (s12H	Set 12 pitch
+	ESC (s16.6H	Set 16.66 pitch
+
+	ESC (s7V	Set point size to 7
+	ESC (s8V	Set point size to 8
+	ESC (s8.5V	Set point size to 8.5
+	ESC (s10V	Set point size to 10
+	ESC (s12V	Set point size to 12
+	ESC (s14.4V	Set point size to 14.4
+
+<B>	Page Dimensions</B>
+	ESC &l#P	Set page length to '#' lines
+	ESC &l#E	Set top margin to '#' lines
+	ESC &l#F	Set text length to '#' lines
+	ESC 9		Clear margins
+	ESC &a#L	Set left margin to column '#'
+	ESC &a#M	Set right margin to column '#'
+	ESC &l#C	Set vertical motion index to '#' 1/48" increments
+	ESC &l#D	Set lines per inch to '#', valid values are:
+			1, 2, 3, 4, 6, 8, 12, 16 or 24
+	ESC &k#H	Set horizontal motion index where # is derived
+			using	# = (120.0 / cpi)     (1/10 precision)
+
+<B>	Cursor Positioning</B>
+	ESC &a#R	Move to row '#'
+	ESC &a#C	Move to col '#'
+	ESC &a#H	Move to horizontal position '#' in decipoints
+	ESC &a#V	Move to vertical position '#' in decipoints
+	ESC *p#X	Move to horizontal position '#' in dots
+	ESC *p#Y	Move to vertical position '#' in dots
+	ESC &f0S	Push cursor position
+	ESC &f1 	Pop cursor position
+
+<B>	Raster Graphics</B>
+	ESC *t75R	  Select 75 dots per inch graphics mode
+	ESC *t100R	  Select 100 dots per inch graphics mode
+	ESC *t150R	  Select 150 dots per inch graphics mode
+	ESC *t300R	  Select 300 dots per inch graphics mode
+	ESC *r0A	  Start graphics at left most position
+	ESC *r1A	  Start graphics at current cursor
+	ESC *b#W <data>   Transfer '#' byte raster image as stream "<data>"
+	ESC *rB 	  End graphics
+
+<B>	Advanced Graphics</B>
+	ESC *c#A	  Set horizontal rule/pattern size in dots
+	ESC *c#H	  Set horizontal rule/pattern size in decipoints
+	ESC *c#B	  Set vertical rule/pattern size in dots
+	ESC *c#V	  Set vertical rule/pattern size in decipoints
+	ESC *c0P	  Select black rule
+	ESC *c2P	  Select gray scale pattern
+	ESC *c3P	  Select HP-Defined pattern
+	ESC *c#G	  Set grey scale pattern, where # is a value between
+			  [0..6] for HP defined patterns and [0..100] to
+			  specify percentage gray scaling.  The mode depends
+			  on the rule/pattern selected using ESC *c?P
+	ESC *c1G	  Vertical lines pattern
+	ESC *c2G	  Horizontal lines pattern
+	ESC *c3G	  Diagonal lines pattern (upward left to right)
+	ESC *c4G	  Diagonal lines pattern (downward left to right)
+	ESC *c5G	  Horizontal/vertical grid lines pattern
+	ESC *c6G	  Diagonal grid pattern
+	ESC *c#G	  Set gray scaling to '#' percent
+
+<B>	Macro commands</B>
+	ESC &f#Y	  Identify macro as ID "#'
+	ESC &f0X	  Start macro definition
+	ESC &f1X	  Stop macro definition
+	ESC &f2X	  Execute macro 
+	ESC &f3X	  Call macro
+	ESC &f4X	  Enable auto macro overlay
+	ESC &f5X	  Disable auto macro overlay
+	ESC &f6X	  Delete all macros
+	ESC &f7X	  Delete all temporary macros
+	ESC &f8X	  Delete macro ID
+	ESC &f9X	  Make macro temporary
+	ESC &f10X	  Make macro permanent
+
+<B>	Miscellaneous</B>
+	ESC (s#B	  Set stroke weight '#'=(7..-7), 7=bold, -7=light
+	ESC &dD 	  Set underline on
+	ESC &d@ 	  Set underline off
+	ESC =		  Half line feed
+	ESC Y		  Turn display functions mode on
+	ESC Z		  Turn display functions mode off (default)
+	ESC &p#X <data>   Disable command interpretation for the '#' bytes
+			  following this command
+	ESC &l0L	  Disable perforation skip
+	ESC &l1L	  Enable perforation skip
+	ESC &k0G	  Set line terminators to CR=CR, LF=LF, FF=FF
+	ESC &k1G	  Set line terminators to CR=CR+LF, LF=LF, FF=FF
+	ESC &k2G	  Set line terminators to CR=CR, LF=CR+LF, FF=CR+FF
+	ESC &k3G	  Set line terminators to CR=CR+LF, LF=CR+LF, FF=CR+FF
+	ESC &s0C	  Enable end of line wrap
+	ESC &s1C	  Disable end of line wrap
+
+
+<B>	Escape sequence combination rules:</B>
+	
+	 1. The first 2 characters following the ESC must be the same.
+	 2. The final character in any sequence other than the last must be
+	    changed to lower case.
+	 3. The last character in the complete sequence must be changed to
+	    upper case.
+	 4. Escape sequences must be specified in the order in which they
+	    should be performed.
+
+
+	- the space following ESC is not included in the string
+</PRE>
+
+</BODY>
+</HTML>

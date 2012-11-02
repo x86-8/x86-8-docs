@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,15</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,15 - Read DASD Type (XT BIOS from 1/10/86 & newer)</H2>
+
+<PRE>
+
+	AH = 15h
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+
+
+	on return:
+	AH = 00 drive not present
+	   = 01 diskette, no change detection present
+	   = 02 diskette, change detection present
+	   = 03 fixed disk present
+	CX:DX = number of fixed disk sectors; if 3 is returned in AH
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- XT's must have a BIOS date 1/10/86 or newer
+	- used to determine if <A HREF="int_13-16.html">INT 13,16</A> can detect disk change
+
+	- see	<A HREF="int_13-1.html">INT 13,STATUS</A>
+</PRE>
+
+</BODY>
+</HTML>

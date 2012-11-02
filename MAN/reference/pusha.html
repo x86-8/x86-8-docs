@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>pusha</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>PUSHA/PUSHAD - Push All Registers onto Stack  (80188+ only)</H2>
+
+<PRE>
+
+
+	Usage:	PUSHA
+		PUSHAD	(386+ only)
+	Modifies flags: None
+
+
+	Pushes all general purpose registers onto the stack in the following
+	order: (E)AX, (E)CX, (E)DX, (E)BX, (E)SP, (E)BP, (E)SI, (E)DI.	The
+	value of SP is the value before the actual push of SP.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  -	19    24    11		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,52</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,52 - Get Pointer to DOS "INVARS"  (Undocumented)</H2>
+
+<PRE>
+
+	AH = 52h
+
+	on return:
+	ES:BX = pointer to DOS "invars", a table of pointers used by DOS.
+		Known "invars" fields follow (varies with DOS version):
+
+<B>	Offset Size		 Description</B>
+
+	 -12   word   sharing retry count (DOS 3.1-3.3)
+	 -10   word   sharing retry delay  (DOS 3.1-3.3)
+	  -8   dword  pointer to current disk buffer (DOS 3.x)
+	  -4   word   pointer in DOS code segment of unread CON input;
+		      0 indicates no unread input (DOS 3.x)
+	  -2   word   segment of first Memory Control Block (<A HREF="memory_control_block.html">MCB</A>)
+	  00   dword  pointer to first <A HREF="drive_parameter_table.html">DRIVE PARAMETER TABLE</A> (A:) in chain
+	  04   dword  pointer to DOS <A HREF="sft.html">System File Table</A> (SFT)
+	  08   dword  pointer to $CLOCK device driver
+	  0C   dword  pointer to CON device driver
+	  10   byte   number of logical drives in system
+	  11   word   maximum bytes/block of any block device
+	  13   dword  pointer to DOS cache buffer header
+	  17 18bytes  NUL device header, first 4 bytes of device header
+		      point to the next device in device chain
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 3.0 Specific Information</H2>
+
+<PRE>
+
+<B>	Offset Size		Description</B>
+
+	  10   byte   number of block devices
+	  11   word   max sector size used by DOS prior to loading block
+		      device drivers;  limits allowable device sector size
+	  13   dword  pointer to DOS cache buffer header
+	  17   dword  pointer to drive information table
+	  1B   byte   value of LASTDRIVE command in CONFIG.SYS
+	  1C   dword  pointer to STRING= workspace area
+	  20   word   size of STRING area (CONFIG.SYS value of STRING=x)
+	  22   dword  <A HREF="fcb.html">FCB</A> file table pointer
+	  26   word   number of protected FCBs
+	  28  18bytes NUL device header, first 4 bytes of device header
+		      point to the next device in device chain
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 3.1-3.3  Specific Information</H2>
+
+<PRE>
+
+<B>	Offset Size		 Description</B>
+
+	  10   word   max sector size used by DOS prior to loading block
+		      device drivers;  limits allowable device sector size
+	  12   dword  pointer to DOS cache buffer header
+	  16   dword  pointer to drive information table
+	  1A   dword  <A HREF="fcb.html">FCB</A> file table pointer
+	  1E   word   number of protected FCBs
+	  20   byte   number of block devices
+	  21   byte   value of LASTDRIVE command in CONFIG.SYS
+	  22  18bytes NUL device header, first 4 bytes of device header
+		      point to the next device in device chain
+	  34   byte   number of JOIN'ed drives
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 4.x  Specific Information</H2>
+
+<PRE>
+
+<B>	Offset Size		Description</B>
+
+	  10   word   max sector size used by DOS prior to loading block
+		      device drivers;  limits allowable device sector size
+	  12   dword  pointer to DOS cache buffer header
+	  16   dword  pointer to drive information table
+	  1A   dword  FCB file table pointer
+	  1E   word   number of protected FCBs
+	  20   byte   number of block devices
+	  21   byte   value of LASTDRIVE command in CONFIG.SYS (default 5)
+	  22  18bytes NUL device header, first 4 bytes of device header
+		      point to the next device in device chain
+	  34   byte   number of joined drives
+	  35   word   pointer within IBMDOS code segment to list of special
+		      program names
+	  37   dword  pointer to resident IFS utility function
+	  3B   dword  pointer to chain of installable file system drivers
+	  3F   word   the x in BUFFERS x,y (rounded up to multiple of 30
+		      if EMS is used)
+	  41   word   the y in BUFFERS x,y
+	  43   byte   boot drive (1=A:)
+	  44   byte   ???
+	  45   byte   extended memory size in K bytes
+
+
+	- see <A HREF="bibliography.html">Bibliography</A> references for Bernd Schemmer & "Undocumented DOS"
+	- see   <A HREF="int_21-34.html">INDOS</A>  <A HREF="int_21-5d.html">INT 21,5D</A>
+</PRE>
+
+</BODY>
+</HTML>

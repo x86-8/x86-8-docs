@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>BUS</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>PC, XT and AT 8 bit BUS Structure</H2>
+
+<PRE>
+
+			       |--------.
+		       Ground -|B1    A1|- -I/O CH CHK (NMI)
+		   +Reset DRV -|B2    A2|- +Data 7
+			  +5V -|B3    A3|- +Data 6
+			+IRQ2 -|B4    A4|- +Data 5
+			  -5V -|B5    A5|- +Data 4
+			+DRQ2 -|B6    A6|- +Data 3
+			 -12V -|B7    A7|- +Data 2
+		  -CARD SLCTD -|B8    A8|- +Data 1
+			 +12V -|B9    A9|- +Data 0
+		       Ground -|B10  A10|- +I/O CH RDY
+			-MEMW -|B11  A11|- +AEN
+			-MEMR -|B12  A12|- +Address 19
+			 -IOW -|B13  A13|- +Address 18
+			 -IOR -|B14  A14|- +Address 17
+		       -DACK3 -|B15  A15|- +Address 16
+			+DRQ3 -|B16  A16|- +Address 15
+		       -DACK1 -|B17  A17|- +Address 14
+			+DRQ1 -|B18  A18|- +Address 13
+		-DACK0 (MREF) -|B19  A19|- +Address 12
+			  CLK -|B20  A20|- +Address 11
+			+IRQ7 -|B21  A21|- +Address 10
+			+IRQ6 -|B22  A22|- +Address 9
+			+IRQ5 -|B23  A23|- +Address 8
+			+IRQ4 -|B24  A24|- +Address 7
+			+IRQ3 -|B25  A25|- +Address 6
+		       -DACK2 -|B26  A26|- +Address 5
+			  +TC -|B27  A27|- +Address 4
+			 +ALE -|B28  A28|- +Address 3
+			  +5V -|B29  A29|- +Address 2
+			 +OSC -|B30  A30|- +Address 1
+		       Ground -|B31  A31|- +Address 0
+			       `--------'
+
+</PRE>
+
+<H2 ALIGN=Center>AT 16 Bit BUS Extension</H2>
+
+<PRE>
+
+			       |--------.
+		    -MEM CS16 -|D1    C1|- SBHE
+		    -I/O CS16 -|D2    C2|- Address 23
+			IRQ10 -|D3    C3|- Address 22
+			IRQ11 -|D4    C4|- Address 21
+			IRQ12 -|D5    C2|- Address 20
+			IRQ15 -|D6    C6|- Address 19
+			IRQ14 -|D7    C7|- Address 18
+		       -DACK0 -|D8    C8|- Address 17
+			 DRQ0 -|D9    C9|- -MEMR
+		       -DACK5 -|D10  C10|- -MEMW
+			 DRQ5 -|D11  C11|- Data 8
+		       -DACK6 -|D12  C12|- Data 9
+			 DRQ6 -|D13  C13|- Data 10
+		       -DACK7 -|D14  C24|- Data 11
+			 DRQ7 -|D15  C15|- Data 12
+			  +5V -|D16  C16|- Data 13
+		      -Master -|D17  C17|- Data 14
+		       Ground -|D18  C18|- Data 15
+			       `--------'
+
+	- pin numbering starts from the rear of the machine
+
+
+<B>	 Signal 			Description</B>
+
+	A0-A19	     Address Bits 0-19 allow access to 1Mb memory and 64K of
+		     port addresses.
+	A17-A23      Address Bits 17-23 allow access from 1Mb memory to 16Mb
+	AEN	     Address Enable; When active the DMA controller has
+		     control of the Address and Data BUS as well as the
+		     MEMR/MEMW lines. When inactive the CPU has control of
+		     these lines
+	ALE	     Address Latch Enable (output); used to latch addresses
+		     from the CPU.  Forced active during DMA cycles.
+	CARD SLCTD   Card Selected; activated by cards in the XT's slot 8
+	CLK	     System clock signal (actual BUS speed)
+	D0-D7	     Data bits 0-7 for I/O to memory and I/O
+	DACK0-DACK3  DMA Acknowledge for channels 0-3; used by the controller
+		     to acknowledge DMA requested.  DACK0 is used for memory
+		     refresh (MREF)
+	DRQ0-DRQ3    DMA Request 0-3; used by peripherals to get service from
+		     the DMA controller;  Held active until the corresponding
+		     DACKx signal becomes active.
+	I/O CH CHK   I/O Channel Check; Generates a Non Maskable Interrupt
+	I/O CH RDY   I/O Channel Ready; pulled inactive my memory or I/O
+		     devices to lengthen memory or I/O cycles.	Usually used
+		     by slower devices to add wait states.  Should not be
+		     held inactive for more than 17 cycles.
+	I/O CS16     I/O Chip Select 16 Bit; 16 bit I/O cycle
+	IOR	     I/O Read; instructs an I/O device to drive its data
+		     onto the system BUS
+	IOW	     I/O Write; instructs an I/O device to read data from
+		     the BUS
+	IRQ2-IRQ7    Interrupt Requests 2-7; signals the CPU that an I/O
+		     device needs service  (see <A HREF="8259.html">8259</A>)
+	MASTER	     Used with DRQ to gain control of system
+	MEM CS16     Memory Chip Select 16 Bit; 16 Bit memory cycle
+	MEMR	     Memory Read; this signal is driven by the CPU or DMA
+		     controller and instructs memory to drive its data onto
+		     the system BUS.  Present on both PC and AT extension BUS
+	MEMW	     Memory Write;  this signal is driven by the CPU or DMA
+		     controller and instructs memory to read and store data
+		     from the system BUS.  Present on both PC and AT
+		     extension BUS
+	OSC	     Oscillator; 14.31818 MHz clock (70ns period); 50% duty
+		     cycle
+	RESET DRV    Reset Drive; used to reset system logic
+	SBHE	     System BUS High Enable; activates data bits 8-15 on AT
+		     extension BUS
+	TC	     Terminal Count; pulses when the terminal count for a
+		     DMA channel is reached
+
+
+	- all ISA BUS signals use standard TTL levels
+	- input and output are relative to the CPU
+</PRE>
+
+</BODY>
+</HTML>

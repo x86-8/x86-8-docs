@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE>disk partition table</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Disk Partition Table (Fixed disk boot record)</H2>
+
+<PRE>
+
+<B>      Offset	    Represents:  (see format below)</B>
+
+	01BE	    Partition 1 data table  (16 bytes)
+	01CE	    Partition 2 data table  (16 bytes)
+	01DE	    Partition 3 data table  (16 bytes)
+	01EE	    Partition 4 data table  (16 bytes)
+	01FE	    Signature  (hex 55 AA, 2 bytes)
+
+<B>	Offset from beginning of partition data shown above:</B>
+
+<B>     Offset Size		Description</B>
+
+	00   byte   boot indicator
+	01   byte   beginning sector head number
+	02   byte   beginning sector (2 high bits of cylinder #)
+	03   byte   beginning cylinder# (low order bits of cylinder #)
+	04   byte   system indicator
+	05   byte   ending sector head number
+	06   byte   ending sector (2 high bits of cylinder #)
+	07   byte   ending cylinder# (low order bits of cylinder #)
+	08   dword  number of sectors preceding the partition
+	0B   dword  number of sectors in the partition
+
+
+<B>	Boot indicator (BYTE)</B>
+
+	00  - non-bootable partition
+	80  - bootable partition (one partition only)
+
+
+<B>	System Indicator (BYTE)</B>
+
+	00 - unknown operating system
+	01 - DOS with 12 bit FAT, 16 bit sector number
+	02 - XENIX
+	04 - DOS with 16 bit FAT, 16 bit sector number
+	05 - DOS Extended partition (DOS 3.3+)
+	06 - DOS 4.0 (Compaq 3.31), 32 bit sector number
+	51 - Ontrack extended partition
+	64 - Novell
+	75 - PCIX
+	DB - CP/M
+	FF - BBT
+
+
+<B>	Signature</B>
+
+	Hex 55AA marks the end of valid boot sector.	 This is also
+	required in each of the partition boot records.
+
+
+<B>	Sector/Cylinder</B>
+
+	2 bytes are combined to a word similar to INT 13:
+
+	|7|6|5|4|3|2|1|0| 1st byte  (sector)
+	 | | `------------ Sector offset within cylinder
+	 `--------------- High order bits of cylinder #
+
+	|7|6|5|4|3|2|1|0| 2nd byte  (cylinder)
+	 `----------------- Low order bits of cylinder #
+
+
+	- all partitions begin on sector 1 head 0, except the first
+	  partition which follows the disk's master boot record and begins
+	  in sector 2
+	- some of this information may vary with some variants of DOS 3.2
+	  and DOS 3.3 that use their own sectoring scheme for large disks
+
+	- see  <A HREF="int_21-32.html">INT 21,32</A>  <A HREF="disk_partition_table.html">Disk Partition Table</A>
+
+</PRE>
+
+</BODY>
+</HTML>

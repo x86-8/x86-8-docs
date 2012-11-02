@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,21</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,21 - Reset Mouse Software</H2>
+
+<PRE>
+
+	AX = 21h
+
+	on return:
+	AX = 0021  mouse driver not installed
+	     FFFF  mouse driver installed
+	BX = 2	mouse driver installed
+
+	- similar to <A HREF="int_33-0.html">INT 33,0</A> but does not reset the mouse hardware or
+	  display variables
+	- both AX and BX must be correct for successful reset
+	- interrupt routines set through <A HREF="int_33-18.html">INT 33,18</A> are preserved
+	- resets the mouse to the following defaults:
+
+	  .  mouse is positioned to screen center
+	  .  mouse cursor is reset and hidden
+	  .  no interrupts are enabled (mask = 0)
+	  .  double speed threshold set to 64 mickeys per second
+	  .  horizontal mickey to pixel ratio (8 to 8)
+	  .  vertical mickey to pixel ratio (16 to 8)
+	  .  max width and height are set to maximum for video mode
+
+</PRE>
+
+</BODY>
+</HTML>

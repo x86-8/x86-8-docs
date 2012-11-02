@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>putimage</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>void far putimage( int left, int top, void far *bitmap, int option )</H2>
+
+<PRE>
+
+	- prototype in graphics.h
+
+	- left and top represent the upper left corner of the area the
+	  bitmap data will be placed
+
+	- op may be one of the following:
+		COPY_PUT copy data from bitmap to screen and erasing contents
+		XOR_PUT  xor data in bitmap with current screen
+		OR_PUT   or data in bitmap with current screen
+		AND_PUT  and data in bitmap with current screen
+		NOT_PUT  similar to COPY_PUT, but inverse of data
+
+	- the <A HREF="getimage.html">getimage</A>()/putimage() buffer has the following format:
+		00	width of image	(WORD)
+		02	height of image  (WORD)
+		04	actual bitmap pixel data, format and size is
+			related to video mode and dimensions
+</PRE>
+
+</BODY>
+</HTML>

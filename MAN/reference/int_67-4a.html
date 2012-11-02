@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,4a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,4A - Get Logical to Physical Page Mapping  (LIM EMS ó 3.0)</H2>
+
+<PRE>
+
+
+	AH = 4A
+	DX = EMS handle
+	ES:DI far pointer to storage array
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	BX = contains count of entries placed in array at ES:DI
+
+
+	- defined in EMS 3.0, but undocumented in EMS 3.2;  new software
+	  should not use this function, but old software still works
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,2</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,2 - Set Cursor Position</H2>
+
+<PRE>
+
+
+	AH = 02
+	BH = page number (0 for graphics modes)
+	DH = row
+	DL = column
+
+
+	returns nothing
+
+
+	- positions relative to 0,0 origin
+	- 80x25 uses coordinates 0,0 to 24,79;	40x25 uses 0,0 to 24,39
+	- the <A HREF="6845.html">6845</A> can also be used to perform this function
+	- setting the data in the BIOS Data Area at location 40:50 does not
+	  take immediate effect and is not recommended
+	- see	<A HREF="video_pages.html">VIDEO PAGES</A>   <A HREF="6845.html">6845</A>   <A HREF="bios_data_area.html">BDA</A>
+
+</PRE>
+
+</BODY>
+</HTML>

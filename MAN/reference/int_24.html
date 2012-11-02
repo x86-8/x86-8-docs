@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<TITLE>int 24</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 24 - Critical Error Handler</H2>
+
+<PRE>
+
+	no input data
+
+	on entry to INT 24:
+	AH = bit 7 of register AH is set to one if other than disk error
+	   = bit 7 of register AH is set to zero if disk error
+	     AL = failing drive number
+	     AH = bits 0-2 indicate affected disk area and read/write status
+
+		  |5|4|3|2|1|0|  AH
+		   | | | | | `---- read = 0, write = 1
+		   | | | `------- 00=DOS, 01=FAT, 10=DIR, 11=data area
+		   | | `-------- 0=FAIL not allowed, 1=FAIL allowed
+		   | `--------- 0=RETRY not allowed, 1=RETRY allowed
+		   `---------- 0=IGNORE not allowed, 1=IGNORE allowed
+
+	DI = error code in lower byte
+	BP:SI = pointer to device header control block where additional
+		information about the error can be found
+
+
+	on exit:
+	AL = action code determining exit behavior
+	   = 00  ignore error
+	   = 01  retry
+	   = 02  terminate through <A HREF="int_23.html">INT 23</A>
+	   = 03  fail system call (DOS 3.x+)
+
+
+<B>	Error Codes in low order byte of DI:</B>
+
+	  00  write protect error
+	  01  unknown unit
+	  02  drive not ready
+	  03  unknown command
+	  04  data error (bad CRC)
+	  05  bad request structure length
+	  06  seek error
+	  07  unknown media type
+	  08  sector not found
+	  09  printer out of paper
+	  0A  write fault
+	  0B  read fault
+	  0C  general failure
+
+<B>	Users Stack at Entry to Error Handler:</B>
+
+	(top of stack)
+	    IP	       DOS code next instruction pointer
+	    CS
+	    FLAGS      DOS's flags
+	    AX -\
+	    BX	 \
+	    CX	  \
+	    DX	   \
+	    SI	    |- User's registers at entry to INT 21 function
+	    DI	   /
+	    BP	  /
+	    DS	 /
+	    ES -/
+	    IP	       User code next instruction pointer
+	    CS
+	    FLAGS
+
+	- on entry registers are setup for a retry operation
+	- user routine must issue an IRET or simulate an IRET
+	- <A HREF="int_21-0.html">INT 21,0</A> through <A HREF="int_21-c.html">INT 21,C</A> and <A HREF="int_21-59.html">INT 21,59</A> can safely be invoked
+	  from the handler.  Other calls may destroy DOS's stack
+	- handler must preserve register SS,SP,DS,ES,BX,CX,DX
+	- choosing ignore can show side effects, since it causes DOS
+	  to continue as if it the call were successful
+	- if an improper action code is specified in DOS 3.x it is changed:
+	  if IGNORE is invalidly specified, action is converted to FAIL
+	  if RETRY is invalidly specified, action is converted to FAIL
+	  if FAIL is invalidly specified, action is converted to ABORT
+	- IGNORE requests are converted to FAIL for <A HREF="fat.html">FAT</A> and <A HREF="directory_format.html">DIR</A> disk
+	  errors and network critical errors
+	- if the user routine wishes to handle the error instead of passing
+	  it to DOS, it must restore the user program registers from the
+	  stack and remove all but the last 3 words from the stack (FLAGS,
+	  CS, IP) and issue an <A HREF="iret.html">IRET</A>
+	- do not execute this interrupt directly
+	- <A HREF="int_21-34.html">INDOS</A> flag is cleared on INT 24 (see <A HREF="int_21-34.html">INT 21,34</A>)
+</PRE>
+
+</BODY>
+</HTML>

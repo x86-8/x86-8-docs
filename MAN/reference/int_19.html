@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 19</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 19 - Bootstrap Loader</H2>
+
+<PRE>
+
+
+	DL = physical drive where boot sector is located
+
+
+	no output
+
+
+	- track 0, sector 1 is loaded into address 0:7C00
+	  and control is transferred there
+	- not a preferred method for rebooting by applications.  A
+	  better method is to set the word at location 40:72 to 1234h
+	  and jump to location FFFF:0 in ROM
+	- memory is not cleared when rebooted through this interrupt
+
+	- see	<A HREF="warm_boot.html">WARM BOOT</A>
+
+</PRE>
+
+</BODY>
+</HTML>

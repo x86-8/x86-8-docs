@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>fprintf</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int fprintf( FILE *fp, const char *format [, arg1, arg2, ...] )</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- returns number of bytes it attempted to write regardless of
+	  success.  To check for a successful fprintf call on a buffered
+	  stream, use fflush which returns accurate error information.
+	- using printf or any of the stdio functions results in a default
+	  allocation of 512 bytes for the I/O buffer and the inclusion of
+	  the standard memory allocation functions
+	- see	<A HREF="printf.html">printf</A>()   and   <A HREF="printf_specifiers.html">PRINTF SPEC</A>
+</PRE>
+
+</BODY>
+</HTML>

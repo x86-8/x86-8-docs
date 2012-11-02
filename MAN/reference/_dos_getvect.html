@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_getvect</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: void (interrupt far *_dos_getvect( unsigned intnum ))()</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- intnum = interrupt to get address of (0..255)
+	- returns far pointer to interrupt handler routine
+
+	- Turbo C uses <A HREF="getvect.html">getvect</A>()
+	- see	<A HREF="int_21-35.html">INT 21,35</A>   <A HREF="_dos_setvect.html">_dos_setvect</A>()
+</PRE>
+
+</BODY>
+</HTML>

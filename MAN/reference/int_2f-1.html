@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 2f,1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2F,1 - Multiplex Interrupt - Submit file</H2>
+
+<PRE>
+
+
+	AL = 01
+	AH = 01  resident portion of PRINT
+	     02  resident portion of ASSIGN
+	     06  get pointer to ASSIGN drive translation table (undoc DOS 3+)
+	     10  resident portion of SHARE
+	     B7  resident portion of APPEND
+	     C0-FF reserved for user applications
+	DS:DX = pointer to a 5 byte packet containing an priority byte
+		and a DWORD pointer to an ASCIIZ filename
+	DS:DI
+	
+	on return:
+	ES = segment of ASSIGN work area and assignment table (AH=6 only)
+
+</PRE>
+
+</BODY>
+</HTML>

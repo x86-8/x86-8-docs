@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,B - Set Color Palette</H2>
+
+<PRE>
+
+	AH = 0B
+	BH = palette color ID
+	   = 0	to set background and border color
+	   = 1	to select 4 color palette
+	BL = color value (when BH = 0)
+	   = palette value (when BH = 1)
+
+	Palette    Pixel	  Color
+	   0	     0	    current background color
+		     1	    green (2)
+		     2	    red (4)
+		     3	    brown (6)
+	   1	     0	    current background color
+		     1	    cyan (3)
+		     2	    magenta (5)
+		     3	    white (7)
+
+	- does not work for all EGA and VGA video modes
+	- sets border color in text mode (BH = 0)
+
+</PRE>
+
+</BODY>
+</HTML>

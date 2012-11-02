@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,B - Check Standard Input Status</H2>
+
+<PRE>
+
+
+	AH = 0B
+
+
+	on return:
+	AL = 00 if no character available
+	   = FF if character available
+
+
+	- checks STDIN for available characters
+	- character is not returned
+	- if Ctrl-Break is detected <A HREF="int_23.html">INT 23</A> is executed
+
+</PRE>
+
+</BODY>
+</HTML>

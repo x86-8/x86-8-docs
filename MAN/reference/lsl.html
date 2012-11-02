@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>lsl</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LSL - Load Segment Limit  (286+ protected)</H2>
+
+<PRE>
+
+
+	Usage:	LSL	dest,src
+	Modifies flags: ZF
+
+	Loads the segment limit of a selector into the destination register
+	if the selector is valid and visible at the current privilege level.
+	If loading is successful the Zero Flag is set, otherwise it is
+	cleared.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16,reg16	  -	14  20/25   10		  3
+	reg32,reg32	  -	-   20/25   10		  3
+	reg16,mem16	  -	16  21/26   10		  5
+	reg32,mem32	  -	-   21/26   10		  5
+
+
+	- 386 times are listed "byte granular" / "page granular"
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+</PRE>
+
+</BODY>
+</HTML>

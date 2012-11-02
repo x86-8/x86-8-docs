@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 14,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 14,3 - Get Serial Port Status</H2>
+
+<PRE>
+
+
+	AH = 03
+	DX = zero based serial port number (0-1) (0-3 for AT)
+
+
+	on return:
+	AH = port status
+	AL = modem status
+
+	- for status bits see <A HREF="int_14.html">INT 14,STATUS</A>
+	- the status check performs a poll of the port and does not
+	  perform character I/O
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,4f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,4F - Get/Set Partial Page Map  (LIM EMS 4.0+)</H2>
+
+<PRE>
+
+	AH = 4Fh
+
+	AL = 00  get partial page map
+	     DS:SI = pointer to structure containing list of segments whose
+		     mapping contexts are to be saved
+	     ES:DI = pointer to array to receive page map
+
+	AL = 01  set partial page map
+	     DS:SI = pointer to structure containing saved partial page map
+
+	AL = 02  get size of partial page map
+	     BX = number of mappable segments in the partial map to be saved
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	AL = size of partial page map (if AL=2)
+
+</PRE>
+
+</BODY>
+</HTML>

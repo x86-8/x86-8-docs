@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 1a,6</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1A,6 - Set Real Time Clock Alarm  (XT 286,AT,PS/2)</H2>
+
+<PRE>
+
+
+	AH = 06
+	CH = hours in BCD
+	CL = minutes in BCD
+	DH = seconds in BCD
+
+
+	on return:
+	CF = 1 if alarm already set or clock inoperable
+
+
+	- alarm setting is not relative like some sources claim, but the
+	  actually clock time the interrupt should occur
+	- settings values must be in BCD
+	- when the alarm time is reached <A HREF="int_4a.html">INT 4A</A> is executed
+	- INT 4A vector should be replaced with address of the alarm
+	  handling interrupt routine before setting the alarm
+	- <A HREF="int_1a-7.html">INT 1A,7</A> should be called to disable the <A HREF="cmos_ram.html">RTC</A> alarm
+</PRE>
+
+</BODY>
+</HTML>

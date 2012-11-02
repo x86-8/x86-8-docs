@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,7</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,7 - Direct Console Input Without Echo</H2>
+
+<PRE>
+
+
+	AH = 07
+
+
+	on return:
+	AL = character from STDIN
+
+
+	- waits for keyboard input until keystroke is ready
+	- character is not echoed to STDOUT
+	- returns 0 for extended keystroke, then function must be
+	  called again to return scan code
+	- ignores Ctrl-Break and Ctrl-PrtSc
+	- see	<A HREF="int_21-1.html">INT 21,1</A>
+
+</PRE>
+
+</BODY>
+</HTML>

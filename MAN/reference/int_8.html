@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>int 8</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 8 - System timer</H2>
+
+<PRE>
+
+	no input data
+
+<B>	related memory:</B>
+
+	40:6C = Daily timer counter (4 bytes)
+	40:70 = 24 hr overflow flag (1 byte)
+	40:67 = Day counter on all products after AT
+	40:40 = Motor shutoff counter - decremented until 0 then
+		shuts off diskette motor
+
+
+	- <A HREF="int_1c.html">INT 1C</A> is invoked as a user interrupt
+	- the byte at 40:70 is a flag that certain DOS functions use
+	  and adjust the date if necessary.  Since this is a flag and
+	  not a counter it results in DOS (not the <A HREF="cmos_ram.html">RTC</A>) losing days
+	  when several midnights pass before a DOS call
+	- generated 18.2 times per second by the <A HREF="8253.html">8253</A> Programmable Interval
+	  Timer (PIT)
+	- normal INT 8 execution takes approximately 100 microseconds
+
+	- see	<A HREF="8253.html">8253</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,9</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,9 - Print String</H2>
+
+<PRE>
+
+
+	AH = 09
+	DS:DX = pointer to string ending in "$"
+
+
+	returns nothing
+
+
+	- outputs character string to STDOUT up to "$"
+	- backspace is treated as non-destructive
+	- if <A HREF="int_1b.html">Ctrl-Break</A> is detected, <A HREF="int_23.html">INT 23</A> is executed
+
+</PRE>
+
+</BODY>
+</HTML>

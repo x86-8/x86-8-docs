@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,46</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,46 - Get EMM Version  (LIM EMS)</H2>
+
+<PRE>
+
+
+	AH = 46h
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	AL = EMM version number in BCD
+
+
+	- upper four bits of AL contain the BCD major version
+	- lower four bits of AL contain the BCD minor version
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

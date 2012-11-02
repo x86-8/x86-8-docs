@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,0 - Mouse Reset/Get Mouse Installed Flag</H2>
+
+<PRE>
+
+	AX = 00
+
+
+	on return:
+	AX = 0000  mouse driver not installed
+	     FFFF  mouse driver installed
+	BX = number of buttons
+
+
+	- resets mouse to default driver values:
+
+	  .  mouse is positioned to screen center
+	  .  mouse cursor is reset and hidden
+	  .  no interrupts are enabled (mask = 0)
+	  .  double speed threshold set to 64 mickeys per second
+	  .  horizontal mickey to pixel ratio (8 to 8)
+	  .  vertical mickey to pixel ratio (16 to 8)
+	  .  max width and height are set to maximum for video mode
+</PRE>
+
+</BODY>
+</HTML>

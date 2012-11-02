@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>fwrite</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>size_t fwrite(const void *buf, size_t size, size_t count, FILE *fp)</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- writes  (count * size)  bytes to file stream "fp"
+	- swapping parameters "size" and "count" can often provide more
+	  exact feedback (exactly how many bytes were written)
+	- returns number of data blocks actually written or a short count
+	  on error
+
+	- see  <A HREF="fopen.html">fopen</A>()   <A HREF="fread.html">fread</A>()   <A HREF="setvbuf.html">setvbuf</A>()
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,23</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,23 - Get File Size Using FCB</H2>
+
+<PRE>
+
+
+	AH = 23h
+	DS:DX = pointer to an unopened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if successful
+	   = FF if file not found
+
+
+	- determines the number of records in a file
+	- FCB must be setup with drive id, complete filename and
+	  extension plus record length before call
+	- updates random record position in FCB located at DS:DX
+	  with file record count
+
+</PRE>
+
+</BODY>
+</HTML>

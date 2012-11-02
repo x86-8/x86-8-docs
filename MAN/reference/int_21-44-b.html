@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,B / IOCTL,B - Set Sharing Retry Count</H2>
+
+<PRE>
+
+
+	AH = 44h
+	AL = 0B
+	CX = pause between retries  (default 1)
+	DX = number of retries	(default 3)
+
+
+	on return
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- retry parameters are associated with file locking
+	- differences in CPU and clock speeds affect length of pauses
+	- requires SHARE be loaded or invalid function is returned
+	- implemented from DOS 3.0
+
+</PRE>
+
+</BODY>
+</HTML>

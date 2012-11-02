@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>aad</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>AAD - Ascii Adjust for Division</H2>
+
+<PRE>
+
+
+	Usage:	AAD
+	Modifies flags: SF ZF PF (AF,CF,OF undefined)
+
+
+	Used before dividing unpacked decimal numbers.	 Multiplies AH by
+	10 and the adds result into AL.  Sets AH to zero.  This instruction
+	is also known to have an undocumented behavior.
+
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  60	14    19    14		  2
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

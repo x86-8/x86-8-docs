@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>_harderr</TITLE>
+</HEAD>
+
+<BODY><PRE><B>		MSC: void _hardresume( int result )</B>
+<B>		MSC: void _hardretn( int error )</B>
+<B>		MSC: void _harderr( void (far *handler)() )</B>
+
+	- prototype in dos.h
+
+	- result = return value from handler
+	- error = number of error
+
+	- _harderr() registers a user critical error handler with it's
+	  own error handler which is to be called during a critical error
+
+	- handler = new <A HREF="int_24.html">INT 24</A> handler with the format:
+	  handler(unsigned deverr,unsigned errcode,unsigned far *devhdr)
+	  where: deverr = device error code (AX value DOS passes to INT 24)
+		 errcode = error code (DI value DOS passes to <A HREF="int_21.html">INT 21</A>)
+		 devhdr = pointer to device header on which error occurred
+	- handler must return via one of three methods:
+	    simple return  returns to DOS error handler
+	    _hardresume()  returns to DOS error handler
+	    _hardretn()  returns to the application
+
+	- hardresume() returns one of the following:
+	  _HARDERR_ABORT  DOS should abort the process via <A HREF="int_23.html">INT 23</A>
+	  _HARDERR_FAIL   DOS should fail the call (DOS 3.x+)
+	  _HARDERR_IGNORE DOS should ignore the error
+	  _HARDERR_RETRY  DOS should retry the operation
+	- due to the complexity of these functions consult the vendor
+	  documentation for more specific details
+
+	- Turbo C uses	<A HREF="hardretn.html">hardretn</A>(), <A HREF="harderr.html">harderr</A>() and <A HREF="hardresume.html">hardresume</A>()
+	- see	<A HREF="int_24.html">INT 24</A>
+</PRE>
+
+</BODY>
+</HTML>

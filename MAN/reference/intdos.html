@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>intdos</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int intdos(union REGS *inregs, union REGS *outregs )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- Executes 8086 software interrupt <A HREF="int_21.html">INT 21</A>
+	- Copies register values from inregs into the registers
+	- if CF is set, an error has occurred
+	- unique to DOS
+	- see	<A HREF="intdosx.html">intdosx</A>()   <A HREF="int86.html">int86</A>()   <A HREF="int86x.html">int86x</A>()   <A HREF="intr.html">intr</A>()   <A HREF="regs.html">REGS</A>
+</PRE>
+
+</BODY>
+</HTML>

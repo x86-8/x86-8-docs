@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>clock</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>clock_t clock( void )</H2>
+
+<PRE>
+
+
+	- prototype in time.h
+
+	- returns elapsed processor time used by the calling process,
+	  or -1L on error
+	- C startup code retrieves the clock count as preparation for a 
+	  later call to clock()  (Turbo C++ and some versions of MS C)
+	- resolution is limited to 54ms for both MS C and Turbo C due
+	  to the dependency on INT 8 clock tics
+	- CLK_TCK is shouldn't be used unless CLOCKS_PER_SEC isn't available
+	  since the latter is defined by ANSI.
+	- MS C uses INT 21,2C to get the processor time with 1000 as the
+	  value of CLK_TCK
+	- Turbo C uses INT 1A,2 to get the processor time with 18 as the
+	  value of CLK_TCK
+
+	- Example usage:
+
+	  clock_t start, finish, duration;
+	   
+	  start = clock();
+	  delay(2000);
+	  finish = clock();
+	  duration = finish - start;
+	  printf("%ld - %ld = %ld tics\n", start, finish, duration);
+</PRE>
+
+</BODY>
+</HTML>

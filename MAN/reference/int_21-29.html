@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,29</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,29 - Parse a Filename for FCB</H2>
+
+<PRE>
+
+	AH = 29h
+	AL = bit pattern to control parsing (see bit meanings below)
+	DS:SI = pointer to a filespec to parse
+	ES:DI = pointer to a buffer for unopened <A HREF="fcb.html">FCB</A>
+
+
+	Bit patterns for parsing control found in AL:
+
+	|7|6|5|4|3|2|1|0|  AL
+	 | | | | | | | `---- 1 = ignore leading separators
+	 | | | | | | |	     0 = don't ignore leading separators
+	 | | | | | | `----- 1 = modify drive ID if specified
+	 | | | | | |	    0 = modify drive ID regardless
+	 | | | | | `------ 1 = modify filename if specified
+	 | | | | |	   0 = modify filename regardless
+	 | | | | `------- 1 = modify extension if specified
+	 | | | |	  0 = modify extension regardless
+	 `-------------- unused
+
+	on return:
+	AL = 00 if no wildcard characters present
+	   = 01 if wildcards present in string
+	   = FF if drive specifier is invalid
+	DS:SI = pointer to the first character after parsed filename
+	ES:DI = pointer to the updated unopened FCB
+
+
+	- retrieves filename from the command line string and places
+	  the filename components into an unopened FCB for later use
+	- if no filename is found a pointer is returned in ES:DI that
+	  has a blank at ES:DI+1
+	- this function can be used to detect the existence of logical DOS
+	  drives by creating a dummy filespec with a drive letter and colon
+	  prepended.  If the drive is invalid, this function will return FF
+	  in AL
+</PRE>
+
+</BODY>
+</HTML>

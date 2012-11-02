@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>getvect</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void interrupt (*getvect( int intr_num ))()</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- returns the value of the interrupt vector named by intr_num
+	- returns 4-byte far pointer to current interrupt service routine
+	  stored in interrupt vector table
+	- Example:
+
+		void interrupt (*old_int_1c)();
+
+		old_int_1c = getvect( 0x1c );
+
+	- MS C uses <A HREF="_dos_getvect.html">_dos_getvect</A>()
+	- see	<A HREF="int_21-35.html">INT 21,35</A>
+</PRE>
+
+</BODY>
+</HTML>

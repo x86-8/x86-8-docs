@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,2d</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,2D - Set Time</H2>
+
+<PRE>
+
+
+	AH = 2D
+	CH = hour (0-23)
+	CL = minutes (0-59)
+	DH = seconds (0-59)
+	DL = hundredths (0-99)
+
+
+	on return:
+	AL = 00 if time change successful
+	   = FF if time invalid
+
+
+	- changes DOS maintained clock
+	- DOS version 3.3+ also update CMOS clock where applicable
+
+</PRE>
+
+</BODY>
+</HTML>

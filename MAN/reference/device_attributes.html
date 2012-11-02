@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<TITLE>device attributes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Device Driver Attribute Values (brief)</H2>
+
+<PRE>
+
+       |F|E|D|C|B|A-7|6|5|4|3|2|1|0|
+	| | | | |  |  | | | | | | `-- 1 = character device is stdin
+	| | | | |  |  | | | | | |     1 = block dev supports generic IOCTL
+	| | | | |  |  | | | | | `--- 1 = character device is stdout
+	| | | | |  |  | | | | |      1 = block dev supports generic IOCTL
+	| | | | |  |  | | | | `---- 1 = current NUL device
+	| | | | |  |  | | | `----- 1 = current clock device
+	| | | | |  |  | `-------- reserved by DOS
+	| | | | |  |  `--------- 1 = supports Get/Set logical device
+	| | | | |  `----------- reserved (must be zero)
+	| | | | `------------- 1 = supports removable media
+	| | | `-------------- reserved (must be zero)
+	| | `--------------- 1 = non-IBM format (block device)
+	| |		     1 = output until busy (char device)
+	| `---------------- 1 = supports IOCTL strings
+	`----------------- 1 = character device, 0 = block device
+
+	- true bit values are described, a false indicates opposite
+	- see  <A HREF="int_21-44.html">INT 21,44</A>  or  IOCTL,n where "n" is an IOCTL function
+
+
+</PRE>
+
+<H2 ALIGN=Center>Device Driver Attribute Bit Values (detailed)</H2>
+
+<PRE>
+
+	 0  standard input device: used by character devices to
+	    tell DOS a character device driver is the standard
+	    input device.  For block devices, a 1 indicates generic
+	    IOCTL supported
+
+	 1  standard output device: used by character devices to tell DOS a
+	    character device driver is the standard output device.  For
+	    block devices, a 1 indicates generic IOCTL supported
+
+	 2  NUL attribute:  used for character devices only.  Tells
+	    DOS the character device driver is a NUL device.  This bit
+	    is used by DOS to determine if the NUL device is being used.
+	    The NUL device cannot be reassigned.
+
+	 3  clock device:  set to 1 to tell DOS this is the new CLOCK$ device.
+
+	0B  open/close removable media:  set to 1 tells DOS the device
+	    driver can handle removable media. (DOS 3.x)
+
+	0D  non-IBM format: for block devices, indicates the method
+	    the driver uses to determine media type.  Set to 1 for
+	    drivers that use the BPB to determine media type, set to
+	    zero for drivers that use the media descriptor byte.  For
+	    character devices (usually printers), set to 1 if the
+	    driver supports output until busy, set to 0 otherwise.
+
+	0E  IOCTL bit:	used with both character and block devices.
+	    Indicates if the device driver can handle control strings
+	    through the IOCTL.	Zero if a device driver can't process
+	    control strings.  If an attempt to send/receive an IOCTL
+	    control strings, is made without this bit set, an error code
+	    is returned.  The IOCTL functions allow data to be sent to
+	    and from the driver without doing normal reads or writes.
+	    The device driver can use the data for information.  It is
+	    up to the device to interpret the string, but the information
+	    must not be treated as a normal I/O request.  Affects
+	    only IOCTL functions  AL=2 and AL=5.
+
+	0F  device type:  used to indicate block or character device.
+
+</PRE>
+
+</BODY>
+</HTML>

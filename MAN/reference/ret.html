@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>ret</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>RET/RETF - Return From Procedure</H2>
+
+<PRE>
+
+	Usage:	RET	nBytes
+		RETF	nBytes
+		RETN	nBytes
+	Modifies flags: None
+
+	Transfers control from a procedure back to the instruction address
+	saved on the stack.  "n bytes" is an optional number of bytes to
+	release.  Far returns pop the IP followed by the CS, while near
+	returns pop only the IP register.
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286    386   486		Bytes</B>
+
+	retn		16/20  11+m  10+m    5		  1
+	retn immed	20/24  11+m  10+m    5		  3
+	retf		26/34  15+m  18+m    13		  1
+	retf (PM, same priv.)	-    32+m    18		  1
+	retf (PM, lesser priv.)	-      68    33		  1
+      	retf immed	25/33  15+m  18+m    14		  3
+	retf immed (PM, same priv.)  32+m    17		  1
+	retf immed (PM, lesser priv.)  68    33		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

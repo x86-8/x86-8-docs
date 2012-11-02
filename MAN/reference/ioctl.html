@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>ioctl</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int ioctl( int handle, int cmd [, void *argdx, int argcx] )</H2>
+
+<PRE>
+
+	- prototype in io.h
+
+	- direct interface to  <A HREF="int_21-44.html">INT 21,44</A>  (IOCTL)
+	- cmd = 0  get device information
+		1  set device information (in argdx)
+		2  read argcx bytes into addr given by argdx
+		3  write argcx bytes from addr given by argdx
+		4  same as 2, but handle treated as drive (0=def.,1=A)
+		5  same as 3, but handle treated as drive (0=def.,1=A)
+		6  get input status
+		7  get output status
+		8  test removability (DOS 3.x)
+		11 set sharing conflict retry count (DOS 3.x)
+	- cmd = 0,1; returns device information (DX of IOCTL call)
+	- cmd = 2-5; returns count of bytes transferred
+	- cmd = 6,7; returns device status
+	- returns -1 on error & errno = EINVAL, EBADF, or EINVDAT
+	- no corresponding function in MS C
+</PRE>
+
+</BODY>
+</HTML>

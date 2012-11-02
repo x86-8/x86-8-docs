@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,47</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,47 - Save Page Map Context  (LIM EMS 3.0+)</H2>
+
+<PRE>
+
+
+	AH = 47h
+	DX = EMM handle assigned to the interrupt service routine
+	     servicing the interrupt
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+
+	- any TSR, ISR or device driver using EMS should save contexts
+	  before manipulating EMS memory and restore contexts afterwards
+	- registers not listed are preserved
+	- see <A HREF="int_67-48.html">INT 67,48</A>
+
+</PRE>
+
+</BODY>
+</HTML>

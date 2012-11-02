@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>wait</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>WAIT/FWAIT - Event Wait</H2>
+
+<PRE>
+
+
+	Usage:	WAIT
+		FWAIT
+	Modifies flags: None
+
+
+	CPU enters wait state until the coprocessor signals it has finished
+	it's operation.  This instruction is used to prevent the CPU from
+	accessing memory that may be temporarily in use by the coprocessor.
+	WAIT and FWAIT are identical.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  4	3     6+   1-3		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

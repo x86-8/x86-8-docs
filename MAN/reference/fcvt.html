@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>fcvt</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>char *fcvt( double value, int ndigit, int *decpt, int *sign )</H2>
+
+<PRE>
+
+
+	- prototype in stdlib.h
+
+	- converts a floating pt number to a string of ndigit digits,
+	  returning pointer to that string
+	- correct digit is rounded for Fortran-F format output of the
+	  number of digits equal to ndigit
+	- decpt is position of decimal point (negative value means to left
+	  of returned digits) and sign is 0 if positive, else negative
+
+</PRE>
+
+</BODY>
+</HTML>

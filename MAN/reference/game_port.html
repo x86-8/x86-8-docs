@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>game port</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Joystick / Game Port (201h)</H2>
+
+<PRE>
+
+	|7|6|5|4|3|2|1|0|  Port at 201h used with Joysticks
+	 | | | | | | | `---- joystick a, x coord (0 = timing active)
+	 | | | | | | `----- joystick a, y coord (0 = timing active)
+	 | | | | | `------ joystick b, x coord (0 = timing active)
+	 | | | | `------- joystick b, y coord (0 = timing active)
+	 | | | `-------- joystick a, button 1 (0=pressed)
+	 | | `--------- joystick a, button 2 (0=pressed)
+	 | `---------- joystick b, button 1 (0=pressed)
+	 `----------- joystick b, button 2 (0=pressed)
+
+	|7|6|5|4|3|2|1|0|  Port at 201h used with Paddles
+	 | | | | | | | `---- paddle a coord (0 = timing active)
+	 | | | | | | `----- paddle b coord (0 = timing active)
+	 | | | | | `------ paddle c coord (0 = timing active)
+	 | | | | `------- paddle d coord (0 = timing active)
+	 | | | `-------- paddle a, button (0=pressed)
+	 | | `--------- paddle b, button (0=pressed)
+	 | `---------- paddle c, button (0=pressed)
+	 `----------- paddle d, button (0=pressed)
+
+
+	- accessed through port 201h
+	- bits 3-0 are resistive inputs with the length of the pulse
+	  determined by 0-100K ohm resistive load.   Use this formula:
+
+<B>	time = 24.2æ + ( 0.011æ * resistance )</B>
+	or
+<B>	resistance = ( time - 24.2 ) / 0.011</B>
+
+
+	- a read should be immediately preceded by a write (any data)
+	  to start timing for the resistive values.
+</PRE>
+
+</BODY>
+</HTML>

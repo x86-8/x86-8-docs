@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,5</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,5 - Format Disk Track</H2>
+
+<PRE>
+
+	AH = 05
+	AL = interleave value (XT only)
+	CX = track/cylinder number (see below for format)
+	DH = head number  (0-15 dec.)
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+	ES:BX = pointer to block of "track address fields" containing
+		four byte fields for each sector to be formatted of the form:
+
+	       1 byte  track number
+	       1 byte  head number	     Size      #
+	       1 byte  sector number	     Codes   Bytes
+	       1 byte  sector size code        0      128
+					       1      256
+					       2      512
+					       3     1024
+	on return:
+	AH = status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- BIOS disk write attempts should reset the controller on error
+	- <A HREF="int_13-17.html">INT 13,17</A> should be called to set the DASD type
+	- this function is capable of doing great damage if the parameters
+	  are incorrectly specified; only the drive number is checked
+	- initializes disk address fields and data sectors
+	- interleave is specified by ordering of track address fields
+	- after INT 13 disk format, if the disk is to be used with DOS the
+	  DOS data structure must be written
+	- only the disk number is checked for validity
+	- the parameters in CX change depending on the number of cylinders;
+	  the track/cylinder number is a 10 bit value taken from the 2 high
+	  order bits of CL and the 8 bits in CH (low order 8 bits of track):
+
+	|F|E|D|C|B|A|9|8|7|6|5-0|  CX (cylinder value 0-1023 dec.)
+	 | | | | | | | | | |  `-----  unused
+	 | | | | | | | | `---------	high order 2 bits of track/cylinder
+	 `------------------------  low order 8 bits of track/cyl number
+
+</PRE>
+
+</BODY>
+</HTML>

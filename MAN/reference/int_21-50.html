@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,50</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,50 - Set Current Process ID  (Undocumented DOS 2.x)</H2>
+
+<PRE>
+
+
+	AH = 50h
+	BX = process ID number (process <A HREF="program_segment_prefix.html">PSP</A> segment address)
+
+
+	returns nothing
+
+
+	- the process ID number is actually the segment address of a
+	  program's PSP.  This is useful for TSR's to access their own
+	  file handle table inside their PSP.
+	- this function cannot be called while in an <A HREF="int_28.html">INT 28</A> handler in
+	  DOS 2.x unless the critical error flag is set or stack corruption
+	  will occur
+	- safe in DOS 3.x INT 28 handlers since they use a different stack
+	  by default
+	- available in OS/2 compatibility box
+	- see  <A HREF="int_21-51.html">INT 21,51</A>   <A HREF="int_21-62.html">INT 21,62</A>
+
+</PRE>
+
+</BODY>
+</HTML>

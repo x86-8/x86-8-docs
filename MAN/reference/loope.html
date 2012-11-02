@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>loope</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LOOPE/LOOPZ - Loop While Equal / Loop While Zero</H2>
+
+<PRE>
+
+
+	Usage:	LOOPE	label
+		LOOPZ	label
+	Modifies flags: None
+
+	Decrements CX by 1 (without modifying the flags) and transfers
+	control to "label" if CX != 0 and the Zero Flag is set.  The
+	"label" operand must be within -128 or 127 bytes of the instruction
+	following the loop instruction.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	label:	jump	  18   8+m  11+m    9		  2
+		no jump	   5	4     ?	    6
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 2a,80</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2A,80 - Begin DOS Critical Section</H2>
+
+<PRE>
+
+	AH = 80h
+	AL = critical section identifier (00-0F)
+	   = 01  DOS kernel, SHARE.EXE and network data structure integrity
+	   = 02  DOS kernel, device driver exclusivity
+	   = 05  IFSFUNC (Installable File System, IFS, DOS 4.0+)
+	   = 06  IFSFUNC (Installable File System, IFS, DOS 4.0+)
+	   = 08  ASSIGN.COM
+	
+	returns nothing
+
+
+	- indicates that the region of code being entered should not be
+	  interrupted and identifies the critical region
+	- this function is not normally called by user applications but is
+	  often hooked to monitor if DOS is in a critical section
+	- this information is necessary to reenter DOS using the swappable
+	  data area returned by <A HREF="int_21-5d.html">INT 21,5D</A> subfunction 0B
+	- see  <A HREF="bibliography.html">Bibliography</A> reference to "Undocumented DOS"
+</PRE>
+
+</BODY>
+</HTML>

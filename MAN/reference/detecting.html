@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>detecting</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Detecting ANSI.SYS</H2>
+
+<PRE>
+
+	Compare segment address of a DOS interrupt with the segment of the
+	standard CON device.  If equal, then ANSI is not loaded.  If the
+	segment address of CON is greater than the DOS interrupt, then ANSI
+	is loaded or a TSR is handling the interrupt.
+
+	- see <A HREF="int_21-52.html">INT 21,52</A> for info on CON device address
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting DESQView</H2>
+
+<PRE>
+
+	1.  call INT 2F with AX = DE00h
+	2.  if AL = FF on return DESQView is installed
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting Disk Ready</H2>
+
+<PRE>
+
+	1.  use <A HREF="int_13-4.html">INT 13,4</A> (Verify Sector) to check ready for read
+	2.  check for error in AH of:
+	    80h  Time out, or Not Ready
+	    AAh  Drive not ready
+	    00h  drive is ready for reading
+	    other value indicates drive is ready, but an error occurred
+	3.  use <A HREF="int_13-2.html">INT 13,2</A> (Read Sector) followed by <A HREF="int_13-3.html">INT 13,3</A> (Write Sector)
+	    to check ready for read/write.  First read sector, test for
+	    ready;  write sector back, check for 03h (write protect) or
+	    any of the other BIOS disk errors
+
+	- multiple attempts should be made to allow for diskette motor startup
+	- allows testing of drive ready by bypassing DOS and critical errors
+	- see  <A HREF="int_13-1.html">INT 13,STATUS</A>
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting Drive Existence</H2>
+
+<PRE>
+
+	1.  save current drive	(<A HREF="int_21-19.html">INT 21,19</A>)
+	2.  set current drive  (<A HREF="int_21-e.html">INT 21,E</A>)
+	3.  get current drive  (<A HREF="int_21-19.html">INT 21,19</A>)
+	4.  if current drive == drive requested
+	       then drive exists
+	       else drive doesn't exist
+	5.  reset original drive  (<A HREF="int_21-e.html">INT 21,E</A>)
+
+	- no critical error is generated if invalid drive is selected
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting EGA Video</H2>
+
+<PRE>
+
+	INT 10h, function 12h (<A HREF="int_10-12.html">INT 10,12</A>), subfunction 10h (in BL) will
+	return BL = 10h if not an EGA since invalid functions requests
+	return without register modification
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting VGA Video</H2>
+
+<PRE>
+
+	<A HREF="int_10-1a.html">INT 10,1A</A> can be used to detect the presence of VGA.
+	BL = 7	VGA with analog monochrome display
+	   = 8	VGA with analog color display
+
+	- some enhanced EGA adapters will incorrectly identify as VGA
+	  when <A HREF="int_10-1b.html">INT 10,1B</A> is used
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting Extended Keyboard BIOS</H2>
+
+<PRE>
+
+	1.  use <A HREF="int_16-5.html">INT 16,5</A> to stuff FFFF into the keyboard buffer
+	2.  use <A HREF="int_16-10.html">INT 16,10</A> to read the keystrokes back
+	3.  if the data stuffed into the keyboard is returned within 16
+	    extended reads, the BIOS handles the extended keyboard
+	4.  byte at 40:96 (<A HREF="bios_data_area.html">BDA</A>) is another method of detecting extended BIOS
+	    but is not reliable since some compatibles give false positives
+
+	- see	<A HREF="bios_data_area.html">BIOS DATA AREA</A>   <A HREF="int_9.html">INT 9</A>
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting present of Expanded Memory Manager</H2>
+
+<PRE>
+
+	1.  attempt to open file/device 'EMMXXXX0' using <A HREF="int_21-3d.html">INT 21,3D</A>;
+	    if successful continue, else no EMM
+	2.  make sure EMMXXXX0 is a character device and not a disk file
+	    by using IOCTL function 0 (Get Device Info);  bit 7 of DX
+	    should be set for char device and clear for disk file
+	3.  make sure Expanded Memory Manager is available using IOCTL
+	    function 7 (Get Output Status);  AL should be non-zero (FF)
+	    if Memory Manager is available, and zero if not available.
+	4.  call <A HREF="int_67-46.html">INT 67,46</A>  to get version information
+
+	- see also   <A HREF="int_21-44-0.html">IOCTL,0</A>   <A HREF="int_21-44-7.html">IOCTL,7</A>
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting Existence of Mouse Driver</H2>
+
+<PRE>
+
+	1.  check <A HREF="int_33.html">INT 33</A> vector is not 0:0
+	2.  check INT 33 vector does not point to an IRET
+	3.  call <A HREF="int_33-0.html">INT 33,0</A> to reset the mouse and get installed state
+	4.  call <A HREF="int_33-24.html">INT 33,24</A> to check version, type and IRQ
+
+
+</PRE>
+
+<H2 ALIGN=Center>Detecting Miscellaneous</H2>
+
+<PRE>
+
+	Boot drive;   see <A HREF="int_21-33.html">INT 21,33</A> (DOS 4.0+)
+
+	CPU type;   see <A HREF="cpu.html">CPU</A>
+
+	Hardware configuration;   see <A HREF="int_11.html">INT 11</A>
+
+	Logical Drive Assignment;   see <A HREF="int_21-44-e.html">IOCTL,E</A>
+
+	Memory size, Base;   see <A HREF="int_12.html">INT 12</A>
+
+	Memory size, Extended;	 see <A HREF="cmos_ram.html">CMOS</A>
+
+	Micro Channel Bus on PS/2;   see <A HREF="int_15-c0.html">INT 15,C0</A>
+	
+	Network or Local Disk;	 see <A HREF="int_21-44-9.html">IOCTL,9</A>
+
+	Network or Local File;	 see <A HREF="int_21-44-a.html">IOCTL,A</A>
+
+	Parallel ports;   see  <A HREF="bios_data_area.html">BIOS DATA AREA</A>  locations 40:08-40:0F
+
+	RAM Disk;   see  <A HREF="int_21-32.html">INT 21,32</A>   and   <A HREF="media_descriptor_byte.html">MEDIA DESCRIPTOR</A>
+
+	Redirection on command line;   see  <A HREF="int_21-44-0.html">IOCTL,0</A>
+
+	Removable media;   <A HREF="int_21-1b.html">INT 21,1B</A>	<A HREF="int_21-1c.html">INT 21,1C</A>
+			   <A HREF="media_descriptor_byte.html">MEDIA DESCRIPTOR BYTE</A>  and  <A HREF="int_21-44-8.html">IOCTL,8</A>
+
+	Serial ports;	see <A HREF="bios_data_area.html">BIOS DATA AREA</A>  locations 40:00-40:07
+
+	Single drive A: or B: selection;   see <A HREF="bios_data_area.html">BIOS DATA AREA</A> byte 50:04
+
+	SUBST'ed drive;  see <A HREF="int_21-32.html">INT 21,32</A>
+
+	Video Screen Size in Columns;  see  <A HREF="int_10-f.html">INT 10,F</A>
+
+	Video Screen Size in Rows;  see  <A HREF="int_10-11.html">INT 10,11</A>  subfunction 30h (EGA+)
+
+	APPEND resident;   see <A HREF="int_2f-0.html">INT 2F,0</A>
+	ASSIGN resident;   see <A HREF="int_2f-0.html">INT 2F,0</A>
+	DOSSHELL resident;   see <A HREF="int_2f-0.html">INT 2F,0</A>
+	NLSFUNC resident;   see <A HREF="int_2f-0.html">INT 2F,0</A>
+	PRINT resident;   see <A HREF="int_2f-0.html">INT 2F,0</A>
+	SHARE resident;   see <A HREF="int_2f-0.html">INT 2F,0</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>colors</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Color Definitions</H2>
+
+<PRE>
+
+<B>	Definitions found in TURBO C's "conio.h"</B>
+
+	0 - BLACK    4 - RED	    8 - DARKGRAY    C - LIGHTRED
+	1 - BLUE     5 - MAGENTA    9 - LIGHTBLUE   D - LIGHTMAGENTA
+	2 - GREEN    6 - BROWN	    A - LIGHTGREEN  E - YELLOW
+	3 - CYAN     7 - LIGHTGRAY  B - LIGHTCYAN   F - WHITE
+
+
+       |7|6|5|4|3|2|1|0| AL
+	| | | | | | | `--- blue component of foreground color
+	| | | | | | `---- green component of foreground color
+	| | | | | `----- red component of foreground color
+	| | | | `------ INTENSITY component of foreground color
+	| | | `------- blue component of background color
+	| | `-------- green component of background color
+	| `--------- red component of background color
+	`---------- BLINKING of foreground character
+
+	- see  <A HREF="ansi_codes.html">ANSI</A>  for ANSI color definitions
+</PRE>
+
+</BODY>
+</HTML>

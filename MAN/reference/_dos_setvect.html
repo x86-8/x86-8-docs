@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_setvect</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: void  _dos_setvect( unsigned intnum,</B>
+<B>				 void (interrupt far *handler)() )</B>
+
+
+	- prototype in dos.h
+
+	- intnum = interrupt vector to set  (0..255)
+	- handler = new interrupt routine
+
+	- Turbo C uses <A HREF="setvect.html">setvect</A>()
+	- see  <A HREF="int_21-25.html">INT 21,25</A>   <A HREF="_dos_getvect.html">_dos_getvect</A>()
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,60</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,60 - Get Fully Qualified File Name (Undocumented 3.x+)</H2>
+
+<PRE>
+
+
+	AH = 60h
+	DS:SI = pointer to ASCIIZ string containing unqualified filename
+	ES:DI = pointer to 128 byte buffer to contain fully qualified filename
+
+
+	on return:
+	ES:DI = address of fully qualified filename string
+	AH = error code if CF set
+
+
+	- undocumented, available in DOS 3.x+
+	- does not check for file existence, simple provides a fully
+	  qualified filename for the given filespec
+	- this function ignores ASSIGN'ed, JOIN'ed, SUBST'ed and network
+	  redirections and returns the true path name
+	- returned string is in upper case and has forward slashes replaced
+	  by back slashes;  filename always begins with "d:" or "\\" format
+	- AL register is destroyed
+	- supported by OS/2 1.1 compatibility box
+</PRE>
+
+</BODY>
+</HTML>

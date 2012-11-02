@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>CPU</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>CPU Characteristics / Determination</H2>
+
+<PRE>
+
+	8088,80188,V20	six byte prefetch queue, allows use of self
+			modifying code to determine length of prefetch
+
+	8086,80186,V30	four byte prefetch queue, allows use of self
+			modifying code to determine length of prefetch
+
+	8088,8086,80188,81086,v20,v30	Flag register bits 12 through
+			15 cannot be cleared
+
+	8088,8086	will shift left or right using all 8 bits of
+			CL, if CL = 33, register is guaranteed to be
+			cleared
+
+	80188,80186,80286,80386	will shift left or right using only
+			lower 5 bits of CL.  If CL = 32, the shift will
+			not occur
+
+	80286,80386	earlier CPU's decremented SP before a PUSH SP, but
+			286+ pushes the value first then, decrements SP
+
+	8088,8086	non-zero multiplication result clears zero flag
+
+	V20,V30		non-zero multiplication result does not clear
+			zero flag, set ZF before multiply, and test after,
+			if it's still set, then it's a V20, V30
+
+	 80286		allows setting of bit 15 of the flags register
+
+	 80386		allows setting of bits 12 through 14 of flags register
+
+
+	see <A HREF="bibliography.html">BIBLIO</A> reference to  PC Tech Journal, "Chips In Transition",
+	April 1986
+
+</PRE>
+
+</BODY>
+</HTML>

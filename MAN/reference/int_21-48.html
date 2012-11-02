@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,48</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,48 - Allocate Memory</H2>
+
+<PRE>
+
+	AH = 48h
+	BX = number of memory paragraphs requested
+
+
+	on return:
+	AX = segment address of allocated memory block (MCB + 1para)
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	BX = size in paras of the largest block of memory available
+	     if CF set, and AX = 08 (Not Enough Mem)
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- returns segment address of allocated memory block AX:0000
+	- each allocation requires a 16 byte overhead for the <A HREF="memory_control_block.html">MCB</A>
+	- returns maximum block size available if error
+
+	- see  <A HREF="int_21-49.html">INT 21,49</A>,  <A HREF="int_21-4a.html">INT 21,4A</A>
+</PRE>
+
+</BODY>
+</HTML>

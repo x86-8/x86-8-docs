@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,59</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,59 - Get Extended Error Information (DOS 3.0+)</H2>
+
+<PRE>
+
+	AH = 59h
+	BX = 00 for versions  3.0, 3.1, 3.2
+
+
+	on return:
+	AX = extended error code (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	   = 0 if no error
+	BH = error class
+	BL = suggested action
+	CH = locus
+
+
+	- may be called after any  <A HREF="int_21.html">INT 21</A>  function or from
+	  <A HREF="int_24.html">INT 24</A> when an error is returned
+	- must be called immediately after the error occurs
+	- registers CX, DX, DI, SI, BP, DS and ES are destroyed
+</PRE>
+
+</BODY>
+</HTML>

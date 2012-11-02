@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,46</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,46 - Force Duplicate File Handle</H2>
+
+<PRE>
+
+
+	AH = 46h
+	BX = existing file handle
+	CX = second file handle
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- if file handle in CX is currently open, current file
+	  identified by CX is closed and the handle in BX is
+	  dupped and placed in CX
+	- after duping file handles move together through file
+	- similar to <A HREF="int_21-45.html">INT 21,45</A>
+
+</PRE>
+
+</BODY>
+</HTML>

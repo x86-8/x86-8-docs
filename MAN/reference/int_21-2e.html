@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,2e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,2E - Set/Reset Verify Switch</H2>
+
+<PRE>
+
+
+	AH = 2E
+	AL = 00 to set off
+	   = 01 to set verify on
+	DH = 00 for DOS versions before 3.0
+
+
+	returns nothing
+
+
+	- with the verify setting on, disk I/O is more secure but
+	  takes longer to complete
+
+
+	- see	<A HREF="int_21-54.html">INT 21,54</A>
+
+</PRE>
+
+</BODY>
+</HTML>

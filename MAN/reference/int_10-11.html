@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,11</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,11 - Character Generator Routine (EGA/VGA)</H2>
+
+<PRE>
+
+	AH = 11h
+
+<B>	AL = 00  user character load</B>
+	   BH = number of bytes per character
+	   BL = table in character generator RAM
+	   CX = count of characters in table
+	   DX = ASCII code of first character defined
+	   ES:BP = pointer to user table
+
+
+<B>	AL = 01  ROM BIOS 8x14 monochrome set</B>
+	   BL = table in character generator RAM
+
+
+<B>	AL = 02  ROM BIOS 8x8 double dot</B>
+	   BL = table in character generator RAM
+
+
+<B>	AL = 03  set displayed definition table</B>
+	   BL = value for character Map Select register (EGA,VGA)
+	      = character generator RAM table numbers (MCGA)
+
+
+<B>	AL = 04  ROM BIOS 8x16 character set</B>
+	   BL = table in character generator RAM
+
+
+<B>	AL = 10  user specified character definition table</B>
+	   BH = bytes per character (points)
+	   BL = table in character generator RAM
+	   CX = number of characters defined in table
+	   DX = ASCII code of first character defined
+	   ES:BP = pointer to user table
+
+
+<B>	AL = 11  ROM BIOS 8x14 monochrome character set</B>
+	   BL = table in character generator RAM
+
+
+<B>	AL = 12  ROM 8x8 double dot character definitions</B>
+	   BL = table in character generator RAM
+
+
+<B>	AL = 14  ROM 8x16 double dot character definitions</B>
+	   BL = table in character generator RAM
+
+
+<B>	AL = 20  pointer to graphics character table for ~INT 1F~ (8x8)</B>
+	   ES:BP = pointer to user table
+
+
+<B>	AL = 21  user graphics character pointer at INT 43</B>
+	   BL = row specifier
+	      = 0 - user specified  (DL = rows)
+	      = 1 is 14 rows
+	      = 2 is 25 rows
+	      = 3 is 43 rows
+	   CX = bytes per character (points)
+	   DL = rows (when BL = 0)
+	   ES:BP = pointer to user table
+
+
+<B>	AL = 22  ROM 8x14 character set</B>
+	   BL = number of rows (see AL=21)
+	   DL = rows (when BL = 0)
+
+
+<B>	AL = 23  ROM 8x8 double dot character set</B>
+	   BL = row specifier (see AL=21)
+	   DL = rows (when BL = 0)
+
+
+<B>	AL = 24  ROM 8x16 character set</B>
+	   BL = row specifier (see AL=21)
+	   DL = rows (when BL = 0)
+
+
+<B>	AL = 30  get current character generator information</B>
+	   BH = information desired:
+	      = 0  <A HREF="int_1f.html">INT 1F</A> pointer
+	      = 1  INT 44h pointer
+	      = 2  ROM 8x14 pointer
+	      = 3  ROM 8x8 double dot pointer (base)
+	      = 4  ROM 8x8 double dot pointer (top)
+	      = 5  ROM 9x14 alpha alternate pointer
+	      = 6  ROM 8x16 character table pointer
+	      = 7  ROM 9x16 alternate character table pointer
+
+	on return:
+	CX = bytes per character (points)
+	DL = rows (less 1)
+	ES:BP = pointer to table
+
+</PRE>
+
+</BODY>
+</HTML>

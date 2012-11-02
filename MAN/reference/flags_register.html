@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>flags register</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>FLAGS - Intel 8086 Family Flags Register</H2>
+
+<PRE>
+
+      |11|10|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|
+	|  | | | | | | | | | | | | | | | | `---  CF Carry Flag
+	|  | | | | | | | | | | | | | | | `---  1
+	|  | | | | | | | | | | | | | | `---  PF Parity Flag
+	|  | | | | | | | | | | | | | `---  0
+	|  | | | | | | | | | | | | `---  AF Auxiliary Flag
+	|  | | | | | | | | | | | `---  0
+	|  | | | | | | | | | | `---  ZF Zero Flag
+	|  | | | | | | | | | `---  SF Sign Flag
+	|  | | | | | | | | `---  TF Trap Flag  (Single Step)
+	|  | | | | | | | `---  IF Interrupt Flag
+	|  | | | | | | `---  DF Direction Flag
+	|  | | | | | `---  OF Overflow flag
+	|  | | | `-----  IOPL I/O Privilege Level  (286+ only)
+	|  | | `-----  NT Nested Task Flag  (286+ only)
+	|  | `-----  0
+	|  `-----  RF Resume Flag (386+ only)
+	`------  VM  Virtual Mode Flag (386+ only)
+
+	- see	<A HREF="pushf.html">PUSHF</A>  <A HREF="popf.html">POPF</A>  <A HREF="sti.html">STI</A>  <A HREF="cli.html">CLI</A>  <A HREF="std.html">STD</A>  <A HREF="cld.html">CLD</A>
+</PRE>
+
+</BODY>
+</HTML>

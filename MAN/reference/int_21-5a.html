@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,5a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,5A - Create Temporary File  (DOS 3.0+)</H2>
+
+<PRE>
+
+
+	AH = 5A
+	CX = attribute
+	DS:DX = pointer to ASCIIZ path ending in '\'
+
+
+	on return:
+	AX = handle if call CF clear
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	DS:DX = pointer to updated ASCIIZ filespec
+
+
+	- creates files with random names with any combination of
+	  the following attributes: normal, system and hidden
+	- ending backslash is required
+
+</PRE>
+
+</BODY>
+</HTML>

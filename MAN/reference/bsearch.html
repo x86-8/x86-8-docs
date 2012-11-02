@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>bsearch</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	void *bsearch( void *key, void *base, int nelem, int width,</B>
+<B>			int (*fcmp )())</B>
+
+	- prototype in stdlib.h
+
+	- does binary search for items in a table which is
+	  ALREADY sorted in ascending order
+	- base points to 0th element of table
+	- nelem contains number of entries in table
+	- width contains number of bytes in each entry
+	- key points to the search key
+
+	- fcmp() points to comparison routine, where key and elem are
+	  passed to it as pointers.  Function fcmp() returns:
+
+		integer < 0 if search key < elem;
+		integer = 0 if equal;
+		returns > 0 if search key > elem
+
+	- returns 0 if no match found, else address of first
+	  entry that matches
+
+</PRE>
+
+</BODY>
+</HTML>

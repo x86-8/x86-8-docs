@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<TITLE>j...</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Jump Instructions Table</H2>
+
+<PRE>
+
+<B>	Mnemonic	      Meaning			 Jump Condition</B>
+
+	  <A HREF="ja.html">JA</A>	   Jump if Above			 CF=0 and ZF=0
+	  <A HREF="jae.html">JAE</A>	   Jump if Above or Equal		 CF=0
+	  <A HREF="jb.html">JB</A>	   Jump if Below			 CF=1
+	  <A HREF="jbe.html">JBE</A>	   Jump if Below or Equal		 CF=1 or ZF=1
+	  <A HREF="jc.html">JC</A>	   Jump if Carry			 CF=1
+	  <A HREF="jcxz.html">JCXZ</A>   Jump if CX Zero			 CX=0
+	  <A HREF="je.html">JE</A>	   Jump if Equal			 ZF=1
+	  <A HREF="jg.html">JG</A>	   Jump if Greater (signed)		 ZF=0 and SF=OF
+	  <A HREF="jge.html">JGE</A>	   Jump if Greater or Equal (signed)	 SF=OF
+	  <A HREF="jl.html">JL</A>	   Jump if Less (signed)		 SF != OF
+	  <A HREF="jle.html">JLE</A>	   Jump if Less or Equal (signed)	 ZF=1 or SF != OF
+	  <A HREF="jmp.html">JMP</A>	   Unconditional Jump			 unconditional
+	  <A HREF="jbe.html">JNA</A>	   Jump if Not Above			 CF=1 or ZF=1
+	  <A HREF="jb.html">JNAE</A>   Jump if Not Above or Equal		 CF=1
+	  <A HREF="jae.html">JNB</A>	   Jump if Not Below			 CF=0
+	  <A HREF="ja.html">JNBE</A>   Jump if Not Below or Equal		 CF=0 and ZF=0
+	  <A HREF="jnc.html">JNC</A>	   Jump if Not Carry			 CF=0
+	  <A HREF="jne.html">JNE</A>	   Jump if Not Equal			 ZF=0
+	  <A HREF="jle.html">JNG</A>	   Jump if Not Greater (signed) 	 ZF=1 or SF != OF
+	  <A HREF="jl.html">JNGE</A>   Jump if Not Greater or Equal (signed) SF != OF
+	  <A HREF="jge.html">JNL</A>	   Jump if Not Less (signed)		 SF=OF
+	  <A HREF="jg.html">JNLE</A>   Jump if Not Less or Equal (signed)	 ZF=0 and SF=OF
+	  <A HREF="jno.html">JNO</A>	   Jump if Not Overflow (signed)	 OF=0
+	  <A HREF="jnp.html">JNP</A>	   Jump if No Parity			 PF=0
+	  <A HREF="jns.html">JNS</A>	   Jump if Not Signed (signed)		 SF=0
+	  <A HREF="jne.html">JNZ</A>	   Jump if Not Zero			 ZF=0
+	  <A HREF="jo.html">JO</A>	   Jump if Overflow (signed)		 OF=1
+	  <A HREF="jp.html">JP</A>	   Jump if Parity			 PF=1
+	  <A HREF="jp.html">JPE</A>	   Jump if Parity Even			 PF=1
+	  <A HREF="jnp.html">JPO</A>	   Jump if Parity Odd			 PF=0
+	  <A HREF="js.html">JS</A>	   Jump if Signed (signed)		 SF=1
+	  <A HREF="je.html">JZ</A>	   Jump if Zero 			 ZF=1
+
+<B>	      			 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	Jx: jump	  16   7+m   7+m    3		  2
+	    no jump	   4	3     3	    1
+	Jx  near-label	   -	-    7+m    3		  4
+	    no jump	   -	-     3	    1
+
+
+	- It's a good programming practice to organize code so the
+	  expected case is executed without a jump since the actual
+	  jump takes longer to execute than falling through the test.
+	- see	<A HREF="jcxz.html">JCXZ</A>  and  <A HREF="jmp.html">JMP</A>  for their respective timings
+	- see   <A HREF="instruction_timing.html">Instruction Timing</A>   <A HREF="flags_register.html">FLAGS</A>
+
+</PRE>
+
+</BODY>
+</HTML>

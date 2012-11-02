@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,F - Open a File Using FCB</H2>
+
+<PRE>
+
+	AH = 0F
+	DS:DX = pointer to unopened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if file opened
+	   = FF if unable to open
+
+
+	- opens an existing file using a previously setup FCB
+	- the FCB fields drive identifier, filename and extension
+	  must be filled in before call
+	- sets default FCB fields; current block number is set to 0;
+	  record size is set to 80h; file size, date and time are set
+	  to the values from the directory
+	- does not create file, see  <A HREF="int_21-16.html">INT 21,16</A>
+	- DOS 2.x allows opening of subdirectories, DOS 3.x does not
+</PRE>
+
+</BODY>
+</HTML>

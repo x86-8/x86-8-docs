@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>strtok</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>char *strtok( char *str1, const char *str2 )</H2>
+
+<PRE>
+
+
+	- prototype in string.h
+
+	- parses str1 for tokens and separators, where separators are
+	  defined in str2
+	- first call returns a pointer to the first character of the first
+	  token in str1 and writes a null character into str1 immediately
+	  following the returned token;   subsequent calls with NULL for
+	  the first argument will work through the string str1 in this way
+	  until no tokens remain
+	- when tokens are exhausted, returns NULL
+
+</PRE>
+
+</BODY>
+</HTML>

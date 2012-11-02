@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,12</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,12 - Search for Next Entry Using FCB</H2>
+
+<PRE>
+
+	AH = 12h
+	DS:DX = pointer to unopened <A HREF="fcb.html">FCB</A> returned from
+		<A HREF="int_21-11.html">INT 21,11</A>  or  <A HREF="int_21-12.html">INT 21,12</A>
+
+
+	on return:
+	AL = 00 if file found
+	   = FF if file not found
+
+
+	- finds next matching file after calls to <A HREF="int_21-11.html">INT 21,11</A> and
+	  <A HREF="int_21-12.html">INT 21,12</A>
+	- FCB should be the same across calls to INT 21,11 and 12
+	- after successful call <A HREF="dta.html">DTA</A> holds an unopened <A HREF="fcb.html">FCB</A>/<A HREF="xfcb.html">XFCB</A> for
+	  the requested file.	Using any of the other FCB functions
+	  destroys this DTA copy of the FCB/XFCB
+</PRE>
+
+</BODY>
+</HTML>

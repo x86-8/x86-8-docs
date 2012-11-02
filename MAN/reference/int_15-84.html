@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,84</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,84 - Joy-Stick Support</H2>
+
+<PRE>
+
+
+	AH = 84h
+	DX = 0 to read the current switch settings
+	   = 1 to read the <A HREF="game_port.html">joystick</A> position (resistive inputs)
+
+
+	on return (DX=0, read switch setting):
+	CF = 0 if successful
+	   = 1 if error
+	AH = 80h error code if CF set on PC
+	   = 86h error code if CF set on XT before 11/8/82
+	AL = switch settings in bits 7-4 (if read switch function)
+
+	on return (DX=1, read joystick position):
+	AX = A(X)
+	BX = A(Y)
+	CX = B(X)
+	DX = B(Y)
+
+</PRE>
+
+</BODY>
+</HTML>

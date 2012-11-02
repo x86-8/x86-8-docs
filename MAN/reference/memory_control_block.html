@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>Memory Control Block</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MCB - DOS Memory Control Block Format</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   byte	'M' 4Dh  member of a MCB chain, (not last)
+			'Z' 5Ah  indicates last entry in MCB chain
+			other values cause "Memory Allocation Failure" on exit
+	01   word	<A HREF="program_segment_prefix.html">PSP</A> segment address of MCB owner (Process Id)
+			possible values:
+			    0 = free
+			    8 = Allocated by DOS before first user pgm loaded
+			    other = Process Id/PSP segment address of owner
+	03   word	number of paras related to this MCB (excluding MCB)
+	05 11bytes	reserved
+	08  8bytes	ASCII program name, NULL terminated if less than max
+			length (DOS 4.x+)
+	10  nbytes	first byte of actual allocated memory block
+
+
+	- to find the first MCB in the chain, use  <A HREF="int_21-52.html">INT 21,52</A>
+	- DOS 3.1+ the first memory block contains the DOS data segment
+	  ie., installable drivers, buffers, etc
+	- DOS 4.x the first memory block is divided into subsegments,
+	  with their own memory control blocks; offset 0000h is the first
+	- the 'M' and 'Z' are said to represent Mark Zbikowski
+	- the MCB chain is often referred to as a linked list, but
+	  technically isn't
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 4.x Initial Data Segment Subsegment Control Blocks:</H2>
+
+<PRE>
+
+<B>     Offset Size	  Description</B>
+	00   byte	subsegment type
+			'D'  device driver
+			'E'  device driver appendage
+			'I'  Installable File System driver
+			'F'  FILES= control block storage area (for FILES>5)
+			'X'  FCBS= control block storage area, if present
+			'C'  BUFFERS EMS workspace area if BUFFERS /X is used
+			'B'  BUFFERS= storage area
+			'L'  LASTDRIVE= current directory structure array
+			'S'  STACKS= code/data area, if present (see below)
+	01   word	paragraph of subsegment start
+	03   word	subsegment size in paragraphs
+	05  3bytes	unused
+	08		types "D" and "I", filename of driver loaded driver
+
+
+	- see  <A HREF="int_21-48.html">INT 21,48</A>  <A HREF="int_21-49.html">INT 21,49</A>  <A HREF="int_21-4a.html">INT 21,4A</A>
+
+</PRE>
+
+</BODY>
+</HTML>

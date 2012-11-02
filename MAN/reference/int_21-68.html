@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,68</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,68 - Flush Buffer Using Handle	(DOS 3.3+)</H2>
+
+<PRE>
+
+
+	AH = 68h
+	BX = file handle
+
+
+	on return
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- flushes DOS buffers to disk, does not update directory entry
+
+</PRE>
+
+</BODY>
+</HTML>

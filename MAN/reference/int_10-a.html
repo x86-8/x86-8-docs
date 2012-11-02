@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,A - Write Character Only at Current Cursor Position</H2>
+
+<PRE>
+
+
+	AH = 0A
+	AL = ASCII character to write
+	BH = display page  (or mode 13h, background pixel value)
+	BL = foreground color (graphics mode only)
+	CX = count of characters to write (CX >= 1)
+
+
+	return nothing
+
+
+	- similar to <A HREF="int_10-9.html">INT 10,9</A> except color ignored in text modes
+
+</PRE>
+
+</BODY>
+</HTML>

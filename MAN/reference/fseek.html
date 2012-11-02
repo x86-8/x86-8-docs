@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>fseek</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int fseek( FILE *fp, long offset, int mode )</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- sets file pointer associated with fp to position which is offset
+	  bytes beyond file location given by mode
+
+	- mode is 0 (beginning of file or SEEK_SET)
+		  1 (current position or SEEK_CUR)
+		  2 (end of file or SEEK_END
+
+	- discards any character pushed back by ungetc()
+	- fseek() clears eof indicator but not file error indicator
+	- returns 0 if pointer moved OK, nonzero if file not opened or
+	  invalid seek for device.  DOS does not report an error if an
+	  attempt to seek past EOF is made
+
+	- see	<A HREF="ftell.html">ftell</A>()
+</PRE>
+
+</BODY>
+</HTML>

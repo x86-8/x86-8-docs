@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>msw</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSW - Machine Status Word (286+ only)</H2>
+
+<PRE>
+
+
+      |31|30-5|4|3|2|1|0|  Machine Status Word
+	|   |  | | | | `---- Protection Enable (PE)
+	|   |  | | | `----- Math Present (MP)
+	|   |  | | `------ Emulation (EM)
+	|   |  | `------- Task Switched (TS)
+	|   |  `-------- Extension Type (ET)
+	|   `---------- Reserved
+	`------------- Paging (PG)
+
+
+	Bit 0	PE	Protection Enable, switches processor between
+			protected and real mode
+	Bit 1	MP	Math Present, controls function of the <A HREF="wait.html">WAIT</A>
+			instruction
+	Bit 2	EM	Emulation, indicates whether coprocessor functions
+			are to be emulated
+	Bit 3	TS	Task Switched, set and interrogated by coprocessor
+			on task switches and when interpretting coprocessor
+			instructions
+	Bit 4	ET	Extension Type, indicates type of coprocessor in
+			system
+	Bits 5-30	Reserved
+	bit 31	PG	Paging, indicates whether the processor uses page
+			tables to translate linear addresses to physical
+			addresses
+
+	- see	<A HREF="smsw.html">SMSW</A>  <A HREF="lmsw.html">LMSW</A>
+</PRE>
+
+</BODY>
+</HTML>

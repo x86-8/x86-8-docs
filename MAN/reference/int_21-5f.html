@@ -1,0 +1,192 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,5f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,5F  AL=00  Get Redirection Mode  (DOS 3.1+)</H2>
+
+<PRE>
+
+
+	AH = 5F
+	AL = 00
+	BL = redirection type
+	   = 03  printer
+	   = 04  disk drive
+
+
+	on return:
+	AX = error code if CF is set
+	BH = device redirection state
+	   = 00  redirection off
+	   = 01  redirection on
+
+
+	- determines if disk or printer redirection is enabled
+	- fails if file sharing is not loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5F  AL=01  Set Redirection Mode  (DOS 3.1+)</H2>
+
+<PRE>
+
+
+	AH = 5F
+	AL = 01
+	BH = device redirection state
+	   = 00  turn redirection off
+	   = 01  turn redirection on
+	BL = redirection type
+	   = 03  printer
+	   = 04  disk drive
+
+
+	on return:
+	AX = error code if CF is set
+
+
+	- enables or disables disk or printer redirection
+	- local devices are used when redirection is off
+	- fails if file sharing is not loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5F  AL=02  Get Redirection List Entry  (DOS 3.1+)</H2>
+
+<PRE>
+
+	AH = 5F
+	AL = 02
+	BX = redirection list index
+	DS:SI = far pointer to a 16 byte buffer to hold device name
+	ES:DI = far pointer to a 128 byte buffer to hold network name
+
+	on return:
+	AX = error code if CF is set
+	   = 1	invalid function code
+	   = 12 no more files
+	BH = device status flag,
+	   bit 0 = 0  device valid
+	   bit 0 = 1  device invalid
+	BL = device type
+	   = 3	printer
+	   = 4	drive
+	CX = stored parameter value
+	DS:SI = far pointer to ASCIIZ local device name
+	ES:DI = far pointer to ASCIIZ network name
+
+	- value returned in CX is the value previously passed to
+	  INT 21,5F with subfunction 3 in register CX
+	- registers DX and BP are destroyed
+	- fails if file sharing is not loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5F  AL=03  Redirect Device  (DOS 3.1+)</H2>
+
+<PRE>
+
+	AH = 5F
+	AL = 03
+	BL = device type
+	   = 3 if printer
+	   = 4 if drive
+	CX = parameter to save for caller
+	DS:SI = far pointer to ASCIIZ local device name
+	ES:DI = far pointer to ASCIIZ network name followed
+		by ASCIIZ password
+
+	on return
+	AX = error code if CF is set
+	   = 1	invalid function code or
+		invalid source or destination string format or
+		source device already redirected
+	   = 3	path not found
+	   = 5	access denied
+	   = 8	insufficient memory
+
+	- parameter passed in CX can later be retrieved by calls
+	  to INT 21,5F subfunction 2
+	- local device name in DS:SI can be a drive designator
+	  (D:), a printer name (PRN or LPTx), or a null string
+	- when a null string is followed by a password is used, DOS
+	  tries granting access to the network directory using the
+	  given password
+	- fails if file sharing is not loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5F  AL=04  Cancel Device Redirection  (DOS 3.1+)</H2>
+
+<PRE>
+
+
+	AH = 5F
+	AL = 04
+	DS:SI = far pointer to ASCIIZ local device name
+
+
+	on return
+	AX = error code if CF set
+	   = 01  function code invalid
+		 ASCIIZ string is not an existing source device
+	   = 0F  redirection paused on server
+
+
+	- local device name in DS:SI can be a drive designator
+	  (D:), a printer name (PRN or LPTx), or a string beginning
+	  with 2 backslashes "\\"
+	- when two backslashes are used for the string the connection
+	  between the local machine and network directory terminates
+	- fails if file sharing is not loaded
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5F  AL=05  Get Redirection List Extended Entry (DOS 4.0+)</H2>
+
+<PRE>
+
+	AH = 5F
+	AL = 05
+	BX = redirection list index
+	DS:SI = pointer to buffer to receive ASCIIZ source device name
+	ES:DI = pointer to buffer to receive ASCIIZ network path
+
+	on return
+	AX = error code if CF set
+	BH = device status flag (bit 0 clear if valid)
+	BL = device type
+	   = 03  printer device
+	   = 04  disk device
+	CX = stored user parameter value
+	BP = NETBIOS local session number
+	DS:SI = pointer to buffer containing ASCIIZ source device name
+	ES:DI = pointer to buffer containing ASCIIZ network path
+
+
+	- retrieves the status, type, source and target of a given redirection
+	- fails if file sharing is not loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5F  AL=06  Get Redirection List (DOS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 5F
+	AL = 06
+
+	- no information is currently available for this subfunction
+</PRE>
+
+</BODY>
+</HTML>

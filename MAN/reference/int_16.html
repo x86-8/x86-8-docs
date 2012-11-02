@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>int 16</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 16 - Keyboard BIOS Services</H2>
+
+<PRE>
+
+
+</PRE>
+
+<H2 ALIGN=Center>For more information, see the following topics:</H2>
+
+<PRE>
+
+	<A HREF="int_16-0.html">INT 16,0</A>   Wait for keystroke and read
+	<A HREF="int_16-1.html">INT 16,1</A>   Get keystroke status
+	<A HREF="int_16-2.html">INT 16,2</A>   Get shift status
+	<A HREF="int_16-3.html">INT 16,3</A>   Set keyboard typematic rate (AT+)
+	<A HREF="int_16-4.html">INT 16,4</A>   Keyboard click adjustment (AT+)
+	<A HREF="int_16-5.html">INT 16,5</A>   Keyboard buffer write  (AT,PS/2 enhanced keyboards)
+	<A HREF="int_16-10.html">INT 16,10</A>  Wait for keystroke and read  (AT,PS/2 enhanced keyboards)
+	<A HREF="int_16-11.html">INT 16,11</A>  Get keystroke status  (AT,PS/2 enhanced keyboards)
+	<A HREF="int_16-12.html">INT 16,12</A>  Get shift status  (AT,PS/2 enhanced keyboards)
+
+
+	- with IBM BIOS's, INT 16 functions do not restore the flags to
+	  the pre-interrupt state to allow returning of information via
+	  the flags register
+	- functions 3 through 12h are not available on all AT machines
+	  unless the extended keyboard BIOS is present
+	- all registers are preserved except AX and FLAGS
+	- see	<A HREF="scan_codes.html">SCAN CODES</A>
+</PRE>
+
+</BODY>
+</HTML>

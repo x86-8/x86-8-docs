@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,c1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,C1 - Return Extended BIOS Data Area Segment (PS/2 only)</H2>
+
+<PRE>
+
+
+	AH = C1
+
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AH = when CF set, 80h for PC & PCjr, 86h for XT (BIOS 11/8/82)
+	ES = <A HREF="ebda.html">EBDA</A> segment address if PS/2
+
+
+	- the EBDA is used internally by the PS/2 BIOS routines
+	- the EBDA is allocated at the top of user memory by the <A HREF="cold_boot.html">POST</A>
+	  routine
+
+</PRE>
+
+</BODY>
+</HTML>

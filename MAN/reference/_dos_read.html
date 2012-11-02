@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_read</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	    MSC: unsigned _dos_read( int handle, void far *buffer,</B>
+<B>					unsigned count, unsigned *nread )</B>
+
+
+	- prototype in dos.h
+
+	- handle = opened file handle
+	- buffer = receives data read from file
+	- count = number of bytes to read
+	- nread = receives the number of bytes actually read
+	- returns 0 on success or DOS error code
+
+	- Turbo C uses <A HREF="_open.html">_open</A>()
+	- see	<A HREF="int_21-3f.html">INT 21,3F</A>   <A HREF="_dos_open.html">_dos_open</A>()  <A HREF="_dos_write.html">_dos_write</A>()  <A HREF="_dos_close.html">_dos_close</A>()
+</PRE>
+
+</BODY>
+</HTML>

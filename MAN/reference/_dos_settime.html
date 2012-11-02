@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_settime</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _dos_settime( struct dostime_t *time )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- time = structure containing new time values
+	- returns 0 on success or DOS error code on failure
+	- sets MS-DOS time via INT 21,2D
+	- DOS 3.3+ also sets CMOS clock
+
+	- Turbo C uses <A HREF="settime.html">settime</A>()
+	- see	<A HREF="int_21-2d.html">INT 21,2D</A>   <A HREF="_dos_gettime.html">_dos_gettime</A>()
+</PRE>
+
+</BODY>
+</HTML>

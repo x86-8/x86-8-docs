@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE>bioscom</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int bioscom( int cmd, char byte, int port )</H2>
+
+<PRE>
+
+	- prototype in bios.h
+
+	- RS232 communications
+
+	- cmd = 0 to set comm parms to value in byte
+		1 to send char in byte out on RS232 line
+		2 to receive char
+		3 to return current port status
+
+	- port = 0 for COM1
+		 1 for COM2
+		 2 for COM3
+		 3 for COM4
+
+	- byte = bitwise OR of following bits
+		 0x02 = 7 data bits    0x00 = 1 stop bit
+		 0x03 = 8 data bits    0x04 = 2 stop bits
+		 0x00 == no parity;
+		 0x08 == odd parity;
+		 0x18 == even parity
+
+		 0x00	  110 bps	0x20	 150 bps
+		 0x40	  300 bps	0x60	 600 bps
+		 0x80	  1200 bps	0xa0	 2400 bps
+		 0xc0	  4800 bps	0xe0	 9600 bps
+
+	- returns 16-bit integer, upper 8 bits are status & lower 8 bits
+	  depending on cmd sent
+
+
+	|7|6|5|4|3|2|1|0|  low byte (AL)  modem status
+	 | | | | | | | `---- delta clear to send
+	 | | | | | | `----- delta data set ready
+	 | | | | | `------ trailing edge ring detector
+	 | | | | `------- delta receive line signal detect
+	 | | | `-------- clear to send
+	 | | `--------- data set ready
+	 | `---------- ring indicator
+	 `----------- receive line signal detect
+
+	|F|E|D|C|B|A|9|8|  high byte (AH)  line status
+	 | | | | | | | `---- data ready
+	 | | | | | | `----- overrun error
+	 | | | | | `------ parity error
+	 | | | | `------- framing error
+	 | | | `-------- break detect
+	 | | `--------- transmit holding register empty
+	 | `---------- transmit shift register empty
+	 `----------- time out
+
+	- MS C uses <A HREF="_bios_serialcom.html">_bios_serialcom</A>()
+	- see  <A HREF="int_14.html">INT 14</A>
+
+</PRE>
+
+</BODY>
+</HTML>

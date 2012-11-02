@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE>drive status data</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Drive Status Bytes Found in BIOS Data Area</H2>
+
+<PRE>
+
+<B>		Drive recalibration status (at 40:3E)</B>
+
+		|7|6|5|4|3|2|1|0| byte at 40:3E
+		 | | | | | | | `--- 1=recalibrate drive 0
+		 | | | | | | `---- 1=recalibrate drive 1
+		 | | | | | `----- 1=recalibrate drive 2
+		 | | | | `------ 1=recalibrate drive 3
+		 | `----------- unused
+		 `------------ 1=working interrupt flag
+
+<B>		Diskette motor status</B>
+
+		|7|6|5|4|3|2|1|0| byte at 40:3F
+		 | | | | | | | `--- 1=drive 0 motor on
+		 | | | | | | `---- 1=drive 1 motor on
+		 | | | | | `----- 1=drive 2 motor on
+		 | | | | `------ 1=drive 3 motor on
+		 | `----------- unused
+		 `------------ 1=write operation
+
+<B>		Disk Status Byte</B>
+
+		|7|6|5|4|3|2|1|0| byte at 40:41
+		 | | | | | | | `--- invalid diskette command
+		 | | | | | | `---- diskette address mark not found
+		 | | | | | `----- sector not found
+		 | | | | `------ diskette DMA error
+		 | | | `------- CRC check / data error
+		 | | `-------- diskette controller failure
+		 | `--------- seek to track failed
+		 `---------- diskette time-out
+
+<B>		Last diskette data rate selected</B>
+
+		|7|6|5|4|3|2|1|0| byte at 40:8B
+		 | | | | `--------- step rate time selected (see below)
+		 `---------------- data rate selected (see below)
+
+<B>		Bits</B>
+<B>		 76  Diskette Data Rate Selected</B>
+		 00  500K bps
+		 01  300K bps
+		 10  250K bps
+		 11  reserved
+
+<B>		Bits</B>
+<B>		 54  Diskette Step Rate Time Selected</B>
+		 00  step rate time of 0C
+		 01  step rate time of 0D
+		 10  step rate time of 0A
+		 11  reserved
+
+<B>		Media state for fixed drives (bytes at 40:90-93)</B>
+
+		|7|6|5|4|3|2|1|0| bytes at 40:90-40:93
+		 | | | | | `------- reserved (set to 1)
+		 | | | | `-------- reserved
+		 | | | `--------- 0=media/drive unestablished
+		 | | `---------- reserved
+		 `------------- data rate (see below)
+
+<B>		Bits</B>
+<B>		 76  Fixed Disk Data Rate Selected</B>
+		 00  500K bps
+		 01  reserved
+		 10  250K bps
+		 11  reserved
+
+	- not all OEM's implemented these bytes identically.  Some are
+	  also AT specific.
+
+</PRE>
+
+</BODY>
+</HTML>

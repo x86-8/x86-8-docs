@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>rep</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>REP - Repeat String Operation</H2>
+
+<PRE>
+
+	Usage:	REP
+	Modifies flags: None
+
+	Repeats execution of string instructions while CX != 0.  After
+	each string operation, CX is decremented and the Zero Flag is
+	tested.  The combination of a repeat prefix and a segment override
+	on CPU's before the 386 may result in errors if an interrupt occurs
+	before CX=0.  The following code shows code that is susceptible to
+	this and how to avoid it:
+
+	 again:  rep movs  byte ptr ES:[DI],ES:[SI]   ; vulnerable instr.
+		     jcxz  next 	     ; continue if REP successful
+		     loop  again	     ; interrupt goofed count
+	 next:
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  2	2     2			  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>   <A HREF="repe.html">REPE</A>   <A HREF="repne.html">REPNE</A>
+</PRE>
+
+</BODY>
+</HTML>

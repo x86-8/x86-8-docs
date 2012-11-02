@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>cmps</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>CMPS - Compare String (Byte, Word or Doubleword)</H2>
+
+<PRE>
+
+	Usage:	CMPS	dest,src
+		CMPSB
+		CMPSW
+		CMPSD	(386+ only)
+	Modifies flags: AF CF OF PF SF ZF
+
+	Subtracts destination value from source without saving results.
+	Updates flags based on the subtraction and  the index registers
+	(E)SI and (E)DI are incremented or decremented depending on the
+	state of the Direction Flag.  CMPSB inc/decrements the index
+	registers by 1, CMPSW inc/decrements by 2, while CMPSD increments
+	or decrements by 4.  The REP prefixes can be used to process
+	entire data items.
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	dest,src	  22	8     10    8		  1  (W88=30)
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

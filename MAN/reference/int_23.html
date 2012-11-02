@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>int 23</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 23 - Control-Break Exit Address</H2>
+
+<PRE>
+
+	no input data
+
+	- not an interrupt but a pointer to a routine that is called when a
+	  DOS function detects a <A HREF="int_1b.html">Ctrl-Break</A> or Ctrl-C has been pressed
+	  resulting in a "Break condition"
+	- a Break condition is detected if DOS's internal Break flag is
+	  found set by <A HREF="int_1b.html">INT 1B</A> or the next word in the BIOS keyboard buffer
+	  is a scan code representing one of the Break key combinations.
+	  If a matching scan code is found, the keyboard buffer head pointer
+	  is incremented by 2 (which effectively removes the ^C keycode), the
+	  ^C is printed and then INT 23 is called.
+	- disabling the abort is easy, but to disable the ^C from appearing
+	  you must either not use any of the DOS I/O functions that check
+	  for Break or you must trap the Ctrl-C keypress from within INT 9.
+	  Another method is to scan the BIOS keyboard buffer and delete any
+	  Break key combinations.
+	- Ctrl-Break empties the keyboard buffer by resetting the keyboard
+	  head and tail pointers then places a 0000h at the queue head.  It
+	  then sets an internal "Break" flag.  DOS subfunctions that check
+	  for Break see this and then issue INT 23h.  DOS does not detect
+	  INT 1B using the keyboard buffer, but uses it's own internal flag.
+	- Alt-Keypad-3 and Ctrl-2 also result in this interrupt
+	- Ctrl-C places 2E03h in the BIOS keyboard buffer while Ctrl-2
+	  places 0300h and Alt-Keypad-3 places 0003h;  none of these key
+	  combinations empty the keyboard like Ctrl-Break but all result
+	  in a ^C being displayed;  note that all three produce scan codes
+	  containing '03'
+	- since DOS checks only the first word of the keyboard buffer
+	  Ctrl-C, Ctrl-2 and Alt-Keypad-3 are only detected if they are the
+	  first word in the buffer while Ctrl-Break is detected via the
+	  internal flag and takes effect as soon as it's detected.
+	- do not execute this interrupt directly
+	- see also   <A HREF="int_9.html">INT 9</A>
+</PRE>
+
+</BODY>
+</HTML>

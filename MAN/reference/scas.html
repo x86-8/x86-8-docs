@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>scas</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>SCAS - Scan String  (Byte, Word or Doubleword)</H2>
+
+<PRE>
+
+
+	Usage:	SCAS	string
+		SCASB
+		SCASW
+		SCASD	(386+ only)
+	Modifies flags: AF CF OF PF SF ZF
+
+
+	Compares value at ES:DI (even if operand is specified) from the
+	accumulator and sets the flags similar to a subtraction.  DI is
+	incremented/decremented based on the instruction format (or
+	operand size) and the state of the Direction Flag.  Use with REP
+	prefixes.
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	string		  15	7     7	    6		  1  (W88=19)
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

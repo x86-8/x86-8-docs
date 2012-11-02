@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>fclose</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int fclose( FILE *fp )</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- closes a file stream (see <A HREF="fdopen.html">fdopen</A>() to convert handle to stream)
+	- generally flushes buffers, too
+	- return code should be checked.  Attempts to delete an open file
+	  will damage the file system.
+	- returns 0 on success or EOF on error
+
+</PRE>
+
+</BODY>
+</HTML>

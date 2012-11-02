@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,1b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,1B - Get Mouse Sensitivity</H2>
+
+<PRE>
+
+
+	AX = 1B
+
+
+	on return:
+	BX = horizontal coordinates per pixel  (ó 100)
+	CX = vertical coordinates per pixel  (ó 100)
+	DX = double speed threshold
+
+
+	- returns mouse sensitivity information as the number of mouse
+	  coordinates per screen pixel
+
+</PRE>
+
+</BODY>
+</HTML>

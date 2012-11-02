@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 1a,9</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1A,9 - Read RTC Alarm Time and Status (convertible,PS/2)</H2>
+
+<PRE>
+
+
+	AH = 09
+
+
+	on return:
+	CH = hours in BCD
+	CL = minutes in BCD
+	DH = seconds in BCD
+	DL = alarm status:
+	   = 00 if alarm not enabled (AIE=0)
+	   = 01 if alarm enabled but will not power up system (AIE=1)
+	   = 02 if alarm will power up system (AIE=1)
+
+
+	- see	<A HREF="cmos_ram.html">RTC</A>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>directory format</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DIRECTORY - DOS Directory Structure</H2>
+
+<PRE>
+
+<B>	Byte	Description</B>
+
+	00	Filename status:
+		00 = Filename never used
+		05 = First character of filename is E5
+		E5 = File has been erased
+		2E = This is a subdirectory entry
+	00-07	Filename, left justified
+	08-0A	Filename extension, left justified
+	0B	File's attribute:
+
+		|7|6|5|4|3|2|1|0| byte 0B
+		 | | | | | | | `--- read only
+		 | | | | | | `---- hidden
+		 | | | | | `----- system
+		 | | | | `------ volume label
+		 | | | `------- subdirectory
+		 | | `-------- archive
+		 `----------- unused
+
+	0C-15  Reserved by DOS
+	16-17  Time the file was created or last updated:
+
+		|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0| 17,16
+		 | | | | | | | | | | | `--------- seconds/2
+		 | | | | | `-------------------- minutes
+		 `----------------------------- hours
+
+	18-19  Date the file was created or last updated:
+
+		|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0| 19,18
+		 | | | | | | | | | | | `--------- day 1-31
+		 | | | | | | | `---------------- month 1-12
+		 `----------------------------- year + 1980
+
+	1A-1B  Starting cluster number of the first file cluster
+	1C-1F  File size in bytes (low order first)
+
+</PRE>
+
+</BODY>
+</HTML>

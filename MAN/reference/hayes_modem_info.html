@@ -1,0 +1,276 @@
+<HTML>
+<HEAD>
+<TITLE>Hayes modem info</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Hayes Command Set / Register Formats</H2>
+
+<PRE>
+
+	+++    standard escape sequence (see S2 below)
+	Comma  standard pause character (see S8 below)
+	AT     standard attention sequence
+
+	ATA    force immediate answer
+	ATC0   transmitter off
+	ATC1   transmitter on
+
+	ATD    dial (ATD number)
+	ATDP   pulse dial (ATDP number)
+	ATDT   tone dial (ATDT number)
+
+	ATE0   disable local character echo
+	ATE1   enable local character echo
+	ATF0   Half Duplex (modem echoes characters)
+	ATF1   Full Duplex (modem does not echo characters)
+
+	ATH0   force line on hook
+	ATH1   force line off hook
+	ATH2   force line special off hook (used for HAM radio)
+
+	ATI0   request product code, formatted PPR, PP=prod., R=rev.
+	ATI1   request ROM check sum
+
+	ATL1   speaker volume low  (modem specific)
+	ATL2   speaker volume medium  (modem specific)
+	ATL3   speaker volume high  (modem specific)
+	ATM0   speaker always off
+	ATM1   speaker on except while carrier present
+	ATM2   speaker always on
+	ATM3   speaker on except while dialing and carrier present
+
+	ATO    force modem into on-line state
+	ATP    sets modem to default pulse dial
+
+	ATQ0   modem returns result codes
+	ATQ1   modem does not return result codes
+
+	ATR    sets modem to answer mode after dialing out
+	ATSn   where Sn is S register number 'n' (see registers below)
+	ATT    sets modem to default tone dial
+
+	ATV0   send numeric codes
+	ATV1   send word result codes
+
+	ATX0   basic result code set "CONNECT", no dial tone detect
+	ATX1   extended result code set "CONNECT 1200", no dialtone detect
+	ATX2   wait for dial tone, extended result codes
+	ATX3   detect busy signal, extended result codes
+	ATX4   wait for dial tone, detect busy, extended result codes
+
+	ATZ    reset to power up condition
+
+</PRE>
+
+<H2 ALIGN=Center>Hayes 2400 Compatible Modem Commands</H2>
+
+<PRE>
+
+	ATB0	CCITT V.22 at 1200 bps
+	ATB1	BELL 212A at 1200 bps
+
+	AT&C	DCD always on
+	AT&C1	DCD on while carrier present
+
+	AT&D	DTR ignored
+	AT&D1	DTR fail disconnect enabled
+	AT&D2	DTR fail disconnect enabled (auto answer off)
+	AT&D3	DTR fail disconnect enabled (reset modem)
+
+	AT&F	restore to factory configuration
+
+	AT&G	no guard tone
+	AT&G1	550 Hz guard tone
+	AT&G2	1800 Hz guard tone
+
+	AT&J	RJ11/RJ41S/RJ45 jack
+	AT&J2	RJ12/RJ13 jack
+
+	AT&L	regular phone line
+	AT&L1	leased line
+
+	AT&M	async operation
+	AT&M1	async/sync operation
+	AT&M2	sync auto dial
+	AT&M3	sync manual dial
+
+	AT&P	39/61 pulse make/break ratio
+	AT&P1	33/67 pulse make/break ratio
+
+	AT&T4	grant RDL test request
+	AT&T5	deny RDL test request
+
+	AT&W	write current registers to non-volatile memory
+
+	AT&X	sync clock internal
+
+	AT&X1	sync clock external
+	AT&X2	sync clock slaved
+
+	AT&Z	store dial command line
+
+</PRE>
+
+<H2 ALIGN=Center>Hayes Compatible Modem Registers</H2>
+
+<PRE>
+
+	Not all modems support all of these registers and some modems have
+	registers other than those listed here.  Also note, some are read only.
+
+	to set a register use:		AT Sr=##  (cr)
+	to read the register:		AT Sr?	 (cr)
+
+	Where "r" is the register and (cr) is a carriage return
+
+
+<B>	The following represent conventions used in the tables below:</B>
+
+	() indicates defaults for Smartmodem 1200
+	** indicates possible inconsistencies across modems
+
+
+<B>	Reg  Values	   Register function</B>
+
+	S0   0-255    ring to answer on (0=don't answer)
+	S1   0-255    ring count (clear after 8 sec) (read only)
+	S2   0-255    escape char, normally "+", 128-255 disable escape
+	S3   0-127    end of line character (0x0D/CR)
+	S4   0-127    line feed character (0x0A/LF)
+	S5   0-32,127 backspace character (0x08/BS)
+	S6   2-255    pause before dialing in seconds (2)
+	S7   1-255    wait for carrier in seconds (30)
+	S8   0-255    pause for comma in dial string in seconds (2)
+	S9   1-255    carrier detect response time in 1/10 second (6)
+	S10  1-255    carrier loss delay in 1/10 second, 255=ignore CD (7)
+	S11 50-255    touch tone dial speed, in milliseconds (70)
+	S12 20-255    escape guard time, in 1/50 second,0=no delay (50)
+
+	|7|6|5|4|3|2|1|0|  S13	 power up async data format
+	 | | | | | | | `---- unused
+	 | | | | | | `----- result code, 0=basic, 1=extended
+	 | | | | | `------ parity, 0=disabled, 1=enabled
+	 | | | | `------- parity, 0=odd ,1=even
+	 | | | `-------- data bits, 0=7 bits, 1=8 bits
+	 | | `--------- undefined
+	 | `---------- buffer ovfw flag, 0=disabled,1=enabled
+	 `----------- 8th bit, 0=space,1=mark (8 bit only)
+
+	|7|6|5|4|3|2|1|0|  S14	 option register status data format
+	 | | | | | | | `---- unused **
+	 | | | | | | `----- local echo, 0=disabled, 1=enabled
+	 | | | | | `------ result codes, 0=enabled,1=disabled
+	 | | | | `------- result codes, 0=numeric,1=word
+	 | | | `-------- command recognition, 0=enable,1=disable
+	 | | `--------- dial method, 0=touch tone, 1=pulse
+	 | `---------- unused **
+	 `----------- 0=answer, 1=originate **
+
+	S15	      flag register **
+
+	|7|6|5|4|3|2|1|0|  S16	 test status
+	 | | | | | | | `---- analog loop, 0=inactive, 1=active
+	 | | | | | | `----- unused
+	 | | | | | `------ digital loop, 0=inactive, 1=active
+	 | | | | `------- remote req digital loop,0=inact.,1=active
+	 | | | `-------- remote digital loop,0=inact.,1=active
+	 | | `--------- self test RDL, 0=inactive, 1=active
+	 | `---------- self test analog loop,0=inactive,1=active
+	 `----------- unused
+
+	S18 0-255     remote test timer in seconds
+
+	|7|6|5|4|3|2|1|0|  S21	 option status
+	 | | | | | | | `---- jack type, 0=RJ11,RJ41,RJ45,1=RJ12,RJ13
+	 | | | | | | `----- unused
+	 | | | | | `------ CTS state,  0=follows RTS, 1=forced on
+	 | | | `--------- DTR modem behavior (see below)
+	 | | `---------- DCD, 0=forced on, 1=follows carrier
+	 | `----------- DSR, 0=forced on, 1=behaves normally
+	 `------------ long space disconnect,0=disabled,1=enabled
+
+<B>	Bits</B>
+<B>	 43  DTR Modem Behavior Bits</B>
+	 00  ignore DTR
+	 01  assume command state when DTR drops
+	 10  assume command state and disable auto-answer when DTR drops
+	 11  reset when DTR drops
+
+
+	|7|6|5|4|3|2|1|0|  S22	 option status
+	 | | | | | | `------ speaker volume, 01=low,10=med,11=high
+	 | | | | `--------- speaker setting (see below)
+	 | `-------------- X command in effect
+	 `--------------- make/break ratio, 0=39/61, 1=33/67
+
+<B>	Bits</B>
+<B>	 32  S22 Speaker Setting</B>
+	 00  speaker always off
+	 01  speaker on until carrier detected
+	 10  speaker always on
+	 11  speaker off during dialing, then on until CD
+
+<B>	Bits</B>
+<B>	654  S22 X Command in Effect</B>
+	100  X1 command in effect
+	101  X2 command in effect
+	110  X3 command in effect
+	111  X4 command in effect
+
+
+	|7|6|5|4|3|2|1|0|  S23	 option status
+	 | | | | | | | `---- remote dig.loop request,0=denied,1=ok
+	 | | | | | `------- baud rate (see table)
+	 | | | | `-------- unused
+	 | | `----------- parity (see table)
+	 `-------------- guard tone setting
+
+<B>	Bits</B>
+<B>	 21  S23 Baud Rate Table</B>
+	 00  0-300 bps
+	 01  600 bps
+	 10  1200 bps
+	 11  2400 bps
+
+<B>	Bits</B>
+<B>	 54  S23 Parity Setting</B>
+	 00  even parity
+	 01  parity bit always 0
+	 10  odd parity
+	 11  parity bit always 1
+
+<B>	Bits</B>
+<B>	 76  S23 Guard Tone Setting</B>
+	 00  no guard tones
+	 01  550 hz guard tone
+	 10  1800 hz guard tone
+
+	S25 0-255     DTR detect delay in seconds (5)
+	S26 0-255     RTS to CTS delay in milliseconds (1)
+
+	|7|6|5|4|3|2|1|0|  S27	 option status
+	 | | | | | | `------ synch/async mode (see table)
+	 | | | | | `------- phone line, 0= public, 1=leased
+	 | | | | `-------- unused
+	 | | `----------- clock type (see table)
+	 | `------------ protocol, 0=CCITT V.22, 1=Bell 212A
+	 `------------- unused
+
+<B>	Bits</B>
+<B>	 10  S27 Sync/Async mode</B>
+	 00  asynchronous mode
+	 01  async/sync mode
+	 10  sync auto-dial
+	 11  sync manual dial
+
+<B>	Bits</B>
+<B>	 45  S27 Clock Type</B>
+	 00  internal clock used
+	 01  external clock used
+	 10  slaved clock used
+</PRE>
+
+</BODY>
+</HTML>

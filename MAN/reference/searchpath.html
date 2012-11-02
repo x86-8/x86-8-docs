@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>searchpath</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: char *searchpath( const char *filename )</H2>
+
+<PRE>
+
+
+	- prototype in dir.h
+
+	- filename = name of file to search for
+	- attempts to locate filename using MS-DOS path using standard
+	  DOS file search strategy
+	- returns pointer to full pathname for filename (in a static
+	  array) or NULL if not found
+	- MS C uses <A HREF="_searchenv.html">_searchenv</A>()
+
+</PRE>
+
+</BODY>
+</HTML>

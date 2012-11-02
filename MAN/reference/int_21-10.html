@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,10</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,10 - Close a File Using FCB</H2>
+
+<PRE>
+
+
+	AH = 10h
+	DS:DX = pointer to opened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00  if file closed
+	   = FF  if file not closed
+
+
+	- closes a previously opened file opened with an FCB
+	- FCB must be setup with drive id, filename, and extension
+	  before call
+
+</PRE>
+
+</BODY>
+</HTML>

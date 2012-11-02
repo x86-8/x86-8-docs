@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,91</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,91 - Interrupt Complete</H2>
+
+<PRE>
+
+	AH = 91h
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AH = when CF set, 80h for PC & PCjr, 86h for XT (BIOS 11/8/82)
+	AL = type code:
+	   = 00  disk
+	   = 01  diskette
+	   = 02  keyboard
+	   = 03  pointing device
+	   = 80  network (ES:BX = NCB)
+	   = FC  fixed disk reset (PS/2)
+	   = FD  diskette motor start
+	   = FE  printer
+
+	- should not be used by applications software
+	- used by the BIOS to indicate device interrupt is complete
+	- used for multitasking OS development
+</PRE>
+
+</BODY>
+</HTML>

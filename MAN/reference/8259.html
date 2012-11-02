@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>8259</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>8259  Programmable Interrupt Controller  (PIC)</H2>
+
+<PRE>
+
+<B>	Initialization Command Word 1 at Port 20h and A0h</B>
+
+	|7|6|5|4|3|2|1|0|  ICW1
+	 | | | | | | | `---- 1=ICW4 is needed, 0=no ICW4 needed
+	 | | | | | | `----- 1=single 8259, 0=cascading 8259's
+	 | | | | | `------ 1=4 byte interrupt vectors, 0=8 byte int vectors
+	 | | | | `------- 1=level triggered mode, 0=edge triggered mode
+	 | | | `-------- must be 1 for ICW1 (port must also be 20h or A0h)
+	 `------------- must be zero for PC systems
+
+<B>	Initialization Command Word 2 at Port 21h and A1h</B>
+
+	|7|6|5|4|3|2|1|0|  ICW2
+	 | | | | | `-------- 000= on 80x86 systems
+	 `----------------- A7-A3 of 80x86 interrupt vector
+
+<B>	Initialization Command Word 3 at Port 21h and A1h</B>
+
+	|7|6|5|4|3|2|1|0|  ICW3 for Master Device
+	 | | | | | | | `---- 1=interrupt request 0 has slave, 0=no slave
+	 | | | | | | `----- 1=interrupt request 1 has slave, 0=no slave
+	 | | | | | `------ 1=interrupt request 2 has slave, 0=no slave
+	 | | | | `------- 1=interrupt request 3 has slave, 0=no slave
+	 | | | `-------- 1=interrupt request 4 has slave, 0=no slave
+	 | | `--------- 1=interrupt request 5 has slave, 0=no slave
+	 | `---------- 1=interrupt request 6 has slave, 0=no slave
+	 `----------- 1=interrupt request 7 has slave, 0=no slave
+
+	|7|6|5|4|3|2|1|0|  ICW3 for Slave Device
+	 | | | | | `-------- master interrupt request slave is attached to
+	 `----------------- must be zero
+
+<B>	Initialization Command Word 4 at Port 21h and A1h</B>
+
+	|7|6|5|4|3|2|1|0|  ICW4
+	 | | | | | | | `---- 1 for 80x86 mode, 0 = MCS 80/85 mode
+	 | | | | | | `----- 1 = auto EOI, 0=normal EOI
+	 | | | | `-------- slave/master buffered mode (see below)
+	 | | | `--------- 1 = special fully nested mode (SFNM), 0=sequential
+	 `-------------- unused (set to zero)
+
+<B>	Bits</B>
+<B>	 32	Buffering Mode</B>
+	 00	not buffered
+	 01	not buffered
+	 10	buffered mode slave (PC mode)
+	 11	buffered mode master (PC mode)
+
+<B>	Operation Control Word 1 / Interrupt Mask Reg.	(Ports 21h & A1h)</B>
+
+	|7|6|5|4|3|2|1|0|  OCW1 - IMR Interrupt Mask Register
+	 | | | | | | | `---- 0 = service IRQ0, 1 = mask off
+	 | | | | | | `----- 0 = service IRQ1, 1 = mask off
+	 | | | | | `------ 0 = service IRQ2, 1 = mask off
+	 | | | | `------- 0 = service IRQ3, 1 = mask off
+	 | | | `-------- 0 = service IRQ4, 1 = mask off
+	 | | `--------- 0 = service IRQ5, 1 = mask off
+	 | `---------- 0 = service IRQ6, 1 = mask off
+	 `----------- 0 = service IRQ7, 1 = mask off
+
+<B>	Operation Control Word 2 / Interrupt Command Reg. (Ports 20h & A0h)</B>
+
+	|7|6|5|4|3|2|1|0|  OCW2 - ICR Interrupt Command Register
+	 | | | | | `-------- interrupt request level to act upon
+	 | | | | `--------- must be 0 for OCW2
+	 | | | `---------- must be 0 for OCW2
+	 `--------------- EOI type (see table)
+
+<B>	Bits</B>
+<B>	765  EOI - End Of Interrupt code (PC specific)</B>
+	001  non-specific EOI command
+	010  NOP
+	011  specific EOI command
+	100  rotate in automatic EOI mode
+	101  rotate on non-specific EOI command
+	110  set priority command  (uses bits 2-0)
+	111  rotate on specific EOI command
+
+<B>	Operation Control Word 3   (Ports 20h & A0h)</B>
+
+	|7|6|5|4|3|2|1|0|  OCW3
+	 | | | | | | | `--- 1=read IRR on next read, 0=read ISR on next read
+	 | | | | | | `---- 1=act on value of bit 0, 0=no action if bit 0 set
+	 | | | | | `----- 1=poll command issued, 0=no poll command issued
+	 | | | | `------ must be 1 for OCW3
+	 | | | `------- must be 0 for OCW3
+	 | | `-------- 1=set special mask, 0=reset special mask
+	 | `--------- 1=act on value of bit 5, 0=no action if bit 5 set
+	 `---------- not used (zero)
+
+<B>	Other Registers</B>
+
+	IRR - Interrupt Request Register, maintains a bit vector indicating
+	      which IRQ hardware events are awaiting service.	Highest
+	      level interrupt is reset when the CPU acknowledges interrupt.
+	ISR - In Service Register, tracks IRQ line currently being serviced.
+	      Updated by EOI command.
+
+
+</PRE>
+
+<H2 ALIGN=Center>Hardware Interrupt Sequence of Events:</H2>
+
+<PRE>
+
+	1. 8259 <A HREF="int_table.html">IRQ</A> signal is raised high by hardware setting the
+	   corresponding IRR bits true.
+
+	2. PIC evaluates the interrupt requests and signals the CPU
+	   where appropriate.
+
+	3. CPU acknowledges the INT by pulsing INTA (inverted)
+
+	4. INTA signal from CPU is received by the PIC, which then sets the
+	   highest priority ISR bit, and clears the corresponding IRR bit
+
+	5. CPU sends a second INTA pulse which causes the PIC to send the
+	   interrupt ID byte onto the bus.  CPU begins interrupt processing.
+
+	6. Interrupts of lower and equal priority are blocked until a
+	   Non-Specific EOI (20h) is sent to the command port.
+
+
+</PRE>
+
+<H2 ALIGN=Center>Initialization Procedure</H2>
+
+<PRE>
+
+<B>	Initialization</B>
+	 1. write ICW1 to port 20h
+	 2. write ICW2 to port 21h
+	 3. if ICW1 bit D1=1  do nothing
+	    if ICW1 bit D1=0  write ICW3 to port 20h
+	 4. write ICW4 to port 21h
+	 5. OCW's can follow in any order
+
+
+</PRE>
+
+<H2 ALIGN=Center>8259 Programmable Interrupt Controller Notes</H2>
+
+<PRE>
+
+	- Operation Command Word (OCW), commands that set the 8259 in
+	  various interrupt modes.  These can be written to the 8259
+	  anytime after initialization.
+	- The 8259 differentiates between the OCW1, OCW2 and OCW3 by the
+	  port address and the value of the data bits D4 and D3.  ICW2
+	  through ICW4 are order related and must follow ICW1.	ICW1 is
+	  identified by an even port number and data bit D4 set to 1.
+	- PCs operate in fully nested mode, where a Non-Specific EOI resets
+	  the interrupt identified by the highest bit value in the ISR
+	- 8259s can be chained together where the INT pin (output) of a
+	  slave 8259 can be used as the input to an IRQ line allowing up
+	  to 64 priority vectored interrupts.  AT level machines use two
+	  8259's for a total of 16 hardware interrupt levels
+	- the first 8259 ports are located at 20h and 21h
+	- the second 8259 ports are located at A0h and A1h
+	- PC and AT interrupts are Edge Triggered while PS/2's are Level
+	  Triggered
+	- some ASIC chips designed for Tandy 1000 Systems malfunction if
+	  specific and non-specific EOIs are mixed
+	- for a more in-depth discussion of the 8259, see Intel's "Micro-
+	  processor and Peripherals Handbook, Volume I"
+
+	- see  <A HREF="ports.html">PORTS</A>  and  <A HREF="int_table.html">INT TABLE</A>
+</PRE>
+
+</BODY>
+</HTML>

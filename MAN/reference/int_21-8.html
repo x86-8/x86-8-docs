@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,8</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,8 - Console Input Without Echo</H2>
+
+<PRE>
+
+
+	AH = 08
+
+
+	on return:
+	AL = character from STDIN
+
+
+	- returns 0 for extended keystroke, then function must be
+	  called again to return scan code
+	- waits for character from STDIN and returns data in AL
+	- if <A HREF="int_1b.html">Ctrl-Break</A> is detected, <A HREF="int_23.html">INT 23</A> is executed
+
+</PRE>
+
+</BODY>
+</HTML>

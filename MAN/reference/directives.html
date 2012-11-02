@@ -1,0 +1,281 @@
+<HTML>
+<HEAD>
+<TITLE>directives</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Macro Assembler Directives</H2>
+
+<PRE>
+
+</PRE>
+
+<H2 ALIGN=Center>Processor Code Generation Directives</H2>
+
+<PRE>
+
+	.186	enables assembly of 80186 instructions
+	.286	enables assembly of non privileged 80286 instructions
+	.286C	same as .286
+	.286P	enables assembly of all 80286 instructions
+	.287	enabled assembly of 80287 instructions
+	.386	enabled assembly of non privileged 80386 instructions
+		If used before .MODEL segments are defined as 32bits.
+		Causes all segments to default to DWORD alignment.
+	.386P	enabled assembly of all 80386 instructions (see .386)
+	.387	enabled assembly of 80387 instructions
+	.8086	default, enables assembly of 8088/8086 instruction
+	.8087	default, enables assembly of 8087 instructions
+
+
+	These directives must precede the segment they are to effect.
+	they cannot occur within a segment.
+
+
+</PRE>
+
+<H2 ALIGN=Center>Memory Model Directives</H2>
+
+<PRE>
+
+	.CODE  [name]	starts code segment; must follow .MODEL directive
+	.CONST		starts a constant data segment with name CONST;
+			must follow .MODEL directive; placed in DGROUP
+	.DATA		starts a near data segment for initialized data
+			with name _DATA; must follow .MODEL directive;
+			placed in DGROUP
+	.DATA?		starts a near data segment for uninitialized
+			data with name _BSS; must follow .MODEL
+			directive; placed in DGROUP
+	.FARDATA [name]	not placed in any group
+	.FARDATA? [name] not placed in any group
+	.MODEL model	defines memory model to be one of the following:
+			SMALL, COMPACT, MEDIUM, LARGE or HUGE;	must be
+			used prior to any other segment directive
+	.STACK [size]	indicates start of stack segment named 'STACK'
+			with size indicating number of bytes to reserve,
+			default is 1k; placed in DGROUP
+
+
+</PRE>
+
+<H2 ALIGN=Center>Segment Definition, Segment Ordering and Linkage Directives</H2>
+
+<PRE>
+
+	.ALPHA		orders segments alphabetically
+	.SEQ		orders segments sequentially (default)
+	ASSUME sreg:name [,sreg:name...]   selects default segment
+			register to be used by the assembler, not the CPU,
+			for addressing all symbols in the segment or group.
+			Name must be associated with a SEGMENT or GROUP
+			or set to "NOTHING" to indicate no segment register
+			is to be associated.
+	COMM def [,def...]  defines variables that are both public and
+			external (communal).  Can be used in and include
+			file to identify it to each source file without
+			declaring it in each model as extern.  Actually
+			defines data once.  Communal variables cannot be
+			initialized, and are not guaranteed to be allocated
+			contiguously since these are allocated by the linker.
+	DOSSEG		orders segments the same as DOS.  This is Microsoft
+			languages default order; causes paragph alignment
+	END [name]	marks end of source module and sets program
+			start address (CS:IP) if 'name' is present
+   name ENDP		ends procedure 'name'
+   name ENDS		ends a segment or structure
+	EXTRN name:type [,name:type...]  defines one or more external symbols
+   name GROUP seg[,seg]
+   name LABEL [NEAR|FAR|PROC]  defines an entry point;	If PROC is specified,
+			it's value depends on the current MODEL
+	NAME pgmName	ignored since MASM 5.0; used to set module name
+   name PROC [NEAR|FAR]	defines procedure; NEAR/FAR has .MODEL default
+	PUBLIC name[,name...]  makes symbol 'name' available to other modules
+   name SEGMENT [align][combine][use]['class']
+		align	= BYTE	align on byte address (no alignment)
+			= WORD	align on even address
+			= DWORD	align on DWORD address
+			= PARA	align on next 16 byte paragraph
+			= PAGE	align on next 256 byte boundary
+		combine = PUBLIC  similar named segments are concatenated (CS)
+			= STACK   similar named segments are concatenated (SS)
+			= COMMON  similar named segment are overlapped
+			= MEMORY  similar names segments are concatenated
+			= AT addr segment relative to absolute address
+			= nothing segment is private and loaded independent
+		use	= USE16   segments will be 16 bits (if .386)
+			= USE32   segments will be 32 bits (if .386)
+
+
+</PRE>
+
+<H2 ALIGN=Center>Data Allocation Directives</H2>
+
+<PRE>
+
+	ALIGN n		aligns next variable or instruction on a boundary
+			that is a multiple of "n".  This can speed memory
+			fetches on 16 and 32 bit CPU'S if aligned.  New to
+			<A HREF="masm_options.html">MASM</A> 5.0, previous versions used EVEN.  Can result
+			in NOP's added to code.
+ [name]	DB init[,init...]  define byte
+ [name]	DD init[,init...]  define double word (DWORD, 4 bytes)
+ [name]	DF init[,init...]  define far word (FWORD, 386, 6 bytes)
+ [name]	DQ init[,init...]  define quad word (QWORD, 8 bytes)
+ [name]	DT init[,init...]  define temp word (TBYTE, 10 bytes)
+ [name]	DW init[,init...]  define word (WORD, 2 bytes)
+  count	DUP (init[,init...]) duplicate 'init' 'count' times; DUP can be
+			nested to 17 levels; DUP'ed initial values
+			of (?) don't result in data in the object file
+			but instead increment the next data addr
+   name	ENDS		end of structure or segment
+	EVEN		same as align 2;  Aligns data on even boundary
+	ORG expr	sets location counter to 'expr';  If 'expr'
+			is '$' the code is ORG'ed at the current loc.
+   name	RECORD fld[,fld...]  defines a byte or word variable
+			consisting of bit fields;  fields have the format:
+			fieldname:width[=expr];  the sum of all widths
+			must be <= 0
+ [name]	STRUC <[init[,init]]>  defines beginning of a structure; Values
+ 			between <> are initializers;  The '<>' symbols
+			are required.
+
+
+</PRE>
+
+<H2 ALIGN=Center>Logical and Bit Oriented Directives</H2>
+
+<PRE>
+
+  expr1	AND  expr2	returns nonzero if any set bit matches
+  expr1	EQ   expr2	returns (-1) for true or (0) for false
+  expr1	GE   expr2	returns (-1) for true or (0) for false
+  expr1	LE   expr2	returns (-1) for true or (0) for false
+  expr1	LT   expr2	returns (-1) for true or (0) for false
+	MASK {fldname|record}  returns bit mask for bits in record
+  expr1	OR   expr2	returns bitwise OR on expr1 and expr2
+	NOT  expr	returns 'expr' with all bits reversed
+   expr	SHL  count	returns expr shifted left count times
+   expr	SHR  count	returns expr shifted right count times
+	WIDTH {fldname|record}	returns width of field in bit record
+  expr1 XOR expr2	returns bitwise XOR on expr1 and expr2
+
+
+</PRE>
+
+<H2 ALIGN=Center>Other Operators and Directives</H2>
+
+<PRE>
+
+	[]		index operator, same as addition
+	.MSFLOAT	encode floats in Microsoft Real Format
+	.TYPE	expr	returns byte defining mode and scope of expr
+   name	EQU 	expr	assigns expression to name. surround text with <>
+	HIGH	expr	returns high byte of 'expr'
+	INCLUDE filespec  inserts code from 'filespec' into file
+	INCLUDELIB filespec  stores link library info in .OBJ file
+	LENGTH	var	returns number of data objects in DUPed 'var'
+	LOW	expr	returns low byte of 'expr'
+  expr1	MOD	expr2	return remainder of expr1/expr2
+	OFFSET	expr	returns offset of expr;   When .MODEL is used
+			the offset of a group relative segment refers
+			to the end of the segment
+   type	PTR	expr	forces 'expr' to 'type'
+	SEG	expr	returns segment of expression
+	SHORT		sets type of label to short, less than 128
+			bytes from start of next instruction
+	SIZE	var	returns # of bytes allocated by DUP directive
+	THIS	type	returns an operand of specified type whose
+			offset and segment values are equal to the
+			current location
+	TYPE	expr	returns type of expression
+
+
+<B>	Program Listing and Documentation Directives</B>
+
+	.CREF		restores listing of cross reference symbols
+	.LALL		include macro expansion in listings
+	.LFCOND		include false conditional blocks in listings
+	.LIST		starts listing of statements
+	.SALL		suppress listing of all macro expansions
+	.SFCOND		suppress false conditional blocks in listings
+	.XALL		start listing of macro expansion
+	.XCREF [name[,name...]]  suppress symbols in cross reference
+	.XLIST		suppress program listing
+	COMMENT delimiter [text]
+	PAGE   [[len],wid]	sets page length&width or ejects if no parms
+	SUBTTL	text	defines program listing subtitle
+	TITLE	text	defines program listing title
+
+
+<B>	Condition Assembly Directives</B>
+
+	ELSE		else clause for conditional assembly block
+	ENDIF		terminates a conditional assembly block
+	IFDEF	name	conditional assembly if name is defined
+
+
+<B>	Macro Definition Directives</B>
+
+	ENDM		terminates a macro block
+	EXITM		exit macro expansion immediately
+	IRP  parm,<arg[,arg...]> parm in the statements enclosed by the
+			IRP and ENDM will be repeated and replaced with the
+			values of "arg" for each "arg" in the <>.
+	IRPC parm,<string>  parm in the statements enclosed by the IRPC
+			and ENDM will be repeated and replaced with the values
+			of each char in the "string" for each character
+			position in the string.  "string" should be enclosed
+			in <> if it contains spaces or other separators.
+	LOCAL name[,name...]  defines scope symbol as local to a macro
+   name	MACRO [parm[,parm...]]	defines a macro and it's parameters
+	PURGE name[,name]  purges macros from memory
+	REPT	expr	repeats all statements through ENDM statement for
+			'expr' times
+
+
+<B>	User Message Directives</B>
+
+	.ERR		generates and error
+	.ERR1		generates an error on PASS 1
+	.ERR2		generates an error on PASS 2
+	.ERRB	<arg>	generates an error if 'arg' is blank
+	.ERRDEF name	generates an error if 'name' is previously defined
+	.ERRDIF[I] <arg1>,<arg2>
+	.ERRE	expr	generates and error is 'expr' is false
+	%OUT	text	displays 'text' to console
+
+
+<B>	Predefined Equates (available only if simplified segments are used)</B>
+
+	@curseg		contains the current segment
+	@filename	current file name without extension
+	@code		contains the current code segment
+	@codesize	0 for small & compact, 1 for large, medium & huge
+	@datasize	0 for small & medium, 1 for compact & large, 2=huge
+	@const		contains segment of define by .CONST
+	@data		contains segment of define by .DATA
+	@data?		contains segment of define by .DATA?
+	@fardata	contains segment of define by .FARDATA
+	@fardata?	contains segment of define by .FARDATA?
+	@stack		contains segment of define by .STACK
+
+	Most of these are only available if the simplified segment system
+	is used.  @curseg and @filename are available regardless.
+
+
+<B>	Radix Specifiers</B>
+
+	.RADIX expr	sets radix [2..16] for numbers (dec. default)
+	B		binary data specifier
+	Q		octal data specifier
+	O		octal data specifier
+	D		decimal data specifier
+	H		hexadecimal data specifier
+
+
+</PRE>
+
+</BODY>
+</HTML>

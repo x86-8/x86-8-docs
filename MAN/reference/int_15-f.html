@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,F - Format Periodic Interrupt (PS/2 only)</H2>
+
+<PRE>
+
+	AH = 0F
+	AL = phase code
+	   = 00  reserved
+	   = 01  surface analysis
+	   = 02  formatting
+
+	on return:
+	CF = 0 continue formatting/scanning
+	   = 1 end of format/scanning
+
+	- after formatting/scanning each cylinder the formatting
+	  routine calls this interrupt
+	- may be used by a program to gain control after formatting
+	  a cylinder
+	- if invoked from a non-PS/2 CF=1 and AH contains the following
+	  AH = 80h  for PC and PCjr
+	     = 86h  on most other machines
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,33</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,33 - Get/Set System Values (Ctl-Break/Boot Drive)</H2>
+
+<PRE>
+
+
+	AH = 33h
+	AL = 00 to get Ctrl-Break checking flag
+	   = 01 to set Ctrl-Break checking flag
+	   = 02 to set extended Ctrl-Break checking
+	   = 05 get boot drive (DOS 4.x)
+	DL = 00 to set Ctrl-Break checking off
+	   = 01 to set Ctrl-Break checking on
+	   = boot drive for subfunction 5;  (1=A:, 2=B:, ...)
+
+
+	on return:
+	DL = 00 Ctrl-Break checking OFF (AL=0 or AL=2)
+	   = 01 Ctrl-Break checking ON	(AL=0 or AL=2)
+	   = boot drive number (1-26, A: - Z:) (function 05)
+
+
+	- retrieves DOS Ctrl-Break or extended Ctrl-Break setting which
+	  determines if DOS will check for Ctrl-Break during INT 21 calls
+</PRE>
+
+</BODY>
+</HTML>

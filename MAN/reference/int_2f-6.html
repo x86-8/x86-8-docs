@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 2f,6</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2F,6 - PRINT.COM Check for Error on Output Device (Undocumented)</H2>
+
+<PRE>
+
+
+	AL = 06
+	AH = 01
+
+
+	on return:
+	AX = error code if CF set
+	   = 00 on success
+	DS:SI = device driver header if CF set
+
+
+	- checks the output device for an error condition
+	- undocumented, available since DOS 3.3+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<TITLE>FAT</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>FAT - File Allocation Table</H2>
+
+<PRE>
+
+<B>	12 Bit			  Meaning		    16 Bit</B>
+
+	 000			 free space		     0000
+	 FF1-FF7	      bad track marking		     FFF1-FFF7
+	 FF8-FFE   may be used to mark end of a file chain   FFF8-FFFE
+	 FFF	   standard marker for end of a file chain   FFFF
+
+
+	- the FAT is implemented as an array containing a linked list
+	  for each file;  the files directory entry has a pointer to the
+	  first cluster which contains the cluster number of the next
+	  cluster in the chain until the pointer contained is FFFh
+	  (12 bit FAT) and FFFFh (16 bit FAT) marking end of file
+	- DOS maintains two copies of the FAT, but does not use the
+	  second copy for anything other than a mirror image of the
+	  first;  CHKDSK doesn't even read the second FAT
+	- disks with FF1h clusters and above use 16 bit FAT tables, disk
+	  with less use 12 bit FAT tables
+	- DOS 4.x did not change the size of the cluster number as some
+	  suggest, but instead increased the size of the sector number
+	- bytes 0 of the FAT contains the Media Descriptor Byte
+
+
+</PRE>
+
+<H2 ALIGN=Center>Calculating 12 bit FAT Entries</H2>
+
+<PRE>
+
+	1. Get starting cluster from directory entry.
+
+	2. Multiply the cluster number just used by 1.5
+
+	3. The whole part of the product is the offset into the FAT,
+	   of the entry that maps to the cluster in the directory.
+	   This entry contains the number of the next cluster.
+
+	4. Move the word at the calculated FAT into a register.
+
+	5. If the last cluster used was an even number, keep the low order
+	   12 bits of the register, otherwise, keep the high order 12 bits.
+
+	6. If the resultant 12 bits are (0FF8h-0FFFh) no more clusters
+	   are in the file.  Otherwise, the next 12 bits contain the
+	   cluster number of the next cluster in the file.
+
+
+</PRE>
+
+<H2 ALIGN=Center>Calculating 16 Bit FAT Entries</H2>
+
+<PRE>
+
+	1. Get the starting cluster of the file from the directory.
+
+	2. Multiply the cluster number found by 2.
+
+	3. Load the word at the calculated FAT offset into a register.
+
+	4. If the 16 bits are (0FFF8h-0FFFFh) no more clusters are in
+	   the file. Otherwise, the 16 bits contain the cluster number
+	   of the next cluster in the file.
+
+
+	To convert the cluster to a logical sector number (relative
+	sector, similar to that used by DEBUG, int 25h and 26h):
+
+	1. Subtract 2 from the cluster number
+	2. Multiply the result by the number of sectors per cluster.
+	3. Add the logical sector number of the beginning of the data area.
+
+
+	- see  <A HREF="media_descriptor_byte.html">MEDIA DESCRIPTOR</A>
+
+</PRE>
+
+</BODY>
+</HTML>

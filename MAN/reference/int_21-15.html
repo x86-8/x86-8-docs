@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,15</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,15 - Sequential Write Using FCB</H2>
+
+<PRE>
+
+
+	AH = 15h
+	DS:DX = pointer to an opened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if write was successful
+	   = 01 if diskette is full or read only
+	   = 02 if <A HREF="dta.html">DTA</A> is too small
+
+
+	- writes a record from the DTA to the current record position
+	  in file specified by the opened FCB
+	- record size and output location are maintained in the FCB
+</PRE>
+
+</BODY>
+</HTML>

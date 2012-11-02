@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,A / IOCTL,A - Handle Local or Remote Query</H2>
+
+<PRE>
+
+
+	AH = 44h
+	AL = 0A
+	BX = handle
+
+
+	on return
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	DX = device attribute word
+	     bit 15 = 1 if drive is remote
+	     bit 15 = 0 if drive is local
+
+
+	- used to determine if block device is local or remote
+	- returns invalid function if networking not started
+	- implemented from DOS 3.1
+
+</PRE>
+
+</BODY>
+</HTML>

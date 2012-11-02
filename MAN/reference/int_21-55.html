@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,55</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,55 - Create New PSP  (Undocumented)</H2>
+
+<PRE>
+
+	AH = 55h
+	DX = New PSP segment address
+	SI = memory size value to place in <A HREF="program_segment_prefix.html">PSP</A> offset 02h (DOS 3+)
+
+	returns nothing
+
+	- the following should be observed when using this function
+
+	  o  Allocate memory for the PSP and program code  (<A HREF="int_21-48.html">INT 21,48</A>)
+	  o  Duplicate the PSP	 (<A HREF="int_21-55.html">INT 21,55</A>)
+	  o  Load program code into allocated segment above the new PSP
+	  o  Save Current PSP
+	  o  Set PSP to the PSP just created  (<A HREF="int_21-50.html">INT 21,50</A>)
+	  o  Jump to start of code if .COM otherwise handle relocation,
+	     setup stack and registers
+
+	- similar to <A HREF="int_21-26.html">INT 21,26</A> except the PSP is setup by DOS
+	- increments reference count in <A HREF="sft.html">SFT</A> for all inherited files
+	- files flagged as not inheritable are marked as closed in the
+	  new PSP
+	- invoked by <A HREF="int_21-4b.html">INT 21,4B</A>
+
+	- see	<A HREF="undocumented.html">UNDOC</A>   <A HREF="int_21-4b.html">INT 21,4B</A>   <A HREF="int_21-26.html">INT 21,26</A>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,56</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,56 - Rename File</H2>
+
+<PRE>
+
+
+	AH = 56h
+	DS:DX = pointer to old ASCIIZ path/filename
+	ES:DI = pointer to new ASCIIZ path/filename
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- supports full pathnames and allows renaming files across
+	  directories and in DOS 3.x allows renaming subdirectories
+	- does not support use of wildcards unless invoked from via
+	  <A HREF="int_21-5d.html">INT 21,5D</A> in which case error code 12h is returned
+	- unpredictable result may occur if an opened file is renamed
+	- see <A HREF="bibliography.html">Bibliography</A> reference to "Undocumented DOS"
+</PRE>
+
+</BODY>
+</HTML>

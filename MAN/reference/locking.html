@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>locking</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: int locking( int handle, int mode, long nbytes )</H2>
+
+<PRE>
+
+
+	- prototype in io.h, sys\locking.h
+
+	- handle = opened file handle
+	- nbytes = bytes to lock beginning with current file position
+	- mode	= locking mode:
+		= LK_LOCK	lock region; on failure waits 1 sec and
+				attempts again;  tries 10 times
+		= LK_RLCK	same as LK_LOCK
+		= LK_NBLCK	lock region; returns immediately on error
+		= LK_NBRLCK	lock region; returns immediately on error
+		= LK_UNLCK	unlock previously locked region
+
+	- multiple locks may occur in a single file
+	- overlapping locked regions are not allowed
+	- returns 0 on success or -1 on failure
+
+	- Turbo C uses <A HREF="lock.html">lock</A>() and <A HREF="unlock.html">unlock</A>()
+</PRE>
+
+</BODY>
+</HTML>

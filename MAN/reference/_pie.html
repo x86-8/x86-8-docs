@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>_pie</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: short _pie( short control, short x1, short y1, short x2,</B>
+<B>			 short y2, short x3, short y3, short x4, short y4 )</B>
+
+<B>	MSC: short far _pie_wxy( short ctl,</B>
+<B>			   struct _wxycoord far *pwxy1,</B>
+<B>			   struct _wxycoord far *pwxy2,</B>
+<B>			   struct _wxycoord far *pwxy3,</B>
+<B>			   struct _wxycoord far *pwxy4 )</B>
+
+	- prototype in graph.h
+
+	- (x1, y1) upper left rectangle corner
+	- (x2, y2) lower right rectangle corner
+	- (x3, y3) start of vector
+	- (x4, y4) end of vector
+	- ctl = _GFILLINTERIOR	fills region with current color and mask
+		_GBORDER  don't fill region
+
+	- returns nonzero value on success; zero otherwise
+
+</PRE>
+
+</BODY>
+</HTML>

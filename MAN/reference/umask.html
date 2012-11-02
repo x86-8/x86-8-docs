@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>umask</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: int umask( int permission )</H2>
+
+<PRE>
+
+
+	- prototype in io.h, sys\types.h, sys\stat.h
+
+	- changes permision in which a file may be accessed
+	- permission	= S_IWRITE	write is forbidden
+			= S_IREAD	read is forbidden  (ignored by DOS)
+			= S_IWRITE | S_IREAD  no reading or writing
+
+	- returns previous permission value
+
+</PRE>
+
+</BODY>
+</HTML>

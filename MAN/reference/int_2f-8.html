@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>int 2f,8</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2F,8 - DRIVER.SYS Support	(Undocumented DOS 3.2+)</H2>
+
+<PRE>
+
+
+	AH = 08
+	AL = 00  installation check
+	   = 01  add new block device
+	   = 02  execute device driver request
+	   = 03  get drive data table list (DOS 4.0+)
+	DS:DI = pointer to drive data table  (AL=01)
+	ES:BX = pointer to device driver request header (AL=02)
+
+
+	on return:
+	AL = 00  not installed, ok to install (AL=00)
+	   = 01  not installed, do NOT install (AL=00)
+	   = FF  installed (AL=00)
+	ES:BX = updated device request header (AL=02)
+
+	- function 01 scans DOS's drive data tables and appends the new
+	  data table to to the chain.  All tables referencing the same
+	  physical drive are updated
+
+</PRE>
+
+</BODY>
+</HTML>

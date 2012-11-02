@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>RS232 pins</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>RS232	Communication Configuration</H2>
+
+<PRE>
+
+<B>		IBM PC				IBM AT</B>
+<B>	Pin  25-Pin Signal (DTE)	 Pin  9-Pin Signal (DTE)</B>
+
+	  1   Chassis Ground  (GND)	 1   Carrier Detect (CD)
+	  2   Transmit Data (TD)	 2   Receive Data (RD)
+	  3   Receive Data (RD) 	 3   Transmit Data (TD)
+	  4   Request to Send (RTS)	 4   Data Terminal Ready (DTR)
+	  5   Clear to Send (CTS)	 5   Signal Ground (SG)
+	  6   Data Set Ready (DSR)	 6   Data Set Ready (DSR)
+	  7   Signal Ground (SG)	 7   Request to Send (RTS)
+	  8   Carrier Detect (CD)	 8   Clear to Send (CTS)
+	9-19  (not used)		 9   Ring Indicator (RI)
+	 20   Data Terminal Ready (DTR)
+	 22   Ring Indicator (RI)
+
+	There are two general cable configurations used with the RS-232C
+	Communications Standard:
+
+	  Data Terminal Equipment (DTE): IBM PC's, printers, plotters, etc
+	  Data Communication Equipment (DCE): modems, multiplexors, etc
+
+	DCE to DTE requires all lines run straight through
+	DTE to DTE usually requires swapping of the following lines
+
+		RD  and TD		RD  and TD
+		RTS and CTS	or	RTS,CTS and DCD
+		DTR and DSR		DCD and RTS,CTS
+
+<B>	Signal Functions</B>
+
+	GND    Ground		    protective safety ground
+	TD     Transmit Data	    DTE output data
+	RD     Receive Data	    DTE input data
+	RTS    Request To Send	    DTE output, DTE would like to transmit
+	CTS    Clear To Send	    DTE input, DCE is ready to transmit
+	DSR    Data Set Ready	    DTE input, DCE is ready to communicate
+	SG     Signal Ground	    provides a Zero reference voltage
+	DCD    Data Carrier Detect  DTE input, data link established, also
+				    known as Receive Line Signal Detect (RLSD)
+	DTR    Data Terminal Ready  DTE output, device ready
+	RI     Ring Indicator	    DTE input, announces incoming call
+
+
+	- RTS/CTS is used for half duplex line turn around
+	- in half duplex DCD is asserted only by the receiving device
+	- full duplex modems tie CTS & DCD together (no CTS/RTS handshaking)
+	- most modems require DTR to be present to respond to commands
+	- maximum voltages are between -15 volts and +15 volts
+	- binary outputs are between +5 to +15 volts and -5 to -15 volts
+	- binary inputs are between +3 to +15 volts and -3 to -15 volts
+	- input voltages between -3 to +3 are undefined while output voltages
+	  between -5 and +5 are undefined
+	- positive voltages indicate ON or SPACE, negative voltages indicate
+	  OFF or MARK
+
+</PRE>
+
+</BODY>
+</HTML>

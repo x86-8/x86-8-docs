@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,3d</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,3D - Open File Using Handle</H2>
+
+<PRE>
+
+	AH = 3D
+	AL = open access mode
+	     00  read only
+	     01  write only
+	     02  read/write
+	DS:DX = pointer to an ASCIIZ file name
+
+	on return:
+	AX = file handle if CF not set
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+<B>	Access modes in AL:</B>
+
+	|7|6|5|4|3|2|1|0|  AL
+	 | | | | | `-------- read/write/update access mode
+	 | | | | `--------- reserved, always 0
+	 | `-------------- sharing mode (see below) (DOS 3.1+)
+	 `--------------- 1 = private, 0 = inheritable (DOS 3.1+)
+
+
+<B>	Sharing mode bits (DOS 3.1+):	       Access mode bits:</B>
+<B>	654				       210</B>
+	000  compatibility mode (exclusive)    000  read access
+	001  deny others read/write access     001  write access
+	010  deny others write access	       010  read/write access
+	011  deny others read access
+	100  full access permitted to all
+
+
+	- will open normal, hidden and system files
+	- file pointer is placed at beginning of file
+
+</PRE>
+
+</BODY>
+</HTML>

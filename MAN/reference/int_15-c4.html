@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,c4</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,C4 - Programmable Option Select  (PS/2)</H2>
+
+<PRE>
+
+	AH = C4
+	AL = 0	get Programmable Option Select adapter register address
+	   = 1	enable slot for setup
+	   = 2	adapter enable
+
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AH = when CF set, 80h for PC & PCjr, 86h for XT, AT & 30
+	BL = slot number (function AL=1)
+	DL = POS adapter register address (function AL=0)
+
+
+	- allows access to PS/2 Programmable Option Select registers
+	- available on 80286 and 80386 PS/2's
+
+</PRE>
+
+</BODY>
+</HTML>

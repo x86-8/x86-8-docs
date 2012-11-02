@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,d</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,D - Read Graphics Pixel at Coordinate</H2>
+
+<PRE>
+
+
+	AH = 0D
+	BH = page number, see <A HREF="video_pages.html">VIDEO PAGES</A>
+	CX = column number (zero based)
+	DX = row number (zero based)
+
+
+	on return:
+	AL = color of pixel read
+
+
+	- 64K IBM EGAs with BIOS dated 9/13/84 in 350 line video
+	  modes,  return invalid data in AL
+	- page number in BH ignored for 320x200 4 color graphics mode
+
+</PRE>
+
+</BODY>
+</HTML>

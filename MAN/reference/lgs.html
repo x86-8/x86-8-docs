@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>lgs</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LGS - Load Pointer Using GS  (386+ only)</H2>
+
+<PRE>
+
+
+	Usage:	LGS	dest,src
+	Modifies flags: None
+
+
+	Loads 32-bit pointer from memory source to destination register
+	and GS.  The offset is placed in the destination register and the
+	segment is placed in GS.  To use this instruction the word at the
+	lower memory address must contain the offset and the word at the
+	higher address must contain the segment.  This simplifies the loading
+	of far pointers from the stack and the interrupt vector table.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg,mem 	  -	-     7	    6		 5-7
+	reg,mem (PM)	  -	-     22    12		 5-7
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<TITLE>int 25</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 25 - Absolute Disk Read</H2>
+
+<PRE>
+
+	AL = logical drive number (0=A:, 1=B:, 2=C:, ...)
+	CX = number of sectors to read
+	   = -1 if DOS 4.x (control block pointer is in DS:BX)
+	DX = starting logical sector number (see below for DOS 4.x+)
+	DS:BX = pointer to data buffer
+	      = pointer to control block (DOS 4.x+, see below)
+
+	on return:
+	AH = error code if CF set:
+	     01  bad command
+	     02  bad address mark
+	     03  write protect
+	     04  sector not found
+	     08  DMA failure
+	     10  data error (bad CRC)
+	     20  controller failed
+	     40  seek failed
+	     80  attachment failed to respond
+	AL = BIOS error code if CF set
+	     00  write protect error
+	     01  unknown unit
+	     02  drive not ready
+	     03  unknown command
+	     04  data error (bad CRC)
+	     05  bad request structure length
+	     06  seek error
+	     07  unknown media type
+	     08  sector not found
+	     0A  write fault
+	     0B  read fault
+	     0C  general failure
+
+</PRE>
+
+<H2 ALIGN=Center>Control Block Format (DOS 4.x):</H2>
+
+<PRE>
+
+<B>	Offset Size	   Description</B>
+
+	  00   dword  starting sector
+	  04   word   number of sectors to read
+	  06   dword  pointer to buffer
+
+
+	- reads disk sectors into buffer at DS:BX or DS:[BX+6]
+	- after calling this interrupt the flags register remains on the
+	  stack and must be popped manually
+	- sectors are logical sectors starting at the beginning of a
+	  logical disk; each DOS partition on a drive unit is considered
+	  one logical drive and has it's own logical sector numbers with
+	  track 0 starting at the first track in the partition
+	- this function uses logical drives, and is susceptible to ASSIGN
+	- physical sector numbers can be converted to and from DOS sector
+	  numbers with the following formulas:
+
+	  dos_sector = (sector - 1) + (head * sectors_per_track) +
+		       (track * sectors_per_track * num_heads)
+
+	  physical_sector = 1 + (dos_sector  MOD  sectors_per_track)
+	  physical_head = (dos_sector / sectors_per_track)  MOD  num_heads
+	  physical_track = dos_sector / (sectors_per_track * num_heads)
+
+	- see	<A HREF="int_13-1.html">INT 13,STATUS</A>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<TITLE>float formats</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Floating Point Formats</H2>
+
+<PRE>
+
+<B>	IEEE 4 byte real</B>
+
+	31 30	 23 22			      0
+	|-------------------------------------.
+	|s| 8 bits |msb   23 bit mantissa  lsb|
+	`-------------------------------------'
+	 |	|		 `----------------  mantissa
+	 |	`--------------------------------  biased exponent (7fh)
+	 `-------------------------------------  sign bit
+
+<B>	IEEE 8 byte real</B>
+
+	63 62	   52 51				  0
+	|-------------------------------------------------.
+	|s|  11 bits |msb	 52 bit mantissa       lsb|
+	`-------------------------------------------------'
+	 |	|		 `----------------  mantissa
+	 |	`--------------------------------  biased exponent (3FFh)
+	 `-------------------------------------  sign bit
+
+<B>	Microsoft 4 byte real</B>
+
+	31     24 23 22			      0
+	|-------------------------------------.
+	| 8 bits |s|msb  23 bit mantissa   lsb|
+	`-------------------------------------'
+	     |	  |		 `----------------  mantissa
+	     |	  `----------------------------  sign bit
+	     `------------------------------  biased exponent (81h)
+
+<B>	Microsoft 8 byte real (see note below)</B>
+
+	63    56 55 54 				       0
+	|----------------------------------------------.
+	| 8bits |s|msb		52 bit mantissa	    lsb|
+	`----------------------------------------------'
+	    |	 |		      `------------  mantissa
+	    |	 `-----------------------------  sign bit
+	    `---------------------------  biased exponent (401h, see below)
+
+<B>	IEEE 10 byte real (temporary real)</B>
+
+	79 78	    64 63 62					 0
+	|--------------------------------------------------------.
+	|s|  15 bits  |1|msb	      63 bit mantissa	      lsb|
+	`--------------------------------------------------------'
+	 |	|      |		    `-----  mantissa
+	 |	|      `------------------------  first mantissa bit
+	 |	`-----------------------------	biased exponent (3FFFh)
+	 `----------------------------------  sign bit
+
+<B>	Turbo Pascal 6 byte real</B>
+
+	47     40 39 38					0
+	|-----------------------------------------------.
+	| 8 bits |s|msb		39 bit mantissa	     lsb|
+	`-----------------------------------------------'
+	     |	  |		     `------------  mantissa
+	     |	  `-----------------------------  sign bit
+	     `--------------------------------  biased exponent (80h)
+
+<B>	Microsoft Fortran Complex number</B>
+	|--------------------------------------------------------.
+	|   Float Real component   |  Float Imaginary component  |
+	`--------------------------------------------------------'
+	(each component is either 8 or 16 byte IEEE real)
+
+
+	- sign bit representation:  0 is positive  and	1 is negative
+	- in all float formats except the IEEE 10 byte real, the
+	  mantissa is stored without most significant bit; since
+	  the state of this bit is known to be set, it is not
+	  included and the exponent is adjusted accordingly
+	- all formats use binary float representation
+	- memory representation uses 80x86 reverse byte/word order.
+	- Microsoft languages use the IEEE real formats;  BASIC is the
+	  only normal user of the Microsoft float format
+	- Microsoft 8 byte real format has not been verified;  several
+	  Microsoft publications show an 8 bit exponent instead of 11 bits
+	  and state the BIAS is 401h;  the discrepancy is that 8 bits can't
+	  hold the value 401h (requires 11 bits)
+
+
+<B>	True exponent is the exponent value minus the following bias:</B>
+
+	81h for Microsoft 4 byte real
+	401h for Microsoft 8 byte real
+	7Fh for IEEE 4 byte real
+	3FFh for IEEE 8 byte real
+	80h for Turbo Pascal 6 byte real
+
+<B>	     Size		   Range	     Significant digits</B>
+
+	4 byte real	  8.43x10E-37 to 3.37x10E38	    6-7
+	8 byte real	 4.19x10E-307 to 1.67x10E308	   15-16
+	10 byte real	 3.4x10E-4932 to 1.2x10E4932	     19
+
+
+	- see	<A HREF="dieeetomsbin.html">dmsbintoieee</A>()   <A HREF="dieeetomsbin.html">dieeetomsbin</A>()   <A HREF="numeric_ranges.html">NUMERIC RANGES</A>
+
+</PRE>
+
+</BODY>
+</HTML>

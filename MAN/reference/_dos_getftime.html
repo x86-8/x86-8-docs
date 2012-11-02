@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_getftime</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _dos_getftime(int h,unsigned *date,unsigned *time)</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- h = open file handle
+	- date = pointer to memory to receive file date
+	- time = pointer to memory to receive file time
+	- returns 0 on success or DOS error code
+	- Turbo C uses <A HREF="getftime.html">getftime</A>()
+	- see	<A HREF="int_21-57.html">INT 21,57</A>   <A HREF="_dos_setftime.html">_dos_setftime</A>()
+</PRE>
+
+</BODY>
+</HTML>

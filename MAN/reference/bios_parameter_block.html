@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>BIOS Parameter Block</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>BPB - BIOS Parameter Block</H2>
+
+<PRE>
+
+<B>     Offset Size	    Description</B>
+
+	00   word	sector size in bytes
+	02   byte	sectors per cluster (allocation unit size)
+	03   word	number of reserved sectors
+	05   byte	number of FATs on disk
+	06   word	number of root directory entries (directory size)
+	08   word	number of total sectors; if partition > 32Mb then set
+			to zero and dword at 15h contains the actual count
+	0A   byte	media descriptor byte  (see <A HREF="media_descriptor_byte.html">MEDIA DESCRIPTOR</A>)
+	0B   word	sectors per <A HREF="fat.html">FAT</A>
+
+<B>	Additional/different fields for DOS 3.0+</B>
+	0D   word	sectors per track
+	0F   word	number of heads
+	11   word	number of hidden sectors
+	15 11bytes	reserved
+
+<B>	Additional/different fields for DOS 4.0+</B>
+	15   dword	number of total sectors if offset 8 is zero
+	19  6bytes	reserved
+	1F   word	number of cylinders
+	21   byte	device type
+	22   word	device attributes
+
+	- located in the boot sector at offset 0Bh
+
+	- see	<A HREF="boot_sector.html">BOOT SECTOR</A>
+</PRE>
+
+</BODY>
+</HTML>

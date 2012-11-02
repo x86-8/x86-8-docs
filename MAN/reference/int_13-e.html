@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,E - Read Sector Buffer (XT & portable only)</H2>
+
+<PRE>
+
+
+	AH = 0E
+
+
+	on return:
+	AL = number of sectors actually transferred
+	AH = status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	CF = 0 if successful
+	   = 1 if error
+</PRE>
+
+</BODY>
+</HTML>

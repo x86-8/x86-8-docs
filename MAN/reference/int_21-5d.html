@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,5d</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,5D - Critical Error Information  (Undocumented, DOS 3.x+)</H2>
+
+<PRE>
+
+<B>	See second reference below for more information about this interrupt</B>
+<B>	information presented here is incomplete</B>
+
+	AH = 5D
+	AL = 00  server function call  (DOS 3.1+)
+	   = 01  commit all files  (DOS 3.1+)
+	   = 02  SHARE: close file by name  (DOS 3.1+)
+	   = 03  SHARE: close all files for given computer  (DOS 3.1+)
+	   = 04  SHARE: close all files for given process  (DOS 3.1+)
+	   = 05  SHARE: get open file list entry  (DOS 3.1+)
+	   = 06  get address of DOS swappable area into DS:SI  (DOS 3.0+)
+	   = 07  get network redirected printer mode  (DOS 3.1+)
+	   = 08  set network redirected printer mode  (DOS 3.1+)
+	   = 09  flush network redirected printer output  (DOS 3.1+)
+	   = 0A  set extended error information  (DOS 3.1+)
+	   = 0B  get DOS swappable data areas  (DOS 4.x+)
+	DS:DX = pointer to 18 byte DOS Parameter List (DPL, if AL=00)
+	      = pointer to 9 byte data block of the form (AL=0A):
+
+<B>	      Offset Size	Description</B>
+
+		00   word   extended error code to set
+		02   dword  pointer to driver address to set
+		06   byte   action code to set
+		07   byte   class code to set
+		08   byte   locus code to set
+
+	on return:
+	DS:SI = (if AL was 6) address of critical flag of the form:
+
+<B>	      Offset Size      Description</B>
+
+		00   word   extended error code
+		02   byte   action code
+		03   byte   class code
+		04   byte   pointer to driver address
+
+	- function 0 copies 18 bytes from DS:SI to the DOS internal
+	  register-save area;  this data will be placed in the registers
+	  when DOS returns to the caller thereby circumventing the DOS
+	  register save logic
+	- may be used by a TSR to prevent accidental changing of an error
+	  code and causing problems in the foreground process
+	- see <A HREF="bibliography.html">bibliography</A> references for "Undocumented DOS" and "DOS
+	  Programmers Reference"
+
+	- see	<A HREF="int_21-59.html">INT 21,59</A>
+</PRE>
+
+</BODY>
+</HTML>

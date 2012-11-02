@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<TITLE>6845</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>6845 - Motorola CRT Controller</H2>
+
+<PRE>
+
+	3B0-3BB Monochrome Monitor Adapter
+	3D0-3DC Color Graphics Adapter (mapped similarly)
+
+	3B0/3D0  port address decodes to 3B4/3D4
+	3B1/3D1  port address decodes to 3B5/3D5
+	3B2/3D2  port address decodes to 3B4/3D4
+	3B3/3D3  port address decodes to 3B5/3D5
+	3B4/3D4  6845 index register, selects which register [0-11h]
+		 is to be accessed through port 3B5/3D5
+	3B5/3D5  6845 data register [0-11h] selected by port 3B4/3D4,
+		 registers 0C-0F may be read.  If a read occurs
+		 without the adapter installed, FFh is returned.
+	3B6/3D6  port address decodes to 3B4/3D4
+	3B7/3D7  port address decodes to 3B5/3D5
+	3B8/3D8  6845 mode control register
+	3B9/3D9  color select register on color adapter
+	3BA/3DA  status register (read only)
+	3BB/3DB  light pen strobe reset
+	    3DC  preset light pen latch
+	    3DF  CRT/CPU page register (PCjr only)
+
+<B>	Registers: Accessed through ports 3B5 & 3D5    VALID VALUES</B>
+<B>						    MONO CO40 CO80 GRPH</B>
+	00 - Horiz. total characters		     61   38   71   38
+	01 - Horiz. displayed characters per line    50   28   50   28
+	02 - Horiz. synch position		     52   2D   5A   2D
+	03 - Horiz. synch width in characters	     0F   0A   0A   0A
+	04 - Vert. total lines			     19   1F   1F   7F
+	05 - Vert. total adjust (scan lines)	     06   06   06   06
+	06 - Vert. displayed rows		     19   19   19   64
+	07 - Vert. synch position (character rows)   19   1C   1C   70
+	08 - Interlace mode			     02   02   02   02
+	09 - Maximum scan line address		     0D   07   07   01
+	0A - Cursor start (scan line)		     0B   06   06   06
+	0B - Cursor end (scan line)		     0C   07   07   07
+	0C - Start address (MSB)		     00   00   00   00
+	0D - Start address (LSB)		     00   00   00   00
+	0E - Cursor address (MSB) (read/write)	     00   --   --   --
+	0F - Cursor address (LSB) (read/write)	     00   --   --   --
+	10 - Light pen (MSB)   (read only)	     --   --   --   --
+	11 - Light pen (LSB)   (read only)	     --   --   --   --
+
+	- Registers 00-0D are write only, registers 0E-0F are read/write and
+	  registers 10-11 are read only
+	- Cursor address is calculated with using the following (row*80)+col
+
+</PRE>
+
+<H2 ALIGN=Center>6845 - Port 3B8 (Monochrome)</H2>
+
+<PRE>
+
+	|7|6|5|4|3|2|1|0|  3B8 CRT Control Port
+	 | | | | | | | `---- 1 = 80x25 text
+	 | | | | | `------- unused
+	 | | | | `-------- 1 = enable video signal
+	 | | | `--------- unused
+	 | | `---------- 1 = blinking on
+	 `------------- unused
+
+</PRE>
+
+<H2 ALIGN=Center>6845 - Port 3D8 (Color)</H2>
+
+<PRE>
+
+	|7|6|5|4|3|2|1|0|  3D8 Mode Select Register
+	 | | | | | | | `---- 1 = 80x25 text, 0 = 40x25 text
+	 | | | | | | `----- 1 = 320x200 graphics, 0 = text
+	 | | | | | `------ 1 = B/W, 0 = color
+	 | | | | `------- 1 = enable video signal
+	 | | | `-------- 1 = 640x200 B/W graphics
+	 | | `--------- 1 = blink, 0 = no blink
+	 `------------ unused
+
+</PRE>
+
+<H2 ALIGN=Center>6845 - Port 3D9 Color Text Modes</H2>
+
+<PRE>
+
+	|7|6|5|4|3|2|1|0|  3D9 Color Select Register (3B9 not used)
+	 | | | | | `-------- screen/border RGB
+	 | | | | `--------- select intensity setting
+	 | | | `---------- background intensity
+	 `--------------- unused
+
+</PRE>
+
+<H2 ALIGN=Center>6845 - Port 3D9 Color Graphics Modes</H2>
+
+<PRE>
+
+	|7|6|5|4|3|2|1|0|  3D9 Color Select Register (3B9 not used)
+	 | | | | | `-------- RGB for background
+	 | | | | `--------- intensity
+	 | | | `---------- unused
+	 | | `----------- 1 = palette 1, 0=palette 0 (see below)
+	 `-------------- unused
+
+	  Palette 0 = green, red, brown
+	  Palette 1 = cyan, magenta, white
+
+</PRE>
+
+<H2 ALIGN=Center>6845 - Port 3DA  Status Register</H2>
+
+<PRE>
+
+	|7|6|5|4|3|2|1|0|  3DA Status Register
+	 | | | | | | | `---- 1 = display enable, RAM access is OK
+	 | | | | | | `----- 1 = light pen trigger set
+	 | | | | | `------ 0 = light pen on, 1 = light pen off
+	 | | | | `------- 1 = vertical retrace, RAM access OK for next 1.25ms
+	 `-------------- unused
+</PRE>
+
+</BODY>
+</HTML>

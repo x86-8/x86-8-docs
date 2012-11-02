@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>setbuf</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>void setbuf( FILE *stream, char *buf )</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- causes "buf" to be used for I/O buffering instead of the
+	  automatically allocated buffer, and are used after given
+	  stream is opened
+	- if "buf" is NULL, I/O is unbuffered
+	- no I/O to the file should occur after opening file until
+	  buffering is set
+
+	- see	<A HREF="setvbuf.html">setvbuf</A>()
+</PRE>
+
+</BODY>
+</HTML>

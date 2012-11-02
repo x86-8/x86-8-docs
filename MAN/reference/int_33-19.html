@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,19</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,19 - Get User Alternate Interrupt Address</H2>
+
+<PRE>
+
+	AX = 19h
+	CX = user interrupt call mask (see below)
+
+
+	on return:
+	BX:DX = user interrupt vector
+	CX = user interrupt call mask or zero if not found
+
+		|F-8|7|6|5|4|3|2|1|0| user interrupt mask in CX
+		  |  | | | | | | | `--- alt key pressed during event
+		  |  | | | | | | `---- ctrl key pressed during event
+		  |  | | | | | `----- shift key pressed during event
+		  |  | | | | `------ right button up event
+		  |  | | | `------- right button down event
+		  |  | | `-------- left button up event
+		  |  | `--------- left button down event
+		  |  `---------- cursor moved
+		  `------------ unused
+
+	- returns vector to function defined by <A HREF="int_33-18.html">INT 33,18</A>
+	- searches the event handlers defined by INT 33,18 for a routine
+	  with a call mask matching CX
+
+</PRE>
+
+</BODY>
+</HTML>

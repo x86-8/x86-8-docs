@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>_putimage</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	MSC: void _putimage(short x, short y, char huge *image, short action)</B>
+
+<B>	MSC: void far _putimage_w( double wx, double wy,</B>
+<B>				   char huge *image, short action )</B>
+
+	- prototype in graph.h
+
+	- restores previously saved screen image to screen
+	- (x, y) upper left corner of image
+	- image = buffer containing previously saved image
+	- action = defines interaction between current screen buffer and
+		   the data stored in "image"
+		 = _GAND	AND image with current screen
+		 = _GOR		OR image with current screen
+		 = _GPRESET	overwrite current screen with inverse of image
+		 = _GPSET	overwrite current screen with exact image
+		 = _GXOR	XOR's image to current screen
+
+	- Turbo C uses <A HREF="putimage.html">putimage</A>()
+	- see	<A HREF="_getimage.html">_getimage</A>()   _imagesize()
+</PRE>
+
+</BODY>
+</HTML>

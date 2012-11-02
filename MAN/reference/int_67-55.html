@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,55</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,55 - Alter Page Map and Jump  (LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 55h
+	AL = 00  physical page numbers provided by caller
+	     01  segment addresses provided by caller
+	DX = EMM handle
+	DS:SI = pointer to structure with map and jump address
+
+
+	on return:
+	AH = status  (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+</PRE>
+
+</BODY>
+</HTML>

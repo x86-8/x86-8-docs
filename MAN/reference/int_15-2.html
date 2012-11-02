@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,2</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,2 - Read Blocks from Cassette (PC,PCjr only)</H2>
+
+<PRE>
+
+	AH = 02
+	CX = count of bytes to read
+	ES:BX = pointer to data buffer
+
+
+	on return:
+
+	AH = error code if CF=1
+	   = 1	if CRC error
+	   = 2	data transition lost, (bit signal scrambled)
+	   = 3	no data found on tape
+
+	DX = count of bytes actually read
+	ES:BX = pointer to byte following last byte read
+
+
+	- data is transferred in 256 byte blocks, though only the
+	  number of bytes requested are actually stored
+
+</PRE>
+
+</BODY>
+</HTML>

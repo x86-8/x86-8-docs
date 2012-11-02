@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 1a,2</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1A,2 - Read Time From Real Time Clock  (XT 286,AT,PS/2)</H2>
+
+<PRE>
+
+
+	AH = 02
+
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error, <A HREF="cmos_ram.html">RTC</A> not operating
+	CH = hours in BCD
+	CL = minutes in BCD
+	DH = seconds in BCD
+	DL = 1 if daylight savings time option
+
+
+	- on AT with BIOS before 6/10/85, DL is not returned
+</PRE>
+
+</BODY>
+</HTML>

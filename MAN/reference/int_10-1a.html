@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,1a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,1A - Video Display Combination (VGA)</H2>
+
+<PRE>
+
+	AH = 1A
+	AL = 00 get video display combination
+	   = 01 set video display combination
+	     BL = active display  (see table below)
+	     BH = inactive display
+
+
+	on return:
+	AL = 1A, if a valid function was requested in AH
+	BL = active display  (AL=00, see table below)
+	BH = inactive display  (AL=00)
+
+<B>	Valid display codes:</B>
+
+	 FF  Unrecognized video system
+	 00  No display
+	 01  MDA with monochrome display
+	 02  CGA with color display
+	 03  Reserved
+	 04  EGA with color display
+	 05  EGA with monochrome display
+	 06  Professional graphics controller
+	 07  VGA with analog monochrome display
+	 08  VGA with analog color display
+	 09  Reserved
+	 0A  MCGA with digital color display
+	 0B  MCGA with analog monochrome display
+	 0C  MCGA with analog color display
+
+	- returns value at byte 40:8A indicating display combination status
+	- used to detect video display capabilities
+
+</PRE>
+
+</BODY>
+</HTML>

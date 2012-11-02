@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>int 14,4</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 14,4 - Serial Port Extended Initialization (PS/2 & later systems)</H2>
+
+<PRE>
+
+	AH = 04
+	AL = break setting
+	BH = parity setting
+	BL = stop bit setting
+	CH = word length setting
+	CL = baud rate setting
+	DX = zero based serial port number (0-3)
+
+<B>			 --- Break Setting ---</B>
+			      1 = break
+			      0 = no break
+
+<B>	----- Parity Setting -----	  --- Stop Bit Setting ---</B>
+
+	   0 = no parity		   0 = one stop bit
+	   1 = odd parity		   1 = 2 stop bits
+	   2 = even parity		       1« if register CH=0
+	   3 = stick parity odd 	       (5 bit word length)
+	   4 = stick parity even
+
+<B>	-- Word Length Setting --	---- Baud rate Setting ----</B>
+
+	       0 = 5 bits		  0 = 110	5 = 2400
+	       1 = 6 bits		  1 = 150	6 = 4800
+	       2 = 7 bits		  2 = 300	7 = 9600
+	       3 = 8 bits		  3 = 600	8 = 19200
+					  4 = 1200
+
+	on return:
+	AH = port status
+	AL = modem status
+
+
+	- for status bits see <A HREF="int_14.html">INT 14,STATUS</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,0 - Reset Disk System</H2>
+
+<PRE>
+
+
+	AH = 00
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+
+
+	on return:
+	AH = disk operation status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- clears reset flag in controller and pulls heads to track 0
+	- setting the controller reset flag causes the disk to recalibrate
+	  on the next disk operation
+	- if bit 7 is set, the diskette drive indicated by the lower 7 bits
+	  will reset then the hard disk will follow; return code in AH is
+	  for the drive requested
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,67</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,67 - Set Handle Count  (DOS 3.3+)</H2>
+
+<PRE>
+
+	AH = 67h
+	BX = new maximum open handles allowed
+
+	on return
+	CF = 0 if successful
+	   = 1 if error
+	AX = error code if CF is set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- gives program control of the number of files simultaneously open
+	- if CX is less than the current number of open files the change
+	  will take effect when the number of open handles falls below
+	  the new limit
+	- this function allows the application to use more than 20 files,
+	  up to the FILES=N limit
+	- earlier copies of IBM DOS 3.3 sometimes incorrectly allocates
+	  memory (up to 64K) if an even number of handles is requested
+	- only the first 20 files handles are copied to a child process
+	  regardless of the max number of files
+	- it is possible to allocate more than 255 file handles but it is
+	  difficult to use more than 255
+
+	- see  <A HREF="sft.html">SFT</A>   <A HREF="file_handles.html">FILE HANDLES</A>
+</PRE>
+
+</BODY>
+</HTML>

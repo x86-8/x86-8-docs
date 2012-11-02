@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<TITLE>DOS error codes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DOS Error Codes</H2>
+
+<PRE>
+
+	Of the following error codes, only error codes 1-12 are
+	returned in AX upon exit from interrupt 21 or 24;  The rest
+	are obtained by issuing the "get extended error" function
+	call;  see <A HREF="int_21-59.html">INT 21,59</A>
+
+	01  Invalid function number
+	02  File not found
+	03  Path not found
+	04  Too many open files (no handles left)
+	05  Access denied
+	06  Invalid handle
+	07  Memory control blocks destroyed
+	08  Insufficient memory
+	09  Invalid memory block address
+	0A  Invalid environment
+	0B  Invalid format
+	0C  Invalid access mode (open mode is invalid)
+	0D  Invalid data
+	0E  Reserved
+	0F  Invalid drive specified
+	10  Attempt to remove current directory
+	11  Not same device
+	12  No more files
+	13  Attempt to write on a write-protected diskette
+	14  Unknown unit
+	15  Drive not ready
+	16  Unknown command
+	17  CRC error
+	18  Bad request structure length
+	19  Seek error
+	1A  Unknown media type
+	1B  Sector not found
+	1C  Printer out of paper
+	1D  Write fault
+	1E  Read fault
+	1F  General failure
+	20  Sharing violation
+	21  Lock violation
+	22  Invalid disk change
+	23  FCB unavailable
+	24  Sharing buffer overflow
+	25  Reserved
+	26  Unable to complete file operation (DOS 4.x)
+	27-31 Reserved
+	32  Network request not supported
+	33  Remote computer not listening
+	34  Duplicate name on network
+	35  Network name not found
+	36  Network busy
+	37  Network device no longer exists
+	38  NetBIOS command limit exceeded
+	39  Network adapter error
+	3A  Incorrect network response
+	3B  Unexpected network error
+	3C  Incompatible remote adapter
+	3D  Print queue full
+	3E  No space for print file
+	3F  Print file deleted
+	40  Network name deleted
+	41  Access denied
+	42  Network device type incorrect
+	43  Network name not found
+	44  Network name limit exceeded
+	45  NetBIOS session limit exceeded
+	46  Temporarily paused
+	47  Network request not accepted
+	48  Print or disk redirection is paused
+	49-4F Reserved
+	50  File already exists
+	51  Reserved
+	52  Cannot make directory entry
+	53  Fail on INT 24
+	54  Too many redirections
+	55  Duplicate redirection
+	56  Invalid password
+	57  Invalid parameter
+	58  Network device fault
+	59  Function not supported by network (DOS 4.x)
+	5A  Required system component not installed (DOS 4.x)
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS Error Code/Classes</H2>
+
+<PRE>
+
+<B>	Error Classes</B>
+
+	01  Out of resource, out of space, channel, etc
+	02  Temporary situation, not an error, ex: file lock
+	03  Authorization, permission denied
+	04  Internal, system detected internal error
+	05  Hardware failure, serious problem related to hardware
+	06  System failure, ex: invalid configuration
+	07  Application error, inconsistent request
+	08  Not found, file/item not found
+	09  Bad format, file/item in invalid format
+	0A  Locked, file/item interlocked
+	0B  Media failure, ECC/CRC error, wrong or bad disk
+	0C  Already exists, collision with existing item
+	0D  Unknown, classification doesn't exist or is inappropriate
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS Error Code/Action Codes and Locus</H2>
+
+<PRE>
+
+<B>	Error Action Codes  (in BL)</B>
+
+	01  retry, attempt a few more times and re-prompt
+	02  delay retry, retry a few more times after a pause
+	03  re-enter input, prompt user to re-enter input
+	04  abort with cleanup, orderly abort and shutdown
+	05  immediate abort, exit immediately without cleanup
+	06  ignore error
+	07  user intervention, retry after user fixes the problem
+
+<B>	Error Locus (in CH)</B>
+
+	01  unknown
+	02  block device
+	03  network
+	04  serial device
+	05  memory
+
+</PRE>
+
+</BODY>
+</HTML>

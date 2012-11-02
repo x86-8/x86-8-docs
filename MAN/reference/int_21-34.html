@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,34</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,34 - Get Address to DOS Critical Flag</H2>
+
+<PRE>
+</PRE>
+
+<H2 ALIGN=Center>INDOS	(Undocumented DOS 2.0+)</H2>
+
+<PRE>
+
+	AH = 34h
+
+	on return:
+	ES:BX = address of a byte indicating whether a DOS call is
+		in progress.  No DOS calls should be made if set.
+
+
+	- AKA the INDOS flag, this critical section flag may be checked from
+	  within an interrupt handler before requesting a DOS service. It is
+	  a semaphore that is non-zero when DOS is busy, and zero otherwise.
+	- though this flag indicates whether a DOS interrupt is active, it
+	  should not be used alone to determine DOS is safe for re-entry;
+	  Here's the standard rule for safe DOS entry: if <A HREF="int_28.html">INT 28</A> is active
+	  or this flag and the critical error flag are clear then it is safe
+	  to call DOS
+	- this interrupt should be used only during TSR initialization;
+	  the returned pointer should be used thereafter
+	- this flag is cleared after a critical error (<A HREF="int_24.html">INT 24</A>)
+	- ES:BX-1 points to the critical error flag for DOS 3.x+
+	  ES:BX+1 points to the critical error flag for DOS 2.x
+	  ES:BX-1AA points to the critical error flag for COMPAQ DOS 3.0
+	  <A HREF="int_21-5d.html">INT 21,5D</A> in DOS 3.x+ can be used to locate the critical
+	  error flag
+</PRE>
+
+</BODY>
+</HTML>

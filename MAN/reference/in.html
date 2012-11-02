@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>in</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>IN - Input Byte or Word From Port</H2>
+
+<PRE>
+
+
+	Usage:	IN	accum,port
+	Modifies flags: None
+
+
+	A byte, word or dword is read from "port" and placed in AL, AX or
+	EAX respectively.  If the port number is in the range of 0-255
+	it can be specified as an immediate, otherwise the port number
+	must be specified in DX.  Valid port ranges on the PC are 0-1024,
+	though values through 65535 may be specified and recognized by
+	third party vendors and PS/2's.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386    486		Bytes</B>
+
+	accum,immed8	10/14	5     12     14		  2
+	accum,immed8 (PM)	     6/26  8/28/27  	  2
+	accum,DX	 8/12	5     13     14		  1
+	accum,DX (PM)		     7/27  8/28/27  	  1
+
+
+	- 386+ protected mode timings depend on privilege levels.
+
+	  first number is the timing if:    CPL ó IOPL
+	  second number is the timing if:   CPL > IOPL or in VM 86 mode (386)
+	  			     	    CPL ò IOPL  (486)
+	  third number is the timing when:    virtual mode on 486 processor
+	- 486 virtual mode always requires 27 cycles
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>system descriptor</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>BIOS System Descriptor Table  (PS/2)</H2>
+
+<PRE>
+
+<B>     Offset Size	     Description</B>
+
+	00   word	length of descriptor (8 minimum)
+	02   byte	model byte (same as FFFF:E, not reliable)
+	03   byte	secondary model byte
+	04   byte	BIOS revision level (zero based)
+	05   byte	feature information  (see table)
+	06  dword	reserved
+
+
+	|7|6|5|4|3|2|1|0| feature information at offset 5
+	 | | | | | | | `--- reserved
+	 | | | | | | `---- 0=PC bus, 1=Micro Channel
+	 | | | | | `----- Extended BIOS Data Area (<A HREF="ebda.html">EBDA</A>) allocated
+	 | | | | `------ wait for external event supported
+	 | | | `------- <A HREF="int_15-4f.html">INT 15,4F</A> used (kbd intercept)
+	 | | `-------- RTC present
+	 | `--------- 2nd <A HREF="8259.html">8259</A> present
+	 `---------- DMA channel 3 used by fixed disk BIOS
+
+
+	- see also  <A HREF="id_bytes.html">MACHINE IDENT</A>  and  <A HREF="int_15-c0.html">INT 15,C0</A>
+
+</PRE>
+
+</BODY>
+</HTML>

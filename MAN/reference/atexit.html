@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>atexit</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int atexit( void func )</H2>
+
+<PRE>
+
+
+	- prototype in stdlib.h
+
+	- func is defined as void (*func)(void)
+	- calls func() before exiting to DOS
+	- up to 32 functions can be called (if 32 atexit calls registered)
+	- should be located in main & executed before anything else
+	- returns 0 if OK, else nonzero if no space to register function
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>pushf</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>PUSHF/PUSHFD - Push Flags onto Stack</H2>
+
+<PRE>
+
+
+	Usage:	PUSHF
+		PUSHFD	(386+ only)
+	Modifies flags: None
+
+
+	Transfers the Flags Register onto the stack.  PUSHF saves a 16 bit
+	value while PUSHFD saves a 32 bit value.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		10/14	3     4	    4		  1
+	none  (PM)	  -	-     4	    3		  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

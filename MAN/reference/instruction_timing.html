@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>Instruction Timing</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Instruction Clock Cycle Calculation</H2>
+
+<PRE>
+
+
+	Some instructions require additional clock cycles due to a "Next
+	Instruction Component" identified by a "+m" in the instruction
+	clock cycle listings.  This is due to the prefetch queue being
+	purge on a control transfers.	Below is the general rule for
+	calculating "m":
+
+
+	88/86 not applicable
+	286  "m" is the number of bytes in the next instruction
+	386  "m" is the number of components in the next instruction
+		(the instruction coding (each byte), plus the data and
+		the displacement are all considered components)
+
+
+</PRE>
+
+<H2 ALIGN=Center>8088/8086  Effective Address (EA) Calculation</H2>
+
+<PRE>
+
+<B>		   Description				  Clock Cycles</B>
+
+	Displacement						6
+	Base or Index (BX,BP,SI,DI)				5
+	Displacement+(Base or Index)				9
+	Base+Index (BP+DI,BX+SI)				7
+	Base+Index (BP+SI,BX+DI)				8
+	Base+Index+Displacement (BP+DI,BX+SI)		       11
+	Base+Index+Displacement (BP+SI+disp,BX+DI+disp)	       12
+
+
+	- add 4 cycles for word operands at odd addresses
+	- add 2 cycles for segment override
+	- 80188/80186 timings differ from those of the 8088/8086/80286
+
+
+<B>	Task State Calculation</B>
+
+	"TS" is defined as switching from VM/486 or 80286 TSS to one of
+	the following:
+
+ 			|---------------------------------------.
+			|	        New Task		|
+			|---------------------------------------|
+	|---------------|486 TSS|486 TSS|386 TSS|386 TSS|286 TSS|
+	|   Old Task	| (VM=0)| (VM=1)| (VM=0)| (VM=1)|	|
+	`---------------+-------+-------+-------+-------+-------|
+	386 TSS (VM=0)	|	|	|  309  |  226  |  282  |
+			|-------+-------+-------+-------+-------|
+	386 TSS (VM=1)	|	|	|  314  |  231  |  287  |
+			|-------+-------+-------+-------+-------|
+	386 CPU/286 TSS	|	|	|  307  |  224  |  280  |
+			|-------+-------+-------+-------+-------|
+	486 CPU/286 TSS	|  199	|  177	|	|	|  180	|
+			`---------------------------------------'
+
+		       	     
+<B>	Miscellaneous</B>
+
+	- all timings are for best case and do not take into account wait
+	  states, instruction alignment, the state of the prefetch queue,
+	  DMA refresh cycles, cache hits/misses or exception processing.
+	- to convert clocks to nanoseconds divide one microsecond by the
+	  processor speed in MegaHertz:
+   
+</PRE>
+
+<H2 ALIGN=Center>(1000MHz/(n MHz)) = X nanoseconds</H2>
+
+<PRE>
+
+
+	- see	<A HREF="8086_architecture.html">8086 Architecture</A>
+
+</PRE>
+
+</BODY>
+</HTML>

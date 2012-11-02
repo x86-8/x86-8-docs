@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,54</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,54 - Get Handle Directory  (LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 54h
+	AL = 00  get handle directory
+		 ES:DI = pointer to buffer for handle directory
+
+	     01  search for named handle
+		 DS:SI = pointer to 8byte name
+
+	     02  get total number of handles
+
+
+	on return:
+	AL = number of entries in handle directory (AL = 00h)
+	DX = value of named handle (if AH was 01)
+	BX = total number of handles (if AH was 02)
+	AH = status  (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+</PRE>
+
+</BODY>
+</HTML>

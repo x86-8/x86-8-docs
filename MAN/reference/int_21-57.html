@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,57</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,57 - Get/Set File Date and Time Using Handle</H2>
+
+<PRE>
+
+	AH = 57h
+	AL = 00  get date and time
+	   = 01  set date and time
+	   = 02  ??? (DOS 4.0+ undocumented)
+	   = 03  ??? (DOS 4.0+ undocumented) 
+	   = 04  ??? (DOS 4.0+ undocumented)
+	BX = file handle
+	CX = time to set (if setting)
+	DX = date to set (if setting)
+	ES:DI = pointer to buffer to contain results
+
+
+	on return:
+	AX = error code if CF set  (see  <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	CX = file time (if reading, see below)
+	DX = file date (if reading, see below)
+
+<B>	Time encoding:</B>
+
+	|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|  Time in CX
+	 | | | | | | | | | | | `------------  two second incr (0-29)
+	 | | | | | `-----------------------  minutes 0-59)
+	 `--------------------------------  hours (0-29)
+
+<B>	Date Encoding</B>
+
+	|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0|  Date in DX
+	 | | | | | | | | | | | `------------  day (1-31)
+	 | | | | | | | `-------------------  month (1-12)
+	 `--------------------------------  year - 1980
+</PRE>
+
+</BODY>
+</HTML>

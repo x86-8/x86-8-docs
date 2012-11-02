@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,4c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,4C - Get Page Count for Handle	(LIM EMS)</H2>
+
+<PRE>
+
+
+	AH = 4Ch
+	DX = EMM handle
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	BX = total allocated page count for handle (1-512)
+
+
+	- a handle can refer to up to 512 logical pages
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

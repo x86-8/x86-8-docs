@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>brk</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int brk( void *endds )</H2>
+
+<PRE>
+
+
+	- prototype in alloc.h (malloc.h for MS C)
+
+	- dynamically changes the amount of space allocated to the calling
+	  programs data segment.  Amount of allocated space increases as
+	  the break value increases.
+	- returns 0 if OK
+		 -1 with errno set to ENOMEM
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>movs</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MOVS - Move String (Byte or Word)</H2>
+
+<PRE>
+
+	Usage:	MOVS	dest,src
+		MOVSB
+		MOVSW
+		MOVSD  (386+ only)
+	Modifies flags: None
+
+
+	Copies data from addressed by DS:SI (even if operands are given) to
+	the location ES:DI destination and updates SI and DI based on the
+	size of the operand or instruction used.  SI and DI are incremented
+	when the Direction Flag is cleared and decremented when the Direction
+	Flag is Set.  Use with <A HREF="rep.html">REP</A> prefixes.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	dest,src	  18	5     7	    7		  1   (W88=26)
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,32</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,32 - Get Pointer to Drive Parameter Table (Undocumented)</H2>
+
+<PRE>
+
+	AH = 32h
+	DL = drive (0=default, 1=A:, 2=B:, 3=C:, ...)
+
+
+	on return:
+	AL =  FF if the drive number in DL was invalid
+	DS:BX = address of drive parameter table (<A HREF="drive_parameter_table.html">DPT</A>)
+
+
+	- available since DOS 2.0
+	- used by DOS commands CHKDSK and RECOVER
+	- forces a media check, which clears byte DS:[BX+17h] or DS:[BX+18h]
+	  in the Drive Parameter Table
+	- actually accesses the disk, causing a critical error if a disk
+	  error occurs
+	- can be used to determine if a drive is SUBST'ed by comparing
+	  DS:[BX+1] and DS:[BX] for a match.  If not equal, then the
+	  drive is possibly SUBST'ed (though not guaranteed, this may also
+	  indicate a Bernoulli box)
+	- can be used to determine if a drive is a RAM disk; if the disk is
+	  NOT removable and (DS:[BX+1] == 0), then the disk is a RAM disk
+	  (see <A HREF="int_21-44-0.html">IOCTL,0</A> bit number 0Bh to determine if the disk is removable)
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>int 9</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 9 - Keyboard Interrupt (Hardware Handler)</H2>
+
+<PRE>
+
+	no input data
+
+<B>	related memory:</B>
+
+	40:17 = updates keyboard flag byte 0
+	40:18 = updates keyboard flag byte 1
+	40:1A = queue head ptr is set to buffer start if Ctrl-Break is hit
+	40:1C = updates buffer tail pointer for each keystroke; sets
+		queue tail ptr is set to queue start if Ctrl-Break is hit
+	40:1E = updates keyboard buffer (32 bytes)
+	40:71 = updates bit 7 of the BIOS break flag if Ctrl-Break is hit
+	40:72 = updates reset flag with 1234H if Ctrl-Alt-Del pressed
+	40:96 = indicates keyboard type (AT,PS/2)
+	40:97 = updates keyboard LED flags (AT,PS/2)
+	FFFF:0 = reboot code called if Ctrl-Alt-Del pressed
+
+<B>	related interrupts:</B>
+
+	<A HREF="int_5.html">INT 5</A>     invoked if print screen key pressed
+	<A HREF="int_1b.html">INT 1B</A>    invoked if Ctrl-Break key sequence pressed
+	<A HREF="int_15-85.html">INT 15,85</A> invoked on AT if system request key is pressed
+	<A HREF="int_15-4f.html">INT 15,4F</A> invoked on machines after PC/AT with AL = scan code
+
+
+	- records key press and key release via IRQ1/8259 and
+	  stores scan codes in the BIOS buffer located at 40:1C
+	- keyboard controllers also buffer data when interrupts are
+	  disabled at the <A HREF="8259.html">8259</A> interrupt controller
+	- keyboard controller is capable of storing 16 keystrokes
+	  even when interrupts are disabled at the 8259
+	- normal INT 9 execution takes approximately 500 microseconds;
+	  at least one standard XT BIOS is known to take up to 1.3
+	  milliseconds to execute
+
+	- see	<A HREF="make_codes.html">MAKE CODES</A>   <A HREF="kb_flags.html">KB FLAGS</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>strerror</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>char *strerror( char *str )</H2>
+
+<PRE>
+
+
+	- prototype in string.h
+
+	- str should contain your customized error message to which a system
+	  error message will be appended
+	- allows you to generate customized error messages, returning a
+	  pointer to a null-terminated string containing an error message
+	- if str is NULL, the return value contains the most recently
+	  generated system error message; this string is null-terminated
+	- if str is not NULL, the return value contains, a colon, a space,
+	  the most recently generated system error message, and a newline;
+	  with length of str being 94 characters or less
+	- this function generates the error string but does NOT print it
+	- for accurate error-handling, strerror should be called as soon
+	  as a library routine generates an error return
+
+</PRE>
+
+</BODY>
+</HTML>

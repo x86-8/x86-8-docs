@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>boot sector</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Boot Sector (since DOS 2.0)</H2>
+
+<PRE>
+
+<B>     Offset  Size		Description</B>
+
+	00   3bytes	jump to executable code
+	03   8bytes	OEM name and version
+	0B   word	bytes per sector
+	0D   byte	sectors per cluster (allocation unit size)
+	0E   word	number of reserved sectors (starting at 0)
+	10   byte	number of FAT's on disk
+	11   word	number of root directory entries (directory size)
+	13   word	number of total sectors (0 if partition > 32Mb)
+	15   byte	media descriptor byte  (see <A HREF="media_descriptor_byte.html">MEDIA DESCRIPTOR</A>)
+	16   word	sectors per FAT
+	18   word	sectors per track  (DOS 3.0+)
+	1A   word	number of heads  (DOS 3.0+)
+	1C   word	number of hidden sectors  (DOS 3.0+)
+	20   dword	(DOS 4+) number of sectors if offset 13 was 0
+	24   byte	(DOS 4+) physical drive number
+	25   byte	(DOS 4+) reserved
+	26   byte	(DOS 4+) signature byte (29h)
+	27   dword	(DOS 4+) volume serial number
+	2B  11bytes	(DOS 4+) volume label
+	36   8bytes	(DOS 4+) reserved
+
+
+	- implementation format not guaranteed in all OEM DOS releases
+	- BIOS expects a boot sector of 512 bytes
+	- DOS 3.2 began reading BIOS Parameter Block (<A HREF="bios_parameter_block.html">BPB</A>) information from
+	  the boot sector, previous versions used only the media byte in FAT
+	- DOS 4.x added offsets 20-3Dh and offset 20h determines the number
+	  of sectors if offset 13h is zero
+	- hard disks have a master boot record and partition boot records;
+	  the master boot record and <A HREF="disk_partition_table.html">Disk Partition Table</A> (DPT) share the
+	  same sector
+
+</PRE>
+
+</BODY>
+</HTML>

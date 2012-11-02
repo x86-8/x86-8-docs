@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>int 13,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 13,3 - Write Disk Sectors</H2>
+
+<PRE>
+
+	AH = 03
+	AL = number of sectors to write  (1-128 dec.)
+	CH = track/cylinder number  (0-1023 dec.)
+	CL = sector number  (1-17 dec., see below)
+	DH = head number  (0-15 dec.)
+	DL = drive number (0=A:, 1=2nd floppy, 80h=drive 0, 81h=drive 1)
+	ES:BX = pointer to buffer
+
+
+	on return:
+	AH = 0 if CF=0; otherwise disk status  (see <A HREF="int_13-1.html">INT 13,STATUS</A>)
+	AL = number of sectors written
+	CF = 0 if successful
+	   = 1 if error
+
+
+	- BIOS disk write attempts should reset the controller on error
+	- be sure ES:BX does not cross a 64K segment boundary or a
+	  DMA boundary error will occur
+	- IBM PC XT 286 does not require a value in AL, though it is
+	  recommended that one be supplied for portability
+	- many programming references list only floppy disk register values
+	- only the disk number is checked for validity
+	- the parameters in CX change depending on the number of cylinders;
+	  the track/cylinder number is a 10 bit value taken from the 2 high
+	  order bits of CL and the 8 bits in CH (low order 8 bits of track):
+
+	  |F|E|D|C|B|A|9|8|7|6|5-0|  CX
+	   | | | | | | | | | |	`-----	sector number
+	   | | | | | | | | `---------  high order 2 bits of track/cylinder
+	   `------------------------  low order 8 bits of track/cyl number
+
+	- see	<A HREF="int_13-b.html">INT 13,B</A>
+
+</PRE>
+
+</BODY>
+</HTML>

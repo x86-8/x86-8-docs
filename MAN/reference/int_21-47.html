@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,47</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,47 - Get Current Directory</H2>
+
+<PRE>
+
+
+	AH = 47h
+	DL = drive number (0 = default, 1 = A:)
+	DS:SI = pointer to a 64 byte user buffer
+
+
+	on return:
+	DS:SI = pointer ASCIIZ directory path string
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- returns the current directory relative to the root directory
+	- the leading slash "\" and drive designator are omitted
+
+</PRE>
+
+</BODY>
+</HTML>

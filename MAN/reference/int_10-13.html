@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,13</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,13 - Write String (BIOS versions from 1/10/86)</H2>
+
+<PRE>
+
+	AH = 13h
+	AL = write mode (see bit settings below)
+	   = 0 string is chars only, attribute in BL, cursor not moved
+	   = 1 string is chard only, attribute in BL, cursor moved
+	   = 2 string contains chars and attributes, cursor not moved
+	   = 3 string contains chars and attributes, cursor moved
+	BH = video page number
+	BL = attribute if mode 0 or 1 (AL bit 1=0)
+	CX = length of string (ignoring attributes)
+	DH = row coordinate
+	DL = column coordinate
+	ES:BP = pointer to string
+
+
+	Bit settings for write mode (register AL):
+
+	|7|6|5|4|3|2|1|0|  AL
+	 | | | | | | | `---- 0=don't move cursor, 1=move cursor
+	 | | | | | | `----- 0=BL has attributes, 1=string has attributes
+	 `---------------- unused
+
+
+	returns nothing
+
+
+	- BEL, BS, CR, LF are treated as ASCII control codes
+	- wraps data and scrolls if unable to fit data on one line
+
+</PRE>
+
+</BODY>
+</HTML>

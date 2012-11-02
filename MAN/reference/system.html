@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>system</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int system( const char *command )</H2>
+
+<PRE>
+
+
+	- prototype in stdlib.h
+
+	- invokes MS-DOS COMMAND.COM to execute "command", returning exit
+	  status of COMMAND.COM;  the COMSPEC environment variable is
+	  automatically searched if necessary
+	- a CR/LF pair in the command string will result in an error
+	- see	<A HREF="exec___.html">exec...</A>   <A HREF="spawn.html">spawn...</A>
+</PRE>
+
+</BODY>
+</HTML>

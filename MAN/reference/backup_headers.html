@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>backup headers</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DOS BACKUP Control Information</H2>
+
+<PRE>
+
+<B>	BACKUPID.@@@ Format</B>
+
+<B>     Offset Size		Description</B>
+	00   byte   Disk sequence flag:
+			00  indicates disk is not the last backup diskette
+			FF  indicates disk is the last backup diskette
+	01   word   Floppy disk sequence number (Intel format)
+	03   word   Backup year, four digits (Intel format)
+	05   byte   Day of month (1-31)
+	06   byte   Month of year (1-12)
+	07   dword  System time if /T was specified (see <A HREF="file_attributes.html">FILE ATTRIBUTES</A>)
+	0B 117bytes Unused
+
+
+<B>	Backup File Header</B>
+
+<B>     Offset Size		Description</B>
+	00   byte   Disk sequence flag:
+			00  indicates disk is not the last backup diskette
+			FF  indicates disk is the last backup diskette
+	01   byte   Floppy disk sequence number
+	02  3bytes  Unused
+	05 64bytes  Full pathname (without drive designator)
+	45 14bytes  Unused
+	53   byte   Length of file path name at offset 05 plus 1
+	54 44Bytes  Unused
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>_bios_keybrd</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: int _bios_keybrd( int cmd )</H2>
+
+<PRE>
+
+
+	- prototype in bios.h
+
+	- cmd	= _KEYBRD_READ	return next keystroke w/o echo (INT 16,0)
+		= _KEYBRD_READY	test if key avail; 0=none  (INT 16,1)
+		= _KEYBRD_SHIFTSTATUS  return shift key status (INT 16,2)
+		= _NKEYBRD_READ	return next keystroke w/o echo (INT 16,10)
+		= _NKEYBRD_READY	test if key avail; 0=none  (INT 16,11)
+		= _NKEYBRD_SHIFTSTATUS return shift key status (INT 16,12)
+
+	- AND returned value with 0x00FF to get ASCII value
+	- _NKEYBRD_READ, _NKEYBRD_READY, _NKEYBRD_SHIFTSTATUS are available
+	  on AT and newer machines only
+	- Turbo C uses <A HREF="bioskey.html">bioskey</A>()
+	- see  <A HREF="int_16.html">INT 16</A>
+</PRE>
+
+</BODY>
+</HTML>

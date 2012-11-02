@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,43</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,43 - Get Handle and Allocate Pages  (LIM EMS 3.2+)</H2>
+
+<PRE>
+
+
+	AH = 43h
+	BX = number of logical pages to allocate
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	DX = EMM handle
+
+
+	- handles not explicitly closed by the application are not
+	  recoverable on exit from the program
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

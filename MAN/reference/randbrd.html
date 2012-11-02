@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>randbrd</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int randbrd( struct fcb *fcbptr, int reccnt )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- randbrd() reads reccnt number of records using the open FCB via
+	  fcbptr, as indicated by the disk record field of the FCB (via
+	  <A HREF="int_21-27.html">INT 21,27</A>)
+	- returns:
+	  0  all records read(written)
+	  1  EOF reached & last record read is complete
+	  2  reading records would have wrapped around address 0xffff
+	  3  EOF reached & last record is incomplete
+	- see	<A HREF="randbrw.html">randbrw</A>()
+</PRE>
+
+</BODY>
+</HTML>

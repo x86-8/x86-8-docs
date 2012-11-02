@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>_bios_disk</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _bios_disk(unsigned cmd,struct diskinfo_t *dskinfo)</H2>
+
+<PRE>
+
+
+	- prototype in bios.h
+
+	- cmd	= _DISK_RESET	resets disk system  (INT 13,0)
+		= _DISK_STATUS	return disk status  (INT 13,1)
+		= _DISK_READ	read disk sectors  (INT 13,2)
+		= _DISK_WRITE	write disk sectors  (INT 13,3)
+		= _DISK_VERIFY	verify disk sectors  (INT 13,4)
+		= _DISK_FORMAT	format disk track  (INT 13,5)
+
+	- dskinfo = pointer to structure containing disk information:
+
+	struct diskinfo_t
+	   {
+	   unsigned drive;		- physical drive number
+	   unsigned head;		- head number
+	   unsigned track;		- track number
+	   unsigned sector;		- sector number
+	   unsigned nsectors;		- sectors to deal with
+	   void _far *buffer;		- data buffer
+	   };
+
+	- returns status of operation (AX register, AH contains status)
+	- drive numbers represent physical drives (0 = A:, 1 = B:,
+	  80h = drive 0, 81h = drive 1
+	- disk reads should be retried at least 3 times
+	- Turbo C uses <A HREF="biosdisk.html">biosdisk</A>()
+
+	- see  <A HREF="int_13.html">INT 13</A>
+</PRE>
+
+</BODY>
+</HTML>

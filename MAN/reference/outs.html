@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>outs</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>OUTS - Output String to Port  (80188+ only)</H2>
+
+<PRE>
+
+
+	Usage:	OUTS	port,src
+		OUTSB
+		OUTSW
+		OUTSD  (386+ only)
+	Modifies flags: None
+
+
+	Transfers a byte, word or doubleword from "src" to the hardware
+	port specified in DX.  For instructions with no operands the "src"
+	is located at DS:SI and SI is incremented or decremented by the
+	size of the operand or the size dictated by the instruction format.
+	When the Direction Flag is set SI is decremented, when clear, SI is
+	incremented.  If the port number is in the range of 0-255 it can
+	be specified as an immediate.  If greater than 255 then the port
+	number must be specified in DX.  Since the PC only decodes 10 bits
+	of the port address, values over 1023 can only be decoded by third
+	party vendor equipment and also map to the port range 0-1023.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386    486		Bytes</B>
+
+	port,src	  -	5     14     17		  1
+	port,src (PM)	  -	-    8/28 10/32/30	  1
+
+
+	- 386+ protected mode timings depend on privilege levels.
+
+	  first number is the timing when:    CPL ó IOPL
+	  second number is the timing when:   CPL > IOPL
+	  third number is the timing when:    virtual mode on 486 processor
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

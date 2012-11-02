@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>file handles</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DOS Default/Predefined File Handles</H2>
+
+<PRE>
+
+	 0 - Standard Input Device - can be redirected (STDIN)
+	 1 - Standard Output Device - can be redirected (STDOUT)
+	 2 - Standard Error Device - can be redirected (STDERR)
+	 3 - Standard Auxiliary Device (STDAUX)
+	 4 - Standard Printer Device (STDPRN)
+
+
+<B>See the following  INT 21h  Handle related function calls:</B>
+
+	<A HREF="int_21-3c.html">INT 21,3C</A>  Create file using handle
+	<A HREF="int_21-3d.html">INT 21,3D</A>  Open file using handle
+	<A HREF="int_21-3e.html">INT 21,3E</A>  Close file using handle
+	<A HREF="int_21-3f.html">INT 21,3F</A>  Read file or device using handle
+	<A HREF="int_21-40.html">INT 21,40</A>  Write file or device using handle
+	<A HREF="int_21-41.html">INT 21,41</A>  Delete file
+	<A HREF="int_21-42.html">INT 21,42</A>  Move file pointer using handle
+	<A HREF="int_21-43.html">INT 21,43</A>  Change file mode
+	<A HREF="int_21-45.html">INT 21,45</A>  Duplicate file handle
+	<A HREF="int_21-46.html">INT 21,46</A>  Force duplicate file handle
+	<A HREF="int_21-56.html">INT 21,56</A>  Rename file
+	<A HREF="int_21-57.html">INT 21,57</A>  Get/set file date and time using handle
+	<A HREF="int_21-5a.html">INT 21,5A</A>  Create temporary file (3.x+)
+	<A HREF="int_21-5b.html">INT 21,5B</A>  Create new file (3.x+)
+	<A HREF="int_21-67.html">INT 21,67</A>  Set handle count (3.3+)
+	<A HREF="int_21-68.html">INT 21,68</A>  Flush buffer (3.3+)
+
+
+	- STDIN, STDOUT and STDERR can be redirected
+	- maximum number of files available to all DOS processes at one
+	  time is defined by the FILES=N statement of CONFIG.SYS
+	- maximum number of files available to an application is N-3 where
+	  N is derived from the CONFIG.SYS FILES=N statement minus the
+	  count of handles used by other processes
+	- <A HREF="int_21-67.html">INT 21,67</A> can be used in DOS 3.3+ to increase the number of file
+	  handles for an application to greater than 20;  the max handle
+	  count is still limited by the value of FILES= in CONFIG.SYS file
+	- An application can increase the maximum allowed file handles in
+	  DOS 3.0-3.2 by copying the open file table located through offset
+	  34h in the <A HREF="program_segment_prefix.html">PSP</A> to another location.  All unopened slots must be
+	  initialized to FF and the values at PSP offsets 32h and 34h must
+	  be updated to reflect the new values.
+	- see	<A HREF="sft.html">SFT</A>   <A HREF="int_21.html">INT 21</A>   <A HREF="int_21-52.html">INT 21,52</A>   <A HREF="int_21-67.html">INT 21,67</A>
+</PRE>
+
+</BODY>
+</HTML>

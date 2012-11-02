@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_setdate</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _dos_setdate( struct dosdate_t *date )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- date = receives date information
+	- returns 0 on success or DOS error code on failure
+	- sets DOS date via INT 21,2B
+	- DOS 3.3+ also sets CMOS clock
+
+	- MS C uses <A HREF="_dos_setdate.html">_dos_setdate</A>()
+	- see <A HREF="int_21-2b.html">INT 21,2B</A>   <A HREF="_dos_getdate.html">_dos_getdate</A>()
+</PRE>
+
+</BODY>
+</HTML>

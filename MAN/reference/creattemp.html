@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>creattemp</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int creattemp( char *filename, int attr )</H2>
+
+<PRE>
+
+
+	- prototype in io.h, also include dos.h
+
+	- creates new file (overwrites existing file) of filename with file
+	  attribute attrib, for both read/write
+	- attr consists of a combination of the following:
+
+	  FA_RDONLY   set read only attribute
+	  FA_HIDDEN   set hidden attribute
+	  FA_SYSTEM   set system attribute
+
+	- filename is a path name ending in a backslash (\); when file is
+	  created, filename has a unique path name
+	- file is created set to _fmode (O_TEXT or O_BINARY)
+	- returns nonnegative integer if OK, else -1
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>onexit</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: onexit_t onexit( onexit_t func )</H2>
+
+<PRE>
+
+
+	- prototype in stdlib.h
+
+	- creates a list of functions to execute on normal program exit
+	- on exit functions are executed LIFO
+	- a max of 32 function can be registered
+	- returns pointer to "func" on success;  NULL otherwise
+	- this is a Microsoft/Lattice extension; ANSI uses <A HREF="atexit.html">atexit</A>()
+
+	- see  <A HREF="exit.html">exit</A>()  <A HREF="abort.html">abort</A>()
+</PRE>
+
+</BODY>
+</HTML>

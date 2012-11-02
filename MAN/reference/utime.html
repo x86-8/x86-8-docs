@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>utime</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: int utime( char *path, struct utimbuf *times )</H2>
+
+<PRE>
+
+
+	- prototype in sys\types.h, sys\utime.h
+
+	- path = any valid DOS filename
+	- times = time values in structure (modtime should be set)
+	- if write access to the file is available the file time is updated
+	  from the modtime field
+	- if times is NULL the file date is set to current time
+	- returns 0 on success or -1 on error
+
+	struct utimbuf
+	    {
+	    time_t actime;   	- access time (not used in DOS)
+	    time_t modtime;  	- modification time
+	    };
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,3f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,3F - Read From File or Device Using Handle</H2>
+
+<PRE>
+
+
+	AH = 3F
+	BX = file handle
+	CX = number of bytes to read
+	DS:DX = pointer to read buffer
+
+
+	on return:
+	AX = number of bytes read is CF not set
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- read specified number of bytes from file into buffer DS:DX
+	- when AX is not equal to CX then a partial read occurred due
+	  to end of file
+	- if AX is zero, no data was read, and EOF occurred before read
+
+</PRE>
+
+</BODY>
+</HTML>

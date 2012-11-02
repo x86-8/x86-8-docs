@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,44,e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,44,E / IOCTL,E - Get Logical Drive</H2>
+
+<PRE>
+
+
+	AH = 44h
+	AL = 0E
+	BL = physical drive number (0=default, 1=A:, 2=B:, 3=C:, ...)
+
+
+	on return
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	AL = logical drive number assigned to physical drive
+	   = 0 if drive accessed by only one drive specifier
+	   = 1 if drive A:, 2 if drive B:, etc
+
+
+	- used to determine the last drive designator used to access
+	  a drive if more than one logical drive designation applies
+	  to a device
+	- implemented from DOS 3.2
+
+</PRE>
+
+</BODY>
+</HTML>

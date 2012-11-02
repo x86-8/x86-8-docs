@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,3 - Read Cursor Position and Size</H2>
+
+<PRE>
+
+
+	AH = 03
+	BH = video page
+
+
+	on return:
+	CH = cursor starting scan line (low order 5 bits)
+	CL = cursor ending scan line (low order 5 bits)
+	DH = row
+	DL = column
+
+
+	- returns data from <A HREF="bios_data_area.html">BIOS DATA AREA</A> locations 40:50, 40:60 and 40:61
+	- the <A HREF="6845.html">6845</A> can also be used to read the cursor position
+	- the return data can be circumvented by direct port I/O to the 6845
+	  CRT Controller since this function returns the data found in the
+	  BIOS Data Area without actually checking the controller
+	
+</PRE>
+
+</BODY>
+</HTML>

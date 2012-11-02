@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,13</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,13 - Delete File Using FCB</H2>
+
+<PRE>
+
+
+	AH = 13h
+	DS:DX = pointer to an unopened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if file deleted
+	   = FF if file not found
+
+
+	- deletes unopened file with normal attributes
+	- FCB must contain drive id, filename, and extension before call
+	- "?" wildcard supported after DOS 2.1, "*" supported by DOS 3.x+
+	- DOS 2.x allowed deletion of a subdirectory if <A HREF="xfcb.html">XFCB</A> was provided,
+	  even if files existed, causing lost clusters.  DOS 3.x does not
+</PRE>
+
+</BODY>
+</HTML>

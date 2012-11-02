@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>tmpfile</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: FILE *tmpfile( void )</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- creates and opens a temporary stream file
+	- returns stream pointer or NULL on error
+	- file is automatically deleted when closed or rmtmp() is called
+	- <A HREF="rmtmp.html">rmtmp</A>() works only if in original directory
+	- file is opened in binary write mode; except MS C version 4.0
+	  opened file in write translate mode
+
+</PRE>
+
+</BODY>
+</HTML>

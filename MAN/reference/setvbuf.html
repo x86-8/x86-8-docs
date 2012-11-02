@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>setvbuf</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int setvbuf( FILE *stream, char *buf, int type, size_t size )</H2>
+
+<PRE>
+
+
+	- prototype in stdio.h
+
+	- causes buf to be used for I/O buffering instead of the auto-
+	  matically allocated buffer; used after given stream is opened
+	  and before output
+	- in setvbuf, if buf is NULL, a buffer is allocated via malloc()
+	- no I/O to the file should occur until after buffering is set
+
+	- see	<A HREF="setbuf.html">setbuf</A>()
+</PRE>
+
+</BODY>
+</HTML>

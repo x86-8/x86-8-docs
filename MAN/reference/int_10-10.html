@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,10</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,10 - Set/Get Palette Registers (EGA/VGA)</H2>
+
+<PRE>
+
+	AH = 10h
+
+<B>	AL = 00  set individual palette register</B>
+	   BH = color value
+	   BL = palette register
+
+
+<B>	AL = 01  set border color (overscan register)</B>
+	   BH = color value
+
+
+<B>	AL = 02  set all palette registers and border</B>
+	   ES:DX = pointer to 17 byte table representing 16 palette
+		   registers and border color register
+
+
+<B>	AL = 03  toggle intensity/blinking (EGA)</B>
+	   BL = 0  enable intensity
+		1  enable blinking
+
+
+<B>	AL = 07  read palette register (PS/2)</B>
+	   BL = palette register to read (0-15)
+
+	on return:
+	  BH = value of palette register
+
+
+<B>	AL = 08  read border color (overscan register, PS/2)</B>
+
+	on return:
+	  BH = value of border color (overscan register)
+
+
+<B>	AL = 09  read palette registers and border (PS/2)</B>
+	   ES:DX = pointer to 17 byte table representing 16 palette
+		   registers and border color register
+
+	on return:
+	ES:DX = pointer to table provided as input
+
+
+<B>	AL = 10  set DAC color register</B>
+	   BX = color register to set
+	   CH = green value
+	   CL = blue value
+	   DH = red value
+
+
+<B>	AL = 12  set block of DAC color registers</B>
+	   BX = first color register to set
+	   CX = number of color registers to set
+	   ES:DX = pointer to table of color values to set
+
+
+<B>	AL = 13  set attribute controller color select state</B>
+	   BL = 0  set Mode Control register bit 7
+	      BH = value for bit 7
+	   BL = 1  set color select register
+	      BH = value for color select register
+
+
+<B>	AL = 15  read DAC color register (PS/2)</B>
+	   BX = color register to read
+
+	on return:
+	CH = green value
+	CL = blue value
+	DH = red value
+
+
+<B>	AL = 17  read block of DAC color registers</B>
+	   BX = first color register to read
+	   CX = number of color registers to read
+	   ES:DX = pointer to buffer for color registers
+
+	on return:
+	ES:DX = pointer to color table provided as input
+
+
+<B>	AL = 18  update video DAC mask register</B>
+	   BL = new mask
+
+
+<B>	AL = 19  read video DAC mask register</B>
+
+	on return:
+	BL = value read from video DAC mask register
+
+
+<B>	AL = 1A  read color page state</B>
+	   BL = bit 7 of Mode Control Register
+	   BH = bits 2 thru 3 of Color select register if BL = 0
+	      = bits 0 thru 3 of Color select register if BL = 1
+
+	on return:
+	BL = current paging mode
+	CX = current page
+
+
+
+<B>	AL = 1B  sum color values to shades of gray</B>
+	   BX = first color register to sum
+	   CX = number of color registers to sum
+
+
+	- controls the pixel color mapping bit values
+	- BIOS extension to EGA/VGA systems
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_setftime</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _dos_setftime(int handle,unsigned date,unsigned time)</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- handle = opened file handle
+	- date = date to set last file write  (see FILE ATTRIBUTES)
+	- time = time to set last file write  (see FILE ATTRIBUTES)
+	- returns 0 on success or DOS error code on failure
+
+	- Turbo C uses <A HREF="setftime.html">setftime</A>()
+	- see	<A HREF="int_21-57.html">INT 21,57</A>   <A HREF="_dos_getftime.html">_dos_getftime</A>()   <A HREF="file_attributes.html">FILE ATTRIBUTES</A>
+</PRE>
+
+</BODY>
+</HTML>

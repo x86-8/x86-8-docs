@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,1 - Keyboard Input with Echo</H2>
+
+<PRE>
+
+
+	AH = 01
+
+
+	on return:
+	AL = character from standard input device
+
+
+	- waits for keyboard input from STDIN and echoes to STDOUT
+	- returns 0 for extended keystroke, then function must be
+	  called again to return scan code
+	- if <A HREF="int_1b.html">Ctrl-Break</A> is detected, <A HREF="int_23.html">INT 23</A> is executed
+
+</PRE>
+
+</BODY>
+</HTML>

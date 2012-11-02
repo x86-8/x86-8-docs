@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>bsr</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>BSR - Bit Scan Reverse  (386+ only)</H2>
+
+<PRE>
+
+
+	Usage:	BSR	dest,src
+	Modifies flags: ZF
+
+
+	Scans source operand for first bit set.  Sets ZF if a bit is found
+	set and loads the destination with an index to first set bit.  Clears
+	ZF is no bits are found set.  BSF scans forward across bit pattern
+	(0-n) while BSR scans in reverse (n-0).
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg,reg 	  -	-   10+3n  6-103	  3
+	reg,mem 	  -	-   10+3n  7-104	 3-7
+	reg32,reg32	  -	-   10+3n  6-103	 3-7
+	reg32,mem32	  -	-   10+3n  7-104	 3-7
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

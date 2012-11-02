@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<TITLE>write</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>int write( int handle, char *buf, int count )</H2>
+
+<PRE>
+
+
+	- prototype in io.h
+
+	- writes "count" bytes from "buf" to file or device at "handle"
+	- converts LF to CR-LF for text output
+	- returns a count of bytes written (excluding any CRs
+	  generated for a text file), or -1 on error
+</PRE>
+
+</BODY>
+</HTML>

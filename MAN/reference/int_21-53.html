@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,53</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,53 - Generate Drive Parameter Table  (Undocumented)</H2>
+
+<PRE>
+
+
+	AH = 53h
+	DS:SI = address of BIOS Parameter Block (<A HREF="bios_parameter_block.html">BPB</A>)
+	ES:BP = pointer to buffer to hold first Drive Parameter Table (<A HREF="drive_parameter_table.html">DPT</A>)
+
+
+	returns:
+	ES:BP = pointer to buffer containing the first Drive Parameter Table
+		in chain
+
+
+	- available since DOS 2.0+
+	- translates BPB  into a DOS Disk Parameter Table
+	- see  <A HREF="int_21-32.html">INT 21,32</A>  <A HREF="int_21-52.html">INT 21,52</A>
+</PRE>
+
+</BODY>
+</HTML>

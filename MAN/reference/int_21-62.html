@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,62</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,62 - Get PSP address  (DOS 3.x)</H2>
+
+<PRE>
+
+
+	AH = 62h
+
+
+	on return:
+	BX = segment address of current process
+
+
+
+	- this is useful for TSR's to access their own file handles
+	- for DOS 2.x use <A HREF="int_21-51.html">INT 21,51</A>
+
+	- see also  <A HREF="int_21-50.html">INT 21,50</A>
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>biosprint</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int biosprint( int cmd, int byte, int port )</H2>
+
+<PRE>
+
+	- prototype in bios.h
+
+	- outputs byte to port
+	- port = 0 (LPT1)
+		 1 (LPT2), etc...
+	- cmd = 0 (print byte);
+		1 (init printer port);
+		2 (get LPT status)
+
+	- returns status of (values are or'd flags):
+	  0x01 time out (cmd=0 means output error)
+	  0x08 I/O error
+	  0x10 selected
+	  0x20 out of paper
+	  0x40 acknowledge
+	  0x80 not busy
+
+	- MS C uses <A HREF="_bios_printer.html">_bios_printer</A>()
+	- see	<A HREF="int_17.html">INT 17</A>
+</PRE>
+
+</BODY>
+</HTML>

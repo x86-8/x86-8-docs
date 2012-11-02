@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,3 - Write Blocks to Cassette (PC,PCjr only)</H2>
+
+<PRE>
+
+
+	AH = 03
+	CX = count of bytes to write
+	ES:BX = pointer to data buffer
+
+
+	on return:
+
+	CX = zero
+	ES:BX = pointer to byte following last byte written
+
+
+	- data is actually written in 256 byte blocks
+	- if CX is less than 256, then the block is padded
+	- no error detection/correction is available for writing
+
+</PRE>
+
+</BODY>
+</HTML>

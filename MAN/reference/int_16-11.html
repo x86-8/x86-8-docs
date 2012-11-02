@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 16,11</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 16,11 - Extended Get Keyboard Status  (AT+)</H2>
+
+<PRE>
+
+
+	AH = 11h
+
+
+	on return:
+	ZF = 0 if key pressed (data waiting)
+	AX = 0 if no scan code is available
+	AH = <A HREF="scan_codes.html">scan code</A>
+	AL = ASCII character or zero if special function key
+
+
+	- available on AT and PS/2 machines with extended keyboard support
+	- data is not removed from buffer
+	- similar to <A HREF="int_16-1.html">INT 16,1</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>device header</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Device Driver Header</H2>
+
+<PRE>
+
+
+<B>     Offset Size		Description</B>
+
+	00   dword  pointer to next device header
+	04   word   attribute  (see <A HREF="device_attributes.html">DEVICE ATTRIBUTE</A>)
+	06   word   pointer to device strategy routine
+	08   word   pointer to device interrupt routine
+	0A  8bytes  name/unit field
+
+
+
+	- see  <A HREF="int_21-44.html">INT 21,44</A> and IOCTL,n where "n" is an IOCTL function
+
+</PRE>
+
+</BODY>
+</HTML>

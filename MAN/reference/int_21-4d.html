@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,4d</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,4D - Get Return Code of Sub-process</H2>
+
+<PRE>
+
+
+	AH = 4D
+
+
+	on return:
+	AH = system exit code  (indicates normal termination)
+	   = 00 for normal termination
+	   = 01 if terminated by ctl-break
+	   = 02 if critical device error
+	   = 03 if terminated by <A HREF="int_21-31.html">INT 21,31</A>
+	AL = child exit code
+
+
+	- retrieve child process and system exit codes
+	- this function can only be used to retrieve the exit code once
+	  multiple attempts to read exit codes will cause errors
+
+</PRE>
+
+</BODY>
+</HTML>

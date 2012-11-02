@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>halloc</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: void huge *halloc( long num, size_t size )</H2>
+
+<PRE>
+
+
+	- prototype in malloc.h
+
+	- num = count of elements to allocate
+	- size = size of each element;	each element is set to zero;
+		 must be a power of 2 if size is over 128K
+	- alignment assures compatibility with all data types (para)
+	- returns pointer to allocated block on success or NULL on failure
+	- allocates memory directly from DOS
+
+	- see	<A HREF="hfree.html">hfree</A>()
+</PRE>
+
+</BODY>
+</HTML>

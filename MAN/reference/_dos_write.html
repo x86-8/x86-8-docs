@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_write</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	   MSC: unsigned _dos_write( int handle, void far *buffer,</B>
+<B>					unsigned count, unsigned *nbytes )</B>
+
+
+	- prototype in dos.h
+
+	- handle = opened file handle
+	- buffer = buffer of data to write to file
+	- count = number of bytes to write
+	- nbytes = receives the number of bytes actually written
+	- returns 0 on success or DOS error code on failure
+
+	- Turbo C uses <A HREF="_write.html">_write</A>()
+	- see	<A HREF="int_21-40.html">INT 21,40</A>   <A HREF="_dos_open.html">_dos_open</A>()  <A HREF="_dos_close.html">_dos_close</A>()  <A HREF="_dos_read.html">_dos_read</A>()
+</PRE>
+
+</BODY>
+</HTML>

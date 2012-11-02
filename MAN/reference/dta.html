@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>DTA</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DTA - Disk Transfer Area  (partially undocumented)</H2>
+
+<PRE>
+
+	DTA contains data, of which the first 21 bytes (00-15h) are known
+	as being "reserved for DOS use on subsequent find next calls"
+
+<B>     Offset Size	   Description</B>
+
+	00   byte	attribute of search (undocumented)
+	01   byte	drive used in search  (undocumented)
+	02  11bytes	search name used (undocumented)
+	0D   word	directory entry number (0 based, DOS 3.x+, undoc.)
+	0F   word	starting cluster number of current directory
+			zero for root directory	(DOS 3.x+, undocumented)
+	11   word	reserved (undocumented)
+	13   word	starting cluster number of current directory
+			zero for root directory	(DOS 2.x+, undocumented)
+	15   byte	attribute of matching file
+	16   word	file time  (see <A HREF="file_attributes.html">FILE ATTRIBUTES</A>)
+	18   word	file date  (see FILE ATTRIBUTES)
+	1A   word	file size
+	1E 13bytes	ASCIIZ filename and extension in the form NAME.EXT
+			with blanks stripped
+
+
+	- fields of DTA change dependent upon function call in progress
+	- the <A HREF="dta.html">DTA</A> cannot span a 64K segment boundary
+	- for compatibility with CP/M the default DTA is at offset 80h
+	  in the <A HREF="program_segment_prefix.html">PSP</A>;  this area is also used for the command tail. To
+	  avoid collision, set another DTA (INT 21,1A) or preserve the
+	  command tail before using <A HREF="fcb.html">FCB</A> function calls
+
+	- see  <A HREF="int_21-4e.html">INT 21,4E</A>  <A HREF="int_21-1a.html">INT 21,1A</A>  <A HREF="int_21-2f.html">INT 21,2F</A>
+
+</PRE>
+
+</BODY>
+</HTML>

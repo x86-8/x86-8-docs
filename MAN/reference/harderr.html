@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>harderr</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void harderr( int (*fptr)())</H2>
+
+<PRE>
+
+	- prototype in dos.h
+
+	- harderr() establishes a hardware error handler for current
+	  program, invoked wherever interrupt 0x24 occurs
+	- function fptr is called when such an interrupt occurs
+	- handler function will be called with the following
+	  arguments= handler( int errval, int ax, int bp, int si)
+	  where errval is error code in DI register by MS-DOS, and
+	  ax, bp, si are values MS-DOS has in AX, BP, and SI regs
+	- ax indicates if disk or other device error occurs;  if ax is
+	  not negative, then disk error, else device error.  For disk
+	  error, ax ANDed with 0x00ff will give bad drive number
+	- bp and si together point to device driver header
+	- hardresume() may be called with rescode to return
+	  to MS-DOS, where rescode is
+
+		2 - for abort
+		1 - retry
+		0 - ignore
+
+	- hardrtn() may be called to return directly to the application
+	- handler must return:
+
+		  0 - ignore
+		  1 - retry
+		  2 - abort
+
+	- handler may issue DOS calls 1 through 0xC, but no others, and
+	  no C standard I/O or UNIX I/O calls may be used
+	- MS C uses _harderr()
+
+	- see  <A HREF="hardresume.html">hardresume</A>()  <A HREF="hardretn.html">hardretn</A>()  <A HREF="int_24.html">INT 24</A>
+</PRE>
+
+</BODY>
+</HTML>

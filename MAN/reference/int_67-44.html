@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,44</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,44 - Map Logical Page Into Physical Page Window (LIM EMS)</H2>
+
+<PRE>
+
+
+	AH = 44h
+	AL = physical page number (0-3)
+	BX = logical page number (0 to total allocated minus 1)
+	DX = EMM handle
+
+
+	on return:
+	AH = 00  success
+	   = error code (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+
+	- registers not listed are preserved
+
+</PRE>
+
+</BODY>
+</HTML>

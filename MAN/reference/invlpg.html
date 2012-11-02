@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>invlpg</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INVLPG - Invalidate Translation Look-Aside Buffer Entry  (486+ only)</H2>
+
+<PRE>
+
+
+	Usage:	INVLPG
+	Modifies flags: none
+
+
+	Invalidates a single page table entry in the Translation
+	Look-Aside Buffer.  Intel warns that this instruction may be
+	implemented differently on future processors.
+
+	
+<B>				  Clocks		Size</B>
+<B>	Operands	 808x	286   386   486		Bytes</B>
+
+	none		  -	 -     -     12		  2
+
+
+	- timing is for TLB entry hit only.
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE>drive parameter table</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DPT/DPB - Drive Parameter Table / Disk Parameter Block</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   byte	drive (0 = A, 1 = B)
+	01   byte	unit within device, usually equals drive (ramdisk=0)
+	02   word	bytes per sector
+	04   byte	sectors per cluster minus 1
+	05   byte	sectors per cluster (times to shift left or x2)
+	06   word	number of sectors before FAT (boot sectors)
+	08   byte	number of <A HREF="fat.html">FAT</A> copies
+	09   word	number of root directory entries
+	0B   word	number of first data sector
+	0D   word	total number of clusters plus 1
+	0F   byte	number of sectors used by first FAT
+
+<B>	The following fields are DOS version dependant</B>
+
+	10   word	number of first sector in root directory
+	12   dword	far pointer to current disk device header
+	16   byte	media descriptor byte (see <A HREF="media_descriptor_byte.html">MEDIA DESCRIPTOR</A>)
+	17   byte	zero if disk accessed, (default=FF, must rebuild <A HREF="drive_parameter_table.html">DPB</A>)
+	18   dword	far pointer to next drive parameter table; offset
+			is set to FFFFh if last block in chain
+	1C   word	current directory cluster number; 0=root
+	1E  64bytes	ASCIIZ current working directory
+
+
+</PRE>
+
+<H2 ALIGN=Center>Fields differing in DOS 3.x</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+	1C   word	starting cluster for free space search
+	1E  64bytes	number of free clusters; FFFFh = unknown
+
+
+</PRE>
+
+<H2 ALIGN=Center>Fields differing in DOS 4.x</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+	11   word	first sector of root directory
+	13   dword	far pointer to current disk device header
+	17   byte	media descriptor byte (see <A HREF="media_descriptor_byte.html">MEDIA DESCRIPTOR</A>)
+	18   byte	zero if disk accessed, (default=FF, must rebuild <A HREF="drive_parameter_table.html">DPB</A>)
+	19   dword	pointer to next drive parameter table; offset
+			is set to FFFFh if last block in chain
+	1D   word	starting cluster for free space search
+	1F   word	number of free clusters, FFFFh = unknown
+
+
+	- <A HREF="int_21-32.html">INT 21,32</A> which is used to read this data resets accessed byte at
+	  offset 17h or 18h (depending on DOS version)
+	- dword at offset 12h & 13h aren't supported in OS/2 compatability box
+	- sector references are DOS logical sectors
+	- see	<A HREF="dbt.html">Disk Base Table</A>  <A HREF="bios_parameter_block.html">BPB</A>  <A HREF="int_21-1f.html">INT 21,1F</A>  <A HREF="int_21-32.html">INT 21,32</A>
+</PRE>
+
+</BODY>
+</HTML>

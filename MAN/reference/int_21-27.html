@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,27</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,27 - Random Block Read Using FCB</H2>
+
+<PRE>
+
+
+	AH = 27h
+	CX = number of records to read
+	DS:DX = pointer to an opened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if read was successful
+	   = 01 if EOF (no data read)
+	   = 02 if <A HREF="dta.html">DTA</A> is too small
+	   = 03 if EOF (partial record read)
+	CX = actual number of records read
+
+
+	- allows random access and sequential reading of a group
+	  of records from a file opened with an FCB into the DTA
+	- FCB must be setup with drive id, filename, extension
+	  record length and random record number before call
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,0 - Program Terminate</H2>
+
+<PRE>
+
+
+	AH = 00
+	CS = <A HREF="program_segment_prefix.html">PSP</A> segment address
+
+
+	returns nothing
+
+
+	- restores the terminate, <A HREF="int_1b.html">Ctrl-Break</A>, and critical error
+	  exit addresses, flushes all buffers, frees memory
+	  and returns to DOS via the termination handler address
+	- does not close <A HREF="fcb.html">FCB</A>s
+	- this function is no longer recommended, but can be used by
+	  version of DOS before 2.0, see  <A HREF="int_21-4c.html">INT 21,4C</A>  and  <A HREF="int_20.html">INT 20</A>
+
+</PRE>
+
+</BODY>
+</HTML>

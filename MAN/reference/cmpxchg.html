@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>cmpxchg</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>CMPXCHG - Compare and Exchange</H2>
+
+<PRE>
+
+	Usage:	CMPXCHG	dest,src  (486+)
+	Modifies flags: AF CF OF PF SF ZF
+
+
+	Compares the accumulator (8-32 bits) with "dest".  If equal the
+	"dest" is loaded with "src", otherwise the accumulator is loaded
+	with "dest".
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg,reg		  -	-     -     6		  2
+	mem,reg		  -     -     -     7		  2
+
+
+	- add 3 clocks if the "mem,reg" comparison fails
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

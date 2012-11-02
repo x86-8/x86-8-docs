@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,5d</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,5D - Enable/Disable OS Functions  (LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 5D
+	AL = 00  enable OS function Set
+	     01  disable OS function Set
+	     02  return access key
+	BX,CX = access key returned by first invocation
+
+
+	on return:
+	AH = status  (see <A HREF="int_67-40.html">EMS STATUS</A>)
+	BX,CX = access key, returned only on first invocation of function
+
+
+	- function 2 resets memory manager, returns access key at next
+	  invocation
+
+</PRE>
+
+</BODY>
+</HTML>

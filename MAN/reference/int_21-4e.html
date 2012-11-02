@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,4e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,4E - Find First Matching File</H2>
+
+<PRE>
+
+	AH = 4E
+	CX = attribute used during search  (see <A HREF="file_attributes.html">FILE ATTRIBUTES</A>)
+	DS:DX = pointer to ASCIIZ filespec, including wildcards
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODE</A>)
+	<A HREF="dta.html">DTA</A> = data returned from call in the format:
+
+<B>	Offset Size	 Description</B>
+
+	  00   byte    attribute of search (undocumented)
+	       byte    drive letter used in search (DOS 3.1-4.x, undocumented)
+	  01   byte    drive letter used in search (undocumented)
+	     11bytes   search name used (DOS 3.1-4.x, undocumented)
+	  02 11bytes   search name used (undocumented)
+	  0C   byte    attribute of search (DOS 3.1-4.x, undocumented)
+	  0D   word    directory entry number (0 based, undocumented)
+	  0F   word    starting cluster number of current directory; zero
+		       for root directory  (DOS 3.2+, undocumented)
+	       dword   pointer to DTA (DOS 2.x-3.1, undocumented)
+	  11   word    reserved
+	  13   word    starting cluster number of current directory; zero
+		       for root directory  (DOS 2.x+, undocumented)
+	  15   byte    attribute of matching file
+	  16   word    file time  (see <A HREF="file_attributes.html">FILE ATTRIBUTES</A>)
+	  18   word    file date  (see FILE ATTRIBUTES)
+	  1A   word    file size
+	  1E 13bytes   ASCIIZ filename and extension in the form NAME.EXT
+		       with blanks stripped
+
+	- returns information on first file matching specifications
+	- use <A HREF="int_21-4f.html">INT 21,4F</A> to retrieve following file matches
+	- DOS 2.x cannot find . and .. entries, while DOS 3.x can unless
+	  they represent the root directory
+	- character devices return a zero for size, time and date in DOS 2.x,
+	  while DOS 3.0 returns a 40h attribute and current time and date.
+	- multiple calls to this function with a character device will
+	  result in unpredictable results
+	- normal files are always included along with files that match the
+	  requested attributes except when the LABEL attribute is requested.
+	  DOS 2.x returns all normal files when label is specified but 3.x
+	  doesn't.  It's up to the programmer to determine which actually
+	  match the requested attributes.
+	- bit 8 of CX (file attributes) indicates Novell Netware shareable
+	- see	INT 21,1A
+
+</PRE>
+
+</BODY>
+</HTML>

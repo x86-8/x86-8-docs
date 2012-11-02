@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>int</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT - Interrupt</H2>
+
+<PRE>
+
+
+	Usage:	INT	num
+	Modifies flags: TF IF
+
+	Initiates a software interrupt by pushing the flags, clearing the
+	Trap and Interrupt Flags, pushing CS followed by IP and loading
+	CS:IP with the value found in the interrupt vector table.  Execution
+	then begins at the location addressed by the new CS:IP
+
+
+<B>					       Clocks		Size</B>
+<B>	    Operands			808x  286   386   486	Bytes</B>
+
+ 3 (constant)	       		       52/72  23+m   33    26	  2
+ 3 (prot. mode, same priv.)		 -    40+m   59	   44	  2	  
+ 3 (prot. mode, more priv.)		 -    78+m   99	   71	  2
+ 3 (from VM86 to PL 0)			 -     -    119	   82	  2
+ 3 (prot. mode via task gate)		 -   167+m   TS	 37+TS	  2
+ immed8				       51/71  23+m   37    30 	  1
+ immed8 (prot. mode, same priv.)	 -    40+m   59	   44	  1
+ immed8 (prot. mode, more priv.)	 -    78+m   99	   71	  1
+ immed8 (from VM86 to PL 0)		 -     -    119	   86	  1
+ immed8 (prot. mode, via task gate)	 -   167+m   TS	 37+TS	  1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

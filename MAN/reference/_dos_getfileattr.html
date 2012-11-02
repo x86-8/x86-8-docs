@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_getfileattr</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _dos_getfileattr( char *path, unsigned *attr )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- path = any valid DOS file name
+	- attr = file attribute:
+
+		_A_NORMAL
+		_A_RDONLY
+		_A_HIDDEN
+		_A_SYSTEM
+		_A_VOLID
+		_A_SUBDIR
+		_A_ARCH
+
+	- returns zero on success; nonzero on failure
+	- no corresponding function in Turbo C
+	- see	<A HREF="int_21-43.html">INT 21,43</A>
+</PRE>
+
+</BODY>
+</HTML>

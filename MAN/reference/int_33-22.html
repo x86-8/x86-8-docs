@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,22</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,22 - Set Language for Messages</H2>
+
+<PRE>
+
+	AX = 22h
+	BX = language number (with /L switch value):
+	   = 0	English     n/a
+	   = 1	French	    F
+	   = 2	Dutch	    NL
+	   = 3	German	    D
+	   = 4	Swedish     S
+	   = 5	Finnish     SF
+	   = 6	Spanish     E
+	   = 7	Portuguese  P
+	   = 8	Italian     I
+
+
+	returns nothing
+
+
+	- only works with international version of the mouse driver
+	- see	<A HREF="int_33-23.html">INT 33,23</A>
+</PRE>
+
+</BODY>
+</HTML>

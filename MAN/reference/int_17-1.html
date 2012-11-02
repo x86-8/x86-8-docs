@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 17,1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 17,1 - Initialize Printer Port</H2>
+
+<PRE>
+
+
+	AH = 01
+	DX = printer port to initialize (0-2)
+
+
+	on return:
+	AH = status, see <A HREF="int_17.html">INT 17,STATUS</A>
+
+
+	- initializes printer port and returns status
+	- outputs characters 0x08 and 0x0C to printer port which
+	  reset <A HREF="epson_printer_codes.html">Epson</A> and IBM printers, but may produce undesirable
+	  effects on other printers
+
+</PRE>
+
+</BODY>
+</HTML>

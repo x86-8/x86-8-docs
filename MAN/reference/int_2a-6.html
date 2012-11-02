@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 2a,6</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2A,6 - Network Print Stream Control</H2>
+
+<PRE>
+
+
+	AH = 06
+	AL = 01 set concatenation mode where all printer output is placed
+		in one job
+	   = 02 set truncation mode where each printer open and printer
+		close starts a new job
+	   = 03 flush printer output then start a new print job (similar to
+		pressing Ctrl-Alt-Kp-* )
+	
+	
+	on return:
+	AX = error code if CF set
+
+
+	- allows control of network printers
+</PRE>
+
+</BODY>
+</HTML>

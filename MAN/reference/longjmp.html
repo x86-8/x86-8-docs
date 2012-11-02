@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<TITLE>longjmp</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>void longjmp( jmp_buf env, int id )</H2>
+
+<PRE>
+
+
+	- prototype in setjmp.h
+
+	- call to longjmp() with env restores task state (set by <A HREF="setjmp.html">setjmp</A>()),
+	  returning value id
+	- cannot return 0; if id == 0, returns 1
+</PRE>
+
+</BODY>
+</HTML>

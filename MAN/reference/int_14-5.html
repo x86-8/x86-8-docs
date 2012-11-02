@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>int 14,5</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 14,5 - Extended Communication Port Control (PS/2 & later systems)</H2>
+
+<PRE>
+
+	AH = 05
+	AL = read or write modem control register
+	   = 00 read modem control register
+	   = 01 read modem control register
+	DX = zero based serial port number (0-1) (0-3 for AT)
+
+	BL = modem control register
+
+		|7|6|5|4|3|2|1|0|	BL
+		 | | | | | | | `---- 1 = activate data terminal ready
+		 | | | | | | `----- 1 = activate request to send
+		 | | | | | `------ OUT1
+		 | | | | `------- OUT2
+		 | | | `-------- 0 = normal, 1 = loopback test
+		 `------------- reserved, forced to zero
+
+	on return:
+	AH = port status
+	AL = modem status
+	BL = <A HREF="8250.html">UART</A> modem control register
+
+	- for status bits see <A HREF="int_14.html">INT 14,STATUS</A>
+
+</PRE>
+
+</BODY>
+</HTML>

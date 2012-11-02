@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,30</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,30 - Get DOS Version Number</H2>
+
+<PRE>
+
+
+	AH = 30h
+
+
+	on return:
+	AL = major version number (2-5)
+	AH = minor version number (in hundredths decimal)
+	BH = FF  indicates MS-DOS, only if OEM vendor chooses to identify
+	   = 00  indicates PC-DOS
+	BL:CX = 24 bit OEM serial number if BH is FF
+
+
+	- for an example DOS version 2.1 returns AL=2 and AH=10
+	- DOS versions prior to DOS 2.0 return zero in AH and AL
+	- DOS version 4.0 and 4.1 usually return the same value of 4.00
+	- the OEM serial number is a rarity, though some older OEM DOS
+	  versions implemented this feature
+	- the OS/2 compatibility box returns 10.10 for OS/2 1.1, 10.20
+	  for OS/2 1.2, etc...
+	- when testing for version, a specific test can often cause your
+	  code to not work in following versions of DOS.  It is often better
+	  to test for a version number greater or equal to the minimum rather
+	  than a specific version number where possible
+	- see <A HREF="dos_versions.html">DOS Versions</A>
+</PRE>
+
+</BODY>
+</HTML>

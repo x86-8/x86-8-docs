@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<TITLE>dosexterr</TITLE>
+</HEAD>
+
+<BODY><PRE><B>		TC:  int dosexterr( struct DOSERR *errinfo )</B>
+<B>		MSC: int dosexterr( struct DOSERROR *errinfo )</B>
+
+
+	- prototype in dos.h
+
+	- returns extended error information (unique to MSDOS 3.0+)
+	- errinfo is pointer to DOSERR/DOSERROR structure (defined in dos.h)
+	- if 0 returned, previous DOS call did not result in error
+	- see   perror
+</PRE>
+
+</BODY>
+</HTML>

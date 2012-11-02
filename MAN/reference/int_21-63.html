@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,63</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,63 - Get Lead Byte Table  (MSDOS 2.25 only)</H2>
+
+<PRE>
+
+<B>	See below for information on the Asian INT 21,63 specifications</B>
+
+	AH = 63h
+	AL = 00  get address of system lead byte table
+	   = 01  set or clear interim console flag
+	   = 02  get value of interim console flag
+	DL = 00  clear interim console flag (when AL=01)
+	   = 01  set interim console flag (when AL=01)
+
+	on return
+	AX = error code if CF set
+	DS:SI = far pointer to lead byte table (AL=00)
+	DL = value of interim console flag (AL=02)
+
+	- available only in MSDOS 2.25
+	- provides multiple byte character support
+	- function 00, returns the address of system table containing
+	  legal lead byte ranges
+	- function 01 & 02 set and get the interim console flag which
+	  determines whether interim bytes are returned on some console
+	  functions
+	- all registers except CS:IP and SS:SP may be destroyed
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,63 - Get Lead Byte Table  (Asian DOS 3.2+)</H2>
+
+<PRE>
+
+	AH = 63h
+	AL = 00  get address of Double Byte Character Set (DBCS) lead table
+	   = 01  set Hongeul (Korean) input mode
+	   = 02  get Hongeul (Korean) input mode
+	DL = new keyboard input mode
+	   = 00  return completely formed characters only
+	   = 01  return partially formed characters also
+
+
+	on return
+	AL = 00 on success
+	   = FF if function not supported
+	DS:SI = pointer to DBCS table  (function 00)
+	DL = current keyboard input mode (function 02)
+	   = 00  only completely formed characters are accepted
+	   = 01  partially formed characters are accepted
+
+
+	- available only in Asian MSDOS 3.2+
+	- provides Asian multiple byte character support
+	- all registers except CS:IP and SS:SP may be destroyed
+	- DOS 4.0 returns an empty list
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_chain_intr</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: void _chain_intr( void (interrupt far *target)() )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- chains from one interrupt handler to another;  sets up the
+	  stack as if the interrupt was called directly by pushing the
+	  flags and the original return address on the stack
+	- this function does not return to caller but returns to the
+	  code where the interrupt occurred
+	- no corresponding function in Turbo C
+
+</PRE>
+
+</BODY>
+</HTML>

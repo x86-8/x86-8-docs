@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>sldt</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>SLDT - Store Local Descriptor Table (286+ privileged)</H2>
+
+<PRE>
+
+
+	Usage:	SLDT	dest
+	Modifies flags: none
+
+
+	Stores the Local Descriptor Table (LDT) Register into the
+	specified operand.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16		  -	2     2	    2		  3
+	mem16		  -	2     2	    3		  5
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

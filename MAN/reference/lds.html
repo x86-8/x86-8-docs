@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>lds</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>LDS - Load Pointer Using DS</H2>
+
+<PRE>
+
+	Usage:	LDS	dest,src
+	Modifies flags: None
+
+
+	Loads 32-bit pointer from memory source to destination register
+	and DS.  The offset is placed in the destination register and the
+	segment is placed in DS.  To use this instruction the word at the
+	lower memory address must contain the offset and the word at the
+	higher address must contain the segment.  This simplifies the loading
+	of far pointers from the stack and the interrupt vector table.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	reg16,mem32	16+EA	7     7	    6		 2-4
+	reg,mem (PM)	  -	-     22    12		 5-7
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

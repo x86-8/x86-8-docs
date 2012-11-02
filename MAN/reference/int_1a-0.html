@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 1a,0</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1A,0 - Read System Clock Counter</H2>
+
+<PRE>
+
+
+	AH = 00
+
+
+	on return:
+	AL = midnight flag, 1 if 24 hours passed since reset
+	CX = high order word of tick count
+	DX = low order word of tick count
+
+
+	- incremented approximately 18.206 times per second
+	- at midnight CX:DX is zero
+	- this function can be called in a program to assure the date is
+	  updated after midnight;  this will avoid the passing two midnights
+	  date problem
+</PRE>
+
+</BODY>
+</HTML>

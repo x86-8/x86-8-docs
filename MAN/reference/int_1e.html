@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>int 1e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1E - Disk Initialization Parameter Table Vector</H2>
+
+<PRE>
+
+	- not an interrupt, but a far pointer to the diskette base table
+	- this table contains initialization parameters for the disk
+	  controller used during formatting, reading, and writing to a disk
+
+<B>	Disk Initialization Parameter Table Vector Definition:</B>
+
+<B>	Offset	   Description</B>
+
+	  00  |7|6|5|4|3|2|1|0|  Disk Controller Mode byte 1
+	       | | | | `----------  head step rate in milliseconds (0-F)
+	       `-----------------  head unload time in milliseconds (0-F)
+
+	  01  |7|6|5|4|3|2|1|0|  Disk Controller Mode byte 2
+	       | | | | | | | `---- DMA flag (0 = use DMA)
+	       `----------------- (head load time/2)-1 in milliseconds
+
+	  02  clock ticks until motor off
+	  03  FM or MFM Mode:  Log2 (Bytes per Sector/128)
+	      FM=Frequency Modulation used on single-density disks
+	      MFM=Modified Frequency Modulation used on double-sided disks
+	  04  last sector on track
+	  05  gap length in bytes:
+
+		     Bytes Per	 Sectors     Write    Format
+	      MFM     Sector	Per Track     Gap	Gap
+	       1	256	    18	      0Ah	0Ch
+	       1	256	    16	      20h	32h
+	       2	512	     8	      2Ah	50h
+	       2	512	     9	      1Bh	6Ch
+	       3       1024	     4	      80h	F0h
+	       4       2048	     2	      C8h	FFh
+	       5       4096	     1	      C8h	FFh
+
+	  06  disk data length
+	      80h for 128 bytes/sector
+	      FFh otherwise
+	  07  gap length when formatting
+	  08  data pattern used during formatting
+	  09  floppy head bounce delay (in milliseconds)
+	  0A  floppy motor start delay (in 0.125 second intervals)
+	  0B  floppy motor stop delay (in 0.25 second intervals)
+
+	- see <A HREF="int_13-18.html">INT 13,18</A>
+
+</PRE>
+
+</BODY>
+</HTML>

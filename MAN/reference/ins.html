@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>ins</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INS - Input String from Port  (80188+)</H2>
+
+<PRE>
+
+
+	Usage:	INS	dest,port
+		INSB
+		INSW
+		INSD  (386+ only)
+	Modifies flags: None
+
+	Loads data from port to the destination ES:(E)DI  (even if a
+	destination operand is supplied).  (E)DI is adjusted by the size
+	of the operand and increased if the Direction Flag is cleared and
+	decreased if the Direction Flag is set.  For INSB, INSW, INSD no
+	operands are allowed and the size is determined by the mnemonic.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386    486		Bytes</B>
+
+	dest,port	  -	5     15     17		  1
+	dest,port (PM)	  -	5    9/29 10/32/30	  1
+	none		  -	5     15     17		  1
+	none (PM)	  -	5    9/29 10/32/30	  1
+
+
+	- 386+ protected mode timings depend on privilege levels.
+
+	  first number is the timing if:    CPL ó IOPL
+	  second number is the timing if:   CPL > IOPL
+	  third number is the timing if:    virtual mode on 486 processor
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

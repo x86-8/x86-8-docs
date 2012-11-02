@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 14,1</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 14,1 - Send Character to Communications Port</H2>
+
+<PRE>
+
+
+	AH = 01
+	AL = character to send
+	DX = zero based serial port number (0-1) (0-3 for AT)
+
+
+	on return:
+	AH = port status  (see <A HREF="int_14.html">INT 14,STATUS</A>)
+	     bit 7=0 indicates success
+	     bit 7=1 indicates error, bits 0-6 indicate cause
+
+
+	- <A HREF="int_14-3.html">INT 14,3</A> should be used to determine the actual cause
+	  of the error since the time-out bit of the status register
+	  is always set during an error on this call
+	- uses hardware flow control
+</PRE>
+
+</BODY>
+</HTML>

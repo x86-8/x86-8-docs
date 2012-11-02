@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,88</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,88 - Extended Memory Size Determination</H2>
+
+<PRE>
+
+
+	AH = 88h
+
+
+	on return:
+	CF = 80h for PC, PCjr
+	   = 86h for XT and Model 30
+	   = other machines, set for error, clear for success
+	AX = number of contiguous 1k blocks of memory starting
+	     at address 1024k (100000h)
+
+
+	- works only on 80286 and 80386 machines
+	- retrieves bytes 30 and 31 from the <A HREF="cmos_ram.html">CMOS</A> RAM (this data is set
+	  by the boot memory scan
+</PRE>
+
+</BODY>
+</HTML>

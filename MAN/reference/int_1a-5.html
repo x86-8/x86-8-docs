@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>int 1a,5</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1A,5 - Set Real Time Clock Date  (XT 286,AT,PS/2)</H2>
+
+<PRE>
+
+
+	AH = 05
+	CH = century in BCD (decimal 19 or 20)
+	CL = year in BCD
+	DH = month in BCD
+	DL = day in BCD
+
+
+	returns nothing
+
+
+	- all values must be in BCD
+	- see	<A HREF="cmos_ram.html">RTC</A>
+</PRE>
+
+</BODY>
+</HTML>

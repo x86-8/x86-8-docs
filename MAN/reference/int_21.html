@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<TITLE>int 21</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21 - DOS Function Dispatcher</H2>
+
+<PRE>
+
+</PRE>
+
+<H2 ALIGN=Center>For more information, see the following topics:</H2>
+
+<PRE>
+
+	<A HREF="int_21-0.html">INT 21,0</A>  Program terminate
+	<A HREF="int_21-1.html">INT 21,1</A>  Keyboard input with echo
+	<A HREF="int_21-2.html">INT 21,2</A>  Display output
+	<A HREF="int_21-3.html">INT 21,3</A>  Wait for auxiliary device input
+	<A HREF="int_21-4.html">INT 21,4</A>  Auxiliary output
+	<A HREF="int_21-5.html">INT 21,5</A>  Printer output
+	<A HREF="int_21-6.html">INT 21,6</A>  Direct console I/O
+	<A HREF="int_21-7.html">INT 21,7</A>  Wait for direct console input without echo
+	<A HREF="int_21-8.html">INT 21,8</A>  Wait for console input without echo
+	<A HREF="int_21-9.html">INT 21,9</A>  Print string
+	<A HREF="int_21-a.html">INT 21,A</A>  Buffered keyboard input
+	<A HREF="int_21-b.html">INT 21,B</A>  Check standard input status
+	<A HREF="int_21-c.html">INT 21,C</A>  Clear keyboard buffer, invoke keyboard function
+	<A HREF="int_21-d.html">INT 21,D</A>  Disk reset
+	<A HREF="int_21-e.html">INT 21,E</A>  Select disk
+	<A HREF="int_21-f.html">INT 21,F</A>  Open file using <A HREF="fcb.html">FCB</A>
+	<A HREF="int_21-10.html">INT 21,10</A>  Close file using FCB
+	<A HREF="int_21-11.html">INT 21,11</A>  Search for first entry using FCB
+	<A HREF="int_21-12.html">INT 21,12</A>  Search for next entry using FCB
+	<A HREF="int_21-13.html">INT 21,13</A>  Delete file using FCB
+	<A HREF="int_21-14.html">INT 21,14</A>  Sequential read using FCB
+	<A HREF="int_21-15.html">INT 21,15</A>  Sequential write using FCB
+	<A HREF="int_21-16.html">INT 21,16</A>  Create a file using FCB
+	<A HREF="int_21-17.html">INT 21,17</A>  Rename file using FCB
+	INT 21,18  DOS dummy function (CP/M) (not used/listed)
+	<A HREF="int_21-19.html">INT 21,19</A>  Get current default drive
+	<A HREF="int_21-1a.html">INT 21,1A</A>  Set disk transfer address
+	<A HREF="int_21-1b.html">INT 21,1B</A>  Get allocation table information
+	<A HREF="int_21-1c.html">INT 21,1C</A>  Get allocation table info for specific device
+	INT 21,1D  DOS dummy function (CP/M) (not used/listed)
+	INT 21,1E  DOS dummy function (CP/M) (not used/listed)
+	<A HREF="int_21-1f.html">INT 21,1F</A>  Get pointer to default drive parameter table (undocumented)
+	INT 21,20  DOS dummy function (CP/M) (not used/listed)
+	<A HREF="int_21-21.html">INT 21,21</A>  Random read using <A HREF="fcb.html">FCB</A>
+	<A HREF="int_21-22.html">INT 21,22</A>  Random write using FCB
+	<A HREF="int_21-23.html">INT 21,23</A>  Get file size using FCB
+	<A HREF="int_21-24.html">INT 21,24</A>  Set relative record field for FCB
+	<A HREF="int_21-25.html">INT 21,25</A>  Set interrupt vector
+	<A HREF="int_21-26.html">INT 21,26</A>  Create new program segment
+	<A HREF="int_21-27.html">INT 21,27</A>  Random block read using FCB
+	<A HREF="int_21-28.html">INT 21,28</A>  Random block write using FCB
+	<A HREF="int_21-29.html">INT 21,29</A>  Parse filename for FCB
+	<A HREF="int_21-2a.html">INT 21,2A</A>  Get date
+	<A HREF="int_21-2b.html">INT 21,2B</A>  Set date
+	<A HREF="int_21-2c.html">INT 21,2C</A>  Get time
+	<A HREF="int_21-2d.html">INT 21,2D</A>  Set time
+	<A HREF="int_21-2e.html">INT 21,2E</A>  Set/reset verify switch
+	<A HREF="int_21-2f.html">INT 21,2F</A>  Get disk transfer address
+	<A HREF="int_21-30.html">INT 21,30</A>  Get DOS version number
+	<A HREF="int_21-31.html">INT 21,31</A>  Terminate process and remain resident
+	<A HREF="int_21-32.html">INT 21,32</A>  Get pointer to drive parameter table (undocumented)
+	<A HREF="int_21-33.html">INT 21,33</A>  Get/set <A HREF="int_1b.html">Ctrl-Break</A> check state & get boot drive
+	<A HREF="int_21-34.html">INT 21,34</A>  Get address to DOS critical flag (undocumented)
+	<A HREF="int_21-35.html">INT 21,35</A>  Get vector
+	<A HREF="int_21-36.html">INT 21,36</A>  Get disk free space
+	<A HREF="int_21-37.html">INT 21,37</A>  Get/set switch character (undocumented)
+	<A HREF="int_21-38.html">INT 21,38</A>  Get/set country dependent information
+	<A HREF="int_21-39.html">INT 21,39</A>  Create subdirectory (mkdir)
+	<A HREF="int_21-3a.html">INT 21,3A</A>  Remove subdirectory (rmdir)
+	<A HREF="int_21-3b.html">INT 21,3B</A>  Change current subdirectory (chdir)
+	<A HREF="int_21-3c.html">INT 21,3C</A>  Create file using handle
+	<A HREF="int_21-3d.html">INT 21,3D</A>  Open file using handle
+	<A HREF="int_21-3e.html">INT 21,3E</A>  Close file using handle
+	<A HREF="int_21-3f.html">INT 21,3F</A>  Read file or device using handle
+	<A HREF="int_21-40.html">INT 21,40</A>  Write file or device using handle
+	<A HREF="int_21-41.html">INT 21,41</A>  Delete file
+	<A HREF="int_21-42.html">INT 21,42</A>  Move file pointer using handle
+	<A HREF="int_21-43.html">INT 21,43</A>  Change file mode
+	<A HREF="int_21-44.html">INT 21,44</A>  I/O control for devices (<A HREF="ioctl.html">IOCTL</A>)
+	<A HREF="int_21-45.html">INT 21,45</A>  Duplicate file handle
+	<A HREF="int_21-46.html">INT 21,46</A>  Force duplicate file handle
+	<A HREF="int_21-47.html">INT 21,47</A>  Get current directory
+	<A HREF="int_21-48.html">INT 21,48</A>  Allocate memory blocks
+	<A HREF="int_21-49.html">INT 21,49</A>  Free allocated memory blocks
+	<A HREF="int_21-4a.html">INT 21,4A</A>  Modify allocated memory blocks
+	<A HREF="int_21-4b.html">INT 21,4B</A>  EXEC load and execute program (func 1 undocumented)
+	<A HREF="int_21-4c.html">INT 21,4C</A>  Terminate process with return code
+	<A HREF="int_21-4d.html">INT 21,4D</A>  Get return code of a sub-process
+	<A HREF="int_21-4e.html">INT 21,4E</A>  Find first matching file
+	<A HREF="int_21-4f.html">INT 21,4F</A>  Find next matching file
+	<A HREF="int_21-50.html">INT 21,50</A>  Set current process id (undocumented)
+	<A HREF="int_21-51.html">INT 21,51</A>  Get current process id (undocumented)
+	<A HREF="int_21-52.html">INT 21,52</A>  Get pointer to DOS "INVARS" (undocumented)
+	<A HREF="int_21-53.html">INT 21,53</A>  Generate drive parameter table (undocumented)
+	<A HREF="int_21-54.html">INT 21,54</A>  Get verify setting
+	<A HREF="int_21-55.html">INT 21,55</A>  Create <A HREF="program_segment_prefix.html">PSP</A> (undocumented)
+	<A HREF="int_21-56.html">INT 21,56</A>  Rename file
+	<A HREF="int_21-57.html">INT 21,57</A>  Get/set file date and time using handle
+	<A HREF="int_21-58.html">INT 21,58</A>  Get/set memory allocation strategy (3.x+, undocumented)
+	<A HREF="int_21-59.html">INT 21,59</A>  Get extended error information (3.x+)
+	<A HREF="int_21-5a.html">INT 21,5A</A>  Create temporary file (3.x+)
+	<A HREF="int_21-5b.html">INT 21,5B</A>  Create new file (3.x+)
+	<A HREF="int_21-5c.html">INT 21,5C</A>  Lock/unlock file access (3.x+)
+	<A HREF="int_21-5d.html">INT 21,5D</A>  Critical error information (undocumented 3.x+)
+	<A HREF="int_21-5e.html">INT 21,5E</A>  Network services (3.1+)
+	<A HREF="int_21-5f.html">INT 21,5F</A>  Network redirection (3.1+)
+	<A HREF="int_21-60.html">INT 21,60</A>  Get fully qualified file name (undocumented 3.x+)
+	<A HREF="int_21-62.html">INT 21,62</A>  Get address of program segment prefix (3.x+)
+	<A HREF="int_21-63.html">INT 21,63</A>  Get system lead byte table (MSDOS 2.25 only)
+	<A HREF="int_21-64.html">INT 21,64</A>  Set device driver look ahead  (undocumented 3.3+)
+	<A HREF="int_21-65.html">INT 21,65</A>  Get extended country information (3.3+)
+	<A HREF="int_21-66.html">INT 21,66</A>  Get/set global code page (3.3+)
+	<A HREF="int_21-67.html">INT 21,67</A>  Set handle count (3.3+)
+	<A HREF="int_21-68.html">INT 21,68</A>  Flush buffer (3.3+)
+	<A HREF="int_21-69.html">INT 21,69</A>  Get/set disk serial number (undocumented DOS 4.0+)
+	INT 21,6A  DOS reserved (DOS 4.0+)
+	INT 21,6B  DOS reserved
+	<A HREF="int_21-6c.html">INT 21,6C</A>  Extended open/create (4.x+)
+	<A HREF="int_21-f8.html">INT 21,F8</A>  Set OEM INT 21 handler (functions F9-FF) (undocumented)
+
+
+	- int 21 functions are called with the function number in AH
+	- register AX may be altered, its contents are not guaranteed
+	- if an error occurs, CF is set to 1 and AX contains a simple
+	  error code;	<A HREF="int_21-59.html">INT 21,59</A> can be used to determine cause.
+	- most INT 21 functions do not restore the flags to pre-interrupt
+	  state to allow returning of information via the flags register
+
+</PRE>
+
+</BODY>
+</HTML>

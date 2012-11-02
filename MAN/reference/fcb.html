@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>FCB</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>FCB - Standard DOS File Control Block</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	-7   byte	if FF this is an extended FCB  Ø
+	-6  5bytes	reserved  Ø 
+	-1   byte	file attribute if extended FCB	Ø
+	00   byte	drive number (0 for default drive, 1=A:, 2=B:, ...)
+	01  8bytes	filename, left justified with trailing blanks
+	09  3bytes	filename extension, left justified w/blanks
+	0C   word	current block number relative to beginning of the
+			file, starting with zero
+	0E   word	logical record size in bytes
+	10   dword	file size in bytes
+	14   word	date the file was created or last updated
+
+		|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0| 15,14 (Intel reverse order)
+		 | | | | | | | | | | | `--------- day 1-31
+		 | | | | | | | `---------------- month 1-12
+		 `----------------------------- year + 1980
+
+	16   word	time of last write
+
+		|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0| 17,16 (Intel reverse order)
+		 | | | | | | | | | | | `---------- secs in 2 second increments
+		 | | | | | `--------------------- minutes (0-59)
+		 `------------------------------ hours (0-23)
+
+	18  8bytes	see below for version specific information  Ø
+	1A   dword	address of device header if character device  Ø
+	20   byte	current relative record number within current BLOCK
+	21   dword	relative record number relative to the beginning of
+			the file, starting with zero; high bit omitted if
+			record length is 64 bytes
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 2.x Values for reserved fields at offsets 18h-1Ah	Ø</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+	18   byte	|7|6|5|4|3|2|1|0|
+			 | | `------------- unknown
+			 | `-------------- 1 = open
+			 `--------------- 1 = logical device
+
+	19   word   	starting cluster number  Ø
+	
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 3.x Values for reserved fields at offsets 18h-19h	Ø</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+	18   byte	System File Table (SFT) entry for file	Ø
+	19   byte	attributes  Ø
+
+			|7|6|5|4|3|2|1|0|  attributes
+			 | | `-------------- unknown
+			 `--- share status  
+			 
+			00 = SHARE not loaded block device
+			01 = SHARE not loaded characted device
+			10 = SHARE loaded, remote file
+			11 = SHARE loaded local file
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 3.x with SHARE, local file reserved offsets 1Ah-1Eh  Ø</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+	1A   word	starting cluster number
+	1C   word	offset within SHARE of sharing record
+	1E   byte	file attribute
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 3.x with SHARE, remote file reserved offsets 1Ah-1Eh  Ø</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+	1A   word	sector number containing directory entry
+	1C   word	last cluster accessed relative to beginning of file
+	1E   byte	absolute cluster number of last cluster accessed
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 3.x without SHARE reserved offsets 1Ah-1Fh  Ø</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+	1A   byte	((device attribute word low byte) & 0Ch) || (open mode)
+	1B   word	starting cluster number
+	1D   word	sector number containing directory entry
+	1F   byte	number of directory entry within sector
+
+
+<B>	The following are FCB related DOS functions:</B>
+
+	<A HREF="int_21-f.html">INT 21,F</A>   Open file using FCB
+	<A HREF="int_21-10.html">INT 21,10</A>  Close file using FCB
+	<A HREF="int_21-11.html">INT 21,11</A>  Search for first entry using FCB
+	<A HREF="int_21-12.html">INT 21,12</A>  Search for next entry using FCB
+	<A HREF="int_21-13.html">INT 21,13</A>  Delete file using FCB
+	<A HREF="int_21-14.html">INT 21,14</A>  Sequential read using FCB
+	<A HREF="int_21-15.html">INT 21,15</A>  Sequential write using FCB
+	<A HREF="int_21-16.html">INT 21,16</A>  Create a file using FCB
+	<A HREF="int_21-17.html">INT 21,17</A>  Rename file using FCB
+	<A HREF="int_21-21.html">INT 21,21</A>  Random read using FCB
+	<A HREF="int_21-22.html">INT 21,22</A>  Random write using FCB
+	<A HREF="int_21-23.html">INT 21,23</A>  Get file size using FCB
+	<A HREF="int_21-24.html">INT 21,24</A>  Set relative record field for FCB
+	<A HREF="int_21-27.html">INT 21,27</A>  Random block read using FCB
+	<A HREF="int_21-28.html">INT 21,28</A>  Random block write using FCB
+	<A HREF="int_21-29.html">INT 21,29</A>  Parse filename for FCB
+
+
+	Ø  see <A HREF="bibliography.html">Bibliography</A> reference to "Undocumented DOS"
+
+	- see	<A HREF="xfcb.html">XFCB</A>   <A HREF="int_21-52.html">INT 21,52</A>
+</PRE>
+
+</BODY>
+</HTML>

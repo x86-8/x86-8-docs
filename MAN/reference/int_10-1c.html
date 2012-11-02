@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,1c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,1C - Save/Restore Video State  (VGA only)</H2>
+
+<PRE>
+
+	AH = 1C
+
+<B>	AL = 0	get save buffer size</B>
+	   CX = requested states
+		bit 0: video hardware state
+		bit 1: video BIOS data areas
+		bit 2: video DAC state
+
+	on return:
+	AL = 1C
+	BX = buffer size in 64 byte blocks
+
+<B>	AL = 1	save requested state</B>
+	   CX = requested states (see AL = 0)
+	   ES:BX = pointer to buffer
+
+	returns nothing
+
+<B>	AL = 2	restore requested states</B>
+	   CX = requested states (see AL = 0)
+	   ES:BX = pointer to buffer
+
+	returns nothing
+
+</PRE>
+
+</BODY>
+</HTML>

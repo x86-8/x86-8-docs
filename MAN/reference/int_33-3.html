@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,3 - Get Mouse Position and Button Status</H2>
+
+<PRE>
+
+
+	AX = 03
+
+
+	on return:
+	CX = horizontal (X) position  (0..639)
+	DX = vertical (Y) position  (0..199)
+	BX = button status:
+
+		|F-8|7|6|5|4|3|2|1|0|  Button Status
+		  |  | | | | | | | `---- left button (1 = pressed)
+		  |  | | | | | | `----- right button (1 = pressed)
+		  `------------------- unused
+
+
+	- values returned in CX, DX are the same regardless of video mode
+
+</PRE>
+
+</BODY>
+</HTML>

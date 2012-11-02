@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>install</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INSTALL/SETUP - HELPPC Installation</H2>
+
+<PRE>
+
+	Installation requires two steps.  First, simply decompress the
+	HelpPC archive file.  Second, issue the following command:
+
+	SET HLP=d:dirname     (no blanks, except between "SET HLP")
+
+	Where 'd:' is the drive and 'dirname' is the directory where
+	the HelpPC.NDX and the .TXT files will reside (should be fully
+	qualified, with or without the trailing backslash '\', see
+	example below).  HelpPC.COM can exist anywhere it can be
+	accessed through the DOS command search path (PATH).  The
+	"SET HLP=" command should be placed in the AUTOEXEC.BAT file
+	to allow easy access to the database each time your PC is
+	rebooted.  It is recommended that HelpPC.COM be renamed to
+	something quick and comfortable to use, like  H.COM or HELP.COM.
+
+
+	As an example, if the files HelpPC.NDX and the .TXT files
+	reside in a directory named  C:\HELPPC  then use:
+
+<B>	SET HLP=C:\HELPPC	or     SET HLP=C:\HELPPC\</B>
+
+</PRE>
+
+</BODY>
+</HTML>

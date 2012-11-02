@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>jb</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>JB/JNAE - Jump Below / Jump Not Above or Equal</H2>
+
+<PRE>
+
+
+	Usage:	JB	label
+		JNAE	label
+	Modifies flags: None
+
+
+	Causes execution to branch to "label" if the Carry Flag is set.
+	Functionally similar to <A HREF="jc.html">JC</A>.  Unsigned comparision.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	label:	jump	  16   7+m   7+m    3		 2-4
+		no jump	  4	3     3	    1
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

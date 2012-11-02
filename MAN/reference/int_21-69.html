@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,69</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,69 - Get/Set Disk Serial Number  (Undocumented DOS 4+)</H2>
+
+<PRE>
+
+	AH = 69h
+	AL = 00 get serial number
+	   = 01 set serial number
+	BL = drive (0 = default, 1=A:, 2 = B:, ... )
+	DS:DX = buffer to contain extended BIOS Parameter Block (<A HREF="bios_parameter_block.html">BPB</A>, AL=0)
+	      = disk information to set of the form:
+
+<B>	  Offset  Size		Description</B>
+	    00	  word	  info level (zero)
+	    02	  dword   disk serial number (binary)
+	    06	11bytes   volume label or "NO NAME    " if not present
+	    11	 8bytes   filesystem type string "FAT12   " or "FAT16	"
+
+	returns:
+	CF = set on error
+	   AX = error code if CF set
+	      = 01  network drive not supported
+	      = 05  no extended BPB found on disk
+	CF = clear if successful and value in AX is destroyed
+	   AL = 00  buffer filled from Extended BPB on disk
+	      = 01  disk Extended BPB updated from buffer
+	DS:DX = pointer to returned data, when AL = 0
+
+
+	- copies data from Extended BIOS Parameter Block to buffer
+	- no critical error is generated on error
+	- does not work on network drives (returns 01)
+	- returned buffer (after offset 2) is similar to offsets 27 through
+	  3D of the Extended BPB found in the boot record
+
+	- see  <A HREF="int_21-59.html">INT 21,59</A>
+</PRE>
+
+</BODY>
+</HTML>

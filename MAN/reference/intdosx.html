@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<TITLE>intdosx</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  int intdosx( union REGS *inregs, union REGS *outregs,</B>
+<B>			struct SREGS *segregs )</B>
+
+
+	- prototype in dos.h
+
+	- executes 8086 software interrupt <A HREF="int_21.html">INT 21</A>
+	- copies register values from inregs into the registers
+	- copies segregs->x.ds and segregs->y.es into DS/ES
+	- if CF is set, an error has occurred
+	- unique to DOS
+	- see	<A HREF="intdos.html">intdos</A>()  <A HREF="int86.html">int86</A>()  <A HREF="int86x.html">int86x</A>()  <A HREF="intr.html">intr</A>()  <A HREF="regs.html">REGS</A>
+</PRE>
+
+</BODY>
+</HTML>

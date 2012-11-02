@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,85</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,85 - System Request Key Pressed</H2>
+
+<PRE>
+
+
+	AH = 85h
+	AL = 00 key pressed
+	   = 01 key released
+
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AH = 80h for PC or PCjr
+	   = 86h for XT (BIOS after 11/8/82)
+
+
+	- called by BIOS when the System Request key is pressed/released
+	- available on machines with newer BIOS and keyboards
+
+</PRE>
+
+</BODY>
+</HTML>

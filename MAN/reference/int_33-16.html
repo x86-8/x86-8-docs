@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,16</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,16 - Save Mouse Driver State</H2>
+
+<PRE>
+
+
+	AX = 16h
+	ES:DX = far pointer to mouse state save buffer
+
+
+	returns nothing
+
+
+	- used to save mouse information before relinquishing control
+	  to another programs mouse handler
+	- see <A HREF="int_33-15.html">INT 33,15</A>   <A HREF="int_33-17.html">INT 33,17</A>
+
+</PRE>
+
+</BODY>
+</HTML>

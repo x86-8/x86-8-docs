@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,41</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,41 - Delete File</H2>
+
+<PRE>
+
+
+	AH = 41h
+	DS:DX = pointer to an ASCIIZ filename
+
+
+	on return:
+	AX = error code if CF set  (see DOS ERROR CODES)
+
+
+	- marks first byte of file directory entry with E5 to indicate
+	  the file has been deleted.  The rest of the directory entry
+	  stays intact until reused.   <A HREF="fat.html">FAT</A> pointers are returned to DOS
+	- documented as not accepting wildcards in filename but actually
+	  does in several DOS versions
+</PRE>
+
+</BODY>
+</HTML>

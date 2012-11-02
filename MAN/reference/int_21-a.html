@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,a</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,A - Buffered Keyboard Input</H2>
+
+<PRE>
+
+	AH = 0A
+	DS:DX = pointer to input buffer of the format:
+
+	| max | count |  BUFFER (N bytes)
+	   |	  |	     `------ input buffer
+	   |	  `------------ number of characters returned (byte)
+	   `-------------- maximum number of characters to read (byte)
+
+
+	returns nothing
+
+	- since strings can be pre-loaded, it is recommended that the
+	  default string be terminated with a CR
+	- N bytes of data are read from STDIN into buffer+2
+	- max buffer size is 255, minimum buffer size is 1 byte
+	- chars up to and including a CR are placed into the buffer
+	  beginning at byte 2;	Byte 1 returns the number of chars
+	  placed into the buffer  (extended codes take 2 characters)
+	- DOS editing keys are active during this call
+	- <A HREF="int_23.html">INT 23</A> is called if Ctrl-Break or Ctrl-C detected
+
+</PRE>
+
+</BODY>
+</HTML>

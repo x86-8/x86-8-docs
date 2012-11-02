@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,21</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,21 - Random Read Using FCB</H2>
+
+<PRE>
+
+
+	AH = 21h
+	DS:DX = pointer to an opened <A HREF="fcb.html">FCB</A>
+
+
+	on return:
+	AL = 00 if read successful
+	   = 01 if EOF (no data read)
+	   = 02 if <A HREF="dta.html">DTA</A> is too small
+	   = 03 if EOF (partial record read)
+
+
+	- reads random records from a file opened with an FCB
+	  to the DTA
+	- FCB must be setup with drive id, filename, extension,
+	  record position and record length before call
+	- current record position field in FCB is not updated
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>byte ordering</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Byte Ordering of Different Computer Architectures</H2>
+
+<PRE>
+
+
+<B>			16 Bit		32 Bit		Floating</B>
+<B>	Architecture	Integer		Format		 Point</B>
+
+	 MC68000	  MSB		 MSB		  MSB
+	 Intel		  LSB		 LSB		  LSB
+	 PDP-11		  LSB	      MSW...LSW	       MSW...LSW
+	 VAX		  LSB		 LSB	       MSW...LSW
+	 IBM 360/370	  MSB		 MSB		  MSB
+
+
+	 MSB means Most Significant Byte first or a byte order of 3210
+	 LSB means Least Significant Byte first or a byte order of 0123
+	 MSW...LSW means a byte order of 3201 or 67452301
+
+
+	 See <A HREF="bibliography.html">BIBLIO</A> reference "Computer Language Magazine", April, 1987,
+	 P.J. Plauger for more information
+
+</PRE>
+
+</BODY>
+</HTML>

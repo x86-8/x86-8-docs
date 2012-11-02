@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,5e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,5E  AL=0  Get Machine Name  (DOS 3.1+)</H2>
+
+<PRE>
+
+	AH = 5E
+	AL = 00 get machine name
+	DS:DX = far pointer to buffer receiving name string
+
+
+	on return:
+	AX = error code if CF set, (invalid function)
+	CH = 0	if name not defined
+	   > 0	if name defined
+	CL = NETBIOS name number, if CH not 0
+	DS:DX = far pointer to buffer containing string if CH not 0
+
+
+	- returns pointer to an ASCIIZ string identifying the
+	  computer on a Microsoft network
+	- output string is a 15 bytes long, padded with blanks and
+	  null terminated
+	- unpredictable if called without file sharing loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5E  AL=01  Set Machine Name  (DOS 3.1+)</H2>
+
+<PRE>
+
+	AH = 5E
+	AL = 01 set machine name
+	CH = 00 undefine name
+	   = any other value means to define name
+	CL = name number
+	DS:DX = pointer to 15 byte, blank padded ASCIIZ name string
+
+
+	on return:
+	AX = error code if CF set, (invalid function)
+
+
+	- specifies the network machine name on a Microsoft network
+	- unpredictable if called without file sharing loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5E  AL=02  Set Printer Setup  (DOS 3.1+)</H2>
+
+<PRE>
+
+
+	AH = 5E
+	AL = 02 set printer setup
+	BX = redirection list index (see <A HREF="int_21-5f.html">INT 21,5F</A> AL=2)
+	CX = length of setup string
+	DS:SI = far pointer to printer setup string
+
+
+	on return:
+	AX = error code if CF set, (invalid function)
+
+
+	- see INT 21,5F subfunction 2 for information on obtaining the
+	  redirection list index
+	- fails if file sharing is not loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5E  AL=03  Get Printer Setup  (DOS 3.1+)</H2>
+
+<PRE>
+
+
+	AH = 5E
+	AL = 03 get printer setup
+	BX = redirection list index (see <A HREF="int_21-5f.html">INT 21,5F</A> AL=2)
+	ES:DI = far pointer to buffer to receive setup string
+
+
+	on return:
+	AX = error code if CF set
+
+
+	- see INT 21,5F subfunction 2 for information on obtaining the
+	  redirection list index
+	- fails if file sharing is not loaded
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5E  AL=04  Set Printer Mode  (DOS 3.1+)</H2>
+
+<PRE>
+
+
+	AH = 5E
+	AL = 04  set printer setup
+	BX = redirection list index (see INT 21,5F AL=2)
+	DX = printer mode to set (bit zero is set for binary mode and clear
+	     for translated/text mode)
+
+
+	on return:
+	AX = error code if CF set
+
+
+	- see INT 21,5F subfunction 2 for information on obtaining the
+	  redirection list index
+	- fails if file sharing is not loaded
+	- issues INT 2F,11  and  INT 2F,1F
+
+
+</PRE>
+
+<H2 ALIGN=Center>INT 21,5E  AL=05  Get Printer Mode  (DOS 3.1+)</H2>
+
+<PRE>
+
+
+	AH = 5E
+	AL = 05  set printer setup
+	BX = redirection list index (see INT 21,5F AL=2)
+
+
+	on return:
+	AX = error code if CF set
+	DX = printer mode where bit zero is set for binary mode and
+	     clear for translated mode
+
+
+
+	- see <A HREF="int_21-5f.html">INT 21,5F</A> subfunction 2 for information on obtaining the
+	  redirection list index
+	- fails if file sharing is not loaded
+	- issues  INT 2F,11  and  INT 2F,1F
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,65</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,65 - Get Extended Country Information (DOS 3.3+)</H2>
+
+<PRE>
+
+	AH = 65h
+	AL = 01  get extended country information
+	   = 02  get pointer to character translation table
+	   = 04  get pointer to filename character translation table
+	   = 05  get pointer to filename terminator table
+	   = 06  get pointer to collating sequence
+	   = 07  get segment of DCBS vector (DOS 4.x)
+	   = 20  country dependant character capitalization (DOS 4+)
+	   = 21  country dependant string capitalization (DOS 4+)
+	   = 22  country dependant ASCIIZ string capitalization (DOS 4+)
+	   = 23  determine if character represents country relative
+		 Yes or No response (DOS 4+)
+	   = A0  country dependant filename character capitalization (DOS 4+)
+	   = A1  country dependant filename string capitalization (DOS 4+)
+	   = A2  country dependant ASCIIZ filename capitalization (DOS 4+)
+	BX = code page (-1 = current global code page, AL < 20h)
+	CX = amount of data to return
+	   = length of string (AL=21h, A1h)
+	DX = country ID (-1 = current country, AL < 20h)
+	DL = character to capitalize or test (AL=20h, 23h, A0h)
+	DH = second character if double byte character (AL=23h)
+	ES:DI = pointer to output buffer (AL < 20h, see tables below)
+	DS:DX = pointer to string to capitalize (AL=21h, 22h, A1h, A2h)
+
+
+	on return
+	AX = error code if CF is set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	   = 00  NO response if (AL was 23h)
+	   = 01  YES response if (AL was 23h)
+	   = 02  not a yes or no response (AL was 23h)
+	CX = amount of data returned
+	DL = capitalize character (AL=20)
+	ES:DI pointer to returned table of the forms:
+
+
+<B>	Offset Size	Table for Function 01</B>
+
+	  00   byte   country id = 01
+	  01   word   size (38 or less)
+	  03   word   country id
+	  05   word   code Page
+	  07   word   date Format
+	  09  5bytes  currency symbol string (ASCIIZ)
+	  0E  2bytes  thousands separator string (ASCIIZ)
+	  10  2bytes  decimal separator string (ASCIIZ)
+	  12  2bytes  date separator string (ASCIIZ)
+	  14  2bytes  time Separator string (ASCIIZ)
+	  16   byte   currency symbol location
+	  17   byte   currency decimal places
+	  18   byte   time format
+	  19   dword  extended ASCII map call address
+	  1D  2bytes  list separator string (ASCIIZ)
+	  1F  10bytes reserved
+
+
+<B>	Offset Size	Table for Function 2</B>
+	  00   byte   country Id = 02
+	  01   dword  pointer to uppercase table
+
+
+<B>	Offset Size	Table for Function 4</B>
+	  00   byte   country Id = 04
+	  01   dword  pointer to filename character translation table
+
+
+<B>	Offset Size	Table for Function 5</B>
+	  00   byte   country Id = 05
+	  01   dword  pointer to filename uppercase table
+
+
+<B>	File Terminator Table for Function 5</B>
+	  00   word   table size
+	  02  7bytes  unknown
+	  09   byte   length of following data
+	  0A  nbytes  list of filename termination characters, ex:
+		      < > . " / \ [ ] : | + = ; ,
+
+<B>	Offset Size	Table for Function 6</B>
+	  00   byte   country Id = 06
+	  01   dword  pointer to collating table
+
+
+<B>	Offset Size	Table for Function 7</B>
+	  00   byte   country Id = 07
+	  01   dword  pointer to byte pair table
+
+
+	- functions A0, A1, A2 are implemented in DOS 4.x but don't work
+</PRE>
+
+</BODY>
+</HTML>

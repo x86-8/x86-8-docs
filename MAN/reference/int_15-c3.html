@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 15,c3</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 15,C3 - Enable/Disable Watchdog Timer  (PS/2)</H2>
+
+<PRE>
+
+	AH = C3
+	AL = 0	disable watchdog time-out
+	   = 1	enable watchdog time-out
+	BX = watchdog timer count (1-255)
+
+	on return:
+	CF = 0 if successful
+	   = 1 if error
+	AH = when CF set, 80h for PC & PCjr, 86h for XT, AT & Model 30
+
+
+	- the watchdog timer is available only on PS/2 with 80286 and
+	  80386 processors.
+	- the <A HREF="8253.html">timer</A> uses channel timer channel 3 and IRQ0.  Activated
+	  when IRQ0 is active for more than one channel 0 timer cycle,
+	  which causes the timer to be decremented.   When the watch-
+	  dog timer reaches 0, and NMI is generated.
+</PRE>
+
+</BODY>
+</HTML>

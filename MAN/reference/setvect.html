@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>setvect</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: void setvect( int intr_num, void interrupt(*isr)() )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- sets the value of interrupt vector named by intr_num
+	  (corresponds to 0-255 for MS-DOS) in DOS interrupt vector
+	  table to a far pointer to "isr" an interrupt service routine
+	- address of a C routine may be used only if it has been
+	  declared to be an interrupt routine.	Ex:
+
+</PRE>
+
+<H2 ALIGN=Center>void interrupt func( void );</H2>
+
+<PRE>
+
+	- MS C uses <A HREF="_dos_setvect.html">_dos_setvect</A>()
+	- see	<A HREF="int_21-25.html">INT 21,25</A>
+</PRE>
+
+</BODY>
+</HTML>

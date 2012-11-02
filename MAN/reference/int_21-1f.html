@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,1f</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,1F - Get Pointer to Current Drive Parameter Table</H2>
+
+<PRE>
+</PRE>
+
+<H2 ALIGN=Center>(Undocumented)</H2>
+
+<PRE>
+
+
+	AH = 1F
+	DL = drive number (0=default, 1=A, ...)
+
+
+	on return:
+	AL = 00  DS:BX is pointer to drive parameter table  (<A HREF="drive_parameter_table.html">DPT</A>)
+	     FF  drive does not exist
+	DS:BX = pointer to drive parameter table (DPT) if AL=0
+
+
+	- the format of the DPT varies between DOS versions
+	- calls <A HREF="int_21-32.html">INT 21,32</A> with DL=00 for DOS version 2.x+
+</PRE>
+
+</BODY>
+</HTML>

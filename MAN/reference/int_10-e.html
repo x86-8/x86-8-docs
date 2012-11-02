@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,e</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,E - Write Text in Teletype Mode</H2>
+
+<PRE>
+
+
+	AH = 0E
+	AL = ASCII character to write
+	BH = page number (text modes)
+	BL = foreground pixel color (graphics modes)
+
+
+	returns nothing
+
+
+	- cursor advances after write
+	- characters BEL (7), BS (8), LF (A), and CR (D) are
+	  treated as control codes
+	- for some older BIOS (10/19/81), the BH register must point
+	  to the currently displayed page
+	- on CGA adapters this function can disable the video signal while
+	  performing the output which causes flitter.
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>int 1b</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 1B - BIOS Ctrl-Break Handler Address</H2>
+
+<PRE>
+
+
+	- holds address of the BIOS Ctrl-Break interrupt handler
+	- called by <A HREF="int_9.html">INT 9</A> after Ctrl-Break key is pressed; INT 9 sets the
+	  BIOS keyboard head and tail pointers to the buffer start and
+	  places a zero word in the buffer
+	- the BIOS initially sets this value to point to a simple <A HREF="iret.html">IRET</A> but
+	  DOS re-vectors this to its own code, usually 2 lines of code that
+	  sets an internal flag (to 3) and then returns via IRET.
+	- DOS checks this flag on entry to many of its subfunctions.  If the
+	  flag is set, it invokes <A HREF="int_23.html">INT 23</A>.
+	- pointing this address to a null function with and IRET disables
+	  Ctrl-Break aborts
+	- if the INT 1B code chooses to retain control of the system, it
+	  must issue an EOI for any interrupt pending on the <A HREF="8259.html">8259</A> and reset
+	  all I/O devices
+	- should be terminated via an IRET
+	- should not be called directly by user application
+</PRE>
+
+</BODY>
+</HTML>

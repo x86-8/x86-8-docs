@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>aam</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>AAM - Ascii Adjust for Multiplication</H2>
+
+<PRE>
+
+
+	Usage:	AAM
+	Modifies flags: PF SF ZF (AF,CF,OF undefined)
+
+
+	Used after multiplication of two unpacked decimal numbers, this
+	instruction adjusts an unpacked decimal number.  The high order
+	nibble of each byte must be zeroed before using this instruction.
+	This instruction is also known to have an undocumented behavior.
+
+
+<B>				 Clocks			Size</B>
+<B>	Operands	 808x  286   386   486		Bytes</B>
+
+	none		  83	16    17    15		  2
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

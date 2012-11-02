@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>_dos_setblock</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  MSC: unsigned _dos_setblock( unsigned size, unsigned seg,</B>
+<B>					unsigned *maxsize )</B>
+
+
+	- prototype in dos.h
+
+	- size = new block size
+	- seg = segment of DOS memory block to change
+	- maxsize = size of buffer actually allocated if size not available
+
+	- returns 0 on success or DOS error code on failure
+
+	- Turbo C uses <A HREF="setblock.html">setblock</A>()
+	- see	<A HREF="int_21-4a.html">INT 21,4A</A>   <A HREF="_dos_allocmem.html">_dos_allocmem</A>()   <A HREF="_dos_freemem.html">_dos_freemem</A>()
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>_chmod</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int _chmod( const char *filename, int func [,int attrib] )</H2>
+
+<PRE>
+
+
+	- prototype in io.h, also include dos.h
+
+	- if func = 0, returns access mode of file
+	- if func = 1, sets access mode of file
+	- attrib can be one of the following:
+
+		    Turbo C	    MSC
+		   FA_RDONLY	 _A_RDONLY
+		   FA_HIDDEN	 _A_HIDDEN
+		   FA_SYSTEM	 _A_SYSTEM
+
+
+	- if func = 1,
+	   returns 0 if OK
+		  -1 with errno set to ENOENT or EACCES
+
+	- if func = 0, returns MSDOS attribute
+
+</PRE>
+
+</BODY>
+</HTML>

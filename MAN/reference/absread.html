@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>absread</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int absread( int drive, int count, int start, void *buffer )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- reads absolute logical disk sectors
+	- drive = (0=A:, 1=B:, 2=C:, ...)
+	- count = # of sectors to read
+	- start = beginning logical sector number
+	- buffer = address of buffer
+	- TC++ accounts for DOS 4.x+ long sector values while TC 2.0 and
+	  earlier do not (see <A HREF="int_25.html">INT 25</A>)
+	- returns 0 if OK; -1 on error; errno has DOS error number
+</PRE>
+
+</BODY>
+</HTML>

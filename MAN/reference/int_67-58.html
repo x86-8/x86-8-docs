@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>int 67,58</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 67,58 - Get Mappable Physical Address Array  (LIM EMS 4.0+)</H2>
+
+<PRE>
+
+
+	AH = 58h
+	AL = 00  get mappable physical address array
+		 ES:DI = pointer to buffer to be filled with array
+	     01  get number of entries in m.p.a. array
+
+
+	on return:
+	CX = number of entries in array
+	AH = status  (see <A HREF="int_67-40.html">EMS STATUS</A>)
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+<TITLE>_control87</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>MSC: unsigned _control87( unsigned new, unsigned mask )</H2>
+
+<PRE>
+
+	- prototype in float.h
+
+	- used to change floating point handling and exception masking
+	- new = contains corresponding bit values for any bit set in "mask"
+		to be moved into the coprocessor control word
+	- mask	= zero; gets floating-point coprocessor control word
+		= non-zero; if any bit is set, the corresponding bit in
+		  "new" is moved into the coprocessor control word
+	- returns floating-point coprocessor control word
+	- default control word is the logical OR of: IC_AFFINE, RC_NEAR,
+	  PC_64, EM_DENORMAL, EM_UNDERFLOW, EM_INEXACT
+
+
+<B>	Control Word Mask and Bits</B>
+
+	MCW_EM		interrupt exception control
+	MCW_IC		infinity control
+	MCW_RC		rounding control
+	MCW_PC		precision control
+
+<B>	Exception Masks</B>
+
+	EM_INVALID	invalid
+	EM_DENORMAL	denormal
+	EM_ZERODIVIDE	zero divide
+	EM_OVERFLOW	overflow
+	EM_UNDERFLOW	underflow
+	EM_INEXACT	inexact (precision)
+
+<B>	Infinity Control</B>
+
+	IC_AFFINE	affine
+	IC_PROJECTIVE	projective
+
+<B>	Rounding Control</B>
+
+	RC_CHOP		truncate
+	RC_UP		round up
+	RC_DOWN		round down
+	RC_NEAR		near
+
+<B>	Precision Control</B>
+
+	PC_24		24 bits precision
+	PC_53		53 bits precision
+	PC_64		64 bits precision
+
+<B>	User Status Word Bits</B>
+
+	SW_INVALID	invalid
+	SW_DENORMAL	denormal
+	SW_ZERODIVIDE	zero divide
+	SW_OVERFLOW	overflow
+	SW_UNDERFLOW	underflow
+	SW_INEXACT	inexact precision
+
+<B>	Invalid Subconditions (if SW_INVALID)</B>
+
+	SW_UNEMULATED	unemulated instruction
+	SW_SQRTNEG	square root of a neg number
+	SW_STACKOVERFLOW  FP stack overflow
+	SW_STACKUNDERFLOW FP stack underflow
+
+<B>	Floating Point Errors</B>
+
+	FPE_INVALID
+	FPE_DENORMAL
+	FPE_ZERODIVIDE
+	FPE_OVERFLOW
+	FPE_UNDERFLOW
+	FPE_INEXACT
+	FPE_UNEMULATED
+	FPE_SQRTNEG
+	FPE_STACKOVERFLOW
+	FPE_STACKUNDERFLOW
+	FPE_EXPLICITGEN
+
+	- see	<A HREF="_clear87.html">_clear87</A>()   <A HREF="_status87.html">_status87</A>()
+</PRE>
+
+</BODY>
+</HTML>

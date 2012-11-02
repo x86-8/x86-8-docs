@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>unlock</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>TC: int unlock( int handle, long offset, long length )</H2>
+
+<PRE>
+
+
+	- prototype in io.h
+
+	- unlock() removes locks placed on a file region by lock()
+	- returns 0 on success, else -1 on error
+	- all locks must be released before program termination
+	- MS C uses <A HREF="locking.html">locking</A>()
+	- see	<A HREF="lock_-c-.html">lock (C)</A>
+</PRE>
+
+</BODY>
+</HTML>

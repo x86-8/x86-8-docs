@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>_expand</TITLE>
+</HEAD>
+
+<BODY><PRE><B>	  MSC: void *_expand( void *block, size_t size )</B>
+<B>	  MSC: void far *_fexpand( void far *block, size_t size )</B>
+<B>	  MSC: void near *_nexpand( void near *block, size_t size )</B>
+
+<B>	  MSC: void _based(void) *_bexpand( _segment seg,</B>
+<B>		    void _based(void) *block, size_t size )</B>
+
+
+	- prototype in malloc.h
+
+	- block = pointer to previously allocated memory block
+	- size = new size in bytes
+	- seg = based segment value
+	- returns pointer to reallocated memory block on success or NULL
+	  if not;  (_bexpand returns -1 on failure)
+
+</PRE>
+
+</BODY>
+</HTML>

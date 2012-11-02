@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>int 33,c</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 33,C - Set Mouse User Defined Subroutine and Input Mask</H2>
+
+<PRE>
+
+	AX = 0C
+	ES:DX = far pointer to user interrupt
+	CX = user interrupt mask:
+
+	   |F-5|4|3|2|1|0| user interrupt mask in CX
+	     |	| | | | `--- cursor position changed
+	     |	| | | `---- left button pressed
+	     |	| | `----- left button released
+	     |	| `------ right button pressed
+	     |	`------- right button released
+	     `--------- unused
+
+	returns nothing
+
+
+	- routine at ES:DX is called if an event occurs and the
+	  corresponding bit specified in user mask is set
+	- routine at ES:DX receives parameters in the following
+	  registers:
+
+	  AX = condition mask causing call
+	  CX = horizontal cursor position
+	  DX = vertical cursor position
+	  DI = horizontal counts
+	  SI = vertical counts
+	  DS = mouse driver data segment
+	  BX = button state:
+
+	     |F-2|1|0|
+	       |  | `--- left button (1 = pressed)
+	       |  `---- right button (1 = pressed)
+	       `------ unused
+
+	- initial call mask and user routine should be restore on exit
+	  from user program
+	- user program may need to set DS to it's own segment
+	- see	<A HREF="int_33-14.html">INT 33,14</A>
+
+</PRE>
+
+</BODY>
+</HTML>

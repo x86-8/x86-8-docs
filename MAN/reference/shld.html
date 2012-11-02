@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>shld</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>SHLD/SHRD - Double Precision Shift (386+ only)</H2>
+
+<PRE>
+
+
+	Usage:	SHLD	dest,src,count
+		SHRD	dest,src,count
+	Modifies flags: CF PF SF ZF (OF,AF undefined)
+
+
+	SHLD shifts "dest" to the left "count" times and the bit positions
+	opened are filled with the most significant bits of "src".  SHRD
+	shifts "dest" to the right "count" times and the bit positions
+	opened are filled with the least significant bits of the second
+	operand.  Only the 5 lower bits of "count" are used.
+
+
+<B>					Clocks			Size</B>
+<B>	Operands	 	808x  286   386   486		Bytes</B>
+
+	reg16,reg16,immed8	 -     -     3	   2		  4
+	reg32,reg32,immed8	 -     -     3	   2		  4
+	mem16,reg16,immed8	 -     -     7	   3		  6
+	mem32,reg32,immed8	 -     -     7	   3		  6
+	reg16,reg16,CL		 -     -     3	   3		  3
+	reg32,reg32,CL		 -     -     3	   3		  3
+	mem16,reg16,CL		 -     -     7	   4		  5
+	mem32,reg32,CL		 -     -     7	   4		  5
+
+
+	- see <A HREF="instruction_timing.html">Instruction Timing</A>
+
+</PRE>
+
+</BODY>
+</HTML>

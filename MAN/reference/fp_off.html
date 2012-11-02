@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>fp_off</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>unsigned FP_OFF( void far *fptr )</H2>
+
+<PRE>
+
+
+	- prototype in dos.h
+
+	- gets offset of far pointer fptr
+	- returns unsigned integer value
+	- not available in earlier versions of MS C; use the following:
+
+	  #define FP_OFF(fptr)	((unsigned)(fptr))
+
+
+	- see	<A HREF="fp_seg.html">FP_SEG</A>()
+</PRE>
+
+</BODY>
+</HTML>

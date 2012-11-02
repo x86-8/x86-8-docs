@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>int 10,15</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 10,15 - Return Physical Display Parms (convertible)</H2>
+
+<PRE>
+
+
+	AH = 15h
+
+	on return:
+	AX = alternate display adapter type
+	ES:DI = pointer to parameter table:
+
+
+<B>	Offset Size	  Description</B>
+
+	  01   word   monitor model number
+	  02   word   vertical pels per meter
+	  03   word   horizontal pels per meter
+	  04   word   total number of vertical pels
+	  05   word   total number of horizontal pels
+	  06   word   horizontal pel separation in micrometers
+	  07   word   vertical pel separation in micrometers
+
+</PRE>
+
+</BODY>
+</HTML>

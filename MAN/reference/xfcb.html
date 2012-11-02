@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>XFCB</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>XFCB - Extended DOS File Control Block</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   byte   flag containing FF if this is an extended <A HREF="fcb.html">FCB</A>
+	01  5bytes  reserved
+	06   byte   directory attribute byte	(see <A HREF="file_attributes.html">FILE ATTRIBUTE</A>)
+	07   byte   drive number (0 for default drive, 1 = A:, 2 = B:)
+	08  8bytes  filename, left justified with trailing blanks
+	16  3bytes  filename extension, left justified w/blanks
+	19   word   current block number relative to file start (0 based)
+	21   word   logical record size in bytes
+	23   dword  file size in bytes
+	27   word   date the file was created or last updated:
+
+		|F|E|D|C|B|A|9|8|7|6|5|4|3|2|1|0| 21,20
+		 | | | | | | | | | | | `--------- day 1-31
+		 | | | | | | | `---------------- month 1-12
+		 `----------------------------- year + 1980
+
+	29 16bytes  reserved for system use
+	39   byte   relative record number within current BLOCK
+	40  4bytes  relative record number from start of file (0 based)
+
+</PRE>
+
+</BODY>
+</HTML>

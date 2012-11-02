@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>country codes</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>DOS Country Codes   (DOS 2.x)</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   word    Date and time format
+			  0 = month day year,  hh:mm:ss  (USA)
+			  1 = day month year,  hh:mm:ss  (Europe)
+			  2 = year month day,  hh:mm:ss  (Japan)
+	02  2bytes   ASCIIZ currency symbol
+	04  2bytes   ASCIIZ thousands separator
+	06  2bytes   ASCIIZ decimal separator
+	08  18bytes  Reserved
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS Country Codes   (DOS 3.0+)</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   word    Date and time format
+			  0 = month day year,  hh:mm:ss  (USA)
+			  1 = day month year,  hh:mm:ss  (Europe)
+			  2 = year month day,  hh:mm:ss  (Japan)
+	02  5bytes   ASCIIZ currency symbol
+	07  2bytes   ASCIIZ thousands separator
+	09  2bytes   ASCIIZ decimal separator
+	0B  2bytes   ASCIIZ date separator
+	0D  2bytes   ASCIIZ time separator
+	0F   byte    Currency symbol format
+			0 = symbol leads, without space
+			1 = symbol follows, without space
+			2 = symbol leads, one space
+			3 = symbol follows, one space
+			4 = symbol replace decimal separator
+	10   byte    Number of digits after decimal
+	11   byte    Time format
+			Bit 0	= 0  12 hour clock
+				= 1  24 hour clock
+	12   dword   Case map call address
+	16  2bytes   ASCIIZ data list separator
+	18  10bytes  Reserved
+
+	- see also  <A HREF="int_21-38.html">INT 21,38</A>
+
+</PRE>
+
+</BODY>
+</HTML>

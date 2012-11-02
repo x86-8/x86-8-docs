@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>int 2a,81</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2A,81 - End DOS Critical Section</H2>
+
+<PRE>
+
+	AH = 81h
+	AL = critical section identifier (00-0F)
+	   = 01  DOS kernel, SHARE.EXE and network data structure integrity
+	   = 02  DOS kernel, device driver exclusivity
+	   = 05  IFSFUNC (Installable File System, IFS, DOS 4.0+)
+	   = 06  IFSFUNC (Installable File System, IFS, DOS 4.0+)
+	   = 08  ASSIGN.COM
+
+
+	returns nothing
+
+
+	- indicates that a critical code section is being exited
+	- this function is usually hooked rather then called directly from a
+	  user application
+	- see  <A HREF="bibliography.html">Bibliography</A> reference to "Undocumented DOS"
+</PRE>
+
+</BODY>
+</HTML>

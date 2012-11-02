@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>int 2a,4</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 2A,4 - Execute NETBIOS Request</H2>
+
+<PRE>
+
+
+	AH = 04
+	AL = 00  allow retry
+	   = 01  no retry allowed
+	ES:BX = pointer to Network Control Block (NCB)
+	
+	
+	on return:
+	AX = 00 if successful
+	AH = 01 if error
+	AL = error code if AH = 01
+
+
+	- invokes NETBIOS handler and allows retry of operation if specified
+</PRE>
+
+</BODY>
+</HTML>

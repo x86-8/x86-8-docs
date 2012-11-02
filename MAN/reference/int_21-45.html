@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,45</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,45 - Duplicate File Handle</H2>
+
+<PRE>
+
+
+	AH = 45h
+	BX = file handle
+
+
+	on return:
+	AX = new file handle if CF not set
+	   = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+
+
+	- gets another file handle for the same file
+	- both file handles move in unison
+	- often used to flush file data and update a file directory
+	  entry without closing the initial file
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>int 21,43</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>INT 21,43 - Get/Set File Attributes</H2>
+
+<PRE>
+
+	AH = 43h
+	AL = 00 to get attribute
+	   = 01 to set attribute
+	DS:DX = pointer to an ASCIIZ path name
+	CX = attribute to set
+
+	|5|4|3|2|1|0|  CX  valid file attributes
+	 | | | | | `---- 1 = read only
+	 | | | | `----- 1 = hidden
+	 | | | `------ 1 = system
+	 | `--------- not used for this call
+	 `---------- 1 = archive
+
+
+	on return:
+	AX = error code if CF set  (see <A HREF="dos_error_codes.html">DOS ERROR CODES</A>)
+	CX = the attribute if AL was 00
+
+	- see	<A HREF="directory_format.html">DIRECTORY</A>
+
+</PRE>
+
+</BODY>
+</HTML>

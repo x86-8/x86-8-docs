@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>EBDA</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>EBDA - Extended BIOS Data Area EBDA (PS/2)</H2>
+
+<PRE>
+
+<B>     Offset	 Size		 Description</B>
+
+	00	 word	   number of bytes allocated to EBDA in Kbytes
+	01-21	 21bytes   reserved
+	22	 dword	   device driver far call pointer
+	26	 byte	   pointing device flag (1st byte, see below)
+	27	 byte	   pointing device flag (2nd byte, see below)
+	28-2F	 8 bytes   reserved
+
+
+<B>		Pointing Device Flag Byte 1</B>
+
+		|7|6|5|4|3|2|1|0| Offset 26
+		 | | | | | `------- index count
+		 | | | | `-------- reserved (0)
+		 | | | `--------- error
+		 | | `---------- acknowledge
+		 | `----------- resend
+		 `------------ command in progress
+
+<B>		Pointing Device Flag Byte 2</B>
+
+		|7|6|5|4|3|2|1|0| Offset 27
+		 | | | | | `------- package size
+		 | `-------------- reserved
+		 `--------------- device driver far call flag
+
+
+	- EBDA is located in highest memory just under 640K on PS/2
+	- word at <A HREF="bios_data_area.html">BIOS Data Area</A> 40:0E is segment address of EBDA
+
+</PRE>
+
+</BODY>
+</HTML>

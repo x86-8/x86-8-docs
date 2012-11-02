@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>_heapchk</TITLE>
+</HEAD>
+
+<BODY><PRE><B>		MSC: int _heapchk( void )</B>
+<B>		MSC: int _bheapchk( _segment seg )</B>
+<B>		MSC: int _fheapchk( void )</B>
+<B>		MSC: int _nheapchk( void )</B>
+
+
+	- prototype in malloc.h
+
+	- runs consistency check on different heaps
+	- heapchk maps to the other functions depending on memory model
+
+	- returns one of the following:
+
+	  _HEAPOK	heap is ok
+	  _HEAPBADBEGIN initials allocation header couldn't be found
+	  _HEAPBADNODE	heap/node has been damaged
+	  _HEAPEMPTY	heap has not been initialized
+
+	- see	<A HREF="_heapset.html">heapset</A>()   <A HREF="_heapwalk.html">heapwalk</A>()
+</PRE>
+
+</BODY>
+</HTML>

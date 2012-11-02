@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>SFT</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>System File Table  (Undocumented)</H2>
+
+<PRE>
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 2.x System File Table Format</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   dword	pointer to next system file table; offset of ffffh
+			indicates last table in chain
+	04   word	number of file descriptors in table
+	06  nbytes	file descriptor table of the format (40 bytes each):
+
+<B>     Offset Size		Description</B>
+
+	00   byte	count of handles referring to this file or
+			zero if file is no longer open
+	01   byte	open mode
+	02   byte	file attribute
+	03   byte	drive (1=A, 2=B:, ..., 0=char device)
+	04 11bytes	filename in <A HREF="fcb.html">FCB</A> format
+	0F   word	unknown
+	11   word	unknown
+	13   dword	file size
+	17   word	file date
+	19   word	file time
+	1B   byte	device attribute
+	1C   word	starting cluster of file (block device)
+	     dword	pointer to device driver (if char device)
+	1E   word	if block device, relative cluster within file of
+			the last cluster read; zero if file has never
+			been read or written
+	20   word	absolute cluster number of current cluster
+	22   word	unknown
+	24   dword	current file position
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 3.x System File Table and FCB Table Format</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   dword	pointer to next system file table; offset of ffffh
+			indicates last table in chain
+	04   word	number of file descriptors in table
+	06  nbytes	file descriptor table of the format (53 bytes each):
+
+<B>     Offset Size		Description</B>
+
+	00   word  	count of handles referring to this file or
+			zero if file is no longer open
+	02   word	open mode, bit 15 set if file id opened via FCB
+	04   byte	file attribute
+	05   word	device info word
+	07   dword	if char device pointer to device driver header
+			if block device pointer to DOS Device Control Block
+	0B   word	starting cluster of file
+	0D   word	file time
+	0F   word	file date
+	11   dword	file size
+	15   dword	current file position
+	19   word	if block device, relative cluster within file of
+			the last cluster read
+	1B   word	absolute cluster number of last cluster read
+			zero if file has never been read or written
+	1D   word	sector number containing the directory entry
+	1F   byte	number of dir entry within sector
+	20 11bytes	filename in <A HREF="fcb.html">FCB</A> format
+	2B   dword	SHARE pointer to previous <A HREF="sft.html">SFT</A> sharing same file
+	2F   word	SHARE number of network machine opening file
+	31   word	PSP segment of file owner
+	33   word	offset within SHARE code segment of sharing record
+			0000h = none
+
+
+</PRE>
+
+<H2 ALIGN=Center>DOS 4.0+ System File Table and FCB Table</H2>
+
+<PRE>
+
+<B>     Offset Size		Description</B>
+
+	00   dword	pointer to next system file table; offset of ffffh
+			indicates last table in chain
+	04   word	number of file descriptors in table
+	06  nbytes	file descriptor table of the format (59 bytes each):
+
+<B>     Offset Size		Description</B>
+
+	00   word   	count of handles referring to this file or
+			zero if file is no longer open
+	02   word	open mode, bit 15 set if file id opened via FCB
+	04   byte	file attribute
+	05   word	device info word
+	07   dword	if char device pointer to device driver header
+			if block device pointer to DOS Device Control Block
+			or REDIR data
+	0B   word	starting cluster of file
+	0D   word	file time
+	0F   word	file date
+	11   dword	file size
+	15   dword	current file position
+	19   dword	if network redirector, pointer to REDIRIFS record
+	     word	if local block dev, relative cluster within file
+			of the last cluster read
+	1B   dword	if local, sector number of directory entry
+	1F   byte	if local, number of directory entry within sector
+	20  11bytes	filename in <A HREF="fcb.html">FCB</A> format
+	2B   dword	SHARE pointer to previous <A HREF="sft.html">SFT</A> sharing same file
+	2F   word	SHARE number of network machine opening file
+	31   word	PSP segment of file owner
+	33   word	offset within SHARE code seg of sharing record
+			0000h = none
+	35   word	absolute cluster number of last cluster read
+			zero if file has never been read or written
+	37   dword	pointer to file IFS driver, NULL if native DOS
+
+
+	- these structures are allocated by DOS during the scanning of the
+	  CONFIG.SYS file
+	- <A HREF="int_21-67.html">INT 21,67</A> can be used to allow an application to have more than
+	  20 file handles;  the total number of handles is limited still to
+	  the value of FILES=n in CONFIG.SYS
+	- the structure of these fields is undocumented;  I do not recommend
+	  relying on any of this information, instead use it as an aid in
+	  debugging
+	- see <A HREF="bibliography.html">Bibliography</A> references to Bernd Schemmer and "Data Structures
+	  Used in IBM PC Compatibles and the PS/2".
+	- see	<A HREF="int_21-52.html">INT 21,52</A>
+
+</PRE>
+
+</BODY>
+</HTML>

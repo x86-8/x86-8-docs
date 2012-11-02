@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>mem...</TITLE>
+</HEAD>
+
+<BODY><PRE></PRE>
+
+<H2 ALIGN=Center>Memory Manipulation Functions</H2>
+
+<PRE>
+
+
+	void  *memccpy( void *dest, const void *src, int c, size_t n )
+	void  *memchr( const void *s, int c, size_t n )
+	int   memcmp( const void *s1, const void *s2, size_t n )
+	void  *memcpy( void *dest, const void *src, size_t n )
+	int   memicmp( const void *s1, const void *s2, size_t n )
+	void  *memmove( void *dest, const void *src, size_t n )
+	void  *memset( void *s, int c, size_t n )
+	void  movedata( unsigned srcseg, unsigned srcoff,
+			unsigned dstseg, unsigned dstoff, size_t n )
+
+	- prototypes for the preceding functions are in mem.h, string.h
+	- the following are prototyped in mem.h only (TC):
+
+	void  movmem( void *src, void *dest, unsigned length ); (mem.h only)
+	void  setmem( void *dest, unsigned length, char value ); (mem.h only)
+
+
+</PRE>
+
+</BODY>
+</HTML>
